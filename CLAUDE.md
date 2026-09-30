@@ -16,7 +16,7 @@ npx serve .      # http://localhost:3000
 | What | File |
 | --- | --- |
 | Pages | `*.html` in the repo root (served without `.html`, e.g. `/contact-us`) |
-| Styles | `css/winterborne-vintage.webflow.css` (the site's styles), `css/webflow.css`, `css/normalize.css` |
+| Styles | `css/winterborne-vintage.webflow.css` (the Webflow export), `css/site.css` (our additions, loaded after it), `css/webflow.css`, `css/normalize.css` |
 | Scripts | `js/webflow.js` (animations, menu, tabs), `js/jquery-3.5.1.min.js`, `js/contact-form.js` |
 | Images, video, fonts | `images/`, `videos/`, `fonts/` |
 | Netlify settings (redirects, headers) | `netlify.toml` |

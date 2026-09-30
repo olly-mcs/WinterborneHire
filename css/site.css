@@ -1,0 +1,54 @@
+/* Our additions on top of the Webflow export. Loaded after the Webflow CSS. */
+
+/* Home: "recommended suppliers for" venue list */
+.venue-list {
+  width: 80%;
+  max-width: 440px;
+  margin: 28px auto 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(71, 71, 71, 0.18);
+}
+
+.venue-list li {
+  margin: 0;
+  border-bottom: 1px solid rgba(71, 71, 71, 0.18);
+}
+
+.venue-link {
+  display: block;
+  padding: 16px 12px;
+  color: #474747;
+  font-family: Cinzel, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.venue-link::after {
+  content: "\2197";
+  margin-left: 8px;
+  color: var(--wv-peach);
+  font-family: Raleway, sans-serif;
+  font-size: 12px;
+}
+
+.venue-link:hover,
+.venue-link:focus-visible {
+  color: var(--wv-peach);
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.venue-link:focus-visible {
+  outline: 1px solid var(--wv-peach);
+  outline-offset: -1px;
+}
+
+@media screen and (max-width: 479px) {
+  .venue-list {
+    width: 85%;
+  }
+}
