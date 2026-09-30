@@ -32,3 +32,10 @@
   for = "/videos/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Staging: keep this copy out of Google while the Webflow site is live.
+# Remove this block (and the robots meta tag in each page) at launch.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

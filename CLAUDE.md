@@ -44,6 +44,16 @@ The forms use **Netlify Forms**. Submissions appear in the Netlify dashboard und
 - The hero video, jQuery and share images are hosted with the site. Fonts, jQuery UI, Masonry, Elfsight and
   LightWidget still load from their own CDNs.
 
+## Staging (not indexed)
+
+While the Webflow site is still live, this copy is hidden from search engines so Google doesn't see duplicate pages:
+
+- every page has `<meta name="robots" content="noindex, nofollow">`
+- `netlify.toml` sends an `X-Robots-Tag: noindex, nofollow` header for every file (images and video too)
+
+Don't block the site in `robots.txt`: crawlers would then never see the noindex. **At launch**, remove the meta tag
+from every page and the `X-Robots-Tag` block from `netlify.toml`.
+
 ## Rules for changes
 
 - Keep the Webflow class names and `data-w-id` / `data-wf-page` attributes. `js/webflow.js` uses them.
