@@ -1,4 +1,146 @@
-/* Our additions on top of the Webflow export. Loaded after the Webflow CSS. */
+/* Our additions on top of the Webflow export. Loaded after the Webflow CSS.
+   Palette (defined in :root in winterborne-vintage.webflow.css):
+   --wv-forest #2F4A3A, --wv-olive #5F6B3C, --wv-sage #B7BFA6, --wv-linen #F4EFE7,
+   --wv-ink #232822, --wv-peach #E59775 (accents only, about 5% of a page). */
+
+/* Site-wide rebrand: floral greens */
+body {
+  background-color: var(--wv-linen);
+  color: var(--wv-ink);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--wv-forest);
+}
+
+a {
+  color: var(--wv-olive);
+}
+
+a:hover {
+  color: var(--wv-forest);
+}
+
+/* Navigation: Deep Forest links on Linen, Olive for hover and the current page */
+.mainnavstyling,
+.w-dropdown-toggle,
+.w-dropdown-link,
+.w-icon-nav-menu {
+  color: var(--wv-forest);
+}
+
+.mainnavstyling:hover,
+.mainnavstyling.w--current,
+.w-dropdown-link:hover,
+.w-dropdown-link.w--current {
+  color: var(--wv-olive);
+}
+
+/* Announcement banner: the one full-width peach accent, with Warm Ink text */
+.accouncement-banner,
+.accouncement-banner p,
+.accouncement-banner strong,
+.accouncement-banner a {
+  color: var(--wv-ink);
+}
+
+.accouncement-banner a:hover {
+  color: var(--wv-forest);
+}
+
+/* Primary buttons: Deep Forest with white text, Olive Grove on hover */
+.button-4,
+.button,
+.button-2,
+.button-3,
+.button-5,
+.clickherebutton,
+.propsearchbutton,
+.testimonial-button {
+  color: #fff;
+}
+
+.button-4:hover,
+.button:hover,
+.button-2:hover,
+.button-3:hover,
+.button-5:hover,
+.clickherebutton:hover,
+.propsearchbutton:hover,
+.testimonial-button:hover {
+  background-color: var(--wv-olive);
+  color: #fff;
+}
+
+/* Outline variant (.button-4.top): Linen with Warm Ink text and a Deep Forest border */
+.button-4.top {
+  background-color: var(--wv-linen);
+  border-color: var(--wv-forest);
+  color: var(--wv-ink);
+}
+
+.button-4.top:hover {
+  background-color: var(--wv-forest);
+  color: #fff;
+}
+
+/* Collection tile labels on photos: a light Deep Forest tint plus a text shadow keeps
+   the white labels legible without hiding the photos */
+.prodhptext.tabledecor,
+.prodhptext.smallprophptext,
+.prodhptext.largepropshp,
+.prodhptext.furniturehptext,
+.prodhptext.rugrunnerhp,
+.prodhptext.floralhptext {
+  background-color: rgba(47, 74, 58, 0.35);
+  text-shadow: 0 1px 12px rgba(35, 40, 34, 0.7), 0 1px 3px rgba(35, 40, 34, 0.6);
+}
+
+/* Form hint text ("* denotes required field") */
+.italic-text {
+  color: var(--wv-olive);
+}
+
+/* Footer: Deep Forest with Linen text and a thin peach rule */
+.section-9 {
+  background-color: var(--wv-forest);
+  border-top: 3px solid var(--wv-peach);
+  color: var(--wv-linen);
+}
+
+.section-9 .grid-3.footergrid {
+  background-color: transparent;
+}
+
+.section-9,
+.section-9 h1, .section-9 h2, .section-9 h3, .section-9 h4, .section-9 h5, .section-9 h6,
+.section-9 p, .section-9 div, .section-9 span, .section-9 strong,
+.section-9 a,
+.section-9 .footer-link {
+  color: var(--wv-linen);
+}
+
+.section-9 a:hover,
+.section-9 .footer-link:hover {
+  color: var(--wv-sage);
+}
+
+/* Peach standout CTA (one per page at most), always with Warm Ink text */
+.button-peach,
+.ff-button.button-peach {
+  background-color: var(--wv-peach);
+  border-color: var(--wv-peach);
+  color: var(--wv-ink);
+}
+
+.button-peach:hover,
+.button-peach:focus-visible,
+.ff-button.button-peach:hover,
+.ff-button.button-peach:focus-visible {
+  background-color: var(--wv-forest);
+  border-color: var(--wv-forest);
+  color: #fff;
+}
 
 /* Home: "recommended suppliers for" venue list */
 .venue-list {
@@ -7,18 +149,18 @@
   margin: 28px auto 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(71, 71, 71, 0.18);
+  border-top: 1px solid var(--wv-sage);
 }
 
 .venue-list li {
   margin: 0;
-  border-bottom: 1px solid rgba(71, 71, 71, 0.18);
+  border-bottom: 1px solid var(--wv-sage);
 }
 
 .venue-link {
   display: block;
   padding: 16px 12px;
-  color: #474747;
+  color: var(--wv-ink);
   font-family: Cinzel, sans-serif;
   font-size: 15px;
   line-height: 1.4;
@@ -31,19 +173,19 @@
 .venue-link::after {
   content: "\2197";
   margin-left: 8px;
-  color: var(--wv-peach);
+  color: var(--wv-olive);
   font-family: Raleway, sans-serif;
   font-size: 12px;
 }
 
 .venue-link:hover,
 .venue-link:focus-visible {
-  color: var(--wv-peach);
+  color: var(--wv-olive);
   background-color: rgba(255, 255, 255, 0.35);
 }
 
 .venue-link:focus-visible {
-  outline: 1px solid var(--wv-peach);
+  outline: 1px solid var(--wv-olive);
   outline-offset: -1px;
 }
 
@@ -61,7 +203,7 @@
   min-height: 560px;
   height: min(88vh, 780px);
   overflow: hidden;
-  background-color: #2b2724;
+  background-color: var(--wv-forest);
   color: #fff;
 }
 
@@ -78,7 +220,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(28, 24, 21, 0.78) 0%, rgba(28, 24, 21, 0.55) 32%, rgba(28, 24, 21, 0.12) 62%, rgba(28, 24, 21, 0) 80%);
+  background: linear-gradient(90deg, rgba(35, 40, 34, 0.78) 0%, rgba(35, 40, 34, 0.55) 32%, rgba(35, 40, 34, 0.12) 62%, rgba(35, 40, 34, 0) 80%);
 }
 
 .hero-content {
@@ -146,19 +288,19 @@
 }
 
 .hero-button-primary {
-  background-color: rgba(137, 140, 107, 0.92);
-  border-color: rgba(137, 140, 107, 0.92);
+  background-color: var(--wv-forest);
+  border-color: var(--wv-forest);
   color: #fff;
 }
 
 .hero-button-primary:hover,
 .hero-button-primary:focus-visible {
-  background-color: #767a5a;
-  border-color: #767a5a;
+  background-color: var(--wv-olive);
+  border-color: var(--wv-olive);
 }
 
 .hero-button-outline {
-  background-color: rgba(28, 24, 21, 0.25);
+  background-color: rgba(35, 40, 34, 0.25);
   border-color: rgba(255, 255, 255, 0.85);
   color: #fff;
 }
@@ -191,7 +333,7 @@
   .hero::after {
     bottom: auto;
     height: 420px;
-    background: linear-gradient(0deg, #2b2724 0%, rgba(43, 39, 36, 0) 35%);
+    background: linear-gradient(0deg, var(--wv-forest) 0%, rgba(35, 40, 34, 0) 35%);
   }
 
   .hero-content {
@@ -213,8 +355,8 @@
 /* Home: bespoke florals intro (under the hero) */
 .florals-intro {
   padding: 72px max(4vw, 20px) 80px;
-  background-color: #f6f3ee;
-  color: #474747;
+  background-color: var(--wv-linen);
+  color: var(--wv-ink);
 }
 
 .florals-feature {
@@ -235,7 +377,7 @@
 .florals-eyebrow {
   margin: 0 0 14px;
   text-align: left;
-  color: #6b6b6b;
+  color: var(--wv-olive);
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
@@ -244,7 +386,7 @@
 
 .florals-title {
   margin: 0 0 24px;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(34px, 3.4vw, 48px);
   font-weight: 400;
@@ -267,8 +409,8 @@
   display: inline-block;
   margin-top: 16px;
   padding: 16px 38px;
-  border: 1px solid #474747;
-  color: #3a3835;
+  border: 1px solid var(--wv-ink);
+  color: var(--wv-ink);
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -280,7 +422,7 @@
 
 .florals-button[href]:hover,
 .florals-button[href]:focus-visible {
-  background-color: #3a3835;
+  background-color: var(--wv-ink);
   color: #fff;
 }
 
@@ -290,7 +432,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: #a79c8c;
+  color: var(--wv-olive);
 }
 
 .florals-sketch {
@@ -300,7 +442,7 @@
 
 .florals-note {
   margin: 0;
-  color: #6f675d;
+  color: var(--wv-olive);
   font-family: Allison, "Brush Script MT", cursive;
   font-size: 34px;
   line-height: 0.95;
@@ -333,7 +475,7 @@
   margin: 0;
   padding: 12px 8px;
   background-color: #fff;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -402,7 +544,7 @@
   align-items: center;
   min-height: 380px;
   overflow: hidden;
-  background-color: #3d3b2f;
+  background-color: var(--wv-forest);
   color: #fff;
 }
 
@@ -419,7 +561,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #3d3b2f 0%, #3d3b2f 38%, rgba(61, 59, 47, 0.75) 50%, rgba(61, 59, 47, 0.4) 68%, rgba(61, 59, 47, 0.25) 100%);
+  background: linear-gradient(90deg, var(--wv-forest) 0%, var(--wv-forest) 38%, rgba(47, 74, 58, 0.75) 50%, rgba(47, 74, 58, 0.4) 68%, rgba(47, 74, 58, 0.25) 100%);
 }
 
 .hire-banner-content {
@@ -479,7 +621,7 @@
 .hire-banner-button[href]:hover,
 .hire-banner-button[href]:focus-visible {
   background-color: #fff;
-  color: #3d3b2f;
+  color: var(--wv-forest);
 }
 
 @media screen and (max-width: 767px) {
@@ -498,7 +640,7 @@
     top: 0;
     bottom: auto;
     height: 240px;
-    background: linear-gradient(0deg, #3d3b2f 0%, rgba(61, 59, 47, 0) 45%);
+    background: linear-gradient(0deg, var(--wv-forest) 0%, rgba(47, 74, 58, 0) 45%);
   }
 
   .hire-banner-content {
@@ -510,14 +652,14 @@
 /* Home: "From idea to I do" process */
 .process {
   padding: 64px max(4vw, 20px) 72px;
-  background-color: #f6f3ee;
-  color: #474747;
+  background-color: var(--wv-linen);
+  color: var(--wv-ink);
   text-align: center;
 }
 
 .process-title {
   margin: 0 0 10px;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(28px, 2.6vw, 36px);
   font-weight: 400;
@@ -557,9 +699,9 @@
   width: 110px;
   height: 110px;
   margin-bottom: 18px;
-  border: 1px solid rgba(71, 71, 71, 0.18);
+  border: 1px solid var(--wv-sage);
   border-radius: 50%;
-  color: #3a3835;
+  color: var(--wv-ink);
 }
 
 .process-icon svg {
@@ -575,7 +717,7 @@
 
 .process-step-title {
   margin: 4px 0 12px;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -595,8 +737,8 @@
 .process-button {
   display: inline-block;
   padding: 16px 40px;
-  border: 1px solid #474747;
-  color: #3a3835;
+  border: 1px solid var(--wv-ink);
+  color: var(--wv-ink);
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -608,7 +750,7 @@
 
 .process-button[href]:hover,
 .process-button[href]:focus-visible {
-  background-color: #3a3835;
+  background-color: var(--wv-ink);
   color: #fff;
 }
 
@@ -648,13 +790,13 @@
 }
 
 .ff-eyebrow-dark {
-  color: #7a7468;
+  color: var(--wv-olive);
 }
 
 .ff-heading {
   margin: 0 0 20px;
   text-transform: uppercase;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(32px, 3.2vw, 46px);
   font-weight: 400;
@@ -669,7 +811,7 @@
 
 .ff-body {
   margin: 0 0 16px;
-  color: #474747;
+  color: var(--wv-ink);
   font-family: Montserrat, sans-serif;
   font-size: 15px;
   line-height: 1.75;
@@ -703,25 +845,25 @@
 }
 
 .ff-button-primary {
-  background-color: #898c6b;
-  border-color: #898c6b;
+  background-color: var(--wv-forest);
+  border-color: var(--wv-forest);
   color: #fff;
 }
 
 .ff-button-primary:hover,
 .ff-button-primary:focus-visible {
-  background-color: #767a5a;
-  border-color: #767a5a;
+  background-color: var(--wv-olive);
+  border-color: var(--wv-olive);
 }
 
 .ff-button-outline {
-  border-color: #3a3835;
-  color: #3a3835;
+  border-color: var(--wv-ink);
+  color: var(--wv-ink);
 }
 
 .ff-button-outline:hover,
 .ff-button-outline:focus-visible {
-  background-color: #3a3835;
+  background-color: var(--wv-ink);
   color: #fff;
 }
 
@@ -738,7 +880,7 @@
   gap: 48px;
   align-items: center;
   padding: 72px max(5vw, 24px) 88px;
-  background-color: #f6f3ee;
+  background-color: var(--wv-linen);
   overflow: hidden;
 }
 
@@ -748,12 +890,12 @@
 }
 
 .ff-hero-text .ff-eyebrow {
-  color: #7a7468;
+  color: var(--wv-olive);
 }
 
 .ff-hero-title {
   margin: 0 0 22px;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(42px, 5vw, 70px);
   font-weight: 400;
@@ -765,12 +907,12 @@
 
 .ff-hero-title .ff-script {
   margin-top: 6px;
-  color: #b0765c;
+  color: var(--wv-olive);
 }
 
 .ff-hero-lead {
   margin: 0 0 32px;
-  color: #474747;
+  color: var(--wv-ink);
   font-family: Montserrat, sans-serif;
   font-size: 17px;
   line-height: 1.65;
@@ -801,8 +943,8 @@
 .ff-collage-small {
   position: absolute;
   object-fit: cover;
-  border: 8px solid #f6f3ee;
-  box-shadow: 0 18px 40px rgba(58, 56, 53, 0.18);
+  border: 8px solid var(--wv-linen);
+  box-shadow: 0 18px 40px rgba(35, 40, 34, 0.18);
 }
 
 .ff-collage-a {
@@ -824,7 +966,7 @@
   right: 4%;
   bottom: -6px;
   margin: 0;
-  color: #b0765c;
+  color: var(--wv-olive);
   font-family: Allison, "Brush Script MT", cursive;
   font-size: 40px;
   line-height: 1;
@@ -856,7 +998,7 @@
   margin: 28px 0 0;
   padding: 4px 0 4px 24px;
   border-left: 2px solid #e59775;
-  color: #3a3835;
+  color: var(--wv-ink);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: 24px;
   font-style: italic;
@@ -866,7 +1008,7 @@
 /* Services: mosaic of image tiles */
 .ff-services {
   padding: 88px max(4vw, 20px);
-  background-color: #eadfd8;
+  background-color: var(--wv-sage);
 }
 
 .ff-tiles {
@@ -884,7 +1026,7 @@
   position: relative;
   margin: 0;
   overflow: hidden;
-  background-color: #3a3835;
+  background-color: var(--wv-ink);
 }
 
 .ff-tile-1 {
@@ -912,7 +1054,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(28, 24, 21, 0.82) 0%, rgba(28, 24, 21, 0.35) 45%, rgba(28, 24, 21, 0) 75%);
+  background: linear-gradient(0deg, rgba(35, 40, 34, 0.82) 0%, rgba(35, 40, 34, 0.35) 45%, rgba(35, 40, 34, 0) 75%);
 }
 
 .ff-tile-text {
@@ -945,10 +1087,17 @@
   text-align: left;
 }
 
+/* Only Warm Ink text sits on the Dried Sage panel */
+.ff-services .ff-eyebrow,
+.ff-services .ff-heading,
+.ff-services .ff-body {
+  color: var(--wv-ink);
+}
+
 /* Reasons */
 .ff-reasons {
   padding: 88px max(4vw, 20px);
-  background-color: #3d3b2f;
+  background-color: var(--wv-forest);
 }
 
 .ff-reason-list {
@@ -1041,16 +1190,16 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1px solid #b0a898;
+  border: 1px solid var(--wv-sage);
   border-radius: 50%;
-  color: #3a3835;
+  color: var(--wv-ink);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: 22px;
 }
 
 .ff-step-title {
   margin: 0 0 6px;
-  color: #3a3835;
+  color: var(--wv-forest);
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -1127,7 +1276,7 @@
 }
 
 .ff-gallery-more a {
-  color: #3a3835;
+  color: var(--wv-ink);
   font-family: Montserrat, sans-serif;
   font-size: 13px;
   letter-spacing: 0.16em;
@@ -1138,13 +1287,13 @@
 }
 
 .ff-gallery-more a:hover {
-  color: #b0765c;
+  color: var(--wv-olive);
 }
 
 /* Closing call to action */
 .ff-cta {
   padding: 80px max(5vw, 24px) 88px;
-  background-color: #f6f3ee;
+  background-color: var(--wv-linen);
   text-align: center;
 }
 
