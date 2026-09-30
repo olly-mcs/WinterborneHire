@@ -1,146 +1,4 @@
-/* Our additions on top of the Webflow export. Loaded after the Webflow CSS.
-   Palette (defined in :root in winterborne-vintage.webflow.css):
-   --wv-forest #2F4A3A, --wv-olive #5F6B3C, --wv-sage #B7BFA6, --wv-linen #F4EFE7,
-   --wv-ink #232822, --wv-peach #E59775 (accents only, about 5% of a page). */
-
-/* Site-wide rebrand: floral greens */
-body {
-  background-color: var(--wv-linen);
-  color: var(--wv-ink);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--wv-forest);
-}
-
-a {
-  color: var(--wv-olive);
-}
-
-a:hover {
-  color: var(--wv-forest);
-}
-
-/* Navigation: Deep Forest links on Linen, Olive for hover and the current page */
-.mainnavstyling,
-.w-dropdown-toggle,
-.w-dropdown-link,
-.w-icon-nav-menu {
-  color: var(--wv-forest);
-}
-
-.mainnavstyling:hover,
-.mainnavstyling.w--current,
-.w-dropdown-link:hover,
-.w-dropdown-link.w--current {
-  color: var(--wv-olive);
-}
-
-/* Announcement banner: the one full-width peach accent, with Warm Ink text */
-.accouncement-banner,
-.accouncement-banner p,
-.accouncement-banner strong,
-.accouncement-banner a {
-  color: var(--wv-ink);
-}
-
-.accouncement-banner a:hover {
-  color: var(--wv-forest);
-}
-
-/* Primary buttons: Deep Forest with white text, Olive Grove on hover */
-.button-4,
-.button,
-.button-2,
-.button-3,
-.button-5,
-.clickherebutton,
-.propsearchbutton,
-.testimonial-button {
-  color: #fff;
-}
-
-.button-4:hover,
-.button:hover,
-.button-2:hover,
-.button-3:hover,
-.button-5:hover,
-.clickherebutton:hover,
-.propsearchbutton:hover,
-.testimonial-button:hover {
-  background-color: var(--wv-olive);
-  color: #fff;
-}
-
-/* Outline variant (.button-4.top): Linen with Warm Ink text and a Deep Forest border */
-.button-4.top {
-  background-color: var(--wv-linen);
-  border-color: var(--wv-forest);
-  color: var(--wv-ink);
-}
-
-.button-4.top:hover {
-  background-color: var(--wv-forest);
-  color: #fff;
-}
-
-/* Collection tile labels on photos: a light Deep Forest tint plus a text shadow keeps
-   the white labels legible without hiding the photos */
-.prodhptext.tabledecor,
-.prodhptext.smallprophptext,
-.prodhptext.largepropshp,
-.prodhptext.furniturehptext,
-.prodhptext.rugrunnerhp,
-.prodhptext.floralhptext {
-  background-color: rgba(47, 74, 58, 0.35);
-  text-shadow: 0 1px 12px rgba(35, 40, 34, 0.7), 0 1px 3px rgba(35, 40, 34, 0.6);
-}
-
-/* Form hint text ("* denotes required field") */
-.italic-text {
-  color: var(--wv-olive);
-}
-
-/* Footer: Deep Forest with Linen text and a thin peach rule */
-.section-9 {
-  background-color: var(--wv-forest);
-  border-top: 3px solid var(--wv-peach);
-  color: var(--wv-linen);
-}
-
-.section-9 .grid-3.footergrid {
-  background-color: transparent;
-}
-
-.section-9,
-.section-9 h1, .section-9 h2, .section-9 h3, .section-9 h4, .section-9 h5, .section-9 h6,
-.section-9 p, .section-9 div, .section-9 span, .section-9 strong,
-.section-9 a,
-.section-9 .footer-link {
-  color: var(--wv-linen);
-}
-
-.section-9 a:hover,
-.section-9 .footer-link:hover {
-  color: var(--wv-sage);
-}
-
-/* Peach standout CTA (one per page at most), always with Warm Ink text */
-.button-peach,
-.ff-button.button-peach {
-  background-color: var(--wv-peach);
-  border-color: var(--wv-peach);
-  color: var(--wv-ink);
-}
-
-.button-peach:hover,
-.button-peach:focus-visible,
-.ff-button.button-peach:hover,
-.ff-button.button-peach:focus-visible {
-  background-color: var(--wv-forest);
-  border-color: var(--wv-forest);
-  color: #fff;
-}
+/* Our additions on top of the Webflow export. Loaded after the Webflow CSS. */
 
 /* Home: "recommended suppliers for" venue list */
 .venue-list {
@@ -149,18 +7,18 @@ a:hover {
   margin: 28px auto 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--wv-sage);
+  border-top: 1px solid rgba(71, 71, 71, 0.18);
 }
 
 .venue-list li {
   margin: 0;
-  border-bottom: 1px solid var(--wv-sage);
+  border-bottom: 1px solid rgba(71, 71, 71, 0.18);
 }
 
 .venue-link {
   display: block;
   padding: 16px 12px;
-  color: var(--wv-ink);
+  color: #474747;
   font-family: Cinzel, sans-serif;
   font-size: 15px;
   line-height: 1.4;
@@ -173,19 +31,19 @@ a:hover {
 .venue-link::after {
   content: "\2197";
   margin-left: 8px;
-  color: var(--wv-olive);
+  color: var(--wv-peach);
   font-family: Raleway, sans-serif;
   font-size: 12px;
 }
 
 .venue-link:hover,
 .venue-link:focus-visible {
-  color: var(--wv-olive);
+  color: var(--wv-peach);
   background-color: rgba(255, 255, 255, 0.35);
 }
 
 .venue-link:focus-visible {
-  outline: 1px solid var(--wv-olive);
+  outline: 1px solid var(--wv-peach);
   outline-offset: -1px;
 }
 
@@ -203,7 +61,7 @@ a:hover {
   min-height: 560px;
   height: min(88vh, 780px);
   overflow: hidden;
-  background-color: var(--wv-forest);
+  background-color: #2b2724;
   color: #fff;
 }
 
@@ -220,7 +78,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(35, 40, 34, 0.78) 0%, rgba(35, 40, 34, 0.55) 32%, rgba(35, 40, 34, 0.12) 62%, rgba(35, 40, 34, 0) 80%);
+  background: linear-gradient(90deg, rgba(28, 24, 21, 0.78) 0%, rgba(28, 24, 21, 0.55) 32%, rgba(28, 24, 21, 0.12) 62%, rgba(28, 24, 21, 0) 80%);
 }
 
 .hero-content {
@@ -288,19 +146,19 @@ a:hover {
 }
 
 .hero-button-primary {
-  background-color: var(--wv-forest);
-  border-color: var(--wv-forest);
+  background-color: rgba(137, 140, 107, 0.92);
+  border-color: rgba(137, 140, 107, 0.92);
   color: #fff;
 }
 
 .hero-button-primary:hover,
 .hero-button-primary:focus-visible {
-  background-color: var(--wv-olive);
-  border-color: var(--wv-olive);
+  background-color: #767a5a;
+  border-color: #767a5a;
 }
 
 .hero-button-outline {
-  background-color: rgba(35, 40, 34, 0.25);
+  background-color: rgba(28, 24, 21, 0.25);
   border-color: rgba(255, 255, 255, 0.85);
   color: #fff;
 }
@@ -333,7 +191,7 @@ a:hover {
   .hero::after {
     bottom: auto;
     height: 420px;
-    background: linear-gradient(0deg, var(--wv-forest) 0%, rgba(35, 40, 34, 0) 35%);
+    background: linear-gradient(0deg, #2b2724 0%, rgba(43, 39, 36, 0) 35%);
   }
 
   .hero-content {
@@ -355,8 +213,8 @@ a:hover {
 /* Home: bespoke florals intro (under the hero) */
 .florals-intro {
   padding: 72px max(4vw, 20px) 80px;
-  background-color: var(--wv-linen);
-  color: var(--wv-ink);
+  background-color: #f6f3ee;
+  color: #474747;
 }
 
 .florals-feature {
@@ -377,7 +235,7 @@ a:hover {
 .florals-eyebrow {
   margin: 0 0 14px;
   text-align: left;
-  color: var(--wv-olive);
+  color: #6b6b6b;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
@@ -386,7 +244,7 @@ a:hover {
 
 .florals-title {
   margin: 0 0 24px;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(34px, 3.4vw, 48px);
   font-weight: 400;
@@ -409,8 +267,8 @@ a:hover {
   display: inline-block;
   margin-top: 16px;
   padding: 16px 38px;
-  border: 1px solid var(--wv-ink);
-  color: var(--wv-ink);
+  border: 1px solid #474747;
+  color: #3a3835;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -422,7 +280,7 @@ a:hover {
 
 .florals-button[href]:hover,
 .florals-button[href]:focus-visible {
-  background-color: var(--wv-ink);
+  background-color: #3a3835;
   color: #fff;
 }
 
@@ -432,7 +290,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: var(--wv-olive);
+  color: #a79c8c;
 }
 
 .florals-sketch {
@@ -442,7 +300,7 @@ a:hover {
 
 .florals-note {
   margin: 0;
-  color: var(--wv-olive);
+  color: #6f675d;
   font-family: Allison, "Brush Script MT", cursive;
   font-size: 34px;
   line-height: 0.95;
@@ -475,7 +333,7 @@ a:hover {
   margin: 0;
   padding: 12px 8px;
   background-color: #fff;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -544,7 +402,7 @@ a:hover {
   align-items: center;
   min-height: 380px;
   overflow: hidden;
-  background-color: var(--wv-forest);
+  background-color: #3d3b2f;
   color: #fff;
 }
 
@@ -561,7 +419,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--wv-forest) 0%, var(--wv-forest) 38%, rgba(47, 74, 58, 0.75) 50%, rgba(47, 74, 58, 0.4) 68%, rgba(47, 74, 58, 0.25) 100%);
+  background: linear-gradient(90deg, #3d3b2f 0%, #3d3b2f 38%, rgba(61, 59, 47, 0.75) 50%, rgba(61, 59, 47, 0.4) 68%, rgba(61, 59, 47, 0.25) 100%);
 }
 
 .hire-banner-content {
@@ -621,7 +479,7 @@ a:hover {
 .hire-banner-button[href]:hover,
 .hire-banner-button[href]:focus-visible {
   background-color: #fff;
-  color: var(--wv-forest);
+  color: #3d3b2f;
 }
 
 @media screen and (max-width: 767px) {
@@ -640,7 +498,7 @@ a:hover {
     top: 0;
     bottom: auto;
     height: 240px;
-    background: linear-gradient(0deg, var(--wv-forest) 0%, rgba(47, 74, 58, 0) 45%);
+    background: linear-gradient(0deg, #3d3b2f 0%, rgba(61, 59, 47, 0) 45%);
   }
 
   .hire-banner-content {
@@ -652,14 +510,14 @@ a:hover {
 /* Home: "From idea to I do" process */
 .process {
   padding: 64px max(4vw, 20px) 72px;
-  background-color: var(--wv-linen);
-  color: var(--wv-ink);
+  background-color: #f6f3ee;
+  color: #474747;
   text-align: center;
 }
 
 .process-title {
   margin: 0 0 10px;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(28px, 2.6vw, 36px);
   font-weight: 400;
@@ -699,9 +557,9 @@ a:hover {
   width: 110px;
   height: 110px;
   margin-bottom: 18px;
-  border: 1px solid var(--wv-sage);
+  border: 1px solid rgba(71, 71, 71, 0.18);
   border-radius: 50%;
-  color: var(--wv-ink);
+  color: #3a3835;
 }
 
 .process-icon svg {
@@ -717,7 +575,7 @@ a:hover {
 
 .process-step-title {
   margin: 4px 0 12px;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -737,8 +595,8 @@ a:hover {
 .process-button {
   display: inline-block;
   padding: 16px 40px;
-  border: 1px solid var(--wv-ink);
-  color: var(--wv-ink);
+  border: 1px solid #474747;
+  color: #3a3835;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -750,7 +608,7 @@ a:hover {
 
 .process-button[href]:hover,
 .process-button[href]:focus-visible {
-  background-color: var(--wv-ink);
+  background-color: #3a3835;
   color: #fff;
 }
 
@@ -790,13 +648,13 @@ a:hover {
 }
 
 .ff-eyebrow-dark {
-  color: var(--wv-olive);
+  color: #7a7468;
 }
 
 .ff-heading {
   margin: 0 0 20px;
   text-transform: uppercase;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(32px, 3.2vw, 46px);
   font-weight: 400;
@@ -811,7 +669,7 @@ a:hover {
 
 .ff-body {
   margin: 0 0 16px;
-  color: var(--wv-ink);
+  color: #474747;
   font-family: Montserrat, sans-serif;
   font-size: 15px;
   line-height: 1.75;
@@ -845,25 +703,25 @@ a:hover {
 }
 
 .ff-button-primary {
-  background-color: var(--wv-forest);
-  border-color: var(--wv-forest);
+  background-color: #898c6b;
+  border-color: #898c6b;
   color: #fff;
 }
 
 .ff-button-primary:hover,
 .ff-button-primary:focus-visible {
-  background-color: var(--wv-olive);
-  border-color: var(--wv-olive);
+  background-color: #767a5a;
+  border-color: #767a5a;
 }
 
 .ff-button-outline {
-  border-color: var(--wv-ink);
-  color: var(--wv-ink);
+  border-color: #3a3835;
+  color: #3a3835;
 }
 
 .ff-button-outline:hover,
 .ff-button-outline:focus-visible {
-  background-color: var(--wv-ink);
+  background-color: #3a3835;
   color: #fff;
 }
 
@@ -880,7 +738,7 @@ a:hover {
   gap: 48px;
   align-items: center;
   padding: 72px max(5vw, 24px) 88px;
-  background-color: var(--wv-linen);
+  background-color: #f6f3ee;
   overflow: hidden;
 }
 
@@ -890,12 +748,12 @@ a:hover {
 }
 
 .ff-hero-text .ff-eyebrow {
-  color: var(--wv-olive);
+  color: #7a7468;
 }
 
 .ff-hero-title {
   margin: 0 0 22px;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(42px, 5vw, 70px);
   font-weight: 400;
@@ -907,12 +765,12 @@ a:hover {
 
 .ff-hero-title .ff-script {
   margin-top: 6px;
-  color: var(--wv-olive);
+  color: #b0765c;
 }
 
 .ff-hero-lead {
   margin: 0 0 32px;
-  color: var(--wv-ink);
+  color: #474747;
   font-family: Montserrat, sans-serif;
   font-size: 17px;
   line-height: 1.65;
@@ -943,8 +801,8 @@ a:hover {
 .ff-collage-small {
   position: absolute;
   object-fit: cover;
-  border: 8px solid var(--wv-linen);
-  box-shadow: 0 18px 40px rgba(35, 40, 34, 0.18);
+  border: 8px solid #f6f3ee;
+  box-shadow: 0 18px 40px rgba(58, 56, 53, 0.18);
 }
 
 .ff-collage-a {
@@ -966,7 +824,7 @@ a:hover {
   right: 4%;
   bottom: -6px;
   margin: 0;
-  color: var(--wv-olive);
+  color: #b0765c;
   font-family: Allison, "Brush Script MT", cursive;
   font-size: 40px;
   line-height: 1;
@@ -998,7 +856,7 @@ a:hover {
   margin: 28px 0 0;
   padding: 4px 0 4px 24px;
   border-left: 2px solid #e59775;
-  color: var(--wv-ink);
+  color: #3a3835;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: 24px;
   font-style: italic;
@@ -1008,7 +866,7 @@ a:hover {
 /* Services: mosaic of image tiles */
 .ff-services {
   padding: 88px max(4vw, 20px);
-  background-color: var(--wv-sage);
+  background-color: #eadfd8;
 }
 
 .ff-tiles {
@@ -1026,7 +884,7 @@ a:hover {
   position: relative;
   margin: 0;
   overflow: hidden;
-  background-color: var(--wv-ink);
+  background-color: #3a3835;
 }
 
 .ff-tile-1 {
@@ -1054,7 +912,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(35, 40, 34, 0.82) 0%, rgba(35, 40, 34, 0.35) 45%, rgba(35, 40, 34, 0) 75%);
+  background: linear-gradient(0deg, rgba(28, 24, 21, 0.82) 0%, rgba(28, 24, 21, 0.35) 45%, rgba(28, 24, 21, 0) 75%);
 }
 
 .ff-tile-text {
@@ -1087,17 +945,10 @@ a:hover {
   text-align: left;
 }
 
-/* Only Warm Ink text sits on the Dried Sage panel */
-.ff-services .ff-eyebrow,
-.ff-services .ff-heading,
-.ff-services .ff-body {
-  color: var(--wv-ink);
-}
-
 /* Reasons */
 .ff-reasons {
   padding: 88px max(4vw, 20px);
-  background-color: var(--wv-forest);
+  background-color: #3d3b2f;
 }
 
 .ff-reason-list {
@@ -1190,16 +1041,16 @@ a:hover {
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1px solid var(--wv-sage);
+  border: 1px solid #b0a898;
   border-radius: 50%;
-  color: var(--wv-ink);
+  color: #3a3835;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: 22px;
 }
 
 .ff-step-title {
   margin: 0 0 6px;
-  color: var(--wv-forest);
+  color: #3a3835;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -1276,7 +1127,7 @@ a:hover {
 }
 
 .ff-gallery-more a {
-  color: var(--wv-ink);
+  color: #3a3835;
   font-family: Montserrat, sans-serif;
   font-size: 13px;
   letter-spacing: 0.16em;
@@ -1287,13 +1138,13 @@ a:hover {
 }
 
 .ff-gallery-more a:hover {
-  color: var(--wv-olive);
+  color: #b0765c;
 }
 
 /* Closing call to action */
 .ff-cta {
   padding: 80px max(5vw, 24px) 88px;
-  background-color: var(--wv-linen);
+  background-color: #f6f3ee;
   text-align: center;
 }
 

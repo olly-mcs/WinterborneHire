@@ -54,22 +54,6 @@ While the Webflow site is still live, this copy is hidden from search engines so
 Don't block the site in `robots.txt`: crawlers would then never see the noindex. **At launch**, remove the meta tag
 from every page and the `X-Robots-Tag` block from `netlify.toml`.
 
-## Colours
-
-The palette is defined in `:root` at the top of `css/winterborne-vintage.webflow.css`. Use the variables, never raw hex:
-
-| Variable | Hex | Use |
-| --- | --- | --- |
-| `--wv-forest` | #2F4A3A | Headings, nav text, footer, primary buttons, dark sections |
-| `--wv-olive` | #5F6B3C | Subheadings, links, hover states, icons |
-| `--wv-sage` | #B7BFA6 | Dividers, tags, image frames, light panels |
-| `--wv-linen` | #F4EFE7 | Page and section backgrounds |
-| `--wv-ink` | #232822 | Body copy |
-| `--wv-peach` | #E59775 | Accents only (about 5% of a page): the announcement banner, the footer rule, at most one `.button-peach` CTA per page |
-
-The old names (`--wv-oyster`, `--white-smoke`, `--color`, `--wv-charcoal`, `--medium-aquamarine`, `--nudebutton`) point at these.
-Keep text at WCAG AA: only Warm Ink text on Dried Sage or Peach, never white.
-
 ## Rules for changes
 
 - Keep the Webflow class names and `data-w-id` / `data-wf-page` attributes. `js/webflow.js` uses them.
