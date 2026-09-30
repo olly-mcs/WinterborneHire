@@ -224,6 +224,7 @@
 
 .florals-eyebrow {
   margin: 0 0 14px;
+  text-align: left;
   color: #6b6b6b;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
@@ -381,5 +382,117 @@
     justify-content: center;
     min-height: 4.2em;
     padding: 8px 6px;
+  }
+}
+
+/* Home: wedding hire collection banner */
+.hire-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  overflow: hidden;
+  background-color: #3d3b2f;
+  color: #fff;
+}
+
+.hire-banner-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hire-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #3d3b2f 0%, #3d3b2f 38%, rgba(61, 59, 47, 0.75) 50%, rgba(61, 59, 47, 0.4) 68%, rgba(61, 59, 47, 0.25) 100%);
+}
+
+.hire-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  margin-left: max(5vw, 24px);
+  padding: 64px 24px 64px 0;
+}
+
+.hire-banner-eyebrow {
+  margin: 0 0 12px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hire-banner-title {
+  margin: 0 0 18px;
+  color: #fff;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(32px, 3.4vw, 48px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.hire-banner-text {
+  max-width: 620px;
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.hire-banner-button {
+  display: inline-block;
+  padding: 16px 38px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hire-banner-button[href]:hover,
+.hire-banner-button[href]:focus-visible {
+  background-color: #fff;
+  color: #3d3b2f;
+}
+
+@media screen and (max-width: 767px) {
+  .hire-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hire-banner-image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+  }
+
+  .hire-banner::after {
+    top: 0;
+    bottom: auto;
+    height: 240px;
+    background: linear-gradient(0deg, #3d3b2f 0%, rgba(61, 59, 47, 0) 45%);
+  }
+
+  .hire-banner-content {
+    margin: 0;
+    padding: 8px 20px 48px;
   }
 }
