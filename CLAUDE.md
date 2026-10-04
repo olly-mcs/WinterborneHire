@@ -46,6 +46,12 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
 - The token lives in the Netlify environment variable `INSTAGRAM_ACCESS_TOKEN`, never in the code. Pasting a new token
   there (then redeploying) always takes over from the renewed one.
 
+## Testimonials
+
+`/our-testimonials` is plain HTML (no CMS): one `<article class="tm">` per couple in `our-testimonials.html`, newest
+first, with styles in `css/testimonials.css` and the slider/full-screen viewer in `js/testimonials.js`. Photos live in
+`images/testimonials/<names>/`. To add a couple, follow `.claude/skills/add-testimonial/SKILL.md` so every block matches.
+
 ## Notes from the Webflow move
 
 - Removed: the test pages, `small-props-old`, the search page, the password page and the empty `detail_*` CMS templates.
