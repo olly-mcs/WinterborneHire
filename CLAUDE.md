@@ -30,6 +30,7 @@ The forms use **Netlify Forms**. Submissions appear in the Netlify dashboard und
 - `contact` on `contact-us.html`
 - `showroom` on `showroom.html`
 - `commercial` on `commercial-installations.html`
+- `quote` on `quote-builder.html` (sent by `js/quote-builder.js`, see below)
 
 `js/contact-form.js` sends the form and shows the Webflow thank-you or error message. The wrapper div has the class
 `netlify-form` instead of Webflow's `w-form`, so `webflow.js` doesn't take over the submit. Spam is filtered with a honeypot field.
@@ -45,6 +46,18 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
   "Follow @winterbornehireandstyling" button shows.
 - The token lives in the Netlify environment variable `INSTAGRAM_ACCESS_TOKEN`, never in the code. Pasting a new token
   there (then redeploying) always takes over from the renewed one.
+
+## Quote builder (prototype)
+
+`/quote-builder` lets couples add florals, hire pieces and services, see an estimated range, then save it.
+
+- **Prices** are in `js/quote-data.js`, taken from the "Styling Catalogue & Pricing Guide 2027/28". "From £X" uses X;
+  "£8-£12" uses the midpoint. Update this file when the price list changes.
+- **The range** is 20% below to 20% above the total, rounded to £5 (`QUOTE_RANGE` in `js/quote-builder.js`).
+- **Saving** posts the quote to the Netlify form `quote` (name, email, venue, date, estimate and the full item list as
+  text) and downloads a PDF made in the browser with jsPDF (`js/vendor/jspdf.umd.min.js`, v2.5.2, hosted with the site).
+- The half-built quote is remembered in the visitor's browser (localStorage) until they clear it.
+- The page isn't linked from the navigation yet.
 
 ## Testimonials
 

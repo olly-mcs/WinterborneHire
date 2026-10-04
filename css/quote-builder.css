@@ -1,0 +1,490 @@
+/* Quote builder page (quote-builder.html, js/quote-builder.js) */
+.qb {
+  padding: 64px max(4vw, 20px) 96px;
+  background-color: #f6f3ee;
+  color: #474747;
+}
+
+.qb-intro {
+  max-width: 680px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.qb-eyebrow {
+  margin: 0 0 12px;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qb-title {
+  margin: 0 0 18px;
+  color: #3a3835;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(38px, 4.4vw, 60px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qb-script {
+  display: block;
+  color: #b0765c;
+  font-family: Allison, "Brush Script MT", cursive;
+  font-size: 1.1em;
+  text-transform: none;
+}
+
+.qb-lead {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.qb-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 48px;
+  align-items: start;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Item list */
+.qb-section {
+  margin-bottom: 44px;
+}
+
+.qb-section-title {
+  margin: 0 0 4px;
+  color: #3a3835;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: left;
+  text-transform: none;
+}
+
+.qb-section-intro {
+  margin: 0 0 14px;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.qb-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e3d9d0;
+}
+
+.qb-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0;
+  padding: 14px 12px 14px 14px;
+  border-bottom: 1px solid #e3d9d0;
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.qb-item.is-selected {
+  background-color: #fff;
+  border-left-color: #e59775;
+}
+
+.qb-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.qb-item-name {
+  color: #3a3835;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.qb-item-note {
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.qb-item-price {
+  color: #8a5a44;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.qb-stepper {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.qb-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #c9bcb0;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #3a3835;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.qb-step:hover:not(:disabled),
+.qb-step:focus-visible {
+  border-color: #3a3835;
+  background-color: #3a3835;
+  color: #fff;
+}
+
+.qb-step:focus-visible {
+  outline: 2px solid #e59775;
+  outline-offset: 2px;
+}
+
+.qb-step:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.qb-qty {
+  min-width: 32px;
+  color: #3a3835;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Summary card */
+.qb-summary {
+  position: sticky;
+  top: 84px; /* clears the sticky 60px navigation */
+  max-height: calc(100vh - 104px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.qb-summary-card {
+  padding: 28px 28px 30px;
+  background-color: #fff;
+  box-shadow: 0 18px 40px rgba(58, 56, 53, 0.08);
+}
+
+.qb-summary-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.qb-summary-title {
+  margin: 0;
+  color: #3a3835;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.qb-clear {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.qb:not(.has-items) .qb-clear {
+  visibility: hidden;
+}
+
+.qb-summary-empty {
+  margin: 0 0 18px;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.qb-summary-items {
+  max-height: 280px;
+  margin: 0 0 18px;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.qb-summary-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 7px 0;
+  border-bottom: 1px dashed #e3d9d0;
+  font-family: Montserrat, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.qb-summary-name {
+  color: #3a3835;
+}
+
+.qb-summary-total {
+  flex: none;
+  color: #66605a;
+}
+
+.qb-estimate {
+  margin: 0 -28px 24px;
+  padding: 22px 28px 20px;
+  background-color: #f6f0ea;
+  text-align: center;
+}
+
+.qb-estimate-label {
+  margin: 0 0 6px;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qb-estimate-range {
+  margin: 0 0 10px;
+  color: #3a3835;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 38px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.qb-estimate-note {
+  margin: 0;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.qb-form-title {
+  margin: 0 0 12px;
+  color: #3a3835;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.qb-field {
+  display: block;
+  margin: 0 0 12px;
+}
+
+.qb-field span {
+  display: block;
+  margin-bottom: 4px;
+  color: #66605a;
+  font-family: Montserrat, sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.qb-field input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #c9bcb0;
+  border-radius: 0;
+  background-color: #fff;
+  color: #3a3835;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+}
+
+.qb-field input:focus {
+  border-color: #3a3835;
+  outline: 2px solid rgba(229, 151, 117, 0.45);
+  outline-offset: 0;
+}
+
+.qb-save {
+  width: 100%;
+  margin-top: 6px;
+  padding: 16px 20px;
+  border: 1px solid #3a3835;
+  background-color: #3a3835;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.qb-save:hover:not(:disabled),
+.qb-save:focus-visible {
+  background-color: #5a5650;
+}
+
+.qb-save:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.qb-status {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  font-family: Montserrat, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.qb-status.is-done {
+  background-color: #eef3ea;
+  color: #2f4a3a;
+}
+
+.qb-status.is-error {
+  background-color: #fbeae4;
+  color: #7a2f1a;
+}
+
+/* Mobile bar: count + range, jumps to the summary */
+.qb-bar {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .qb-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .qb-summary {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .qb-bar {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: #3a3835;
+    box-shadow: 0 10px 30px rgba(28, 24, 21, 0.3);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    transform: translateY(150%);
+    transition: transform 0.3s ease;
+  }
+
+  .qb.has-items .qb-bar {
+    transform: none;
+  }
+
+  .qb-bar-count {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  .qb-bar-range {
+    flex: 1;
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-size: 22px;
+  }
+
+  .qb-bar-cta {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .qb {
+    padding-bottom: 120px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .qb {
+    padding: 44px 16px 120px;
+  }
+
+  .qb-item {
+    padding: 12px 8px 12px 10px;
+    gap: 10px;
+  }
+
+  .qb-step {
+    width: 34px;
+    height: 34px;
+  }
+
+  .qb-qty {
+    min-width: 26px;
+  }
+
+  .qb-summary-card {
+    padding: 24px 20px 26px;
+  }
+
+  .qb-estimate {
+    margin: 0 -20px 22px;
+    padding: 20px;
+  }
+
+  .qb-bar-count {
+    display: none;
+  }
+}
