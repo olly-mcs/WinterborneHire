@@ -215,12 +215,20 @@
   object-fit: cover;
 }
 
-/* Landscape photos are shown whole rather than cropped */
+/* Couples whose photos are mostly landscape get a landscape frame */
+.tm-gallery-landscape .tm-track {
+  aspect-ratio: 3 / 2;
+}
+
+/* Photos that don't match the frame's shape are shown whole, on a blurred backdrop.
+   tm-slide-wide (landscape in a portrait frame) and tm-slide-fit (any other mismatch) behave the same. */
+.tm-slide-fit .tm-open,
 .tm-slide-wide .tm-open {
   position: relative;
   overflow: hidden;
 }
 
+.tm-slide-fit .tm-open::before,
 .tm-slide-wide .tm-open::before {
   content: "";
   position: absolute;
@@ -229,6 +237,7 @@
   filter: blur(28px) saturate(0.9) brightness(0.85);
 }
 
+.tm-slide-fit .tm-open img,
 .tm-slide-wide .tm-open img {
   position: relative;
   object-fit: contain;

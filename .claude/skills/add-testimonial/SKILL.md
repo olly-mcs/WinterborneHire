@@ -63,14 +63,16 @@ Copy Laura & Alexandra's `<article class="tm">` and change:
   values (showroom visits, first visit to wedding, venue, wedding month);
 - names in `.tm-names` (keep the `<span class="tm-amp">&amp;</span>`), and `.tm-meta` (venue, month year);
 - slides: one `<li class="tm-slide">` per photo with descriptive `alt` text (what the florals are, who is in shot).
-  Landscape photos get `tm-slide tm-slide-wide` and `style="--tm-backdrop:url('...')"` on the `.tm-open` button;
+  Landscape photos get `tm-slide tm-slide-wide` and `style="--tm-backdrop:url('...')"` on the `.tm-open` button.
+  If most of a couple's photos are landscape, add `tm-gallery-landscape` to `.tm-gallery` for a 3:2 frame instead,
+  and give the portrait photos `tm-slide tm-slide-fit` plus the same backdrop style;
 - thumbnails (same order) and the total in `.tm-count`;
 - stars: one `<svg>` per star and the `aria-label` ("Rated N out of 5");
 - the review paragraphs in `.tm-quote`, and `.tm-cite` (the reviewer's first name only);
 - swatches: `style="--swatch:..."`, the `fill` on the first `<path>`, the name and the hex. Cycle the three stroke
   shapes already used.
 
-**Newest couple goes first** in `.tm-list`. Layout alternates sides automatically.
+**Newest wedding goes first** in `.tm-list` (by wedding month, not by when it was added). Layout alternates sides automatically.
 
 
 ## 5. Check and publish
