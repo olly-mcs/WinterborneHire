@@ -16,6 +16,7 @@
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/winterborne-vintage.webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/instagram-feed.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -261,9 +262,11 @@
     <h2 class="hpoptions1 toprow insta">Instagram<br></h2>
     <div class="hpleadertextblock getintouch hashtag">@winterbornehireandstyling</div>
   </div>
-  <div class="html-embed-2 w-embed w-iframe w-script"><!--  LightWidget WIDGET  -->
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/ac9c7f57bc9d5c88a282689c6429c1a7.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-  </div>
+  <div class="instagram-feed is-loading" data-instagram-feed data-count="8">
+      <span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span>
+      <span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span>
+    </div>
+    <p class="instagram-feed-follow"><a href="https://www.instagram.com/winterbornehireandstyling/" target="_blank" rel="noopener">Follow @winterbornehireandstyling</a></p>
   <div class="badgesection">
     <div class="w-container">
       <div class="w-layout-grid badgegrid"><img src="/images/5-star-google-badge.webp" loading="lazy" width="122" id="w-node-cf2bea12-1d96-f290-23fd-05b3f1f00da2-f1f00d9b" alt="5 Star google rating"><img src="/images/festival-brides-badge.png" loading="lazy" width="180" id="w-node-cf2bea12-1d96-f290-23fd-05b3f1f00da0-f1f00d9b" alt="Featured on festival brides" srcset="/images/festival-brides-badge-p-500.png 500w, /images/festival-brides-badge-p-800.png 800w, /images/festival-brides-badge-p-1080.png 1080w, /images/festival-brides-badge.png 3696w" sizes="(max-width: 479px) 100vw, 180px"><img src="/images/cwm-featured.png" loading="lazy" width="123" id="w-node-cf2bea12-1d96-f290-23fd-05b3f1f00da1-f1f00d9b" alt="Featured in county wedding magazine"><img src="/images/two-souls-blog.png" loading="lazy" width="122" id="w-node-acd8efcc-7974-73aa-14ba-bffdc56e2952-f1f00d9b" alt="Featured on the two souls blog"></div>
@@ -347,5 +350,6 @@ $(window).on("load", function() {
   });
 });
 </script>
+  <script src="/js/instagram-feed.js" type="text/javascript"></script>
 </body>
 </html>

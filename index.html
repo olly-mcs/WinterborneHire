@@ -18,6 +18,7 @@
   <link href="/css/normalize.css" rel="stylesheet" type="text/css">
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/winterborne-vintage.webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/instagram-feed.css" rel="stylesheet" type="text/css">
   <link href="/css/site.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -420,9 +421,11 @@
     </div>
   </section>
   <section class="section-25">
-    <div class="html-embed-2 w-embed w-iframe w-script"><!--  LightWidget WIDGET  -->
-      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/ac9c7f57bc9d5c88a282689c6429c1a7.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    <div class="instagram-feed is-loading" data-instagram-feed data-count="8">
+      <span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span>
+      <span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span><span class="instagram-feed-item"></span>
     </div>
+    <p class="instagram-feed-follow"><a href="https://www.instagram.com/winterbornehireandstyling/" target="_blank" rel="noopener">Follow @winterbornehireandstyling</a></p>
   </section>
   <div class="badgesection">
     <div class="w-container">
@@ -530,5 +533,6 @@ $(window).on("load", function() {
   });
 });
 </script>
+  <script src="/js/instagram-feed.js" type="text/javascript"></script>
 </body>
 </html>

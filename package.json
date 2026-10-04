@@ -1,0 +1,8 @@
+{
+  "name": "winterborne-hire",
+  "private": true,
+  "description": "Winterborne Hire & Styling website. Static pages; these dependencies are only for the Netlify Functions.",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.3"
+  }
+}

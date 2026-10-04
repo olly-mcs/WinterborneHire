@@ -34,6 +34,18 @@ The forms use **Netlify Forms**. Submissions appear in the Netlify dashboard und
 `js/contact-form.js` sends the form and shows the Webflow thank-you or error message. The wrapper div has the class
 `netlify-form` instead of Webflow's `w-form`, so `webflow.js` doesn't take over the submit. Spam is filtered with a honeypot field.
 
+## Instagram feed
+
+Pages with the "Instagram" section show a grid of the latest posts, straight from Instagram's API (no LightWidget):
+
+- `netlify/functions/instagram.mjs` serves `/api/instagram`: the latest 12 posts as JSON, cached by Netlify for an hour.
+- `netlify/functions/instagram-refresh.mjs` runs weekly and renews the access token (they expire after 60 days).
+  The renewed token is kept in Netlify Blobs; `netlify/lib/instagram-token.mjs` reads and saves it.
+- `js/instagram-feed.js` and `css/instagram-feed.css` draw the grid. If the feed can't load, only the
+  "Follow @winterbornehireandstyling" button shows.
+- The token lives in the Netlify environment variable `INSTAGRAM_ACCESS_TOKEN`, never in the code. Pasting a new token
+  there (then redeploying) always takes over from the renewed one.
+
 ## Notes from the Webflow move
 
 - Removed: the test pages, `small-props-old`, the search page, the password page and the empty `detail_*` CMS templates.
@@ -42,7 +54,7 @@ The forms use **Netlify Forms**. Submissions appear in the Netlify dashboard und
   Large Props, Small Props, Table Decor, Florals and so on, plus testimonials, gallery and blog lists) show
   "No items found" until that content is rebuilt from the collections' CSV exports.
 - The hero video, jQuery and share images are hosted with the site. Fonts, jQuery UI, Masonry, Elfsight and
-  LightWidget still load from their own CDNs.
+  still load from their own CDNs.
 
 ## Staging (not indexed)
 

@@ -2,6 +2,10 @@
 [build]
   publish = "."
 
+# Instagram feed functions (see CLAUDE.md, "Instagram feed")
+[functions]
+  directory = "netlify/functions"
+
 # Pages removed in the move from Webflow
 [[redirects]]
   from = "/small-props-old"
