@@ -2,6 +2,9 @@
 [build]
   publish = "."
 
+[build.environment]
+  NODE_VERSION = "22"
+
 # Instagram feed functions (see CLAUDE.md, "Instagram feed")
 [functions]
   directory = "netlify/functions"
