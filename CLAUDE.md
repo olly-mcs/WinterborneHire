@@ -55,7 +55,8 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
   "£8-£12" uses the midpoint. Update this file when the price list changes.
 - **The range** is 20% below to 20% above the total, rounded to £5 (`QUOTE_RANGE` in `js/quote-builder.js`).
 - **Saving** posts the quote to the Netlify form `quote` (name, email, venue, date, estimate and the full item list as
-  text) and downloads a PDF made in the browser with jsPDF (`js/vendor/jspdf.umd.min.js`, v2.5.2, hosted with the site).
+  text; the hidden `subject` field sets the notification email's subject). Netlify emails it to
+  winterbornevintage@gmail.com via a form notification set up in the Netlify dashboard, and downloads a PDF made in the browser with jsPDF (`js/vendor/jspdf.umd.min.js`, v2.5.2, hosted with the site).
 - The half-built quote is remembered in the visitor's browser (localStorage) until they clear it.
 - The page isn't linked from the navigation yet.
 

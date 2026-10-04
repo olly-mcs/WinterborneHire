@@ -153,13 +153,14 @@
           <form class="qb-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="quote">
             <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
-            <input type="hidden" name="estimate">
-            <textarea name="quote" hidden></textarea>
+            <input type="hidden" name="subject" value="New quote request from the website">
             <p class="qb-form-title">Save your quote</p>
             <label class="qb-field"><span>Your name</span><input type="text" name="name" autocomplete="name" required></label>
             <label class="qb-field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
             <label class="qb-field"><span>Venue</span><input type="text" name="venue" required></label>
             <label class="qb-field"><span>Wedding date</span><input type="date" name="wedding-date" required></label>
+            <input type="hidden" name="estimate">
+            <textarea name="quote" hidden></textarea>
             <button type="submit" class="qb-save" disabled>Save &amp; download PDF</button>
             <p class="qb-status" role="status" hidden></p>
           </form>

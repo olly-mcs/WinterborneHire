@@ -143,7 +143,7 @@
 
   // ----- Save: send to Winterborne and download the PDF -----
   function quoteText(details, lines, est) {
-    var out = [];
+    var out = ["Someone has submitted a quote on the website. Their details and selections are below.", ""];
     out.push("Name: " + details.name, "Email: " + details.email, "Venue: " + details.venue, "Wedding date: " + details.date, "");
     var current = "";
     lines.forEach(function (l) {
@@ -245,6 +245,9 @@
     };
     form.elements["estimate"].value = money(est.low) + " - " + money(est.high);
     form.elements["quote"].value = quoteText(details, lines, est);
+    form.elements["subject"].value = "New quote request: " + details.name +
+      (details.venue ? ", " + details.venue : "") + (details.date ? " (" + details.date + ")" : "") +
+      " – " + money(est.low) + "–" + money(est.high);
 
     var label = saveButton.textContent;
     saveButton.disabled = true;
