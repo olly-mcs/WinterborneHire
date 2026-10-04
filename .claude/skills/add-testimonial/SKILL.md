@@ -22,7 +22,6 @@ Ask for anything missing before building:
   Write it as three paragraphs in glowing, warm terms (first one is the lead, shown larger). If the user only gives
   notes, draft it and show them before publishing.
 - **Showroom visits** (how many) and **first visit to wedding** (the lead time, e.g. "14 months").
-- **A video** (optional): compressed MP4 under about 30 MB, pushed to `videos/testimonials/incoming/`.
 - **Photos.** For a big set, ask them to push a folder to `images/testimonials/incoming/` with GitHub Desktop.
 
 ## 2. Choose the photos
@@ -72,8 +71,6 @@ Copy Laura & Alexandra's `<article class="tm">` and change:
 
 **Newest couple goes first** in `.tm-list`. Layout alternates sides automatically.
 
-A video can be added as a slide: `<li class="tm-slide"><video src="/videos/testimonials/<slug>/....mp4" controls playsinline preload="metadata" poster="..."></video></li>`
-(compress to under about 30 MB first).
 
 ## 5. Check and publish
 
