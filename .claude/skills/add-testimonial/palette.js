@@ -2,10 +2,12 @@
 // Usage: node .claude/skills/add-testimonial/palette.js <folder-under-images> <file>:<x0>,<y0>,<x1>,<y1> [...]
 // Regions are fractions of the image (0-1) that cover only flowers. Needs the site served at
 // http://127.0.0.1:8099 (python3 -m http.server 8099 from the repo root works) and Playwright.
+// For very colourful florals next to skin or wood, raise the colour threshold: MIN_SAT=0.45 node ...
 const { execSync } = require("child_process");
 const { chromium } = require(execSync("npm root -g").toString().trim() + "/playwright");
 
 const [folder, ...specs] = process.argv.slice(2);
+const minSat = Number(process.env.MIN_SAT || 0.15);
 const regions = specs.map((s) => {
   const [file, box] = s.split(":");
   return [file, box.split(",").map(Number)];
@@ -15,7 +17,7 @@ const regions = specs.map((s) => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   await page.goto("http://127.0.0.1:8099/404");
-  const result = await page.evaluate(async ({ folder, regions }) => {
+  const result = await page.evaluate(async ({ folder, regions, minSat }) => {
     const px = [];
     for (const [file, [x0, y0, x1, y1]] of regions) {
       const img = new Image();
@@ -30,7 +32,7 @@ const regions = specs.map((s) => {
       for (let i = 0; i < d.length; i += 8) {
         const r = d[i], g = d[i + 1], b = d[i + 2], mx = Math.max(r, g, b), mn = Math.min(r, g, b);
         const v = mx / 255, s = mx ? (mx - mn) / mx : 0;
-        if (s > 0.15 && v > 0.18 && v < 0.98) px.push([r, g, b]); // skip whites, greys and shadows
+        if (s > minSat && v > 0.18 && v < 0.98) px.push([r, g, b]); // skip whites, greys and shadows
       }
     }
     const K = 9;
@@ -46,7 +48,7 @@ const regions = specs.map((s) => {
     }
     const hex = (c) => "#" + c.slice(0, 3).map((v) => Math.round(v).toString(16).padStart(2, "0")).join("").toUpperCase();
     return C.sort((a, b) => b[3] - a[3]).map((c) => `${hex(c)}  ${((100 * c[3]) / px.length).toFixed(1)}%`);
-  }, { folder, regions });
+  }, { folder, regions, minSat });
   console.log(result.join("\n"));
   await browser.close();
 })();

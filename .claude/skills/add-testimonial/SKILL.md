@@ -49,7 +49,8 @@ python3 -m http.server 8099 --directory . &   # from the repo root
 node .claude/skills/add-testimonial/palette.js testimonials/<slug> 03-bridal-bouquet.jpg:0.18,0.66,0.76,0.86 01-floral-archway.jpg:0,0.25,0.3,0.95
 ```
 
-Regions are fractions of the image covering only flowers. Merge near-identical clusters, drop any that are skin or
+Regions are fractions of the image covering only flowers. If skin, wood or floors creep in (common with very bright
+florals), rerun with `MIN_SAT=0.45` in front of the command. Merge near-identical clusters, drop any that are skin or
 background, and give each a short floral name (Burgundy, Blush, Lilac, Foliage...). Always include the main foliage green.
 Round to clean hex values; small adjustments towards what the flowers actually look like are fine.
 
