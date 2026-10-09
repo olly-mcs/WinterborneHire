@@ -60,7 +60,9 @@ Large Props, Small Props, Table Decor, Furniture, the Faux Florals gallery and t
 - the "More kind words" section on `our-testimonials.html` (between `kind-words` markers).
 
 Images: `scripts/fetch-webflow-images.mjs` saves them from Webflow's CDN into `images/webflow/`; the build uses a saved
-copy when it exists, otherwise Webflow's URL. The GitHub Action `.github/workflows/save-webflow-images.yml` runs both
+copy when it exists, otherwise Webflow's URL. `scripts/resize-webflow-images.mjs` (needs `npm install --no-save sharp`)
+makes WebP copies at 600px and 1200px wide in `images/webflow-sized/`; pages use those with `srcset` and never load the
+originals, which are kept as the archive. The GitHub Action `.github/workflows/save-webflow-images.yml` runs both
 (it can be started by hand from the Actions tab). To change a product, edit the JSON and run the build script.
 `netlify.toml` rewrites `/signage` and `/florals-foliage` to their `.html` pages because a folder of
 product pages shares each name. Styles: `css/products.css`.

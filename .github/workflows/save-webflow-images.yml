@@ -1,4 +1,5 @@
-# Downloads the Webflow CMS images into images/webflow/ and rebuilds the product pages to use them.
+# Downloads the Webflow CMS images into images/webflow/, makes web-sized copies in images/webflow-sized/,
+# and rebuilds the product pages to use them.
 # Runs when the content data changes, or by hand from the Actions tab ("Run workflow").
 name: Save Webflow images
 
@@ -23,13 +24,17 @@ jobs:
           node-version: 22
       - name: Download images from Webflow
         run: node scripts/fetch-webflow-images.mjs
+      - name: Make web-sized copies
+        run: |
+          npm install --no-save --no-package-lock sharp@0.33
+          node scripts/resize-webflow-images.mjs
       - name: Point the pages at the saved images
         run: python3 scripts/build-webflow-content.py
       - name: Commit the images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add images/webflow *.html florals-foliage signage rugs-runners-collection large-prop-collection small-props-collection table-decor-collection furniture-collection
+          git add images/webflow images/webflow-sized *.html florals-foliage signage rugs-runners-collection large-prop-collection small-props-collection table-decor-collection furniture-collection
           if git diff --cached --quiet; then
             echo "Nothing new to save."
           else

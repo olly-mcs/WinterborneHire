@@ -40,6 +40,21 @@ def img_url(img):
     return "/" + img["file"] if os.path.exists(os.path.join(ROOT, img["file"])) else img["src"]
 
 
+def sized(img, sizes, default=600):
+    """src/srcset/sizes attributes, using the web-sized copies in images/webflow-sized/ when they exist."""
+    if not img:
+        return 'src=""'
+    stem, _ = os.path.splitext(img["file"].replace("images/webflow/", "images/webflow-sized/", 1))
+    small, large = f"{stem}-600.webp", f"{stem}-1200.webp"
+    if os.path.exists(os.path.join(ROOT, small)) and os.path.exists(os.path.join(ROOT, large)):
+        src = small if default == 600 else large
+        return f'src="/{src}" srcset="/{small} 600w, /{large} 1200w" sizes="{sizes}"'
+    return f'src="{img_url(img)}"'
+
+
+CARD_SIZES = "(max-width: 767px) 50vw, (max-width: 991px) 33vw, 300px"
+
+
 def read(path):
     return open(os.path.join(ROOT, path), encoding="utf-8").read()
 
@@ -62,12 +77,12 @@ def block_end(s, start):
 
 def card(col, item):
     prefix = COLLECTIONS[col].get("url", col)
-    main, hover = img_url(item["image"]), img_url(item["hover"])
     alt = e(item["name"])
-    hover_img = f'<img src="{hover}" loading="lazy" alt="" class="smallpropplphover">' if hover else ""
+    main = sized(item["image"], CARD_SIZES)
+    hover_img = f'<img {sized(item["hover"], CARD_SIZES)} loading="lazy" alt="" class="smallpropplphover">' if item["hover"] else ""
     return (f'<div role="listitem" class="product-card">'
             f'<a href="/{prefix}/{item["slug"]}" class="product-card-link">'
-            f'<span class="product-card-media"><img src="{main}" loading="lazy" alt="{alt}">{hover_img}</span>'
+            f'<span class="product-card-media"><img {main} loading="lazy" alt="{alt}">{hover_img}</span>'
             f'<span class="product-card-name">{alt}</span></a></div>')
 
 
@@ -141,7 +156,8 @@ def detail_page(col, cfg, item, items):
     for n, i in enumerate(images):
         load = 'fetchpriority="high"' if n == 0 else 'loading="lazy"'
         extra = "" if n == 0 else " styled at a wedding"
-        gallery += f'<img src="{img_url(i)}" alt="{e(item["name"])}{extra}" {load} class="product-photo">'
+        size = "(max-width: 991px) 100vw, 600px" if n == 0 or len(images) == 1 else "(max-width: 991px) 50vw, 300px"
+        gallery += f'<img {sized(i, size, 1200 if n == 0 else 600)} alt="{e(item["name"])}{extra}" {load} class="product-photo">'
     qty = f'<p class="product-qty"><span>Available</span> {e(item["quantity"])}</p>' if item["quantity"] else ""
     others = [i for i in items if i["slug"] != item["slug"]][:4]
     related = "".join("        " + card(col, i) + "\n" for i in others)
@@ -176,11 +192,11 @@ def testimonials():
     s = read(path)
     cards = []
     for t in DATA["testimonials"]:
-        img = img_url(t["image"])
+        img = sized(t["image"], "(max-width: 767px) 100vw, 400px")
         meta = " &middot; ".join(x for x in (e(t["venue"]), e(t["month"])) if x)
         paras = "".join(f"<p>{e(p.strip())}</p>" for p in t["quote"].split("\n") if p.strip())
         cards.append(f'''        <li class="kw-card">
-          <img src="{img}" alt="{e(t["names"])}" loading="lazy" class="kw-photo">
+          <img {img} alt="{e(t["names"])}" loading="lazy" class="kw-photo">
           <div class="kw-text">
             <h3 class="kw-names">{e(t["names"])}</h3>
             <p class="kw-meta">{meta}</p>
