@@ -15,7 +15,7 @@ npx serve .      # http://localhost:3000
 
 | What | File |
 | --- | --- |
-| Pages | `*.html` in the repo root (served without `.html`, e.g. `/contact-us`) |
+| Pages | `*.html` in the repo root (served without `.html`, e.g. `/contact-us`), plus `bespoke-florals/` |
 | Styles | `css/winterborne-vintage.webflow.css` (the Webflow export), `css/site.css` (our additions, loaded after it), `css/webflow.css`, `css/normalize.css` |
 | Scripts | `js/webflow.js` (animations, menu, tabs), `js/jquery-3.5.1.min.js`, `js/contact-form.js` |
 | Images, video, fonts | `images/`, `videos/`, `fonts/` |
@@ -46,6 +46,18 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
   "Follow @winterbornehireandstyling" button shows.
 - The token lives in the Netlify environment variable `INSTAGRAM_ACCESS_TOKEN`, never in the code. Pasting a new token
   there (then redeploying) always takes over from the renewed one.
+
+## Bespoke Florals
+
+A top-level menu item, right of Collection, on every page. Hovering shows a dropdown of the five subcategories
+(alphabetical); clicking "Bespoke Florals" on desktop opens `/bespoke-florals` (`js/nav.js`). On phones the dropdown
+starts with an "All bespoke florals" link instead.
+
+- `bespoke-florals/index.html`: overview with a numbered section per subcategory.
+- `bespoke-florals/<slug>.html`: archways, custom-installations, floral-pillars, moongates, urns-and-plinths.
+  Built in the Faux Florals style (reusing its `ff-` classes) plus `css/bespoke-florals.css`.
+- Every page has the subcategory strip (`.bf-subnav`); the current one has `is-current` (dark olive highlight).
+- Photos are existing site and testimonial photos for now.
 
 ## Quote builder (prototype)
 
