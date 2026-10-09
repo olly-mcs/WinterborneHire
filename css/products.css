@@ -157,7 +157,7 @@
 .product-title {
   margin: 0 0 16px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(34px, 3.4vw, 48px);
   font-weight: 400;
   line-height: 1.1;
@@ -236,7 +236,7 @@
 .product-related-title {
   margin: 0;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(28px, 2.6vw, 36px);
   font-weight: 400;
   text-align: center;
@@ -276,7 +276,7 @@
 .kw-title {
   margin: 0;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(32px, 3.2vw, 46px);
   font-weight: 400;
   text-transform: uppercase;
@@ -313,7 +313,7 @@
 .kw-names {
   margin: 0;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 1.2;

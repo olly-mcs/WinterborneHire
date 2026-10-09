@@ -75,6 +75,8 @@ Copy Laura & Alexandra's `<article class="tm">` and change:
 **Newest wedding goes first** in `.tm-list` (by wedding month, not by when it was added). Layout alternates sides automatically.
 
 
+Fonts: use only Cinzel (headings), Raleway (body copy) and Fake serif (script accents), as in CLAUDE.md.
+
 ## 5. Check and publish
 
 - Serve the site and check `/our-testimonials` at desktop (1440px) and phone (390px) widths: slider arrows, thumbnails,

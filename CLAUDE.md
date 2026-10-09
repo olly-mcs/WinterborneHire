@@ -125,6 +125,12 @@ from every page and the `X-Robots-Tag` block from `netlify.toml`.
 
 ## Rules for changes
 
+- **Fonts: only these three, ever.** Don't bring in fonts from mockups or designs; translate them to these:
+  - **Cinzel** for headlines, buttons and navigation (not for sentences or paragraphs; it's hard to read at length);
+  - **Raleway** for all body copy, including lead paragraphs, quotes, labels and captions;
+  - **Fake serif** (`"Fake serif", serif`, self-hosted in `fonts/`) for stylised, handwritten-looking headings
+    such as "& styling".
+
 - Keep the Webflow class names and `data-w-id` / `data-wf-page` attributes. `js/webflow.js` uses them.
 - Link pages as `/page-name` and assets as `/images/...` (root-relative), so the 404 page works at any URL.
 - Commit to `main` with a clear message. Netlify deploys it within about a minute.

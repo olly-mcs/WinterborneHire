@@ -12,7 +12,7 @@
 .bf-script {
   margin: 0 0 18px;
   color: #3a3835;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: clamp(30px, 2.6vw, 40px);
   line-height: 1.05;
   text-align: left;
@@ -98,7 +98,7 @@
 .bf-hero-title {
   margin: 0 0 14px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(42px, 4.8vw, 66px);
   font-weight: 400;
   line-height: 1;
@@ -218,7 +218,7 @@
   border: 1px solid #b0a898;
   border-radius: 50%;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 17px;
 }
 
@@ -232,7 +232,7 @@
 .bf-cat-title {
   margin: 0 0 6px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(32px, 3vw, 42px);
   font-weight: 400;
   line-height: 1.05;
@@ -378,7 +378,7 @@
 }
 
 .bf-looks-section .bf-looks-title {
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(28px, 2.8vw, 38px);
   font-weight: 400;
   letter-spacing: 0.02em;

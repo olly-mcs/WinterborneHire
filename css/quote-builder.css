@@ -24,7 +24,7 @@
 .qb-title {
   margin: 0 0 18px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(38px, 4.4vw, 60px);
   font-weight: 400;
   line-height: 1.05;
@@ -35,7 +35,7 @@
 .qb-script {
   display: block;
   color: #b0765c;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 1.1em;
   text-transform: none;
 }
@@ -65,7 +65,7 @@
 .qb-section-title {
   margin: 0 0 4px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 1.15;
@@ -210,7 +210,7 @@
 .qb-summary-title {
   margin: 0;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 1.1;
@@ -291,7 +291,7 @@
 .qb-estimate-range {
   margin: 0 0 10px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 38px;
   line-height: 1.1;
   text-align: center;
@@ -441,7 +441,7 @@
 
   .qb-bar-range {
     flex: 1;
-    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-family: Cinzel, serif;
     font-size: 22px;
   }
 

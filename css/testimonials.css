@@ -31,7 +31,7 @@
 .tm-page-title {
   margin: 0 0 16px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(38px, 4.4vw, 60px);
   font-weight: 400;
   line-height: 1.05;
@@ -65,7 +65,7 @@
 .tm-names {
   margin: 0;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(36px, 3.6vw, 52px);
   font-weight: 400;
   line-height: 1.1;
@@ -75,7 +75,7 @@
 
 .tm-amp {
   color: #b0765c;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 1.15em;
   padding: 0 0.08em;
 }
@@ -125,8 +125,8 @@
 
 .tm-story-text .tm-story-lead {
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: 24px;
+  font-family: Raleway, sans-serif;
+  font-size: 20px;
   line-height: 1.45;
 }
 
@@ -157,7 +157,7 @@
 .tm-fact dd {
   margin: 0;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 26px;
   line-height: 1.2;
 }
@@ -385,8 +385,8 @@
   border: 0;
   text-align: left;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: 21px;
+  font-family: Raleway, sans-serif;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -431,7 +431,7 @@
 .tm-palette-title {
   margin: 0 0 14px;
   color: #3a3835;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 1;
@@ -599,11 +599,11 @@
   }
 
   .tm-quote {
-    font-size: 19px;
+    font-size: 17px;
   }
 
   .tm-story-text .tm-story-lead {
-    font-size: 21px;
+    font-size: 18px;
   }
 
   .tm-fact dd {

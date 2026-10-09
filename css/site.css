@@ -93,7 +93,7 @@
 .hero-title {
   margin: 0;
   color: #fff;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(44px, 5.6vw, 78px);
   font-weight: 400;
   line-height: 0.98;
@@ -105,7 +105,7 @@
 .hero-script {
   display: block;
   margin-top: 0.08em;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 1.12em;
   line-height: 0.9;
   letter-spacing: 0;
@@ -245,7 +245,7 @@
 .florals-title {
   margin: 0 0 24px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(34px, 3.4vw, 48px);
   font-weight: 400;
   line-height: 1.05;
@@ -301,7 +301,7 @@
 .florals-note {
   margin: 0;
   color: #6f675d;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 34px;
   line-height: 0.95;
   text-align: center;
@@ -443,7 +443,7 @@
 .hire-banner-title {
   margin: 0 0 18px;
   color: #fff;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(32px, 3.4vw, 48px);
   font-weight: 400;
   line-height: 1.05;
@@ -518,7 +518,7 @@
 .process-title {
   margin: 0 0 10px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(28px, 2.6vw, 36px);
   font-weight: 400;
   line-height: 1.1;
@@ -655,7 +655,7 @@
   margin: 0 0 20px;
   text-transform: uppercase;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(32px, 3.2vw, 46px);
   font-weight: 400;
   line-height: 1.08;
@@ -682,7 +682,7 @@
 
 .ff-script {
   display: block;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 1.15em;
   line-height: 0.95;
   text-transform: none;
@@ -754,7 +754,7 @@
 .ff-hero-title {
   margin: 0 0 22px;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: clamp(42px, 5vw, 70px);
   font-weight: 400;
   line-height: 1;
@@ -825,7 +825,7 @@
   bottom: -6px;
   margin: 0;
   color: #b0765c;
-  font-family: Allison, "Brush Script MT", cursive;
+  font-family: "Fake serif", serif;
   font-size: 40px;
   line-height: 1;
   transform: rotate(-5deg);
@@ -857,8 +857,8 @@
   padding: 4px 0 4px 24px;
   border-left: 2px solid #e59775;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: 24px;
+  font-family: Raleway, sans-serif;
+  font-size: 20px;
   font-style: italic;
   line-height: 1.4;
 }
@@ -928,7 +928,7 @@
 .ff-tile-title {
   margin: 0 0 6px;
   color: #fff;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 1.1;
@@ -977,7 +977,7 @@
   display: block;
   margin-bottom: 14px;
   color: #e59775;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 44px;
   line-height: 1;
 }
@@ -1044,7 +1044,7 @@
   border: 1px solid #b0a898;
   border-radius: 50%;
   color: #3a3835;
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-family: Cinzel, serif;
   font-size: 22px;
 }
 
