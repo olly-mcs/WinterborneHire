@@ -20,6 +20,17 @@ COLLECTIONS = {
     "signage": {"page": "signage.html", "title": "Signage", "label": "signage"},
     "rugs-runners": {"page": "rugs-runners.html", "title": "Rugs & Runners", "label": "rugs & runners",
                      "url": "rugs-runners-collection"},
+    "large-props": {"page": "large-props.html", "title": "Large Props", "label": "large props",
+                    "url": "large-prop-collection",
+                    "tabs": {"All": None, "Archways": "Archways", "Moongates": "Moongates", "Other Decor": "Other Decor"}},
+    "small-props": {"page": "small-props.html", "title": "Small Props", "label": "small props",
+                    "url": "small-props-collection",
+                    "tabs": {"All": None, "Lanterns": "Lanterns", "Cake Stands": "Cake Stands", "Other Decor": "Other Decor"}},
+    "table-decor": {"page": "table-decor.html", "title": "Table Decor", "label": "table decor",
+                    "url": "table-decor-collection",
+                    "tabs": {"All": None, "CandleHolders": "Candleholdes", "Vessels": "Vessels",
+                             "Table Numbers": "Table Numbers", "Other": "Other"}},
+    "furniture": {"page": "furniture.html", "title": "Furniture", "label": "furniture", "url": "furniture-collection"},
 }
 
 

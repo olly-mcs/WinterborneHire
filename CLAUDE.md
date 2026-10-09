@@ -50,12 +50,13 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
 ## Products and older testimonials (from the Webflow CMS)
 
 The Webflow CMS exports (CSV) were converted to `data/webflow-content.json`: Florals & Foliage, Signage, Rugs & Runners,
-the Faux Florals gallery and the older testimonials. `scripts/build-webflow-content.py` builds from it:
+Large Props, Small Props, Table Decor, Furniture, the Faux Florals gallery and the older testimonials. `scripts/build-webflow-content.py` builds from it:
 
-- the product grids on `florals-foliage.html` (inside the Webflow tabs), `signage.html` and `rugs-runners.html`,
+- the product grids on every collection page (filling the Webflow filter tabs where a page has them),
   between `<!-- products:start -->` / `<!-- products:end -->` markers;
 - a page per product at the same URL Webflow used: `/florals-foliage/<slug>`, `/signage/<slug>`,
-  `/rugs-runners-collection/<slug>` (the `url` setting in the script);
+  `/rugs-runners-collection/<slug>`, `/large-prop-collection/`, `/small-props-collection/`, `/table-decor-collection/`,
+  `/furniture-collection/` (the `url` setting in the script);
 - the "More kind words" section on `our-testimonials.html` (between `kind-words` markers).
 
 Images: `scripts/fetch-webflow-images.mjs` saves them from Webflow's CDN into `images/webflow/`; the build uses a saved
@@ -105,9 +106,8 @@ first, with styles in `css/testimonials.css` and the slider/full-screen viewer i
 
 - Removed: the test pages, `small-props-old`, the search page, the password page and the empty `detail_*` CMS templates.
   Old URLs for the removed pages redirect in `netlify.toml`.
-- **The Webflow export does not include CMS content.** Lists built from Webflow collections (the prop grids on
-  Large Props, Small Props, Table Decor, Florals and so on, plus testimonials, gallery and blog lists) show
-  "No items found" until that content is rebuilt from the collections' CSV exports.
+- **The Webflow export does not include CMS content.** The product collections and testimonials have been rebuilt from
+  the CSV exports (see above). The blog and wedding packages haven't been yet.
 - The hero video, jQuery and share images are hosted with the site. Fonts, jQuery UI, Masonry, Elfsight and
   still load from their own CDNs.
 
