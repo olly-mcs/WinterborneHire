@@ -9,6 +9,23 @@
 [functions]
   directory = "netlify/functions"
 
+# Product list pages share their name with a folder of product pages (e.g. signage.html and signage/),
+# so say explicitly which file serves the list.
+[[redirects]]
+  from = "/signage"
+  to = "/signage.html"
+  status = 200
+
+[[redirects]]
+  from = "/florals-foliage"
+  to = "/florals-foliage.html"
+  status = 200
+
+[[redirects]]
+  from = "/rugs-runners"
+  to = "/rugs-runners.html"
+  status = 200
+
 # Pages removed in the move from Webflow
 [[redirects]]
   from = "/small-props-old"

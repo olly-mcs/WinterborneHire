@@ -1,0 +1,1166 @@
+{
+ "florals-foliage": [
+  {
+   "name": "Thick eucalyptus garlands",
+   "slug": "thick-eucalyptus-garlands",
+   "description": "<p>Create the perfect rustic trestle table look with our thick eucalyptus greenery table runners. Ideal for a natural, effortless vibe, these runners can be enhanced with extra greenery, real or faux, or customised with blooms like baby’s breath for a magical touch. </p><p>Pair them with bud vases or cylinder vases nestled along the table for an elegant finishing detail.</p>",
+   "quantity": "30+",
+   "filter": "Runners",
+   "featured": true,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/62a8f1bbaae1833b158c72ae_Thick%20Eucaluptus%20garlands.png",
+    "file": "images/webflow/florals-foliage/thick-eucalyptus-garlands.png"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/679253e3a333efe34758c3eb_thick%20foliage%20garland.webp",
+    "file": "images/webflow/florals-foliage/thick-eucalyptus-garlands-hover.webp"
+   }
+  },
+  {
+   "name": "Ceremony installation arrangement",
+   "slug": "english-garden-xl-floral-ceremony-installation-arrangement",
+   "description": "<p>Do you have a outside structure which you would love to decorate with florals to get those perfect 'just married' images? Our English Garden XL floral arrangement could be installed. Made from the highest quality white silk florals and plenty of faux foliage. This really is the showstopping piece you have been looking for.</p><p>Not your colour scheme? Dont worry we also create bespoke arrnagements to match with your other wedding florals and chosen themes &amp; colours.</p>",
+   "quantity": "1",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/654cd183ce6489cc7cfc492d_winterborne%20English%20Garden%20Ceremomy%20Area%20Installation.webp",
+    "file": "images/webflow/florals-foliage/english-garden-xl-floral-ceremony-installation-arrangement.webp"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f68f6d2918cde636826a55_arbor.png",
+    "file": "images/webflow/florals-foliage/english-garden-xl-floral-ceremony-installation-arrangement-hover.png"
+   }
+  },
+  {
+   "name": "Chandelier Decor",
+   "slug": "faux-floral-chandelier-decor",
+   "description": "<p>Beautiful installation piece designed to create the wow factor. Decorate your chandelier light fittings with these gorgeous faux floral and foliage pieces.</p><p>Available for 3ft &amp; 4ft chandeliers.</p><p>Customisable to your colour scheme. Seen here in autumnal seasonal blooms and foliage.</p><p>(light fitting not included decor only)</p>",
+   "quantity": "1",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/654cbf4d15ad60de27d296c4_Winterborne%20faux%20floral%20Chandelier%20Decor.webp",
+    "file": "images/webflow/florals-foliage/faux-floral-chandelier-decor.webp"
+   },
+   "hover": null
+  },
+  {
+   "name": "Custom made Bridal Bouquets",
+   "slug": "custom-made-bridal-bouquets",
+   "description": "<p>Complete your wedding look with our custom-made bridal bouquets, matching bridesmaids' arrangements, and buttonholes—all crafted with high-quality faux florals to perfectly match your wedding theme and décor.</p><p>Why not hire these stunning pieces and save on your budget without compromising on beauty or style? Our bespoke designs ensure every detail ties seamlessly into your big day, creating a cohesive and unforgettable look.</p><p>Effortlessly elegant and budget-friendly—let us help bring your vision to life!</p>",
+   "quantity": "",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/6797f2ffcb9a5af8db5a627b_bouquest.webp",
+    "file": "images/webflow/florals-foliage/custom-made-bridal-bouquets.webp"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/6797f305ec2eda83184c60c7_IMG_1191.webp",
+    "file": "images/webflow/florals-foliage/custom-made-bridal-bouquets-hover.webp"
+   }
+  },
+  {
+   "name": "Faux Foliage & Wisteria Garland Decor For Suspended Ladders",
+   "slug": "wisteria-foliage-suspended-ladder-decor",
+   "description": "<p>Decorate your suspended ladder light fitting with our plenty of faux foliage &amp; Wisteria to create an amazing rustic statement</p><p>Available for both 3m &amp; 4.5m ladders</p><p>(Ladder light fitting not included decor only)</p>",
+   "quantity": "6",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/654cc6cd8114a239e55af0e4_winterborne%20wisteria%20suspended%20ladder%20decor.webp",
+    "file": "images/webflow/florals-foliage/wisteria-foliage-suspended-ladder-decor.webp"
+   },
+   "hover": null
+  },
+  {
+   "name": "Faux Foliage Garland Decor For Suspended Ladders",
+   "slug": "faux-foliage-garland-decor-for-suspended-ladders",
+   "description": "<p>Decorate your suspended ladder light fitting with our plenty of faux foliage to create an amazing rustic statement</p><p>Available for both 3m &amp; 4.5m ladders</p><p>(Ladder light fitting not included decor only)</p>",
+   "quantity": "6",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/654cc522f08cb7de996ffa58_Winterborne%20foliage%20suspended%20ladder%20decor.webp",
+    "file": "images/webflow/florals-foliage/faux-foliage-garland-decor-for-suspended-ladders.webp"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/654cc52a8b733a87f92bc3ff_winterborne%20suspended%20ladder%20foliage%20decor%20hover.webp",
+    "file": "images/webflow/florals-foliage/faux-foliage-garland-decor-for-suspended-ladders-hover.webp"
+   }
+  },
+  {
+   "name": "Footed bowl Centrepiece",
+   "slug": "english-garden-low-centrepiece-arrangement",
+   "description": "<p>Elevate your table décor with our footed bowl arrangements, custom-made to match your style, design, or colour theme. </p><p>Perfect as a centrepiece for both round and straight tables, these arrangements add a touch of timeless elegance to your wedding</p>",
+   "quantity": "10+",
+   "filter": "Centrepieces",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/67924f85549b3fcc2c51df12_footed%20bowl%20centrepiece.webp",
+    "file": "images/webflow/florals-foliage/english-garden-low-centrepiece-arrangement.webp"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f5939efd1b991db8361676_english%20garden%20low%20centrepieces.png",
+    "file": "images/webflow/florals-foliage/english-garden-low-centrepiece-arrangement-hover.png"
+   }
+  },
+  {
+   "name": "Meadow Aisle Arrangements",
+   "slug": "english-garden-meadow-aisle-arrangements",
+   "description": "<p>Create a breathtaking aisle with our custom-made meadow arrangements, designed to match your style, color palette, or theme. </p><p>This trending wedding must-have is not only stunning but also versatile, as it can be easily moved to other areas of your venue after the ceremony.</p>",
+   "quantity": "10+",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/67924e0ed817aab118204a2d_meadow%20aisle.webp",
+    "file": "images/webflow/florals-foliage/english-garden-meadow-aisle-arrangements.webp"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/67924e16549b3fcc2c502374_meadow%20aisle%20(1).webp",
+    "file": "images/webflow/florals-foliage/english-garden-meadow-aisle-arrangements-hover.webp"
+   }
+  },
+  {
+   "name": "Tall podium centrepiece",
+   "slug": "tall-podium-centrepiece",
+   "description": "<p>Make a bold statement with our tall floral podium centrepieces, custom-designed to match your style, colour palette, or theme. </p><p>Perfect for round or straight tables, these show-stopping arrangements are the ultimate in table décor. Choose from our elegant range of stands in gold, black, or clear to complete the look</p>",
+   "quantity": "10+",
+   "filter": "Centrepieces",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/6792514adbeae46fb168a412_tall%20podium%20centrepiece.webp",
+    "file": "images/webflow/florals-foliage/tall-podium-centrepiece.webp"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/67925151a01275eb3e8f8283_podium%20centrepiece.webp",
+    "file": "images/webflow/florals-foliage/tall-podium-centrepiece-hover.webp"
+   }
+  },
+  {
+   "name": "Top Table Centrepiece",
+   "slug": "english-garden-top-table-centrepiece",
+   "description": "<p>Make your top table unforgettable with our stunning faux floral centerpiece. </p><p>Custom-designed to suit your unique style, this arrangement can be tailored to any color palette, theme, or design, ensuring it perfectly complements your wedding vision</p>",
+   "quantity": "1",
+   "filter": "Top Table",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f691a60315a3b081ada31f_top%20table%20centrepeice%201.png",
+    "file": "images/webflow/florals-foliage/english-garden-top-table-centrepiece.png"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f6912c4e35e030e9f2e15b_English%20Garden%20Top%20Table%20Centrepiece.png",
+    "file": "images/webflow/florals-foliage/english-garden-top-table-centrepiece-hover.png"
+   }
+  },
+  {
+   "name": "XL Hanging Floral & Foliage Hoop",
+   "slug": "xl-hanging-floral-foliage-hoop",
+   "description": "<p>Suspend this 2m circular hoop from the ceiling of your venue</p><p>Customisable with your chosen colours</p><p>A rustic showstopping piece</p>",
+   "quantity": "1",
+   "filter": "Other",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/654cc7f05be7640ec7cdd3d1_winterborne%20hanging%20floral%20hoop.webp",
+    "file": "images/webflow/florals-foliage/xl-hanging-floral-foliage-hoop.webp"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/654cc8e79a9dafc07e80482a_Winterborne%20XL%20Hanging%20Floral%20Hoop%20hover.webp",
+    "file": "images/webflow/florals-foliage/xl-hanging-floral-foliage-hoop-hover.webp"
+   }
+  }
+ ],
+ "signage": [
+  {
+   "name": "Chalk A board",
+   "slug": "chalk-a-board",
+   "description": "<p>Elevate your wedding decor with our Customised Chalkboard Signs, crafted in-house to add a personalised touch to your special day. </p><p>Perfect for Order of Events or Welcome signs, these charming boards seamlessly blend functionality with aesthetics. </p><p>Our expert team can offer a variety of styles and fonts to match your wedding theme. </p><p>Let these beautifully crafted chalkboard signs set the tone for your celebration. </p><p>Contact us, your Dorset-based wedding hire specialists, to bring your vision to life and make your wedding day truly unforgettable</p>",
+   "quantity": "2",
+   "filter": "",
+   "featured": true,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65d38d199bcd225ed0a9b6b0_chalk%20a%20board%20sign.png",
+    "file": "images/webflow/signage/chalk-a-board.png"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c5c9729cc2c45a9840_60d1b8206b6c205615843b1f_a-board-emma-wedding.jpeg",
+    "file": "images/webflow/signage/chalk-a-board-hover.jpg"
+   }
+  },
+  {
+   "name": "Fabric Banner Wedding Sign",
+   "slug": "fabric-banner-wedding-sign",
+   "description": "<p>Add a modern and elegant touch to your wedding with our fabric banner wedding sign—a stylish and versatile way to display your welcome message, order of the day, or even your table plan.</p><p>Designed just for you, this personalized fabric banner can be created in any color to match your wedding theme, featuring your names, wedding date, and custom text. The best part? It’s yours to keep as a special keepsake after the big day.</p><p>For the perfect display, hang the banner from our large black frame and complete the look with a custom faux floral arrangement, designed to complement your wedding florals beautifully</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": true,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/67ec3e8931ad3825a36c504f_fabric%20banner%20signgnKingstonMaurwardWeddingFairMar25-36.webp",
+    "file": "images/webflow/signage/fabric-banner-wedding-sign.webp"
+   },
+   "hover": null
+  },
+  {
+   "name": "Gold Arched Full-Length Mirror",
+   "slug": "gold-arched-full-length-mirror",
+   "description": "<p>Make a stunning first impression with our gold arched full-length mirror, the perfect statement piece for your wedding day. Whether used as a welcome sign or an order of the day display, this elegant mirror adds a touch of sophistication and charm to your venue.</p><p>Beautifully crafted with a luxurious gold frame and full-length design, this mirror is not just a stylish décor piece—it’s also a selfie spot your guests will love! Perfect for a quick outfit check before the “I dos” or capturing those candid moments, it brings both beauty and practicality to your special day.</p><p>Your mirror will be custom-designed with your own message, names, and wedding date, creating a unique and elegant touch that perfectly complements your theme</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": true,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/67ec3c59a12bfbac08850085_arched%20mirrorKingstonMaurwardWeddingFairMar25-24.webp",
+    "file": "images/webflow/signage/gold-arched-full-length-mirror.webp"
+   },
+   "hover": null
+  },
+  {
+   "name": "Mr & Mrs Neon Sign",
+   "slug": "mr-mrs-neon-sign",
+   "description": "<p>Brighten up your reception with a neon sign! Neons are a great addition and instantly inject a bit of fun into your wedding day.They are suitable to hang in our moongates, archways or even on our foliage wall. Or simply just hire this statement piece to add to your own backdrop or venue decor.</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": true,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d0462aa90afbc7c04b9536_608eaa5d3b96d914ece41e02_mr-and-mrs-neon-sign.jpeg",
+    "file": "images/webflow/signage/mr-mrs-neon-sign.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d0462aa90afb71594b9538_6376566eb6183545e803d602_mr%2520and%2520mrs%2520neon%2520sign%2520hoover.png",
+    "file": "images/webflow/signage/mr-mrs-neon-sign-hover.png"
+   }
+  },
+  {
+   "name": "Order of the day - Pallet Sign",
+   "slug": "order-of-the-day-pallet-sign",
+   "description": "<p>The perfect rustic wedding signage prop. </p><p>Display your order of the day in style.</p><p>All artowrks are custom created by our in house design team</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": true,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/63d048c58f1cb455722af92b_608c6bb41e55872120d235db_order-of-the-day-palette-sign.jpeg",
+    "file": "images/webflow/signage/order-of-the-day-pallet-sign.jpg"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f9ab18ecefd574958a8578_palet%20order%20of%20day%20sign%20(1).png",
+    "file": "images/webflow/signage/order-of-the-day-pallet-sign-hover.png"
+   }
+  },
+  {
+   "name": "Antique gold metal decorative easel",
+   "slug": "antique-gold-metal-decorative-easel",
+   "description": "<p>Display your wedding signage on this stunning antique gold decorative easel</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c41edac7c097185748_61e6a78c95680aad6a07810e_antique-gold-decorative-easel.jpeg",
+    "file": "images/webflow/signage/antique-gold-metal-decorative-easel.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Crazy In Love Neon Sign In Pink",
+   "slug": "crazy-in-love-neon-sign-in-pink",
+   "description": "<p>Hang our Pink Crazy In Love Neon Sign from archways, floral moon gates or attach it to our lush green foliage wall for a fun and vibrant backdrop that will leave a lasting impression on your guests. </p><p>Capture those picture-perfect moments with this playful addition, adding a touch of modern romance to your celebration. </p><p>Elevate your wedding vibes with our statement neon sign, available for hire in Dorset. </p><p>Contact us to bring this trendy and fun element to your special day</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65d396eaa016592e27abc4a3_crazy%20in%20love%20neon%20sign.png",
+    "file": "images/webflow/signage/crazy-in-love-neon-sign-in-pink.png"
+   },
+   "hover": null
+  },
+  {
+   "name": "Decorative Arched Mirror Sign",
+   "slug": "decorative-arched-mirror-sign",
+   "description": "<p>Transform your wedding signage into a work of art with our Customised Decorative Mirror Sign, crafted in-house to add a touch of glamour to your special day.</p><p>Ideal for Order of Events or Welcome signs, these mirrors seamlessly blend elegance with functionality. </p><p>Our expert team specializes in customization, offering a range of styles and fonts to match your wedding theme. </p><p>Elevate your celebration with these beautifully crafted mirror signs that reflect the uniqueness of your love story</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/65d38f2ceef369502ecee5c5_arched%20decorative%20mirror%20sign.png",
+    "file": "images/webflow/signage/decorative-arched-mirror-sign.png"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/65d38e260c01388a3b251f41_decorative%20arched%20mirror%20sign.png",
+    "file": "images/webflow/signage/decorative-arched-mirror-sign-hover.png"
+   }
+  },
+  {
+   "name": "Handmade Wooden Signs",
+   "slug": "handmade-wooden-signs",
+   "description": "<p>Point your guests in the right direction with these stylish rustic signs. We create these in our workshop so any wording is possible.</p>",
+   "quantity": "Multiple",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c5dd18bdbe547a47bd_608872c19565100e59445075_handmade-wooden-signs%2520(1).jpeg",
+    "file": "images/webflow/signage/handmade-wooden-signs.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c5dd18bd066e7a47be_60eb44fbb7f7902f487ebf6b_personlised-sign.jpeg",
+    "file": "images/webflow/signage/handmade-wooden-signs-hover.jpg"
+   }
+  },
+  {
+   "name": "Large Gilt Frame Mirror",
+   "slug": "large-gilt-frame-mirror",
+   "description": "<p>Make a statement on your special day with our Large Gold Gilt Frame Mirror, the perfect centrepiece for an exquisite table plan. </p><p>This mirror adds a touch of glamour to your wedding decor. </p><p>Ideal for showcasing your seating arrangement in style, the intricate gold gilt frame is beautifully sophisticated and perfect for all styles of weddings</p><p>Custom artworks for the mirrors are all designed in house and extra signage bespoke floral arrangements can be included</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f6923d3e53457ecde0894d_Large%20Gold%20Gilt%20Frame%20Table%20plan%20Mirrir.png",
+    "file": "images/webflow/signage/large-gilt-frame-mirror.png"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f9a67f61c6b4c3e355aa9b_mirror%20tableplan%20hover.png",
+    "file": "images/webflow/signage/large-gilt-frame-mirror-hover.png"
+   }
+  },
+  {
+   "name": "Metal frames with custom signage designs",
+   "slug": "metal-frames-with-custom-signage-designs",
+   "description": "<p>Display your wedding signage in style. We have a choice of both black and gold metal frames.</p><p>All artworks are custom made in our design studio in your choice of colour and material - we have printed boards &amp; perspex options</p><p>All frames come with a small faux floral design custom to your own colour schemes </p>",
+   "quantity": "2",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f9a54ef78cc3ee05abfc57_signage%20frames.png",
+    "file": "images/webflow/signage/metal-frames-with-custom-signage-designs.png"
+   },
+   "hover": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f9a5cb22d9b0c8601e8f9b_signage%20frames%20hover.png",
+    "file": "images/webflow/signage/metal-frames-with-custom-signage-designs-hover.png"
+   }
+  },
+  {
+   "name": "No Seating Plan - Pallet sign",
+   "slug": "no-seating-plan-pallet-sign",
+   "description": "<p>Made from palette wood this beautiful rustic sign is an alternative to a regular seating plan</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c5992bd73a0c8b040d_608c6b9298751d87b14683d5_no-seating-plan-palette-sign.jpeg",
+    "file": "images/webflow/signage/no-seating-plan-pallet-sign.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c5992bd75bfe8b040c_60d1f1b1e469734723d144a2_no-seating-plan-sign.jpeg",
+    "file": "images/webflow/signage/no-seating-plan-pallet-sign-hover.jpg"
+   }
+  },
+  {
+   "name": "Rustic Wood Rectangular Welcome Sign",
+   "slug": "rustic-wood-rectangular-welcome-sign",
+   "description": "<p>A beautiful dark wood rustic welcome sign</p><p>All artworks are custom made to each couple with their own name and wedding date</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/66f9a6ed1ce9cab9f46d35da_wooden%20welcome%20sign%20(1).png",
+    "file": "images/webflow/signage/rustic-wood-rectangular-welcome-sign.png"
+   },
+   "hover": null
+  },
+  {
+   "name": "White Metal Decorative Easel",
+   "slug": "white-metal-decorative-easel",
+   "description": "<p>Elevate your wedding signage with our White Metal Decorative Easel, a stylish and versatile addition to your celebration. </p><p>Perfect for showcasing welcome signs, order of events, or any other important details. </p><p>Our elegant easel is not just functional; it's a decorative element that adds a touch of sophistication to your wedding decor. </p><p>Enhance your special day with this timeless piece. Contact us, your Dorset-based wedding hire specialists, to reserve this elegant easel and set the stage for a picture-perfect celebration</p>",
+   "quantity": "2",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65d3925a9dcbd0edcc89862c_White%20Metal%20Decorative%20Easel.png",
+    "file": "images/webflow/signage/white-metal-decorative-easel.png"
+   },
+   "hover": null
+  },
+  {
+   "name": "Wooden Circular Welcome Sign",
+   "slug": "wooden-circular-welcome-sign",
+   "description": "",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63d048c61edac740a218574f_61e6a66cecf19a8180bf9cea_wooden-circular-welcome-sign.jpeg",
+    "file": "images/webflow/signage/wooden-circular-welcome-sign.jpg"
+   },
+   "hover": null
+  }
+ ],
+ "rugs-runners": [
+  {
+   "name": "Charity Vintage Rug",
+   "slug": "charity-vintage-rug",
+   "description": "<p>This is a beautiful vintage rug with a pretty pink and cream pattern.</p><p>Choose some similar shades of vintage rugs to make a gorgeous rug aisle, scatter around your venue and style with some peacock chairs for a boho look</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/6170047fa54f232338ff36d2_charity-vinatge-rug.jpg",
+    "file": "images/webflow/rugs-runners/charity-vintage-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Cornhill Vintage Rug",
+   "slug": "cornhill-vintage-rug",
+   "description": "<p>What a find this guy was. Beautiful tones of ochre, rusts and orange. Very different to the usual colours and perfectly on trend</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/6170065eedb6d5d1443d9f09_cornhill-rug.jpg",
+    "file": "images/webflow/rugs-runners/cornhill-vintage-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Ethnic Runner",
+   "slug": "ethnic-runner",
+   "description": "<p>One of our longest rug runners and perfect for any boho aisle</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e4dd95bc00783b79684ab_ethnic-runner.jpg",
+    "file": "images/webflow/rugs-runners/ethnic-runner.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60d23b1d3df87c1743af7865_ethnic-runner.jpg",
+    "file": "images/webflow/rugs-runners/ethnic-runner-hover.jpg"
+   }
+  },
+  {
+   "name": "Ivan Runner",
+   "slug": "extra-long-persian-runner",
+   "description": "<p>A lovely long rug runner in soft blues and pinks and perfect for any boho aisle</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e5189b9ae06c46b906705_persian-runner.jpg",
+    "file": "images/webflow/rugs-runners/extra-long-persian-runner.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "judith Rug",
+   "slug": "large-brown-persian-rug",
+   "description": "<p>A large rug with pretty pattern in neutral shades of browns and tans</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e4f52c46639112b9c8d9f_large-brown-persian-rug.jpg",
+    "file": "images/webflow/rugs-runners/large-brown-persian-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Large Vintage Red Rug",
+   "slug": "large-vintage-red-rug",
+   "description": "<p>A large vintage red rug perfect for layering with our other rugs</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e512a5081fd07f6a79c91_large-vintage-red-rug.jpg",
+    "file": "images/webflow/rugs-runners/large-vintage-red-rug.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60d239d5d46e48bdc32aa402_vintage-red-ethnic-rug.jpg",
+    "file": "images/webflow/rugs-runners/large-vintage-red-rug-hover.jpg"
+   }
+  },
+  {
+   "name": "Large-Red-Azerbaijan-Rug",
+   "slug": "large-red-azerbaijan-rug",
+   "description": "<p>A vintage red rug perfect for layering with our other rugs as part of an aisle</p>",
+   "quantity": "2",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e50461982b894e8957658_large-red-azerbaijan-rug.jpg",
+    "file": "images/webflow/rugs-runners/large-red-azerbaijan-rug.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60d2387ea4107e1cb526c450_large-red-azerbajian-rug.jpg",
+    "file": "images/webflow/rugs-runners/large-red-azerbaijan-rug-hover.jpg"
+   }
+  },
+  {
+   "name": "Pretty Cream Floral Rug",
+   "slug": "pretty-cream-floral-rug",
+   "description": "<p>A pretty cream handwoven rug with small floral design. Style with a backdrop or wedding arch. A lovely vintage piece.</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/609984456cd1aec5c23b2d3f_Cream-Floral-Rug.jpg",
+    "file": "images/webflow/rugs-runners/pretty-cream-floral-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Pretty Sage Vintage Rug",
+   "slug": "pretty-sage-vintage-rug",
+   "description": "<p>A beautiful vintage sage green rug. Perfect for any rug aisle set up or boho ceremony</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60b2a2a4a47b8586c98e4700_pretty-sage-rug.jpg",
+    "file": "images/webflow/rugs-runners/pretty-sage-vintage-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Red Aztec Rug",
+   "slug": "red-aztec-rug",
+   "description": "<p>A vintage red rug perfect for layering with our other rugs</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e4d886975be6b3c72dfd7_red-aztec-rug.jpg",
+    "file": "images/webflow/rugs-runners/red-aztec-rug.jpg"
+   },
+   "hover": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60d23a7727804b1484edd586_red-aztec-rug.jpg",
+    "file": "images/webflow/rugs-runners/red-aztec-rug-hover.jpg"
+   }
+  },
+  {
+   "name": "Round Rattan Rug",
+   "slug": "round-rattan-rug",
+   "description": "<p>A beautiful round decorative rattan rug and a perfect addition to any boho set up.</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60a55422519f265b4b962491_round%20rattan%20rug.jpg",
+    "file": "images/webflow/rugs-runners/round-rattan-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Vintage Cream and Pink Rug",
+   "slug": "vintage-cream-and-pink-rug",
+   "description": "<p>Pretty cream vintage rug. Style up with other similar rugs and runners to create an aisle or use around your venue for that dream boho look</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60b2a348a308d84251d0754e_cream-%26-pink-vintage-rug.jpg",
+    "file": "images/webflow/rugs-runners/vintage-cream-and-pink-rug.jpg"
+   },
+   "hover": null
+  },
+  {
+   "name": "Vintage Orange Rug",
+   "slug": "vintage-orange-rug",
+   "description": "<p>A beautiful coloured rug of soft orange and coral</p>",
+   "quantity": "1",
+   "filter": "",
+   "featured": false,
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/608e5217a002927a90338fe1_vintage-orange-rug.jpg",
+    "file": "images/webflow/rugs-runners/vintage-orange-rug.jpg"
+   },
+   "hover": null
+  }
+ ],
+ "faux-florals-gallery": [
+  {
+   "name": "Faux Floral 1",
+   "slug": "faux-floral-1",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffa9eb8fdaa8862b8c494_56154702-EB22-4DBA-A9F8-F95925DED986.JPG",
+    "file": "images/webflow/faux-florals/faux-floral-1.jpg"
+   }
+  },
+  {
+   "name": "faux floral 2",
+   "slug": "faux-floral-2",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffac45ff86b9be983349a_image12.jpeg",
+    "file": "images/webflow/faux-florals/faux-floral-2.jpg"
+   }
+  },
+  {
+   "name": "faux floral 3",
+   "slug": "faux-floral-3",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffb1bd7f0642a044c8c3d_6fe96d19-6769-45dd-815f-c092f9b8f722%203.JPG",
+    "file": "images/webflow/faux-florals/faux-floral-3.jpg"
+   }
+  },
+  {
+   "name": "faux floral 4",
+   "slug": "faux-floral-4",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffbb46fecf7a4fd76f567_florals%204.png",
+    "file": "images/webflow/faux-florals/faux-floral-4.png"
+   }
+  },
+  {
+   "name": "faux floral 6",
+   "slug": "faux-floral-6",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffc6a8d9693418c1077fe_1994583c-9b88-4a8e-ab47-7e63b4646685%202.JPG",
+    "file": "images/webflow/faux-florals/faux-floral-6.jpg"
+   }
+  },
+  {
+   "name": "faux floral 7",
+   "slug": "faux-floral-7",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffc859e9ff7c98c8bc9f9_DD0BAF81-E093-4DC3-8B2C-22B533556C11.JPG",
+    "file": "images/webflow/faux-florals/faux-floral-7.jpg"
+   }
+  },
+  {
+   "name": "faux florals 10",
+   "slug": "faux-florals-10",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffd251fa9134f0561b33f_Sophie%20and%20Jamie_s%20Wedding-26.jpg",
+    "file": "images/webflow/faux-florals/faux-florals-10.jpg"
+   }
+  },
+  {
+   "name": "faux florals 11",
+   "slug": "faux-florals-11",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffd558365ad6778a330b8_IMG_4759.PNG",
+    "file": "images/webflow/faux-florals/faux-florals-11.png"
+   }
+  },
+  {
+   "name": "faux florals 13",
+   "slug": "faux-florals-13",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffe5597a894196daab80a_Sophie%20and%20Jamie_s%20Wedding-273.jpg",
+    "file": "images/webflow/faux-florals/faux-florals-13.jpg"
+   }
+  },
+  {
+   "name": "faux florals 9",
+   "slug": "faux-florals-9",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/63cffcfe352e74f920b82c83_Sophie%20and%20Jamie_s%20Wedding-18.jpg",
+    "file": "images/webflow/faux-florals/faux-florals-9.jpg"
+   }
+  }
+ ],
+ "testimonials": [
+  {
+   "names": "Aimee & Adam",
+   "slug": "aimee-adam",
+   "venue": "Gorwell Farm",
+   "date": "2024-10",
+   "month": "October 2024",
+   "quote": "Winterborne Hire and Styling were incredible at making our day extra special. I visited their lovely show room a few months prior to our wedding. After discussing what we needed, they produced some spectacular arrangements to suit the theme for our wedding and to match our fresh flowers. They delivered them on time and installed them ready for the big day, so we did not need to lift a finger. We are so glad we went with them as the arrangements really elevated our ceremony area.\nThank you!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678faf1ab6dc332aacac264c_naylor-366.webp",
+    "file": "images/webflow/testimonials/aimee-adam.webp"
+   }
+  },
+  {
+   "names": "Gabby & Marcus",
+   "slug": "gabby-marcus",
+   "venue": "Abbots Court",
+   "date": "2024-10",
+   "month": "October 2024",
+   "quote": "We used Winterborne Hire & Styling for our wedding at Abbots Court and couldn’t have been happier with the service provided!\nFrom the first visit to the styling barn with Dawn right up until the wedding day itself and after the event, Dawn was on hand to help with any questions we had.\nWe opted to set the venue decorations up ourselves the day prior to the wedding and this was made so easy as the beautiful arches were set up for us and the rest of the items we ordered came in extremely organised boxes which saved a lot of time.\nWe were so pleased with how Dawn helped our vision come to life and thoroughly recommend Winterborne to anybody looking for a styling service.\nThank you so much for making our wedding so beautiful!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fb1b99550491786b2624f_gabby%20and%20marcus.webp",
+    "file": "images/webflow/testimonials/gabby-marcus.webp"
+   }
+  },
+  {
+   "names": "Gen & James",
+   "slug": "gen-james",
+   "venue": "Coppleridge Inn",
+   "date": "2024-07",
+   "month": "July 2024",
+   "quote": "We hired Winterborne Hire & Styling for our wedding in July and honestly it was the easiest, best decision we made for our big day!\nDawn was so helpful and understood our vision the entire process. She really listened and ordered in pieces we needed to really bring our colour scheme and vision to light. I can’t recommend them enough!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fb0dc0d56591f55e4f764_gen%20and%20james.webp",
+    "file": "images/webflow/testimonials/gen-james.webp"
+   }
+  },
+  {
+   "names": "Sophie & Lea",
+   "slug": "sophie-lea",
+   "venue": "The Fox - Antsy",
+   "date": "2024-07",
+   "month": "July 2024",
+   "quote": "We hired from Winterborne Styling for our wedding last week and it was a very simple process!! We met with them about 10 months ago, went over different choices and laid out different designs for how things could look. We weren't made to feel like we had to hire everything in the store and we ended up choosing quite a small selection but they still treated us brilliantly. We choose to collect and drop everything off ourselves, which was easy to do. Everything was boxed up ready for us when we got there, instructions included. Lots of our guests commented on how beautiful our table decor was and the moongate was a BIG hit for photos. Thank you!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fae570019026252118b19_sophie%20and%20lea.webp",
+    "file": "images/webflow/testimonials/sophie-lea.webp"
+   }
+  },
+  {
+   "names": "Vanessa & Sam",
+   "slug": "vanessa-sam",
+   "venue": "Subtropical Gardens",
+   "date": "2024-07",
+   "month": "July 2024",
+   "quote": "Absolutely fantastic job from Winterborne Hire & Styling! We rented some beautiful table decorations and flower pillars that complimented our wedding venue perfectly.They have a great range of items in their showroom and Dawn was so helpful and patient in taking through what items to choose. They are very professional and coordinated directly with the venue and had a delivery option making it seamless and efficient (one less thing for me to worry about!). Highly recommend :)",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fa9437af2a7028b65362b_VanessaandSamuel%20testimonal.webp",
+    "file": "images/webflow/testimonials/vanessa-sam.webp"
+   }
+  },
+  {
+   "names": "Beth & Jack",
+   "slug": "beth-jack",
+   "venue": "Kingston Maurward",
+   "date": "2024-06",
+   "month": "June 2024",
+   "quote": "I can’t recommend Winterborne styling enough. Dawn has a very friendly approachable manner, taking my daughter’s vision and ideas, giving suggestions, resulting in a collective ‘wow’ on entering the venue. Always available for questions, great communication, I could not recommend Dawn more",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fad62022b227590e6c7dc_Beth%26Jacktest.webp",
+    "file": "images/webflow/testimonials/beth-jack.webp"
+   }
+  },
+  {
+   "names": "Savannah & James",
+   "slug": "savannah-james",
+   "venue": "Gorwell Farm",
+   "date": "2024-05",
+   "month": "May 2024",
+   "quote": "Winterborne Hire & Styling supplied all the decorations for our wedding in a DIY style. Dawn was very communicative, allowed us multiple visits to the display room and nothing was too much to ask.\nThe decorations and pieces arrived early which meant that we could get ahead of the game with setting up our event. Dawn also offered the option of DIY indoors whilst the Winterborne Hire team set up the outdoor areas on the morning of the wedding. This ended up being the perfect option for us, as we could then relax on the morning of the wedding!\nDawn was also able to work with Taddle Farm tents to decorate our Edison ladders, which bought a perfect drama to our event.\nThank you!!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fac3800190262520f2eb9_savannah%20and%20james%20test.webp",
+    "file": "images/webflow/testimonials/savannah-james.webp"
+   }
+  },
+  {
+   "names": "Chantelle & Adam",
+   "slug": "chantelle-adam",
+   "venue": "Lulworth Castle",
+   "date": "2024-04",
+   "month": "April 2024",
+   "quote": "Winterborne Hire and Styling supplied all our wedding decor from flowers to signs and mirrors. Dawn was absolutely fantastic throughout the wedding planning process and was very responsive on emails. We sent her our inspiration and she was so knowledgeable and knew exactly how to make our vision come to life. We made a couple of trips to their fantastic showroom where Dawn had set up tables / flower displays so we knew what to expect. The service on the day was absolutely fantastic - Dawn dropped off everything at the venue and collected it the next day, making it all a stress-free experience! Thank you so much for everything!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678faba6bbbaea84669f7960_chantelle%20and%20adam.webp",
+    "file": "images/webflow/testimonials/chantelle-adam.webp"
+   }
+  },
+  {
+   "names": "Alice & Daniel",
+   "slug": "alice-daniel",
+   "venue": "Bryanston School",
+   "date": "2024-03",
+   "month": "March 2024",
+   "quote": "The best experience we could ever hope for! After emailing Dawn and Christine, we were given multiple opportunities to visit their showroom at our convenience. When we did, their stunning stock just blows you away; Dawn walked us through everything there was on offer and dressed a table to show us the potential. On top of this, once we had decided, a clear, comprehensive invoice was shared so the costs were obvious and inclusive of everything that we needed - which is so useful when planning such a costly and multi layered event. Then it came to the pre-wedding visit, where we felt we were thoroughly listened to and professionally dealt with the entire way through. Finally, it was the wedding weekend and the seamless, efficient care with which the team took to make the church and venue as beautiful as they did was like nothing we have ever known, nor could have imagined. To recommend Winterborne Hire and Styling seems like too little a repayment for the beautiful memories they designed for our special day. 100% would recommend and we are telling everyone we know that they are the ones they want!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/678fb2a291db281f1d5f47f2_alicedaniel-214.webp",
+    "file": "images/webflow/testimonials/alice-daniel.webp"
+   }
+  },
+  {
+   "names": "Amber & James",
+   "slug": "amber-james",
+   "venue": "Dorset Museum",
+   "date": "2023-09",
+   "month": "September 2023",
+   "quote": "From the first enquiry Dawn has been incredibly responsive to all emails and was really flexible with appointments and patient with my slow responses after just having a baby. With a wide range of stock we were able to create our perfect look and bring our 'boho chic' theme to life. Dawn also made us a beautiful welcome sign, table plan and order of the day sign with our colour scheme, font and graphics based on our invites with bespoke faux floral displays for each sign to really tie everything in from our guests entry. It was truly a pleasure to work with someone so passionate and skilled in her craft and I couldn't recommend Winterborne Hire and Styling enough.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65a40fd69a18d0a9888291c1_amber%20james%20test.png",
+    "file": "images/webflow/testimonials/amber-james.png"
+   }
+  },
+  {
+   "names": "Rhiannon & Dan",
+   "slug": "rhiannon-dan",
+   "venue": "Dorset Museum",
+   "date": "2023-09",
+   "month": "September 2023",
+   "quote": "I couldn’t recommend them more! They were so helpful and had everything I needed and wanted. Helped me get the most perfect table decorations for my wedding. They were super nice and helpful. And the showroom is beautiful and they will set everything up so you can see it first hand and change whatever you want. Made my special day so beautiful. Thank you",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65a40e04f6305db73c7bef0c_rhiannon%20test.png",
+    "file": "images/webflow/testimonials/rhiannon-dan.png"
+   }
+  },
+  {
+   "names": "Fliss & Jake",
+   "slug": "fliss-jake",
+   "venue": "Sub-Tropical Gardens",
+   "date": "2023-05",
+   "month": "May 2023",
+   "quote": "We recently got married at Abbotsbury Subtropical Gardens - quite last minute in the planning stage we realised we would need some extra decorations. After some research, we came across Winterborne Hire and Styling and it was the perfect boho style we were after for the wedding! Dawn was so quick at responding to emails and made the whole process so easy! The items we hired looked amazing on the day and worked perfectly with our theme. All of the guests were commenting on the moongate and couldn’t believe the flowers weren’t real! Wouldn’t recommend anyone else, thank you!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65a4110c62f6b2c9c883ac7e_Fliss%26Jake952_.png",
+    "file": "images/webflow/testimonials/fliss-jake.png"
+   }
+  },
+  {
+   "names": "Ayca & Alex",
+   "slug": "ayca-alex",
+   "venue": "Sub-Tropical Gardens",
+   "date": "2023-04",
+   "month": "April 2023",
+   "quote": "We hired Winterborne Hire & Styling for our wedding in the Abbotsbury subtropical gardens. From the start Dawn made the experience of picking out the right decorations simple and stress free. Her experience and styling skills and range of beautiful pieces meant we ended up with lovely decorations that fit exactly with how we wanted our venue to look. The communication we received was second to none and the decorations were delivered straight to the venue in such a way that they were easy to set up and put away. Once set up they looked truly perfect and received lots of compliments. We can highly recommend their service to any other would be bride and groom.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/65a4128c5261439e5a33d4cd_alex%20ayca.png",
+    "file": "images/webflow/testimonials/ayca-alex.png"
+   }
+  },
+  {
+   "names": "Naomi & James",
+   "slug": "naomi-james",
+   "venue": "Hope Farm",
+   "date": "2022-09",
+   "month": "September 2022",
+   "quote": "I used Winterbourne Hire & Styling to style my entire wedding venue and I wouldn’t hesitate to recommend them to anyone who wants to take the stress out of wedding prep. Dawn and Christine took time listening to our vision and created a truly beautiful setting for us to celebrate. They were totally professional throughout as well as being friendly and considerate in answering any questions along the way. 10/10 would recommend!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/634f0f234d45df44d069589c_BBB0D0EC-E05F-475B-B739-11E9E51B2DA3.png",
+    "file": "images/webflow/testimonials/naomi-james.png"
+   }
+  },
+  {
+   "names": "Shakira & Greg",
+   "slug": "shakira-greg",
+   "venue": "Moor Farm Barn",
+   "date": "2022-08",
+   "month": "August 2022",
+   "quote": "These beautiful ladies made our day so special! They went above and beyond to make the venue just how we wanted it! Thank you so much. Would highly recommended.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/634f0fec8d10f3ad87d79ca7_Shakiraandgrey_moorfarm_lauradeanphotography_dorsetweddingphotographer-65.png",
+    "file": "images/webflow/testimonials/shakira-greg.png"
+   }
+  },
+  {
+   "names": "Becky & Dan",
+   "slug": "becky-dan",
+   "venue": "Abbotsbury Sub Tropical Gardens",
+   "date": "2022-07",
+   "month": "July 2022",
+   "quote": "Fantastic range of items to hire from Dawn and the team. Winterborne Hire & Styling are so easy to deal with and so efficient. I personally loved the fact you could hire only the items you want rather than having to pay for a package. Couldn’t recommend this company more.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/634f10bda2862a52f2943fee_image8%20(1).png",
+    "file": "images/webflow/testimonials/becky-dan.png"
+   }
+  },
+  {
+   "names": "Rowanne & Ben",
+   "slug": "rowanne-ben",
+   "venue": "Ashton Farm Barn",
+   "date": "2022-07",
+   "month": "July 2022",
+   "quote": "Such a lovely company to deal with, they even went out of their way to do a last minute drop off for me the day before the wedding. An absolute pleasure, thank you both very much xx",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/634f0e522812f3e0f5d94148_IMG_3994.png",
+    "file": "images/webflow/testimonials/rowanne-ben.png"
+   }
+  },
+  {
+   "names": "Annabelle & Michael",
+   "slug": "annabelle-michael",
+   "venue": "Marquee We",
+   "date": "2022-06",
+   "month": "June 2022",
+   "quote": "We got married in August 2022 and had our reception in a marquee. We used Winterborne Hiring and Styling to help dress and decorate the marquee using a vintage theme and couldn’t have asked for a better experience. Dawn was AMAZING and super helpful throughout the whole process, from our initial meeting where we looked round their shop to delivering all our selected items on the day. They provided everything that we needed to set the scene for our big day and couldn’t recommend them more!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/634f03783fcc977928b49da9_testimonial.png",
+    "file": "images/webflow/testimonials/annabelle-michael.png"
+   }
+  },
+  {
+   "names": "Izzie & Thomas",
+   "slug": "izzie-tom",
+   "venue": "Gorwell Farm Barn",
+   "date": "2022-05",
+   "month": "May 2022",
+   "quote": "Dawn and Christine were a pleasure to deal with from start to finish. They spent a lot of time with us from the beginning in the showroom going through things we may like / want for our day and helped us make the decision all the way through. After we booked, Christine met us at our venue on multiple occasions with props we liked to show us what they would look like in the venue. Communication was incredible and we couldn’t have asked for a better service! Thank you so much Dawn and Christine for all your efforts, you’re amazing!",
+   "image": {
+    "src": "https://cdn.prod.website-files.com/60803940d1648aeb47a05ccb/634f11692812f33ca3dc3a51_52eec115-566a-462b-a251-27b393d47081.png",
+    "file": "images/webflow/testimonials/izzie-tom.png"
+   }
+  },
+  {
+   "names": "Sophie & Jamie",
+   "slug": "sophie-jamie",
+   "venue": "Hope Farm",
+   "date": "2022-05",
+   "month": "May 2022",
+   "quote": "Nothing but fantastic words to say about Winterborne Hire & Styling!\nWorking along side Dawn and Christine to create the decor of our dreams was a fun and creative process from the start, they really understood our vision from our very first initial meeting. With brilliant communication throughout the planning process, we really felt like we were in safe hands with these guys.\nWhat they created on the day.. well we have no words. It was utterly perfect and more than we had ever imagined. They really went above and beyond any of our expectations. Thank you so much for such a wonderful service, from beginning to end!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/634f0ce42b3ff544ffcb62de_Sophie%20and%20Jamie_s%20Wedding-testimonal.png",
+    "file": "images/webflow/testimonials/sophie-jamie.png"
+   }
+  },
+  {
+   "names": "Chelsea & Paul",
+   "slug": "chelsea-paul",
+   "venue": "Bowerchalke Barn",
+   "date": "2021-12",
+   "month": "December 2021",
+   "quote": "I honestly couldn't have asked for better. I was in contact with Dawn before the wedding. She was always so quick to respond to any queries and clearly made such an effort to help me style the venue just as I had imagined. She's got a keen eye for details and knows exactly how to put things together to get the style I was looking for. When I visited, I got very excited and pointed out all the things I loved. However, she helped me stay on track with my budget and made helpful suggestions about how I could still achieve the look without overspending. That was really reassuring.\nI wanted something very \"boho\" and relaxed. I borrowed the rug aisle and candle cylinders for the tables, which looked amazing at our barn venue. We also borrowed the copper frame for the seating plan, which Dawn did so beautifully for us. She even threw in some extra decor for good measure as she knew how much I loved the pampas and vases.\nI'd really recommend these guys. The pricing is very reasonable compared to a lot of other hire companies and you get such an excellent service!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/61e72dcd858b131789514e9b_chelsea%20and%20paul.jpg",
+    "file": "images/webflow/testimonials/chelsea-paul.jpg"
+   }
+  },
+  {
+   "names": "Stacey & Mike",
+   "slug": "stacey-mike",
+   "venue": "Dorchester Corn Exchange",
+   "date": "2021-12",
+   "month": "December 2021",
+   "quote": "Oh my goodness ladies, I cannot thank you enough. If I could give you 10 stars I would!!!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/61e72db63cc2d402deed9415_stacey.jpg",
+    "file": "images/webflow/testimonials/stacey-mike.jpg"
+   }
+  },
+  {
+   "names": "Emily & Nathan",
+   "slug": "nathan-emily",
+   "venue": "Gorwell Farm",
+   "date": "2021-10",
+   "month": "October 2021",
+   "quote": "Chris and Dawn provided us with bespoke signs, crates, lanterns, candles and vases to help us style our wedding. These items added extra decoration to our venue and complimented the decorations and flowers we had sourced ourselves! They also brought us some last minute candles when we realised we needed extra! Super responsive and helpful! Thanks again!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/618b9b7b36461c20ed891b0a_nathan%20and%20emily.png",
+    "file": "images/webflow/testimonials/nathan-emily.png"
+   }
+  },
+  {
+   "names": "Aida & Phillip",
+   "slug": "aida-phillip",
+   "venue": "Dorset",
+   "date": "2021-08",
+   "month": "August 2021",
+   "quote": "Thank you for your help with everything. Your company and personal assitance genuinely did help add that little something extra to our wedding day.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/615a0b1db13431f57875a254_IMG_0169.jpg",
+    "file": "images/webflow/testimonials/aida-phillip.jpg"
+   }
+  },
+  {
+   "names": "Joanna & Ben",
+   "slug": "joanna-ben",
+   "venue": "River Cottage",
+   "date": "2021-08",
+   "month": "August 2021",
+   "quote": "Dawn and Christine were very friendly, helpful -and accommodating from the moment we contacted them, always responding to emails super swiftly. They have a large range of lovely items to hire for weddings and other events. Highly recommended!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/618b9d87f0d23ec85135486c_joanna%20and%20ben.png",
+    "file": "images/webflow/testimonials/joanna-ben.png"
+   }
+  },
+  {
+   "names": "Serita & Alistair",
+   "slug": "serita-alistair",
+   "venue": "Moor Farm",
+   "date": "2021-08",
+   "month": "August 2021",
+   "quote": "What can I say!! Christine and Dawn worked tirelessly to give me the vision that was very unique. At no point was it questioned or changed - they went with it and created the most amazing carnival themed wedding ever! So many comments fabulous comments from guests and other suppliers on how bright, happy and different it was. Away from the norm which was important to us. Just so magical to look at. Emails were replied to so quickly, had 3 physical meetings and even met at venue to visually go through what should go where. No question was too much. We had a mini emergency with one of the suppliers and Christine even was able to help give me ideas on how to fix it, and spent time with me when she had other work to do. Nothing to too much on an ask. They are super value for money, can find literally anything no matter how out there it is, and always happy, friendly and caring. Cannot recommend them enough for all your wedding decoration needs!! Thank you for making our day perfect!!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/615a0a7a4a67c0874a7171ae_C03666C9-E22A-44AB-93E7-E284FEA89AA3%20(1).jpg",
+    "file": "images/webflow/testimonials/serita-alistair.jpg"
+   }
+  },
+  {
+   "names": "Helen & Richard",
+   "slug": "helen-richard",
+   "venue": "Seaside Boarding House",
+   "date": "2021-07",
+   "month": "July 2021",
+   "quote": "Dawn and Christine were able to give us everything we wanted and more, they were so responsive and friendly, I would have not wanted to work with anyone else for our wedding. They were able to have such a good vision and worked with changes. The summer moon gate and back drop, the logs, personalised names, the foliage, the cake hoop... made our day. I am so pleased they were part of the wedding planning. Thank you",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/615a09da2f38ebeff6ebfca3_Helen%20%20Richard%20282%20(1).jpg",
+    "file": "images/webflow/testimonials/helen-richard.jpg"
+   }
+  },
+  {
+   "names": "Jess & James",
+   "slug": "jess-james",
+   "venue": "Symondsbury Tithe Barn",
+   "date": "2021-07",
+   "month": "July 2021",
+   "quote": "WOW! I was so happy to have found Winterborne Hire & Styling. Not only do they have they most beautiful items to hire, Dawn and Christine are the best suppliers we worked when planning our wedding. My husband and I couldn't have been happier with the friendly and helpful service provided. Definitely visit the showroom if you can because you will be blown away with how many gorgeous items they have to hire and they have great tips on what items look amazing together. Thank you so much Winterborne Hire & Styling for making our wedding so special!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60f8134b726772b6ccfa746a_testimonlas.jpg",
+    "file": "images/webflow/testimonials/jess-james.jpg"
+   }
+  },
+  {
+   "names": "Suzanne & Troy",
+   "slug": "suzanne-troy",
+   "venue": "Marshwood Manor",
+   "date": "2021-07",
+   "month": "July 2021",
+   "quote": "You did the most wonderful job, walking in to the aisle set up was magical.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/615a0bd76e5982c3e82793c1_IMG_9859%20(1).jpg",
+    "file": "images/webflow/testimonials/suzanne-troy.jpg"
+   }
+  },
+  {
+   "names": "Aklema",
+   "slug": "aklema",
+   "venue": "Durweston Village Hall",
+   "date": "2021-06",
+   "month": "June 2021",
+   "quote": "Honestly I can’t thank you enough for the decor you supplied! It looked incredible and really made our day so special, everyone was so complimentary about the decor and how different it was especially for an Asian wedding: one of a kind!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60eb3cdac7ad6eddcafe8df0_9CF1E749-9A08-4D10-BF0A-E9377A20C219.JPG",
+    "file": "images/webflow/testimonials/aklema.jpg"
+   }
+  },
+  {
+   "names": "Emma & Will",
+   "slug": "emma-will",
+   "venue": "Upwey House",
+   "date": "2021-06",
+   "month": "June 2021",
+   "quote": "We got married on 9/6/21 which was our second time round due to COVID at Upwey House. Having never seen the venue before, wedding planning was made slightly more tricky. We found Christine and Dawn through a tagged insta post they had styled and fell in LOVE! From the start they were warm, welcoming and most importantly 100% understood the image/feeling I wanted to create for our big day! I should say we live in Scotland so after our conversations I felt so at ease with them I trusted their judgement completely! They sent photos and descriptions of what they would include in my package and the best decision I ever made was letting them dress our venue! It was breathtaking!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60f8141a1224ce11966051d2_Emma%20%26%20Will.jpg",
+    "file": "images/webflow/testimonials/emma-will.jpg"
+   }
+  },
+  {
+   "names": "Pippa & James",
+   "slug": "pippa-james",
+   "venue": "Kimeridge",
+   "date": "2021-05",
+   "month": "May 2021",
+   "quote": "Winterborne hire & styling have been absolutely amazing from start to finish. Christine was so helpful from me going in with a vague idea in my head to making our wedding decoration a reality. They were really responsive to emails and just all round lovely making it all straightforward and easy :-) thanks so much!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60e4bddee646ebbb6dce5acd_Pippa-James-Wedding-Photo.jpg",
+    "file": "images/webflow/testimonials/pippa-james.jpg"
+   }
+  },
+  {
+   "names": "Charlotte & Keiran",
+   "slug": "charlotte-keiran",
+   "venue": "",
+   "date": "2020-10",
+   "month": "October 2020",
+   "quote": "From our very first meeting with Dawn and Christine, we felt at ease and knew we had found the perfect team to help bring our wedding vision to life. They were both so lovely and shared our love and excitement over beautiful boho wedding styling! The process of choosing, sourcing and hiring their high quality items was so straightforward and they went that extra mile to make sure we had everything we needed to make our day perfect. We would highly recommend Winterborne Hire & Styling to anyone looking for an amazing events hire and styling team!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/609195bbecb78176b51af4ff_60814af5e3a13dd5c7a1e1e2_000.jpeg",
+    "file": "images/webflow/testimonials/charlotte-keiran.jpg"
+   }
+  },
+  {
+   "names": "Melissa & Dave",
+   "slug": "melissa-dave",
+   "venue": "Gorwell Farm",
+   "date": "2020-10",
+   "month": "October 2020",
+   "quote": "Our wedding was affected by the pandemic and Dawn and Christine could not have been more understanding and accommodating, We decided very last minute to have an intimate ceremony and they pulled outall the stops to ensure our venue looked beautiful. We get so many comments about the floral hoop when people see our wedding photos. Thank you.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/609196abf4369c16ce904da2_60814dca1a593050c73208a7_Screenshot%202021-04-22%20at%2011.19.23.png",
+    "file": "images/webflow/testimonials/melissa-dave.png"
+   }
+  },
+  {
+   "names": "Mandy & Dougie",
+   "slug": "mandy-dougie",
+   "venue": "",
+   "date": "2020-09",
+   "month": "September 2020",
+   "quote": "Thank you for making our Wedding Day so Special. I would like to thank you for being so accommodating with all the changes we had to make last year. Our day was made so special with your amazing ideas and styling. Your professionalism talent and kindness was second to none! Not just on the day but the day after, it was if the fairies had been in sprinkled their magic then cleared away the following day",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/6091967da24ef42be893e37d_60814d7615cfab141e4ede7b_Screenshot%202021-04-22%20at%2011.16.20.png",
+    "file": "images/webflow/testimonials/mandy-dougie.png"
+   }
+  },
+  {
+   "names": "Brittany & Wayne",
+   "slug": "brittany-wayne",
+   "venue": "Kings Hotel Christchurch",
+   "date": "2019-08",
+   "month": "August 2019",
+   "quote": "We thought your services were so invaluable and we're so glad that we stumbled across Winterborne Vintage from a quick search on Google!\nYour decorations made the venue pop and it all came together beautifully. The guests and the hotel said that it looked incredible too.\nYou made the whole process of hiring decor a breeze and we really feel that you went above and beyond for us!\nThank you so much for everything, you guys are amazing!!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60b2a02727016ed2412d1083_Brittany--Wayne.-Kings-Hotel-Wedding-gallery.-Photographs-by-Robb-Webb-Photography-950.jpg",
+    "file": "images/webflow/testimonials/brittany-wayne.jpg"
+   }
+  },
+  {
+   "names": "Kayleigh & CJ",
+   "slug": "kayleigh-cj",
+   "venue": "Bredy Farm",
+   "date": "2019-08",
+   "month": "August 2019",
+   "quote": "We can not possibly thankyou enough for going above and beyond to make our 'wedfest' as beautiful and perfect as it was! You are both incredible!",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60b2a06392a2289faae5e3c6_kayleigh.jpg",
+    "file": "images/webflow/testimonials/kayleigh-cj.jpg"
+   }
+  },
+  {
+   "names": "Faye & James",
+   "slug": "faye-james-2",
+   "venue": "Gorwell Farm",
+   "date": "2019-04",
+   "month": "April 2019",
+   "quote": "Thankyou ever so much for all that you did with helping us with our very special day. We can not sing your praises enough! You helped us make the wedding of our dreams and it was beautiful.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60b2a0b55c16ae097831ac30_038af33b-1517-45cd-97cc-ddb1ffea06eb-2.jpg",
+    "file": "images/webflow/testimonials/faye-james-2.jpg"
+   }
+  },
+  {
+   "names": "Ian & Aysa",
+   "slug": "ian-aysa",
+   "venue": "Beacon House",
+   "date": "2019-04",
+   "month": "April 2019",
+   "quote": "Dawn and Christine are both brilliant – professional, fun, relaxed, motivated and a real pleasure to work with. Dawn was able to imagine our (at that time) quite simplistic ideas and colours and deliver something really special – therein lies her talent. We were thrilled with the results – simple, classy, elegant and tastefully delivered. First class service, great people to work with, fun, punctual, professional – pure class.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/609190de0f5c27b8c987d17b_608145380b630c35af0d2a26_Screenshot%202021-04-22%20at%2010.42.57.png",
+    "file": "images/webflow/testimonials/ian-aysa.png"
+   }
+  },
+  {
+   "names": "Katie & Adam",
+   "slug": "katie-adam",
+   "venue": "Gorwell Farm Barn",
+   "date": "2019-04",
+   "month": "April 2019",
+   "quote": "I cannot recommend this company enough! From the moment we walked into the showroom it was full of gorgeous decorations, we instantly knew we needed to use them and I’m so glad we did! If it was down to me I would if hired the lot. So many people commented on how beautiful our venue was and still do. It couldn’t of been done without these lovely ladies.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60919637708cd56f52ec7353_60814ccda8f2c1d0f7ff8df6_A7AF4C4B-43FD-4482-9A29-07613FF3CF1E.jpeg",
+    "file": "images/webflow/testimonials/katie-adam.jpg"
+   }
+  },
+  {
+   "names": "Emma & Matt",
+   "slug": "emma-matt",
+   "venue": "Gorwell Farm Barn",
+   "date": "2018-10",
+   "month": "October 2018",
+   "quote": "Thank you again for all your hard work and ideas, you have been an absolute pleasure to work with.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/60919328c9ef0eccd13e38c1_608146ac91bab068cf3a02fc_image2.jpeg",
+    "file": "images/webflow/testimonials/emma-matt.jpg"
+   }
+  },
+  {
+   "names": "Helaina & Jake",
+   "slug": "helaina-jake",
+   "venue": "",
+   "date": "2018-09",
+   "month": "September 2018",
+   "quote": "We are so grateful to have met Dawn & Christine. I first met them at a wedding fair earlier this year and I loved everything about their vintage/rustic vibe. At first I hesitated and thought about making our own decorations but I am so glad I reached out to them earlier this year. They were so helpful and went above and beyond expectations.",
+   "image": {
+    "src": "https://uploads-ssl.webflow.com/60803940d1648aeb47a05ccb/609194a2c9ef0e780b3e3fae_608147342e51dc7c87e3d25d_Screenshot%202021-04-22%20at%2010.jpeg",
+    "file": "images/webflow/testimonials/helaina-jake.jpg"
+   }
+  }
+ ]
+}

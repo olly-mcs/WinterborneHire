@@ -47,6 +47,22 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
 - The token lives in the Netlify environment variable `INSTAGRAM_ACCESS_TOKEN`, never in the code. Pasting a new token
   there (then redeploying) always takes over from the renewed one.
 
+## Products and older testimonials (from the Webflow CMS)
+
+The Webflow CMS exports (CSV) were converted to `data/webflow-content.json`: Florals & Foliage, Signage, Rugs & Runners,
+the Faux Florals gallery and the older testimonials. `scripts/build-webflow-content.py` builds from it:
+
+- the product grids on `florals-foliage.html` (inside the Webflow tabs), `signage.html` and `rugs-runners.html`,
+  between `<!-- products:start -->` / `<!-- products:end -->` markers;
+- a page per product at `/<collection>/<slug>` (e.g. `signage/chalk-a-board.html`);
+- the "More kind words" section on `our-testimonials.html` (between `kind-words` markers).
+
+Images: `scripts/fetch-webflow-images.mjs` saves them from Webflow's CDN into `images/webflow/`; the build uses a saved
+copy when it exists, otherwise Webflow's URL. The GitHub Action `.github/workflows/save-webflow-images.yml` runs both
+(it can be started by hand from the Actions tab). To change a product, edit the JSON and run the build script.
+`netlify.toml` rewrites `/signage`, `/florals-foliage` and `/rugs-runners` to their `.html` pages because a folder of
+product pages shares each name. Styles: `css/products.css`.
+
 ## Bespoke Florals
 
 A top-level menu item, right of Collection, on every page. Hovering shows a dropdown of the five subcategories

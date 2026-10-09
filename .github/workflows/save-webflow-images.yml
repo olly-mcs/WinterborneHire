@@ -1,0 +1,38 @@
+# Downloads the Webflow CMS images into images/webflow/ and rebuilds the product pages to use them.
+# Runs when the content data changes, or by hand from the Actions tab ("Run workflow").
+name: Save Webflow images
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - data/webflow-content.json
+      - scripts/fetch-webflow-images.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download images from Webflow
+        run: node scripts/fetch-webflow-images.mjs
+      - name: Point the pages at the saved images
+        run: python3 scripts/build-webflow-content.py
+      - name: Commit the images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/webflow *.html florals-foliage signage rugs-runners
+          if git diff --cached --quiet; then
+            echo "Nothing new to save."
+          else
+            git commit -m "Save Webflow CMS images to the repo"
+            git push
+          fi
