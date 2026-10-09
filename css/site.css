@@ -116,7 +116,7 @@
   max-width: 430px;
   margin: 22px 0 36px;
   color: rgba(255, 255, 255, 0.92);
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 17px;
   line-height: 1.6;
   text-align: left;
@@ -133,7 +133,7 @@
   display: block;
   padding: 17px 24px;
   border: 1.5px solid transparent;
-  font-family: Montserrat, sans-serif;
+  font-family: Cinzel, serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 1.2;
@@ -236,7 +236,7 @@
   margin: 0 0 14px;
   text-align: left;
   color: #6b6b6b;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -257,7 +257,7 @@
 .florals-body {
   max-width: 560px;
   margin: 0 0 16px;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   line-height: 1.75;
   text-align: left;
@@ -269,7 +269,7 @@
   padding: 16px 38px;
   border: 1px solid #474747;
   color: #3a3835;
-  font-family: Montserrat, sans-serif;
+  font-family: Cinzel, serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -334,7 +334,7 @@
   padding: 12px 8px;
   background-color: #fff;
   color: #3a3835;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
@@ -345,7 +345,7 @@
 .florals-card-text {
   max-width: 24ch;
   margin: 12px auto 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -434,7 +434,7 @@
   margin: 0 0 12px;
   text-align: left;
   color: rgba(255, 255, 255, 0.85);
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -456,7 +456,7 @@
   max-width: 620px;
   margin: 0 0 30px;
   color: rgba(255, 255, 255, 0.9);
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   line-height: 1.7;
   text-align: left;
@@ -467,7 +467,7 @@
   padding: 16px 38px;
   border: 1px solid rgba(255, 255, 255, 0.85);
   color: #fff;
-  font-family: Montserrat, sans-serif;
+  font-family: Cinzel, serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -528,7 +528,7 @@
 
 .process-lead {
   margin: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   line-height: 1.6;
 }
@@ -568,7 +568,7 @@
 }
 
 .process-number {
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 12px;
   letter-spacing: 0.12em;
 }
@@ -576,7 +576,7 @@
 .process-step-title {
   margin: 4px 0 12px;
   color: #3a3835;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
@@ -587,7 +587,7 @@
 .process-step-text {
   max-width: 24ch;
   margin: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   line-height: 1.6;
 }
@@ -597,7 +597,7 @@
   padding: 16px 40px;
   border: 1px solid #474747;
   color: #3a3835;
-  font-family: Montserrat, sans-serif;
+  font-family: Cinzel, serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -640,7 +640,7 @@
 .ff-eyebrow {
   margin: 0 0 14px;
   color: rgba(255, 255, 255, 0.85);
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-align: inherit;
@@ -670,7 +670,7 @@
 .ff-body {
   margin: 0 0 16px;
   color: #474747;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   line-height: 1.75;
   text-align: inherit;
@@ -692,7 +692,7 @@
   display: inline-block;
   padding: 16px 34px;
   border: 1px solid transparent;
-  font-family: Montserrat, sans-serif;
+  font-family: Cinzel, serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -771,7 +771,7 @@
 .ff-hero-lead {
   margin: 0 0 32px;
   color: #474747;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 17px;
   line-height: 1.65;
   text-align: left;
@@ -939,7 +939,7 @@
 .ff-tile-desc {
   margin: 0;
   color: rgba(255, 255, 255, 0.88);
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   text-align: left;
@@ -985,7 +985,7 @@
 .ff-reason-title {
   margin: 0 0 10px;
   color: #fff;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -996,7 +996,7 @@
 .ff-reason-text {
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   line-height: 1.7;
   text-align: left;
@@ -1051,7 +1051,7 @@
 .ff-step-title {
   margin: 0 0 6px;
   color: #3a3835;
-  font-family: Montserrat, sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -1128,7 +1128,7 @@
 
 .ff-gallery-more a {
   color: #3a3835;
-  font-family: Montserrat, sans-serif;
+  font-family: Cinzel, serif;
   font-size: 13px;
   letter-spacing: 0.16em;
   text-decoration: none;
