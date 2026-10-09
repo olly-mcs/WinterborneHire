@@ -18,7 +18,8 @@ COLLECTIONS = {
                         "tabs": {"All": None, "Centerpieces": "Centrepieces", "Top Table": "Top Table",
                                  "Runners": "Runners", "Other": "Other"}},
     "signage": {"page": "signage.html", "title": "Signage", "label": "signage"},
-    "rugs-runners": {"page": "rugs-runners.html", "title": "Rugs & Runners", "label": "rugs & runners"},
+    "rugs-runners": {"page": "rugs-runners.html", "title": "Rugs & Runners", "label": "rugs & runners",
+                     "url": "rugs-runners-collection"},
 }
 
 
@@ -49,11 +50,12 @@ def block_end(s, start):
 
 
 def card(col, item):
+    prefix = COLLECTIONS[col].get("url", col)
     main, hover = img_url(item["image"]), img_url(item["hover"])
     alt = e(item["name"])
     hover_img = f'<img src="{hover}" loading="lazy" alt="" class="smallpropplphover">' if hover else ""
     return (f'<div role="listitem" class="product-card">'
-            f'<a href="/{col}/{item["slug"]}" class="product-card-link">'
+            f'<a href="/{prefix}/{item["slug"]}" class="product-card-link">'
             f'<span class="product-card-media"><img src="{main}" loading="lazy" alt="{alt}">{hover_img}</span>'
             f'<span class="product-card-name">{alt}</span></a></div>')
 
@@ -120,7 +122,7 @@ def detail_page(col, cfg, item, items):
     head = re.sub(r'(<meta content=")[^"]*(" property="og:title">)', lambda m: m.group(1) + e(item["name"]) + m.group(2), head, count=1)
     head = re.sub(r'(<meta content=")[^"]*(" name="twitter:title">)', lambda m: m.group(1) + e(item["name"]) + m.group(2), head, count=1)
     head = re.sub(r'(<link href="https://www\.winterbornehireandstyling\.co\.uk/)[^"]*(" rel="canonical">)',
-                  lambda m: m.group(1) + f'{col}/{item["slug"]}' + m.group(2), head, count=1)
+                  lambda m: m.group(1) + f'{cfg.get("url", col)}/{item["slug"]}' + m.group(2), head, count=1)
     if "/css/products.css" not in head:
         head = head.replace(WF_CSS, WF_CSS + '\n  <link href="/css/products.css" rel="stylesheet" type="text/css">', 1)
     images = [i for i in (item["image"], item["hover"]) if i]
@@ -155,7 +157,7 @@ def detail_page(col, cfg, item, items):
     </section>
   </main>
 '''
-    write(f"{col}/{item['slug']}.html", head + body + foot)
+    write(f"{cfg.get('url', col)}/{item['slug']}.html", head + body + foot)
 
 
 def testimonials():

@@ -54,14 +54,21 @@ the Faux Florals gallery and the older testimonials. `scripts/build-webflow-cont
 
 - the product grids on `florals-foliage.html` (inside the Webflow tabs), `signage.html` and `rugs-runners.html`,
   between `<!-- products:start -->` / `<!-- products:end -->` markers;
-- a page per product at `/<collection>/<slug>` (e.g. `signage/chalk-a-board.html`);
+- a page per product at the same URL Webflow used: `/florals-foliage/<slug>`, `/signage/<slug>`,
+  `/rugs-runners-collection/<slug>` (the `url` setting in the script);
 - the "More kind words" section on `our-testimonials.html` (between `kind-words` markers).
 
 Images: `scripts/fetch-webflow-images.mjs` saves them from Webflow's CDN into `images/webflow/`; the build uses a saved
 copy when it exists, otherwise Webflow's URL. The GitHub Action `.github/workflows/save-webflow-images.yml` runs both
 (it can be started by hand from the Actions tab). To change a product, edit the JSON and run the build script.
-`netlify.toml` rewrites `/signage`, `/florals-foliage` and `/rugs-runners` to their `.html` pages because a folder of
+`netlify.toml` rewrites `/signage` and `/florals-foliage` to their `.html` pages because a folder of
 product pages shares each name. Styles: `css/products.css`.
+
+## Old Webflow URLs
+
+`data/webflow-sitemap.xml` is the old Webflow site's sitemap (saved by `.github/workflows/fetch-webflow-sitemap.yml`).
+`python3 scripts/check-sitemap.py` lists every old URL that has no page or redirect yet. Keep new pages at the old
+addresses where they exist, so launch needs as few redirects as possible.
 
 ## Bespoke Florals
 
