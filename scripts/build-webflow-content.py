@@ -166,7 +166,6 @@ def detail_page(col, cfg, item, items):
     <div class="product-layout">
       <div class="product-gallery product-gallery-{len(images)}">{gallery}</div>
       <div class="product-info">
-        <p class="product-eyebrow">{e(cfg["title"])} to hire</p>
         <h1 class="product-title">{e(item["name"])}</h1>
         {qty}
         <div class="product-desc">{item["description"]}</div>
@@ -206,7 +205,6 @@ def testimonials():
     section = f'''<!-- kind-words:start -->
   <section class="kw" aria-labelledby="kw-title">
     <div class="kw-head">
-      <p class="tm-eyebrow">Over the years</p>
       <h2 id="kw-title" class="kw-title">More kind words</h2>
     </div>
     <ul class="kw-grid" role="list">
