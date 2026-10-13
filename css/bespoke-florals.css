@@ -763,3 +763,42 @@
     margin-top: 0;
   }
 }
+
+/* Hero (Bespoke Florals and its four section pages): green panel fading into the photo, cream text,
+   cream button with a light green hover */
+.bf-hero {
+  background-color: #898c6b;
+}
+
+.bf-hero::after {
+  background: linear-gradient(90deg, #898c6b 0%, #898c6b 38%, rgba(137, 140, 107, 0.85) 46%, rgba(137, 140, 107, 0) 62%);
+}
+
+.bf-hero .bf-hero-title,
+.bf-hero .bf-script,
+.bf-hero .bf-body,
+.bf-hero .bf-crumb {
+  color: #f6f3ee;
+}
+
+.bf-hero .bf-crumb {
+  border-bottom-color: rgba(246, 243, 238, 0.6);
+}
+
+.bf-hero .bf-crumb:hover {
+  color: #fff;
+}
+
+.bf-hero .bf-button,
+.bf-hero .bf-button-dark {
+  background-color: #f6f3ee;
+  border-color: #f6f3ee;
+  color: #3d3b2f;
+}
+
+.bf-hero .bf-button:hover,
+.bf-hero .bf-button:focus-visible {
+  background-color: #d3d6bd;
+  border-color: #d3d6bd;
+  color: #3d3b2f;
+}
