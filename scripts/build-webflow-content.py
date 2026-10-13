@@ -139,9 +139,8 @@ def detail_page(col, cfg, item, items):
         raise ValueError("no section-14 in " + cfg["page"])
     foot = s[s.index('<div class="badgesection">'):]
     title = f'{item["name"]} | {cfg["title"]} Hire | Winterborne Hire &amp; Styling'
-    head = re.sub(r"<title>.*?</title>", f"<title>{e(item['name'])} | {e(cfg['title'])} Hire | Winterborne Hire &amp; Styling</title>", head, count=1)
-    plain = re.sub(r"<[^>]+>", " ", item["description"])
-    plain = re.sub(r"\s+", " ", html.unescape(plain)).strip()[:155] or f"{item['name']}, available to hire for weddings in Dorset."
+    head = re.sub(r"<title>.*?</title>", f"<title>{e(seo_title(item['name'], cfg['title']))}</title>", head, count=1)
+    plain = seo_description(item["description"], item["name"])
     for pat in [r'(<meta content=")[^"]*(" name="description">)', r'(<meta content=")[^"]*(" property="og:description">)',
                 r'(<meta content=")[^"]*(" name="twitter:description">)']:
         head = re.sub(pat, lambda m: m.group(1) + e(plain) + m.group(2), head, count=1)
@@ -198,6 +197,28 @@ TESTIMONIAL_FOCUS = {
 }
 
 
+def seo_title(name, collection):
+    """Keep titles to about 60 characters so Google shows them in full."""
+    for t in (f"{name} | {collection} Hire | Winterborne", f"{name} Hire | Winterborne", name):
+        if len(t) <= 60:
+            return t
+    return name[:60].rsplit(" ", 1)[0]
+
+
+def seo_description(description_html, name):
+    """A 70-160 character meta description: the product text, cut at a word, or padded with where to hire it."""
+    plain = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", description_html))).strip()
+    if len(plain) > 155:
+        cut = plain[:155]
+        stop = max(cut.rfind(". "), cut.rfind("! "))
+        plain = cut[:stop + 1] if stop >= 80 else cut.rsplit(" ", 1)[0].rstrip(",;:-") + "..."
+    if not plain:
+        plain = f"{name}, available to hire for weddings in Dorset."
+    if len(plain) < 70:
+        plain = plain.rstrip(".") + ". Available to hire for weddings and events in Dorset from Winterborne Hire & Styling."
+    return plain
+
+
 def testimonials():
     path = "our-testimonials.html"
     s = read(path)
@@ -250,3 +271,8 @@ if __name__ == "__main__":
                 if i.get(f) and os.path.exists(os.path.join(ROOT, i[f]["file"])))
     total = sum(1 for k, v in DATA.items() for i in v for f in ("image", "hover") if i.get(f))
     print(f"images saved locally: {saved}/{total}")
+
+# keep every page's social sharing image up to date
+import subprocess  # noqa: E402
+import sys  # noqa: E402
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "seo-images.py")], check=True)

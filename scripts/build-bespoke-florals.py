@@ -250,9 +250,19 @@ def without_wishlist(text):
     return re.sub(r'  <script src="/js/(?:quote-data|bespoke-sections|wishlist)\.js"[^>]*></script>\n', "", text)
 
 
+def meta_description(text):
+    """Keep meta descriptions under about 155 characters, ending at a sentence or word."""
+    if len(text) <= 155:
+        return text
+    cut = text[:155]
+    stop = cut.rfind(". ")
+    return cut[:stop + 1] if stop >= 80 else cut.rsplit(" ", 1)[0].rstrip(",;:-") + "..."
+
+
 def page(title, desc, canonical, body, current):
     s = without_wishlist(HEAD)
-    s = re.sub(r"<title>.*?</title>", f"<title>{e(title)} | Winterborne Hire &amp; Styling</title>", s, count=1)
+    s = re.sub(r"<title>.*?</title>", f"<title>{e(title)}</title>", s, count=1)
+    desc = meta_description(desc)
     for attr in ('name="description"', 'property="og:description"', 'name="twitter:description"'):
         s = re.sub(r'<meta content="[^"]*" ' + re.escape(attr) + ">", f'<meta content="{e(desc)}" {attr}>', s, count=1)
     for attr in ('property="og:title"', 'name="twitter:title"'):
@@ -333,8 +343,9 @@ main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
 ''' + CTA
 
 write("bespoke-florals/index.html", page(
-    "Bespoke Florals", "Bespoke wedding florals for the ceremony, the reception, your bouquets and statement installations, "
-    "designed with faux florals in your colours. Dorset wedding florals by Winterborne.", "/bespoke-florals", main_body, "overview"))
+    "Bespoke Wedding Florals in Dorset | Winterborne Hire & Styling",
+    "Bespoke faux wedding florals in your colours: ceremony pillars and moongates, reception table florals, bouquets and "
+    "installations. Designed in Dorset.", "/bespoke-florals", main_body, "overview"))
 
 # ---------- section pages ----------
 for s in SECTIONS:
@@ -354,7 +365,7 @@ for s in SECTIONS:
                 for i, t in enumerate(s["types"])) + f'''
   </div>
 ''' + CTA
-    write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Florals', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"]))
+    write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Wedding Florals | Winterborne', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"]))
 
 # ---------- product pages ----------
 # Questions every product page shows, after the type's own (its "faq" in bespoke_products.py).
@@ -491,7 +502,7 @@ built = 0
 for s in SECTIONS:
     os.makedirs(os.path.join(ROOT, "bespoke-florals", s["slug"]), exist_ok=True)
     for t in s["types"]:
-        html_ = page(f'{t["name"]} | {s["name"]} | Bespoke Florals', t["about"][0], purl(s, t), product_body(s, t), s["slug"])
+        html_ = page(f'{t["name"]} | Bespoke Wedding Florals | Winterborne', t["about"][0], purl(s, t), product_body(s, t), s["slug"])
         html_ = html_.replace(PRODUCT_CSS, PRODUCT_CSS + '\n  <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">', 1)
         html_ = html_.replace("</body>", '  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>\n</body>', 1)
         write(f'bespoke-florals/{s["slug"]}/{t["slug"]}.html', html_)
@@ -517,3 +528,8 @@ for path in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True):
         open(path, "w", encoding="utf-8").write(new)
         count += 1
 print(f"built {len(SECTIONS) + 1} bespoke florals pages, updated the menu on {count} pages")
+
+# keep every page's social sharing image up to date
+import subprocess  # noqa: E402
+import sys  # noqa: E402
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "seo-images.py")], check=True)

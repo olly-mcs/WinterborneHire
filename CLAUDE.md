@@ -160,6 +160,19 @@ While the Webflow site is still live, this copy is hidden from search engines so
 Don't block the site in `robots.txt`: crawlers would then never see the noindex. **At launch**, remove the meta tag
 from every page and the `X-Robots-Tag` block from `netlify.toml`.
 
+## SEO
+
+- One `<h1>` per page. Headings retagged from the Webflow export carry `was-h1` / `was-h2` so they keep their old
+  spacing (rules at the end of `css/bespoke-florals.css`).
+- Titles about 60 characters and meta descriptions 70-160. Product pages get them from `seo_title` / `seo_description`
+  in `scripts/build-webflow-content.py`; Bespoke Florals pages from `page()` / `meta_description` in its build script.
+- `scripts/seo-images.py` sets each page's sharing image (`og:image`, `twitter:image`) to its main photo; both build
+  scripts run it at the end. The homepage keeps its hand-picked image.
+- Pages load only Cinzel and Raleway from Google Fonts (a plain stylesheet link). jQuery UI loads only on the showroom
+  page, for its date picker. Don't add Masonry, reCAPTCHA or the WebFont loader back.
+- At launch: remove the noindex (see "Staging"), add `sitemap.xml` and `robots.txt`, add GA4 (the old `UA-` tag is dead),
+  and redirect or rebuild the 7 blog posts and 7 wedding packages that `scripts/check-sitemap.py` lists.
+
 ## Rules for changes
 
 - **Fonts: only these three, ever.** Don't bring in fonts from mockups or designs; translate them to these:

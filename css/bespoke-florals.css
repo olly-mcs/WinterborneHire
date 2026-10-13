@@ -763,3 +763,65 @@
     margin-top: 0;
   }
 }
+
+/* Headings retagged for SEO (one H1 per page) keep the base spacing of the tag they replaced. :where() keeps this at
+   tag-level specificity, so the Webflow class rules still win as they did before. */
+h2:where(.was-h1) {
+  line-height: 38px;
+}
+
+h1:where(.was-h2) {
+  line-height: 36px;
+}
+
+h1.nf-title {
+  font-family: Cinzel, serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36px;
+}
+
+/* Homepage and Who we are: a featured testimonial (replaces an empty Webflow CMS list) */
+.hp-quote {
+  max-width: 760px;
+  margin: 10px auto 34px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.hp-quote blockquote {
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+}
+
+.hp-quote blockquote p {
+  margin: 0;
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-style: italic;
+  line-height: 1.75;
+}
+
+.hp-quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.hp-quote-names {
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.hp-quote-venue {
+  color: #66605a;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
