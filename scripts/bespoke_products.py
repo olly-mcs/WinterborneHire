@@ -129,9 +129,12 @@ PRODUCTS = {
     ),
     "podiums": dict(
         gallery=[
-            ("wf:florals-foliage/tall-podium-centrepiece", "Tall podium centrepiece of white blooms and greenery on a gold stand"),
-            ("wf:florals-foliage/tall-podium-centrepiece-hover", "Tall peach and white podium arrangements above round tables in a marquee"),
-            (T + "sophie-ben/01-reception-floral-centrepieces.jpg", "Tall pastel floral arrangements above reception tables"),
+            (B + "podiums/ruby-and-henry", "Tall podium arrangement of red, pink and white blooms above a round table"),
+            (B + "podiums/sage-reception", "Reception room with tall white and green podium arrangements above round tables and sage chair sashes"),
+            (B + "podiums/marquee-podium", "Tall podium arrangement of white and blush blooms on a round table in a marquee"),
+            (B + "podiums/marquee-tables", "Marquee reception with tall podium arrangements and hanging greenery above round tables"),
+            (B + "podiums/ruby-and-henry-room", "Reception room with tall red and white podium arrangements on every table"),
+            (B + "podiums/pennsylvania-castle", "Round table set beneath a tall pastel podium arrangement in a bright white room"),
         ],
         about=[
             "Make a bold statement with our tall floral podium centrepieces, custom designed to match your style, colour palette or theme.",
@@ -144,10 +147,11 @@ PRODUCTS = {
     ),
     "top-table": dict(
         gallery=[
-            ("wf:florals-foliage/english-garden-top-table-centrepiece", "Top table dressed with a long white and green floral arrangement in front of a fireplace"),
-            ("wf:florals-foliage/english-garden-top-table-centrepiece-hover", "Couple raising a toast behind a top table of white florals"),
-            (T + "hannah-dave/02-reception-arch-and-tables.jpg", "Long reception tables with a floral arch at the top table"),
-            ("wf:large-props/gold-metal-moongate-hover", "Gold moongate with florals behind a top table"),
+            (B + "top-table/ruby-and-henry", "Top table with a pink and red floral arrangement, framed by floral pillars in front of a round window"),
+            (B + "top-table/garland-speeches", "Couple at a top table dressed with a long garland of white blooms and greenery"),
+            (B + "top-table/garland-laughter", "Bride laughing at a top table dressed with white florals and greenery"),
+            (B + "top-table/sophie-and-ben", "Sophie and Ben at their top table behind white and blush florals"),
+            (B + "top-table/long-top-table", "Long top table dressed with a full garland of white and green florals"),
         ],
         about=[
             "All eyes are on the two of you at the top table, so make it unforgettable with a stunning floral centrepiece designed just for it.",
