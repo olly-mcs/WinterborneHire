@@ -96,6 +96,11 @@ so edit those and run `python3 scripts/build-bespoke-florals.py`. Types are alwa
   than one photo), the name, price and four paragraphs on the right, then "Good to know" and questions, the section's
   other types and tiles for the other three sections. Styles: `css/bespoke-product.css`. Prices come from the
   price guide (the same figures as `js/quote-data.js`).
+- **Adding product photos**: put the originals in `images/bespoke-florals/<type>/originals/` with short names
+  (e.g. `minterne-house.jpg`), run `node scripts/resize-bespoke-images.mjs` (needs `npm install --no-save sharp`) to
+  make the 600px and 1200px WebP copies beside them, then list them in the type's `gallery` in
+  `scripts/bespoke_products.py` without the extension (e.g. `P + "minterne-house"`) and run the build. The first photo
+  is also the type's photo on the overview and section pages. With more than five photos the thumbnail row scrolls.
 - **the menu on every page**: a two-column dropdown. Sections on the left; hovering one shows its types on the right
   (The Ceremony's show by default). Clicking "Bespoke Florals" on desktop opens `/bespoke-florals` (`js/nav.js`).
   On phones the dropdown lists everything, types indented under their section, after an "All bespoke florals" link.

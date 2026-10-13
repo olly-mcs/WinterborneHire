@@ -140,9 +140,10 @@ def purl(s, t):
 
 
 def img_src(spec, width=1200):
-    """A photo ("wf:<collection>/<file>" or an image path) as a src, plus a srcset for the Webflow photos."""
-    if spec.startswith("wf:"):
-        base = "/images/webflow-sized/" + spec[3:]
+    """A photo as a src, plus a srcset when it has 600px and 1200px web copies: "wf:<collection>/<file>" (a Webflow
+    product photo), or a path without an extension such as /images/bespoke-florals/pillars/minterne-house."""
+    if spec.startswith("wf:") or not os.path.splitext(spec)[1]:
+        base = "/images/webflow-sized/" + spec[3:] if spec.startswith("wf:") else spec
         for w in (600, 1200):
             if not os.path.exists(os.path.join(ROOT, base.lstrip("/") + f"-{w}.webp")):
                 raise SystemExit(f"missing image {base}-{w}.webp")

@@ -2,13 +2,16 @@
 build-bespoke-florals.py, which sets the name, section and short text).
 
 - gallery: the slider photos, first one first. "wf:<collection>/<file>" means a Webflow product photo, served from the
-  600px and 1200px copies in images/webflow-sized/; anything else is a normal image path.
+  600px and 1200px copies in images/webflow-sized/. A path without an extension (e.g. P + "minterne-house") means a
+  photo saved in images/bespoke-florals/<type>/originals/, served from the copies scripts/resize-bespoke-images.mjs
+  makes beside it. Anything else is a normal image path.
 - about: the paragraphs beside the slider (four).
 - details: "Good to know" rows as (label, value). Rows can be left out; the section only shows when there are any.
 - faq: extra questions for this type, shown before the questions every page shares (FAQ in the build script).
 """
 
 T = "/images/testimonials/"
+P = "/images/bespoke-florals/pillars/"
 
 PRODUCTS = {
     # ---------- The Ceremony ----------
@@ -47,11 +50,19 @@ PRODUCTS = {
     ),
     "pillars": dict(
         gallery=[
-            ("wf:large-props/xl-straight-pillars", "Couple standing between two tall floral pillars of peach, white and green in front of a gazebo"),
-            ("wf:large-props/xl-straight-pillars-hover", "Couple kissing between white floral pillars beneath a wrought iron gazebo"),
-            (T + "laura-alexandra/01-floral-archway.jpg", "Floral pillars of burgundy, crimson and dusty pink framing a stone archway"),
-            (T + "laura-alexandra/04-doorway-arch.jpg", "Greenery and red rose pillars framing an open doorway"),
-            (T + "hannah-dave/04-reaching-up-to-the-arch.jpg", "Bride reaching up to a colourful floral arch made from two pillars"),
+            (P + "church-wedding", "Couple outside a church doorway framed by tall pillars of peach, pink and white blooms"),
+            (P + "minterne-house", "Couple at Minterne House between pillars of deep red, burgundy and pink florals"),
+            (P + "italian-villa", "Couple on stone steps between lush white floral pillars"),
+            (P + "gazebo-couple", "Couple beneath a wrought iron gazebo framed by peach and white floral pillars"),
+            (P + "upwey-wishing-well", "Couple and flower girl walking out between pastel floral pillars at Upwey Wishing Well"),
+            (P + "subtropical-gardens", "Couple beneath a wooden gazebo at Abbotsbury Subtropical Gardens, framed by peach and white floral pillars"),
+            (P + "church-doorway-kiss", "Couple kissing in a church doorway between pillars of pink and red blooms"),
+            (P + "rudge-farm", "Couple at Rudge Farm in front of a wall of bright, colourful florals"),
+            (P + "kingston-maurward", "Pastel blue and peach floral pillars framing a tall window at Kingston Maurward"),
+            (P + "indoor-ceremony-arch", "Pink, peach and white floral pillars framing a doorway in a grand hall"),
+            (P + "gazebo-ceremony-walk", "Grooms walking back down the aisle from a gazebo framed by floral pillars"),
+            (P + "gazebo-kiss", "Couple kissing beneath a gazebo between white and blue floral pillars"),
+            (P + "kingston-courtyard-aisle", "Outdoor courtyard ceremony with soft blue and white florals"),
         ],
         about=[
             "Our floral pillars are one of our most versatile pieces, creating a statement backdrop for your ceremony without needing a traditional arch.",

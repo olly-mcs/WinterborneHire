@@ -22,6 +22,15 @@
         if (j === i) thumb.setAttribute("aria-current", "true");
         else thumb.removeAttribute("aria-current");
       });
+      // keep the current thumbnail in view when the row scrolls (without moving the page)
+      var row = thumbs.length && thumbs[0].closest(".pd-thumbs");
+      var item = thumbs[i] && thumbs[i].parentNode;
+      if (row && item) {
+        if (item.offsetLeft < row.scrollLeft) row.scrollLeft = item.offsetLeft;
+        else if (item.offsetLeft + item.offsetWidth > row.scrollLeft + row.clientWidth) {
+          row.scrollLeft = item.offsetLeft + item.offsetWidth - row.clientWidth;
+        }
+      }
     }
 
     track.addEventListener("scroll", function () {

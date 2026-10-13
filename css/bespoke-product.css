@@ -132,13 +132,19 @@ body:has(.pd-main) {
   letter-spacing: 0.12em;
 }
 
+/* One row of thumbnails; with more than five photos the row scrolls sideways */
 .pd-thumbs {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-columns: calc((100% - 40px) / 5);
+  grid-auto-flow: column;
   gap: 10px;
   margin: 12px 0 0;
-  padding: 0;
+  padding: 2px;
+  overflow-x: auto;
   list-style: none;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 .pd-thumb {
