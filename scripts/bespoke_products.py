@@ -182,9 +182,12 @@ PRODUCTS = {
     ),
     "bridesmaids-bouquets": dict(
         gallery=[
-            (T + "hannah-dave/06-bridesmaids-bouquets.jpg", "Bridesmaids holding colourful bouquets"),
-            (T + "hannah-dave/07-bouquet-flat-lay.jpg", "Flat lay of a bridal bouquet, bridesmaids' bouquets and buttonholes"),
-            (T + "steph-karl/03-bouquet-in-the-marquee.jpg", "Bride holding a bright bouquet in a colourful marquee"),
+            (B + "bridesmaids-bouquets/bridesmaids-in-orange", "Two bridesmaids in burnt orange dresses holding bright, colourful bouquets"),
+            (B + "bridesmaids-bouquets/alysha-and-chris-bridal-party", "Bride with four bridesmaids in pale blue, all holding white, yellow and blue bouquets"),
+            (B + "bridesmaids-bouquets/alysha-and-chris-aisle", "Bridesmaid in pale blue walking down an aisle lined with meadow florals, holding a white and yellow bouquet"),
+            (B + "bridesmaids-bouquets/lavender-path", "Two bridesmaids in black holding white bouquets on a path lined with lavender"),
+            (B + "bridesmaids-bouquets/alysha-and-chris-ceremony", "Bridesmaids in pale blue holding bouquets at an outdoor ceremony"),
+            (B + "bridesmaids-bouquets/colourful-bridal-party", "Bride in bright pink with her bridesmaids in blue, all holding colourful bouquets"),
         ],
         about=[
             "Your wedding party, all in bloom. Our bridesmaids' bouquets are smaller arrangements designed to complement yours and tie the whole party together.",
