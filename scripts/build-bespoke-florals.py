@@ -273,7 +273,6 @@ def strip(i, x, id_, title_id, title, button=None, extra=""):
     <div class="bf-cat-main">
       {img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')}
       <div class="bf-cat-text">
-        <p class="bf-num"><span>{i + 1:02d}</span></p>
         <h2 id="{title_id}" class="bf-cat-title">{e(title)}</h2>
         <p class="bf-script">{e(x["tag"])}</p>
         {"".join(f'<p class="bf-body">{e(p)}</p>' for p in x["body"])}{btn}
@@ -293,8 +292,9 @@ def types_row(s):
             f'<ul class="bf-looks-grid bf-looks-{len(s["types"])}" role="list">{cards}</ul></div>')
 
 
+# The closing panel on every Bespoke Florals page (overview, sections and products): the same copy everywhere
 CTA = '''  <section class="ff-cta" aria-labelledby="bf-cta-title">
-    <h2 id="bf-cta-title" class="ff-heading">{title}</h2>
+    <h2 id="bf-cta-title" class="ff-heading">Let&#x27;s design your florals</h2>
     <p class="ff-body">Visit our Dorset showroom to see our statement pieces in person, talk through your colours and venue, and start designing something completely yours.</p>
     <a href="/showroom" class="ff-button ff-button-primary">Book a consultation</a>
   </section>
@@ -316,19 +316,13 @@ main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
           button=(f'/bespoke-florals/{s["slug"]}', f'Explore {s["name"].lower()}'), extra=types_row(s))
     for i, s in enumerate(SECTIONS)) + '''
   </div>
-''' + CTA.format(title="Let&#x27;s design your florals")
+''' + CTA
 
 write("bespoke-florals/index.html", page(
     "Bespoke Florals", "Bespoke wedding florals for the ceremony, the reception, your bouquets and statement installations, "
     "designed with faux florals in your colours. Dorset wedding florals by Winterborne.", "/bespoke-florals", main_body, "overview"))
 
 # ---------- section pages ----------
-def your(name):
-    n = name.lower()
-    n = n[4:] if n.startswith("the ") else n
-    return n if n.startswith("your ") else "your " + n
-
-
 for s in SECTIONS:
     src, alt, pos = s["img"]
     body = f'''  <section class="ff-hero" aria-labelledby="bf-title">
@@ -353,7 +347,7 @@ for s in SECTIONS:
 ''' + "\n".join(strip(i, t, t["slug"], f'bf-{t["slug"]}-title', t["name"], button=(purl(s, t), f'Discover {t["name"].lower()}'))
                 for i, t in enumerate(s["types"])) + f'''
   </div>
-{PROCESS}''' + CTA.format(title=f"Let&#x27;s design {e(your(s['name']))}")
+{PROCESS}''' + CTA
     write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Florals', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"]))
 
 # ---------- product pages ----------
@@ -455,7 +449,7 @@ def product_body(s, t):
     <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore bespoke florals</h2>
     <ul class="pd-section-list" role="list">{sections}</ul>
   </section>
-''' + CTA.format(title=f"Let&#x27;s design your {e(t['name'].lower())}")
+''' + CTA
 
 
 PRODUCT_CSS = '<link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">'
