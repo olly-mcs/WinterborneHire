@@ -6,6 +6,8 @@ build-bespoke-florals.py, which sets the name, section and short text).
   600px and 1200px copies in images/webflow-sized/. A path without an extension (e.g. P + "minterne-house") means a
   photo saved in images/bespoke-florals/<type>/originals/, served from the copies scripts/resize-bespoke-images.mjs
   makes beside it. Anything else is a normal image path.
+- focus (optional): where the first photo is cropped for the cards and blocks (a CSS object-position), so no one's
+  head is cut off. Defaults to "50% 45%".
 - about: the paragraphs beside the slider (four).
 - details: "Good to know" rows as (label, value). Rows can be left out; the section only shows when there are any.
 - faq: extra questions for this type, shown before the questions every page shares (FAQ in the build script).
@@ -18,6 +20,7 @@ B = "/images/bespoke-florals/"
 PRODUCTS = {
     # ---------- The Ceremony ----------
     "aisle-meadows": dict(
+        focus="50% 50%",
         gallery=[
             (B + "aisle-meadows/lulworth-castle", "Couple walking back down an aisle at Lulworth Castle lined on both sides with white meadow arrangements"),
             (B + "aisle-meadows/kingston-maurward-detail", "Close up of pale blue, peach and white meadow arrangements along an aisle at Kingston Maurward"),
@@ -52,6 +55,7 @@ PRODUCTS = {
                  ("Colours", "Designed in your colour palette"), ("After the ceremony", "Moves behind your top table")],
     ),
     "pillars": dict(
+        focus="50% 28%",
         gallery=[
             (P + "church-wedding", "Couple outside a church doorway framed by tall pillars of peach, pink and white blooms"),
             (P + "minterne-house", "Couple at Minterne House between pillars of deep red, burgundy and pink florals"),
@@ -77,6 +81,7 @@ PRODUCTS = {
                  ("Colours", "Designed in your colour palette"), ("After the ceremony", "Move behind the top table or to the entrance")],
     ),
     "urns-and-plinths": dict(
+        focus="50% 50%",
         gallery=[
             (B + "urns-and-plinths/minterne-house", "Couple kissing at Minterne House between white floral urns on plinths, beneath a crystal chandelier"),
             (B + "urns-and-plinths/lulworth-castle-aisle", "Aisle at Lulworth Castle lined with white floral urns, leading to a grand chandelier"),
@@ -126,6 +131,7 @@ PRODUCTS = {
                  ("Tables", "Round and long tables"), ("Colours", "Designed in your colour palette")],
     ),
     "podiums": dict(
+        focus="50% 40%",
         gallery=[
             (B + "podiums/ruby-and-henry", "Tall podium arrangement of red, pink and white blooms above a round table"),
             (B + "podiums/sage-reception", "Reception room with tall white and green podium arrangements above round tables and sage chair sashes"),
@@ -144,6 +150,7 @@ PRODUCTS = {
                  ("Tables", "Round and long tables"), ("Best for", "Marquees, barns and high ceilings")],
     ),
     "top-table": dict(
+        focus="50% 35%",
         gallery=[
             (B + "top-table/ruby-and-henry", "Top table with a pink and red floral arrangement, framed by floral pillars in front of a round window"),
             (B + "top-table/garland-speeches", "Couple at a top table dressed with a long garland of white blooms and greenery"),
@@ -162,6 +169,7 @@ PRODUCTS = {
     ),
     # ---------- Your Florals ----------
     "bridal-bouquets": dict(
+        focus="50% 19%",
         gallery=[
             (B + "bridal-bouquets/autumn-bouquet", "Bride holding a loose bouquet of burnt orange, peach and white blooms with dried grasses"),
             (B + "bridal-bouquets/sophie-and-ben-portrait", "Bride by a tall window holding a soft pastel bouquet of pink, blue and white"),
@@ -186,6 +194,7 @@ PRODUCTS = {
                  ("Pairs with", "Bridesmaids' bouquets and buttonholes")],
     ),
     "bridesmaids-bouquets": dict(
+        focus="50% 8%",
         gallery=[
             (B + "bridesmaids-bouquets/bridesmaids-in-orange", "Two bridesmaids in burnt orange dresses holding bright, colourful bouquets"),
             (B + "bridesmaids-bouquets/alysha-and-chris-bridal-party", "Bride with four bridesmaids in pale blue, all holding white, yellow and blue bouquets"),
@@ -204,6 +213,7 @@ PRODUCTS = {
                  ("Also available", "Single stem bouquets and fairy wands")],
     ),
     "buttonholes": dict(
+        focus="50% 40%",
         gallery=[
             (B + "buttonholes/buttonhole-close-up", "Close up of a bright buttonhole of pink, orange and yellow blooms on a navy suit lapel"),
             (B + "buttonholes/pinning-the-buttonhole", "Hands pinning a deep red and white buttonhole onto a tweed jacket"),
@@ -237,6 +247,7 @@ PRODUCTS = {
                  ("Colours", "Designed in your colour palette")],
     ),
     "chandeliers": dict(
+        focus="50% 32%",
         gallery=[
             (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
             (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
@@ -252,6 +263,7 @@ PRODUCTS = {
                  ("Installation", "Installed for you"), ("Light fitting", "Not included, decor only")],
     ),
     "ladders": dict(
+        focus="50% 32%",
         gallery=[
             (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
             (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),

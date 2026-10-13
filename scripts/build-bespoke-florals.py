@@ -124,7 +124,7 @@ for s in SECTIONS:
     for t in s["types"]:
         t.update(PRODUCTS[t["slug"]])
         # the first slider photo is also the type's photo on the overview and section pages
-        t["img"] = (t["gallery"][0][0], t["gallery"][0][1], "50% 45%")
+        t["img"] = (t["gallery"][0][0], t["gallery"][0][1], t.get("focus", "50% 45%"))
 
 
 def purl(s, t):
