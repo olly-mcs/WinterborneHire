@@ -107,6 +107,16 @@ so edit those and run `python3 scripts/build-bespoke-florals.py`. Types are alwa
 
 Photos are the old Webflow product photos plus site and testimonial photos for now (a wireframe).
 
+## Floral wish list
+
+Every Bespoke Florals page loads `js/wishlist.js` and `css/wishlist.css` (added by the build script). Product pages
+have an "Add to your wish list" button; a panel slides out from the right where couples change quantities, see an
+estimated range (no individual prices are shown anywhere on the Bespoke Florals pages), and send the list with their
+name, email, wedding date and venue. It posts to the Netlify form `quote` (subject "Floral wish list from <name>"), so
+it's emailed to winterbornevintage@gmail.com like the quote builder. A "Your wish list" tab stays bottom-right while
+the list has items. The list is kept in the browser and shared with `/quote-builder`. Each product's `quote` in
+`scripts/bespoke_products.py` is its id in `js/quote-data.js`, whose guide prices feed the estimate.
+
 ## Quote builder (prototype)
 
 `/quote-builder` lets couples add florals, hire pieces and services, see an estimated range, then save it.

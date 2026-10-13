@@ -236,6 +236,13 @@ HEAD = TPL[:TPL.index('  <section class="bf-hero"')]
 FOOT = TPL[TPL.index('  <div class="badgesection">'):]
 
 
+# The wish list panel (js/wishlist.js) on every Bespoke Florals page
+WISHLIST_HEAD_AFTER = '<link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">'
+WISHLIST_CSS = '\n  <link href="/css/wishlist.css" rel="stylesheet" type="text/css">'
+WISHLIST_JS = ('  <script src="/js/quote-data.js" type="text/javascript"></script>\n'
+               '  <script src="/js/wishlist.js" type="text/javascript"></script>\n')
+
+
 def page(title, desc, canonical, body, current):
     s = HEAD
     s = re.sub(r"<title>.*?</title>", f"<title>{e(title)} | Winterborne Hire &amp; Styling</title>", s, count=1)
@@ -245,7 +252,9 @@ def page(title, desc, canonical, body, current):
         s = re.sub(r'<meta content="[^"]*" ' + re.escape(attr) + ">", f'<meta content="{e(title)}" {attr}>', s, count=1)
     s = re.sub(r'<link href="https://www\.winterbornehireandstyling\.co\.uk[^"]*" rel="canonical">',
                f'<link href="https://www.winterbornehireandstyling.co.uk{canonical}" rel="canonical">', s, count=1)
-    return update_nav(s + body + FOOT, current)
+    s = s.replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + WISHLIST_CSS, 1)
+    foot = FOOT.replace("</body>", WISHLIST_JS + "</body>", 1)
+    return update_nav(s + body + foot, current)
 
 
 def subnav(current=None):
@@ -349,7 +358,7 @@ FAQ = [
     ("Can I see my florals before the wedding?", "Yes. Ahead of your wedding you'll be invited back to our showroom to see "
      "your arrangements mocked up, so you know everything is perfect."),
     ("How do I book?", "Start with a consultation at our Dorchester showroom, where we'll talk through your colours, venue "
-     "and ideas. Prices are a guide; we'll confirm yours once your design is agreed."),
+     "and ideas, or add the florals you love to your wish list and send it to us for a quote."),
 ]
 
 
@@ -412,8 +421,9 @@ def testimonial(t):
 
 
 def product_body(s, t):
-    price = next((v for k, v in t["details"] if k == "Price"), None)
-    details = "".join(f"<div class=\"pd-detail\"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>" for k, v in t["details"])
+    # no prices: drop any detail that gives one
+    details = "".join(f"<div class=\"pd-detail\"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>"
+                      for k, v in t["details"] if "£" not in v and k != "Price")
     faqs = "".join(
         f'<details class="pd-faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>'
         for q, a in t.get("faq", []) + FAQ)
@@ -433,7 +443,7 @@ def product_body(s, t):
     if details or faqs:
         know = f'''  <section class="pd-know" aria-label="Good to know">
     <div class="pd-know-inner">
-      {f'<div class="pd-know-col"><h2 class="pd-h2">Good to know</h2><dl class="pd-details">{details}</dl><p class="pd-note">Prices are from our current price guide.</p></div>' if details else ""}
+      {f'<div class="pd-know-col"><h2 class="pd-h2">Good to know</h2><dl class="pd-details">{details}</dl></div>' if details else ""}
       {f'<div class="pd-know-col"><h2 class="pd-h2">Questions</h2>{faqs}</div>' if faqs else ""}
     </div>
   </section>
@@ -449,11 +459,10 @@ def product_body(s, t):
     <div class="pd-info">
       <h1 id="pd-title" class="pd-title">{e(t["name"])}</h1>
       <p class="bf-script pd-tag">{e(t["tag"])}</p>
-      {f'<p class="pd-price">{e(price)}</p>' if price else ""}
       {"".join(f'<p class="pd-body">{e(p)}</p>' for p in t["about"])}
       <div class="pd-buttons">
-        <a href="/showroom" class="ff-button ff-button-primary">Book a consultation</a>
-        <a href="/contact-us" class="ff-button ff-button-outline">Ask a question</a>
+        <button type="button" class="ff-button ff-button-primary" data-wish-add="{t["quote"]}">Add to your wish list</button>
+        <a href="/showroom" class="ff-button ff-button-outline">Book a consultation</a>
       </div>
       {perfect(t)}
     </div>

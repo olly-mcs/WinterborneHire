@@ -8,6 +8,7 @@ build-bespoke-florals.py, which sets the name, section and short text).
   makes beside it. Anything else is a normal image path.
 - focus (optional): where the first photo is cropped for the cards and blocks (a CSS object-position), so no one's
   head is cut off. Defaults to "50% 45%".
+- quote: the item's id in js/quote-data.js, which "Add to your wish list" adds (its guide price feeds the estimate).
 - about: the paragraphs beside the slider (four).
 - details: "Good to know" rows as (label, value). Rows can be left out; the section only shows when there are any.
 - faq: extra questions for this type, shown before the questions every page shares (FAQ in the build script).
@@ -20,6 +21,7 @@ B = "/images/bespoke-florals/"
 PRODUCTS = {
     # ---------- The Ceremony ----------
     "aisle-meadows": dict(
+        quote="aisle-meadows",
         focus="50% 50%",
         gallery=[
             (B + "aisle-meadows/lulworth-castle", "Couple walking back down an aisle at Lulworth Castle lined on both sides with white meadow arrangements"),
@@ -39,6 +41,7 @@ PRODUCTS = {
                  ("Indoors or out", "Both, from great halls to garden lawns"), ("After the ceremony", "Easy to move to the top table, bar or dance floor")],
     ),
     "moongates": dict(
+        quote="moongate",
         gallery=[
             (B + "moongates/grand-hall-aisle", "Aisle in a grand hall lined with colourful meadow florals, leading to a floral moongate"),
             (B + "moongates/vows-black-and-white", "Couple holding hands for their vows in front of a floral moongate, in black and white"),
@@ -55,6 +58,7 @@ PRODUCTS = {
                  ("Colours", "Designed in your colour palette"), ("After the ceremony", "Moves behind your top table")],
     ),
     "pillars": dict(
+        quote="xl-pillars",
         focus="50% 28%",
         gallery=[
             (P + "church-wedding", "Couple outside a church doorway framed by tall pillars of peach, pink and white blooms"),
@@ -81,6 +85,7 @@ PRODUCTS = {
                  ("Colours", "Designed in your colour palette"), ("After the ceremony", "Move behind the top table or to the entrance")],
     ),
     "urns-and-plinths": dict(
+        quote="urns-plinths",
         focus="50% 50%",
         gallery=[
             (B + "urns-and-plinths/minterne-house", "Couple kissing at Minterne House between white floral urns on plinths, beneath a crystal chandelier"),
@@ -100,6 +105,7 @@ PRODUCTS = {
     ),
     # ---------- The Reception ----------
     "bud-vases": dict(
+        quote="budvases",
         gallery=[
             # placeholder (the Reception hero) until the bud vases photo arrives
             (B + "the-reception/chandelier-reception", "Reception room with blush and white table florals beneath chandeliers"),
@@ -114,6 +120,7 @@ PRODUCTS = {
                  ("Colours", "Stems in your colour palette"), ("Pairs with", "Candles, tealights and taper candlesticks")],
     ),
     "footed-bowls": dict(
+        quote="footed-bowl",
         gallery=[
             (B + "footed-bowls/ruby-and-henry", "Round table with a pink, red and white footed bowl arrangement and taper candles, floral pillars behind"),
             (B + "footed-bowls/alysha-and-chris-table", "Footed bowl of pale blue, yellow and white blooms on a round table"),
@@ -131,6 +138,7 @@ PRODUCTS = {
                  ("Tables", "Round and long tables"), ("Colours", "Designed in your colour palette")],
     ),
     "podiums": dict(
+        quote="tall-podiums",
         focus="50% 40%",
         gallery=[
             (B + "podiums/ruby-and-henry", "Tall podium arrangement of red, pink and white blooms above a round table"),
@@ -150,6 +158,7 @@ PRODUCTS = {
                  ("Tables", "Round and long tables"), ("Best for", "Marquees, barns and high ceilings")],
     ),
     "top-table": dict(
+        quote="top-table",
         focus="50% 35%",
         gallery=[
             (B + "top-table/ruby-and-henry", "Top table with a pink and red floral arrangement, framed by floral pillars in front of a round window"),
@@ -169,6 +178,7 @@ PRODUCTS = {
     ),
     # ---------- Your Florals ----------
     "bridal-bouquets": dict(
+        quote="bridal-bouquet",
         focus="50% 19%",
         gallery=[
             (B + "bridal-bouquets/autumn-bouquet", "Bride holding a loose bouquet of burnt orange, peach and white blooms with dried grasses"),
@@ -194,6 +204,7 @@ PRODUCTS = {
                  ("Pairs with", "Bridesmaids' bouquets and buttonholes")],
     ),
     "bridesmaids-bouquets": dict(
+        quote="bridesmaid-bouquet",
         focus="50% 8%",
         gallery=[
             (B + "bridesmaids-bouquets/bridesmaids-in-orange", "Two bridesmaids in burnt orange dresses holding bright, colourful bouquets"),
@@ -213,6 +224,7 @@ PRODUCTS = {
                  ("Also available", "Single stem bouquets and fairy wands")],
     ),
     "buttonholes": dict(
+        quote="buttonholes",
         focus="50% 40%",
         gallery=[
             (B + "buttonholes/buttonhole-close-up", "Close up of a bright buttonhole of pink, orange and yellow blooms on a navy suit lapel"),
@@ -232,6 +244,7 @@ PRODUCTS = {
     ),
     # ---------- Installations ----------
     "arbors": dict(
+        quote="arbor-design",
         gallery=[
             (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
             (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
@@ -247,6 +260,7 @@ PRODUCTS = {
                  ("Colours", "Designed in your colour palette")],
     ),
     "chandeliers": dict(
+        quote="chandelier-decor",
         focus="50% 32%",
         gallery=[
             (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
@@ -263,6 +277,7 @@ PRODUCTS = {
                  ("Installation", "Installed for you"), ("Light fitting", "Not included, decor only")],
     ),
     "ladders": dict(
+        quote="ladder-decor",
         focus="50% 32%",
         gallery=[
             (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),

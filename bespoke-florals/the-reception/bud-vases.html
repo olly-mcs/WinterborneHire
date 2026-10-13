@@ -19,6 +19,7 @@
   <link href="/css/site.css" rel="stylesheet" type="text/css">
   <link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">
   <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">
+  <link href="/css/wishlist.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -177,11 +178,10 @@
     <div class="pd-info">
       <h1 id="pd-title" class="pd-title">Bud Vases</h1>
       <p class="bf-script pd-tag">Little pops of colour, all along the table.</p>
-      <p class="pd-price">£8 to £12 each, with stems</p>
       <p class="pd-body">Little pops of colour, all along the table. Our bud vases hold single stems and small sprigs, and look beautiful clustered down long tables or grouped around a larger centrepiece.</p><p class="pd-body">Choose clear, pink, green, orange or teal glass, or mix them together, then we&#x27;ll fill them with stems in your colours.</p><p class="pd-body">They&#x27;re perfect for relaxed, colourful weddings, and pair beautifully with candles, tealights and taper candlesticks for a soft glow as the evening draws in.</p><p class="pd-body">Because they&#x27;re small, they&#x27;re also an easy way to carry your florals onto the welcome table, the bar, the cake table and the signing table.</p>
       <div class="pd-buttons">
-        <a href="/showroom" class="ff-button ff-button-primary">Book a consultation</a>
-        <a href="/contact-us" class="ff-button ff-button-outline">Ask a question</a>
+        <button type="button" class="ff-button ff-button-primary" data-wish-add="budvases">Add to your wish list</button>
+        <a href="/showroom" class="ff-button ff-button-outline">Book a consultation</a>
       </div>
       <div class="bf-perfect"><p class="bf-perfect-title">Perfect for</p><ul role="list"><li><svg class="bf-check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 10.3l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Long tables</span></li><li><svg class="bf-check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 10.3l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Relaxed receptions</span></li><li><svg class="bf-check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 10.3l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Colourful weddings</span></li></ul></div>
     </div>
@@ -196,8 +196,8 @@
   </section>
   <section class="pd-know" aria-label="Good to know">
     <div class="pd-know-inner">
-      <div class="pd-know-col"><h2 class="pd-h2">Good to know</h2><dl class="pd-details"><div class="pd-detail"><dt>Price</dt><dd>£8 to £12 each, with stems</dd></div><div class="pd-detail"><dt>Glass</dt><dd>Clear, pink, green, orange or teal</dd></div><div class="pd-detail"><dt>Colours</dt><dd>Stems in your colour palette</dd></div><div class="pd-detail"><dt>Pairs with</dt><dd>Candles, tealights and taper candlesticks</dd></div></dl><p class="pd-note">Prices are from our current price guide.</p></div>
-      <div class="pd-know-col"><h2 class="pd-h2">Questions</h2><details class="pd-faq"><summary>Are the flowers real?</summary><p>No. Every design is made with high-quality silk and real-touch faux blooms, so it looks fresh all day and in every photo, whatever the weather.</p></details><details class="pd-faq"><summary>Can you match my colours?</summary><p>Yes. Every piece is designed around your colour palette, flower preferences, venue and style.</p></details><details class="pd-faq"><summary>Can I see my florals before the wedding?</summary><p>Yes. Ahead of your wedding you&#x27;ll be invited back to our showroom to see your arrangements mocked up, so you know everything is perfect.</p></details><details class="pd-faq"><summary>How do I book?</summary><p>Start with a consultation at our Dorchester showroom, where we&#x27;ll talk through your colours, venue and ideas. Prices are a guide; we&#x27;ll confirm yours once your design is agreed.</p></details></div>
+      <div class="pd-know-col"><h2 class="pd-h2">Good to know</h2><dl class="pd-details"><div class="pd-detail"><dt>Glass</dt><dd>Clear, pink, green, orange or teal</dd></div><div class="pd-detail"><dt>Colours</dt><dd>Stems in your colour palette</dd></div><div class="pd-detail"><dt>Pairs with</dt><dd>Candles, tealights and taper candlesticks</dd></div></dl></div>
+      <div class="pd-know-col"><h2 class="pd-h2">Questions</h2><details class="pd-faq"><summary>Are the flowers real?</summary><p>No. Every design is made with high-quality silk and real-touch faux blooms, so it looks fresh all day and in every photo, whatever the weather.</p></details><details class="pd-faq"><summary>Can you match my colours?</summary><p>Yes. Every piece is designed around your colour palette, flower preferences, venue and style.</p></details><details class="pd-faq"><summary>Can I see my florals before the wedding?</summary><p>Yes. Ahead of your wedding you&#x27;ll be invited back to our showroom to see your arrangements mocked up, so you know everything is perfect.</p></details><details class="pd-faq"><summary>How do I book?</summary><p>Start with a consultation at our Dorchester showroom, where we&#x27;ll talk through your colours, venue and ideas, or add the florals you love to your wish list and send it to us for a quote.</p></details></div>
     </div>
   </section>
   <section class="pd-more" aria-labelledby="pd-more-title">
@@ -312,6 +312,8 @@ $(window).on("load", function() {
 });
 </script>
   <script src="/js/nav.js" type="text/javascript"></script>
+  <script src="/js/quote-data.js" type="text/javascript"></script>
+  <script src="/js/wishlist.js" type="text/javascript"></script>
   <script src="/js/bespoke-gallery.js" type="text/javascript"></script>
 </body>
 </html>
