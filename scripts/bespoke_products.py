@@ -12,15 +12,18 @@ build-bespoke-florals.py, which sets the name, section and short text).
 
 T = "/images/testimonials/"
 P = "/images/bespoke-florals/pillars/"
+B = "/images/bespoke-florals/"
 
 PRODUCTS = {
     # ---------- The Ceremony ----------
     "aisle-meadows": dict(
         gallery=[
-            ("wf:florals-foliage/english-garden-meadow-aisle-arrangements-hover", "Aisle lined on both sides with white and green meadow arrangements"),
-            ("wf:florals-foliage/english-garden-meadow-aisle-arrangements", "Meadow arrangement of pale blue, peach and white blooms at the end of a row of chairs"),
-            (T + "laura-alexandra/02-ceremony-aisle.jpg", "Outdoor ceremony aisle with guests either side"),
-            (T + "sophie-ben/03-ceremony-aisle.jpg", "Ceremony aisle lined with pastel floral pedestals"),
+            (B + "aisle-meadows/lulworth-castle", "Couple walking back down an aisle at Lulworth Castle lined on both sides with white meadow arrangements"),
+            (B + "aisle-meadows/kingston-maurward-detail", "Close up of pale blue, peach and white meadow arrangements along an aisle at Kingston Maurward"),
+            (B + "aisle-meadows/alysha-and-chris", "Bride walking down an aisle lined with pale blue and white meadow florals"),
+            (B + "aisle-meadows/aisle-detail", "White and green meadow arrangement at the end of a row of chairs"),
+            (B + "aisle-meadows/minterne-house", "Couple kissing at Minterne House, the aisle lined with white meadow florals"),
+            (B + "aisle-meadows/gorwell", "Outdoor ceremony with colourful meadow florals leading to a gazebo"),
         ],
         about=[
             "Create a breathtaking aisle with our meadow arrangements: low, loose clusters of blooms and foliage that line the way to your ceremony, so the walk to your partner feels like a stroll through a garden.",
@@ -33,11 +36,10 @@ PRODUCTS = {
     ),
     "moongates": dict(
         gallery=[
-            ("wf:large-props/foliage-circular-arch", "Couple embracing in front of a full circle moongate of white florals and foliage"),
-            ("wf:large-props/foliage-circular-arch-hover", "Full circle floral moongate at a ceremony"),
-            ("/images/173MelDave-1-1.jpg", "Bride beneath a moongate of rich jewel-toned blooms"),
-            ("wf:large-props/gold-metal-moongate-hover", "Gold metal moongate behind a top table, dressed with florals and terracotta draping"),
-            ("wf:large-props/crescent-moon-floral-backdrop", "Crescent moon backdrop of green foliage and white blooms"),
+            (B + "moongates/grand-hall-aisle", "Aisle in a grand hall lined with colourful meadow florals, leading to a floral moongate"),
+            (B + "moongates/vows-black-and-white", "Couple holding hands for their vows in front of a floral moongate, in black and white"),
+            (B + "moongates/bridesmaids-at-the-moongate", "Bridesmaids in blush dresses holding bouquets in front of a floral moongate"),
+            (B + "moongates/indoor-ceremony", "Couple exchanging vows beneath a floral moongate at an indoor ceremony"),
         ],
         about=[
             "Our moongates provide the perfect framework for a stunning floral backdrop. Their circular shape frames the two of you beautifully, and gives every guest a clear view of the moment you say I do.",
@@ -75,10 +77,11 @@ PRODUCTS = {
     ),
     "urns-and-plinths": dict(
         gallery=[
-            ("wf:large-props/english-garden-floral-urns-plinths", "Couple kissing between two large white floral urns on plinths"),
-            ("wf:large-props/english-garden-floral-urns-plinths-hover", "White floral urns on plinths either side of a staircase"),
-            (T + "sophie-ben/04-ceremony-kiss.jpg", "Couple kissing at the ceremony between tall pastel floral arrangements"),
-            (T + "sophie-ben/03-ceremony-aisle.jpg", "Ceremony aisle lined with pastel floral pedestals"),
+            (B + "urns-and-plinths/minterne-house", "Couple kissing at Minterne House between white floral urns on plinths, beneath a crystal chandelier"),
+            (B + "urns-and-plinths/lulworth-castle-aisle", "Aisle at Lulworth Castle lined with white floral urns, leading to a grand chandelier"),
+            (B + "urns-and-plinths/lulworth-castle-exit", "Couple walking back down the aisle at Lulworth Castle between white floral urns"),
+            (B + "urns-and-plinths/pennsylvania-castle", "Couple kissing between pastel floral urns on plinths in a bright white ceremony room"),
+            (B + "urns-and-plinths/wedding-fair", "White floral urns on plinths framing tall glass doors"),
         ],
         about=[
             "Our large urns on plinths are perfect for couples who want to make an impact. Filled with abundant florals and foliage, they bring a sense of grandeur to your ceremony.",
@@ -109,9 +112,11 @@ PRODUCTS = {
     ),
     "footed-bowls": dict(
         gallery=[
-            ("wf:florals-foliage/english-garden-low-centrepiece-arrangement", "Footed bowl arrangement of pink, peach and red blooms with taper candles"),
-            ("wf:florals-foliage/english-garden-low-centrepiece-arrangement-hover", "White footed bowl arrangement on a long wooden table"),
-            ("/images/Winterborne-Hire-Styling-Table-Decor-Closeup.jpg", "Table setting with candles and soft florals"),
+            (B + "footed-bowls/ruby-and-henry", "Round table with a pink, red and white footed bowl arrangement and taper candles, floral pillars behind"),
+            (B + "footed-bowls/alysha-and-chris-table", "Footed bowl of pale blue, yellow and white blooms on a round table"),
+            (B + "footed-bowls/alysha-and-chris-gin-menu", "Yellow and white footed bowl arrangement with candles beside a table menu"),
+            (B + "footed-bowls/candlelit-table", "Candlelit round table with a white footed bowl arrangement in a stone and brick hall"),
+            (B + "footed-bowls/violet-rose-table", "White and green footed bowl arrangement on a table draped with ivory fabric"),
         ],
         about=[
             "Elevate your table décor with our footed bowl arrangements: low, generous centrepieces custom made to match your style, design or colour theme.",

@@ -429,6 +429,29 @@ def gallery(t):
     </div>'''
 
 
+# Testimonial on every product page. Placeholder until real reviews are matched to each product: give a type its own
+# with testimonial=dict(quote=..., names=..., venue=...) in bespoke_products.py.
+TESTIMONIAL = dict(
+    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
+          "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+    names="Emily & Tom",
+    venue="Minterne House, Dorset",
+)
+
+
+def testimonial(t):
+    q = t.get("testimonial", TESTIMONIAL)
+    return f'''  <section class="pd-quote" aria-label="What our couples say">
+    <figure class="pd-quote-inner">
+      <span class="pd-quote-mark" aria-hidden="true">&ldquo;</span>
+      <blockquote class="pd-quote-text"><p>{e(q["quote"])}</p></blockquote>
+      <figcaption class="pd-quote-by"><span class="pd-quote-names">{e(q["names"])}</span><span class="pd-quote-venue">{e(q["venue"])}</span></figcaption>
+    </figure>
+    <a href="/our-testimonials" class="pd-quote-link" target="_blank" rel="noopener">Read more kind words<span class="pd-visually-hidden"> (opens in a new tab)</span> &#8599;</a>
+  </section>
+'''
+
+
 def product_body(s, t):
     price = next((v for k, v in t["details"] if k == "Price"), None)
     details = "".join(f"<div class=\"pd-detail\"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>" for k, v in t["details"])
@@ -476,7 +499,7 @@ def product_body(s, t):
       {perfect(t)}
     </div>
   </section>
-{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
+{testimonial(t)}{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
     <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore bespoke florals</h2>
     <ul class="pd-section-list" role="list">{sections}</ul>
   </section>
