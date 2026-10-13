@@ -154,31 +154,6 @@ CHECK = ('<svg class="bf-check" viewBox="0 0 20 20" aria-hidden="true" focusable
          'fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 10.3l2.6 2.6L14 7.6" fill="none" stroke="currentColor" '
          'stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
-PROCESS = '''  <section class="ff-process" aria-labelledby="ff-process-title">
-    <div class="ff-process-text">
-      <h2 id="ff-process-title" class="ff-heading">From first ideas to your wedding day</h2>
-      <ol class="ff-steps" role="list">
-        <li class="ff-step">
-          <h3 class="ff-step-title">Visit our showroom</h3>
-          <p class="ff-body">Your journey begins with a consultation in our <strong>Dorchester showroom</strong>, where you can explore examples of our handcrafted arrangements and any ready-made collections available to hire.</p>
-        </li>
-        <li class="ff-step">
-          <h3 class="ff-step-title">We design your florals</h3>
-          <p class="ff-body">We create your bespoke designs in our Dorset workshop, built around your colour palette, flower preferences, venue and style.</p>
-        </li>
-        <li class="ff-step">
-          <h3 class="ff-step-title">Preview before the big day</h3>
-          <p class="ff-body">Ahead of your wedding you&#x27;ll be invited back to see your arrangements mocked up, so you know everything is perfect.</p>
-        </li>
-      </ol>
-    </div>
-    <div class="ff-process-media">
-      <img src="/images/Dorset-Wedding-Showroom-p-1080.webp" srcset="/images/Dorset-Wedding-Showroom-p-500.webp 500w, /images/Dorset-Wedding-Showroom-p-800.webp 800w, /images/Dorset-Wedding-Showroom-p-1080.webp 1080w, /images/Dorset-Wedding-Showroom-p-1600.webp 1600w, /images/Dorset-Wedding-Showroom-p-2000.webp 2000w, /images/Dorset-Wedding-Showroom.webp 2500w" sizes="(max-width: 767px) 100vw, 45vw" alt="Inside the Winterborne showroom in Dorset, dressed with hanging florals" loading="lazy" class="ff-process-image">
-    </div>
-  </section>
-'''
-
-
 def read(path):
     return open(os.path.join(ROOT, path), encoding="utf-8").read()
 
@@ -362,7 +337,7 @@ for s in SECTIONS:
 ''' + "\n".join(strip(i, t, t["slug"], f'bf-{t["slug"]}-title', t["name"], button=(purl(s, t), f'Discover {t["name"].lower()}'))
                 for i, t in enumerate(s["types"])) + f'''
   </div>
-{PROCESS}''' + CTA
+''' + CTA
     write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Florals', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"]))
 
 # ---------- product pages ----------
