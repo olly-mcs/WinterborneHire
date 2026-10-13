@@ -1,7 +1,8 @@
 """Product page content for each Bespoke Florals type, keyed by the type's slug (see SECTIONS in
 build-bespoke-florals.py, which sets the name, section and short text).
 
-- gallery: the slider photos, first one first. "wf:<collection>/<file>" means a Webflow product photo, served from the
+- gallery: the slider photos, first one first. Only photos supplied for Bespoke Florals (images/bespoke-florals/),
+  never the hire collection's photos. "wf:<collection>/<file>" means a Webflow product photo, served from the
   600px and 1200px copies in images/webflow-sized/. A path without an extension (e.g. P + "minterne-house") means a
   photo saved in images/bespoke-florals/<type>/originals/, served from the copies scripts/resize-bespoke-images.mjs
   makes beside it. Anything else is a normal image path.
@@ -95,11 +96,8 @@ PRODUCTS = {
     # ---------- The Reception ----------
     "bud-vases": dict(
         gallery=[
-            ("/images/Table-Decor.webp", "Bud vases with bright stems along a wooden table"),
-            ("wf:table-decor/pink-bud-vases", "Soft pink glass bud vases"),
-            ("wf:table-decor/vinatge-cut-glass-bud-vases", "Vintage cut glass bud vases"),
-            ("wf:table-decor/turquoise-bud-vases", "Turquoise glass bud vases"),
-            ("wf:table-decor/orange-bud-vases", "Orange glass bud vases"),
+            # placeholder (the Reception hero) until the bud vases photo arrives
+            (B + "the-reception/chandelier-reception", "Reception room with blush and white table florals beneath chandeliers"),
         ],
         about=[
             "Little pops of colour, all along the table. Our bud vases hold single stems and small sprigs, and look beautiful clustered down long tables or grouped around a larger centrepiece.",
@@ -243,8 +241,6 @@ PRODUCTS = {
             (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
             (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
             (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
-            ("wf:florals-foliage/faux-floral-chandelier-decor", "Floral chandelier of autumnal blooms and foliage hanging in a stone barn"),
-            ("/images/Styling.webp", "Hanging floral chandeliers above round tables in a marquee"),
         ],
         about=[
             "A beautiful installation designed to create the wow factor. We decorate your venue's chandelier light fittings with gorgeous florals and foliage.",
@@ -260,9 +256,6 @@ PRODUCTS = {
             (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
             (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
             (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
-            ("wf:florals-foliage/wisteria-foliage-suspended-ladder-decor", "Suspended ladders dressed with wisteria and foliage above long tables in a barn"),
-            ("wf:florals-foliage/faux-foliage-garland-decor-for-suspended-ladders", "Suspended ladders with foliage garlands above long tables"),
-            ("wf:florals-foliage/faux-foliage-garland-decor-for-suspended-ladders-hover", "Foliage-dressed ladders above tables in a rustic barn"),
         ],
         about=[
             "Create an amazing rustic statement with suspended ladders dressed in lush foliage, wisteria or custom florals, hung above your long tables.",
