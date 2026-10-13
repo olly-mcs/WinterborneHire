@@ -340,7 +340,43 @@
   text-align: center;
 }
 
+.bf-looks-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.bf-look-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.bf-look-link img {
+  transition: opacity 0.2s ease;
+}
+
+.bf-look-link:hover img,
+.bf-look-link:focus-visible img {
+  opacity: 0.85;
+}
+
+.bf-look-link:hover .bf-look-venue {
+  color: #8a5a44;
+}
+
+/* Section pages: the strip under each type's anchor clears the sticky header */
+.bf-cat[id] {
+  scroll-margin-top: 90px;
+}
+
 /* Subpages */
+.bf-crumb-line {
+  margin: 0 0 14px;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+
 .bf-crumb {
   color: inherit;
   text-decoration: none;
@@ -451,7 +487,8 @@
     order: 3;
   }
 
-  .bf-looks-grid {
+  .bf-looks-grid,
+  .bf-looks-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -517,6 +554,12 @@
   }
 }
 
+/* Webflow's current-page style narrows the padding, which pushes the dropdown arrow over the label */
+.w-dropdown-toggle.mainnavstyling.w--current {
+  padding-left: 20px;
+  padding-right: 40px;
+}
+
 /* With the extra Bespoke Florals item, keep every top-level menu item on one line */
 @media screen and (min-width: 992px) {
   .w-nav-menu > .mainnavstyling,
@@ -528,5 +571,84 @@
   .w-nav-menu > .w-dropdown {
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+/* Bespoke Florals menu: two columns on desktop. Sections on the left; hovering one shows its types on the right
+   (The Ceremony's show until another section is hovered). On phones everything is listed, types indented. */
+.bf-menu .bf-menu-section,
+.bf-menu .bf-menu-type {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bf-menu .w-dropdown-link {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .bf-menu.w-dropdown-list,
+  .bf-menu.w-dropdown-list.w--open {
+    width: 460px;
+    padding: 6px 0;
+    background-color: var(--wv-oyster);
+  }
+
+  .bf-menu .bf-menu-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    padding: 14px 20px;
+  }
+
+  .bf-menu .bf-menu-section::after {
+    content: "\203A";
+    font-size: 16px;
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  .bf-menu-types {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    padding: 6px 0;
+    border-left: 1px solid rgba(58, 56, 53, 0.15);
+  }
+
+  .bf-menu .bf-menu-type {
+    padding: 14px 20px;
+  }
+
+  .bf-menu-group:hover .bf-menu-types,
+  .bf-menu-group:focus-within .bf-menu-types,
+  .bf-menu:not(:has(.bf-menu-group:hover, .bf-menu-group:focus-within)) .bf-menu-group:first-of-type .bf-menu-types {
+    display: block;
+  }
+
+  .bf-menu-group:hover > .bf-menu-section,
+  .bf-menu-group:focus-within > .bf-menu-section,
+  .bf-menu:not(:has(.bf-menu-group:hover, .bf-menu-group:focus-within)) .bf-menu-group:first-of-type > .bf-menu-section {
+    color: var(--wv-peach);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .bf-menu .bf-menu-type {
+    padding-left: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .bf-menu .bf-menu-section {
+    font-weight: 600;
   }
 }

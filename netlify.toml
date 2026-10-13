@@ -42,6 +42,43 @@
   to = "/"
   status = 301
 
+# Pages retired in the rebuild
+[[redirects]]
+  from = "/commercial-installations"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/faux-florals"
+  to = "/bespoke-florals"
+  status = 301
+
+# Earlier Bespoke Florals pages (staging only), now types within the four sections
+[[redirects]]
+  from = "/bespoke-florals/floral-pillars"
+  to = "/bespoke-florals/the-ceremony#pillars"
+  status = 301
+
+[[redirects]]
+  from = "/bespoke-florals/moongates"
+  to = "/bespoke-florals/the-ceremony#moongates"
+  status = 301
+
+[[redirects]]
+  from = "/bespoke-florals/urns-and-plinths"
+  to = "/bespoke-florals/the-ceremony#urns-and-plinths"
+  status = 301
+
+[[redirects]]
+  from = "/bespoke-florals/archways"
+  to = "/bespoke-florals/installations#arbors"
+  status = 301
+
+[[redirects]]
+  from = "/bespoke-florals/custom-installations"
+  to = "/bespoke-florals/installations"
+  status = 301
+
 [[headers]]
   for = "/fonts/*"
   [headers.values]
