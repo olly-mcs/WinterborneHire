@@ -197,8 +197,11 @@ PRODUCTS = {
     ),
     "buttonholes": dict(
         gallery=[
-            (T + "hannah-dave/05-buttonhole.jpg", "Floral buttonhole on a suit lapel"),
-            (T + "hannah-dave/07-bouquet-flat-lay.jpg", "Flat lay of bouquets and buttonholes"),
+            (B + "buttonholes/buttonhole-close-up", "Close up of a bright buttonhole of pink, orange and yellow blooms on a navy suit lapel"),
+            (B + "buttonholes/pinning-the-buttonhole", "Hands pinning a deep red and white buttonhole onto a tweed jacket"),
+            (B + "buttonholes/laura-and-alexandra", "Couple at a wrought iron gate, one wearing a deep red buttonhole to match the bouquet"),
+            (B + "buttonholes/couple-portrait", "Groom in a grey suit with a blush buttonhole, embracing the bride"),
+            (B + "buttonholes/groom-with-dog", "Groom in a pink suit with a bright buttonhole, crouching beside a fluffy dog"),
         ],
         about=[
             "The finishing touch. Our bespoke buttonholes are made with the same blooms as your bouquet, so the whole wedding party matches.",
