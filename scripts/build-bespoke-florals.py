@@ -357,9 +357,14 @@ FAQ = [
     ("Can you match my colours?", "Yes. Every piece is designed around your colour palette, flower preferences, venue and style."),
     ("Can I see my florals before the wedding?", "Yes. Ahead of your wedding you'll be invited back to our showroom to see "
      "your arrangements mocked up, so you know everything is perfect."),
-    ("How do I book?", "Start with a consultation at our Dorchester showroom, where we'll talk through your colours, venue "
+    ("How do I book?", "Start with a consultation at our Dorchester {showroom}, where we'll talk through your colours, venue "
      "and ideas, or add the florals you love to your wish list and send it to us for a quote."),
 ]
+
+
+# "{showroom}" in a question's answer becomes this link
+SHOWROOM_LINK = ('<a href="/showroom" class="pd-faq-link" target="_blank" rel="noopener">showroom'
+                 '<span class="pd-visually-hidden"> (opens in a new tab)</span></a>')
 
 
 def more_title(s):
@@ -425,7 +430,7 @@ def product_body(s, t):
     details = "".join(f"<div class=\"pd-detail\"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>"
                       for k, v in t["details"] if "£" not in v and k != "Price")
     faqs = "".join(
-        f'<details class="pd-faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>'
+        f'<details class="pd-faq"><summary>{e(q)}</summary><p>{e(a).replace("{showroom}", SHOWROOM_LINK)}</p></details>'
         for q, a in t.get("faq", []) + FAQ)
     others = [o for o in s["types"] if o is not t]
     more = "".join(

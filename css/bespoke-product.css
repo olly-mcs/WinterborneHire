@@ -572,3 +572,14 @@ body:has(.pd-main) {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+.pd-faq-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pd-faq-link:hover,
+.pd-faq-link:focus-visible {
+  color: #fff;
+}
