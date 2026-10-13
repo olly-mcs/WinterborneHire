@@ -165,11 +165,18 @@ PRODUCTS = {
     # ---------- Your Florals ----------
     "bridal-bouquets": dict(
         gallery=[
-            ("wf:florals-foliage/custom-made-bridal-bouquets", "Bride holding a white and green bridal bouquet"),
-            ("wf:florals-foliage/custom-made-bridal-bouquets-hover", "Couple embracing, the bride holding a white bouquet"),
-            (T + "hannah-dave/03-bridal-bouquet.jpg", "Bride holding a bright meadow bouquet"),
-            (T + "sophie-ben/02-bouquet-close-up.jpg", "Close up of a pastel bridal bouquet"),
-            (T + "laura-alexandra/03-bridal-bouquet.jpg", "Bridal bouquet of deep reds and dusty pinks"),
+            (B + "bridal-bouquets/autumn-bouquet", "Bride holding a loose bouquet of burnt orange, peach and white blooms with dried grasses"),
+            (B + "bridal-bouquets/sophie-and-ben-portrait", "Bride by a tall window holding a soft pastel bouquet of pink, blue and white"),
+            (B + "bridal-bouquets/moody-portrait", "Bride in a lace dress holding an autumnal bouquet with pampas, in moody light"),
+            (B + "bridal-bouquets/laura-and-alexandra-portrait", "Bride seated in a grand room holding a bouquet of deep red and burgundy blooms"),
+            (B + "bridal-bouquets/bright-meadow-bouquet", "Bride with a bright meadow bouquet in front of colourful floral pillars"),
+            (B + "bridal-bouquets/alysha-and-chris", "Bride in a long veil holding a white, yellow and pale blue bouquet"),
+            (B + "bridal-bouquets/hollie-and-tom", "Couple smiling in a garden, the bride holding a blush and white bouquet"),
+            (B + "bridal-bouquets/gazebo-garden", "Couple walking from a gazebo, the bride holding a blush bouquet"),
+            (B + "bridal-bouquets/pink-peony-bouquet", "Bride holding a bouquet of hot pink and white peonies beside her groom in military dress"),
+            (B + "bridal-bouquets/sophie-and-ben-garden", "Couple walking across a lawn, the bride holding a pastel bouquet"),
+            (B + "bridal-bouquets/laura-and-alexandra-lawn", "Couple walking across a lawn, the bride holding a deep red bouquet"),
+            (B + "bridal-bouquets/pink-dress-bouquet", "Bride in a bright pink dress with a colourful bouquet, beneath a garden arch"),
         ],
         about=[
             "Complete your wedding look with a custom-made bridal bouquet, designed around you: your dress, your colours and your style.",
