@@ -21,9 +21,7 @@ e = html.escape
 
 SECTIONS = [
     dict(slug="the-ceremony", name="The Ceremony", tag="Frame the moment you say I do.",
-         img=(T + "sophie-ben/03-ceremony-aisle.jpg", "Ceremony aisle lined with pastel floral pedestals", "50% 45%"),
-         hero2=(T + "laura-alexandra/01-floral-archway.jpg", "Floral pillars framing a stone archway"),
-         hero3=("/images/173MelDave-1-1.jpg", "Bride beneath a circular floral backdrop"),
+         img=("/images/bespoke-florals/moongates/grand-hall-aisle", "Aisle in a grand hall lined with colourful meadow florals, leading to a floral moongate", "50% 50%"),
          body=["Statement florals for your ceremony, from pillars and moongates to grand urns and meadows along the aisle.",
                "Every piece is designed in your colours and can move to the reception afterwards, so it works hard all day."],
          perfect=["Ceremony backdrops", "Aisles", "Garden ceremonies", "Photo moments"],
@@ -50,9 +48,7 @@ SECTIONS = [
                   perfect=["Grand and historic venues", "Ceremony backdrops", "Venue entrances"]),
          ]),
     dict(slug="the-reception", name="The Reception", tag="Florals for the tables you gather around.",
-         img=(T + "sophie-ben/01-reception-floral-centrepieces.jpg", "Tall pastel floral arrangements above reception tables", "50% 35%"),
-         hero2=(T + "hannah-dave/02-reception-arch-and-tables.jpg", "Long reception tables with a floral arch at the top table"),
-         hero3=("/images/Table-Decor.webp", "Bud vases with bright stems along a wooden table"),
+         img=("/images/bespoke-florals/podiums/sage-reception", "Reception room with tall white and green podium arrangements above round tables", "50% 50%"),
          body=["Table florals that set the mood for the meal, from clusters of bud vases to tall podium arrangements and a top table that carries on from your ceremony.",
                "We design them around your tables, your venue and your colours, so the whole room feels joined up."],
          perfect=["Long tables", "Round tables", "Top tables", "Marquees"],
@@ -68,7 +64,7 @@ SECTIONS = [
                         "They sit below eye level, so guests can see and chat across the table."],
                   perfect=["Round tables", "Long tables", "Candlelit receptions"]),
              dict(slug="podiums", name="Podiums", tag="Florals lifted above the table.",
-                  img=(T + "sophie-ben/01-reception-floral-centrepieces.jpg", "Tall pastel floral arrangements above reception tables", "50% 35%"),
+                  img=("/images/bespoke-florals/podiums/sage-reception", "Reception room with tall white and green podium arrangements above round tables", "50% 50%"),
                   body=["Tall arrangements on gold, black or clear stands (70cm), lifting the florals above the table so they fill the room without blocking the view.",
                         "Perfect for high ceilings, marquees and grand rooms."],
                   perfect=["High ceilings", "Marquees", "Round tables"]),
@@ -80,8 +76,6 @@ SECTIONS = [
          ]),
     dict(slug="your-florals", name="Your Florals", tag="The florals you carry with you.",
          img=("/images/bespoke-florals/your-florals/bride-and-bridesmaids", "Bride walking with four bridesmaids in pale blue, all holding white, yellow and blue bouquets", "50% 45%"),
-         hero2=(T + "hannah-dave/06-bridesmaids-bouquets.jpg", "Bridesmaids holding colourful bouquets"),
-         hero3=(T + "hannah-dave/05-buttonhole.jpg", "Floral buttonhole on a suit lapel"),
          body=["Bouquets and buttonholes designed for you and your wedding party, in the same colours and blooms as the rest of your day.",
                "Made with high-quality silk and real-touch flowers, they look fresh in every photo, whatever the weather."],
          perfect=["Brides and grooms", "Bridesmaids", "Groomsmen", "Family"],
@@ -104,8 +98,6 @@ SECTIONS = [
          ]),
     dict(slug="installations", name="Installations", tag="Florals for every corner of your venue.",
          img=("/images/bespoke-florals/installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements", "50% 50%"),
-         hero2=("/images/bespoke-florals/installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright florals"),
-         hero3=("/images/bespoke-florals/installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
          body=["When a space calls for something different, we design it: florals hung above the tables, dressed ladders and chandeliers, and arbors made to measure.",
                "Each installation is made for your venue and installed by us, so the whole room feels considered from the ceiling down."],
          perfect=["Barns and marquees", "High ceilings", "Gazebos and pergolas", "Outdoor ceremonies"],
@@ -356,22 +348,14 @@ write("bespoke-florals/index.html", page(
 # ---------- section pages ----------
 for s in SECTIONS:
     src, alt, pos = s["img"]
-    body = f'''  <section class="ff-hero" aria-labelledby="bf-title">
-    <div class="ff-hero-text">
+    body = f'''  <section class="bf-hero" aria-labelledby="bf-title">
+    {img(src, alt, "(max-width: 991px) 100vw, 62vw", attrs=f' class="bf-hero-image" style="object-position: {pos}" fetchpriority="high"')}
+    <div class="bf-hero-text">
       <p class="bf-crumb-line"><a href="/bespoke-florals" class="bf-crumb">Bespoke florals</a></p>
-      <h1 id="bf-title" class="ff-hero-title">{e(s["name"])}</h1>
+      <h1 id="bf-title" class="bf-hero-title">{e(s["name"])}</h1>
       <p class="bf-script bf-hero-script">{e(s["tag"])}</p>
-      <p class="ff-hero-lead">{e(s["body"][0])}</p>
-      <div class="ff-hero-buttons">
-        <a href="/showroom" class="ff-button ff-button-primary">Book a consultation</a>
-        <a href="#{s["types"][0]["slug"]}" class="ff-button ff-button-outline">See the designs</a>
-      </div>
-    </div>
-    <div class="ff-collage">
-      {img(src, alt, "(max-width: 991px) 100vw, 45vw", attrs=f' style="object-position: {pos}" fetchpriority="high" class="ff-collage-main"')}
-      {img(s["hero2"][0], s["hero2"][1], "200px", 600, ' loading="lazy" class="ff-collage-small ff-collage-a"')}
-      {img(s["hero3"][0], s["hero3"][1], "260px", 600, ' loading="lazy" class="ff-collage-small ff-collage-b"')}
-      <p class="ff-collage-note" aria-hidden="true">made for you</p>
+      <p class="bf-body">{e(s["body"][0])}</p>
+      <a href="#{s["types"][0]["slug"]}" class="bf-button bf-button-dark">See the designs</a>
     </div>
   </section>
 {subnav(s["slug"])}  <div class="bf-collection">
