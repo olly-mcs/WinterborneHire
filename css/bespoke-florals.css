@@ -656,3 +656,110 @@
     font-weight: 600;
   }
 }
+
+/* Footer (all pages): tighter, left-aligned, five columns. The logo and contact details, then Bespoke Florals
+   (written by scripts/build-bespoke-florals.py), Contact us, About us and Hire Collection. */
+.section-9 {
+  padding: 56px max(4vw, 20px) 40px;
+  border-top: 1px solid #e3d9d0;
+}
+
+.grid-3.footergrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(0, 1fr));
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+  align-items: start;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.footergrid > * {
+  margin: 0;
+  place-self: start stretch;
+}
+
+.footergrid .heading-3.footerheader {
+  width: auto;
+  margin: 0 0 16px;
+  color: #3a3835;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.footer-header-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footergrid .footer-link {
+  margin-bottom: 9px;
+  color: #474747;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.footergrid .footer-link:hover,
+.footer-header-link:hover {
+  color: #8a5a44;
+}
+
+.footergrid .mobilelogofooter {
+  display: block;
+  text-align: left;
+}
+
+.footergrid .mobilelogofooter .image-20 {
+  display: block;
+  width: 92px;
+  margin: 0 0 14px;
+}
+
+.footergrid .grid-14 {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.footergrid .copyrightsml {
+  margin-top: 6px;
+  color: #474747;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.footergrid .copyrightsml a {
+  color: inherit;
+}
+
+@media screen and (max-width: 991px) {
+  .grid-3.footergrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .footergrid .mobilelogofooter {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-9 {
+    padding: 44px 24px 32px;
+  }
+
+  .grid-3.footergrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-row-gap: 28px;
+  }
+
+  .footergrid .heading-3.footerheader {
+    margin-top: 0;
+  }
+}

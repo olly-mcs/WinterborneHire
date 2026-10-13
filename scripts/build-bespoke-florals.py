@@ -227,9 +227,40 @@ NAV_RE = re.compile(
     re.S)
 
 
+def footer_column():
+    links = "\n".join(f'              <a href="/bespoke-florals/{s["slug"]}" class="footer-link">{e(s["name"])}</a>' for s in SECTIONS)
+    return f'''      <!-- bespoke-footer:start -->
+      <ul role="list" class="w-list-unstyled footer-bespoke">
+        <li>
+          <div class="heading-3 footerheader"><a href="/bespoke-florals" class="footer-header-link">Bespoke Florals</a></div>
+          <ul role="list" class="w-list-unstyled">
+            <li>
+{links}
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- bespoke-footer:end -->
+'''
+
+
+FOOTER_RE = re.compile(r"      <!-- bespoke-footer:start -->.*?<!-- bespoke-footer:end -->\n", re.S)
+FOOTER_AFTER = '      <ul id="w-node-d3e90d10-6a32-7334-83d7-bf6445119b7e-f9ed05b7"'
+
+
+def update_footer(text):
+    """The footer's Bespoke Florals column, first after the logo column (before "Contact us")."""
+    if FOOTER_RE.search(text):
+        return FOOTER_RE.sub(lambda m: footer_column(), text, count=1)
+    if FOOTER_AFTER in text:
+        return text.replace(FOOTER_AFTER, footer_column() + FOOTER_AFTER, 1)
+    return text
+
+
 def update_nav(text, current=None):
-    """current: a section slug, or "overview", on the Bespoke Florals pages themselves."""
-    return NAV_RE.sub(lambda m: menu(current), text, count=1)
+    """current: a section slug, or "overview", on the Bespoke Florals pages themselves.
+    Also keeps the footer's Bespoke Florals column up to date."""
+    return update_footer(NAV_RE.sub(lambda m: menu(current), text, count=1))
 
 
 # ---------- page shell ----------
