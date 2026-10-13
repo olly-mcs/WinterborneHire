@@ -114,7 +114,9 @@ have an "Add to your wish list" button; a panel slides out from the right where 
 the list with their name, email, phone, wedding date, venue, how they heard about us and (optional, in "Why not book a
 showroom appointment?") a day and time to visit. No prices or estimates are shown to them; the email includes a guide
 total from the price list for Winterborne only. It posts to the Netlify form `quote` (subject "Floral wish list from <name>"); the
-extra fields are declared as hidden inputs in that form in `quote-builder.html`, so Netlify keeps them. It's emailed to winterbornevintage@gmail.com like the quote builder. A "Your wish list" tab stays bottom-right while
+extra fields are declared as hidden inputs in that form in `quote-builder.html`, so Netlify keeps them. It's emailed to winterbornevintage@gmail.com like the quote builder. Once a product from a section is in the list, an "Add more from <section>" accordion in the panel lists that
+section's other products with "+ Add" buttons; the sections and page names come from `js/bespoke-sections.js`, which
+the build script writes. A "Your wish list" tab stays bottom-right while
 the list has items. The list is kept in the browser and shared with `/quote-builder`. Each product's `quote` in
 `scripts/bespoke_products.py` is its id in `js/quote-data.js`, whose guide prices feed the estimate.
 

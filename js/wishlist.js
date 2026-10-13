@@ -14,6 +14,13 @@
     section.items.forEach(function (item) { items[item.id] = { item: item, section: section.title }; });
   });
 
+  // the Bespoke Florals sections (js/bespoke-sections.js): page names for each item, and its section
+  var sections = window.BESPOKE_SECTIONS || [];
+  var pageItem = {};
+  sections.forEach(function (sec) {
+    sec.items.forEach(function (it) { pageItem[it.id] = { name: it.name, url: it.url, section: sec.name }; });
+  });
+
   var list = {};
   try {
     var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
@@ -31,7 +38,9 @@
 
   function lines() {
     return Object.keys(list).map(function (id) {
-      return { id: id, item: items[id].item, section: items[id].section, qty: list[id] };
+      var p = pageItem[id];
+      return { id: id, item: items[id].item, name: p ? p.name : items[id].item.name,
+        section: p ? p.section : items[id].section, url: p && p.url, qty: list[id] };
     });
   }
   function count() { return lines().reduce(function (n, l) { return n + l.qty; }, 0); }
@@ -53,6 +62,7 @@
     '    <p class="wl-intro">Add the florals you love, then send us your list.</p>' +
     '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as possible with your quote.</strong></p>' +
     '    <ul class="wl-lines" role="list"></ul>' +
+    '    <div class="wl-more"></div>' +
     '    <p class="wl-empty">Your wish list is empty. Use &ldquo;Add to your wish list&rdquo; on any of our florals.</p>' +
     '    <form class="wl-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">' +
     '      <input type="hidden" name="form-name" value="quote">' +
@@ -119,14 +129,16 @@
     var ls = lines();
     linesEl.innerHTML = ls.map(function (l) {
       return '<li class="wl-line" data-id="' + esc(l.id) + '">' +
-        '<div class="wl-line-text"><span class="wl-line-name">' + esc(l.item.name) + '</span>' +
+        '<div class="wl-line-text">' + (l.url ? '<a class="wl-line-name" href="' + esc(l.url) + '">' + esc(l.name) + '</a>'
+          : '<span class="wl-line-name">' + esc(l.name) + '</span>') +
         '<span class="wl-line-section">' + esc(l.section) + '</span></div>' +
-        '<div class="wl-qty" role="group" aria-label="Quantity of ' + esc(l.item.name) + '">' +
+        '<div class="wl-qty" role="group" aria-label="Quantity of ' + esc(l.name) + '">' +
         '<button type="button" class="wl-minus" aria-label="One fewer">&minus;</button>' +
         '<span class="wl-qty-n" aria-live="polite">' + l.qty + '</span>' +
         '<button type="button" class="wl-plus" aria-label="One more">+</button></div>' +
-        '<button type="button" class="wl-remove" aria-label="Remove ' + esc(l.item.name) + '">Remove</button></li>';
+        '<button type="button" class="wl-remove" aria-label="Remove ' + esc(l.name) + '">Remove</button></li>';
     }).join("");
+    renderMore();
     panel.classList.toggle("has-items", ls.length > 0);
     var n = count();
     panel.querySelector(".wl-count").textContent = n;
@@ -137,6 +149,34 @@
       btn.textContent = inList ? "In your wish list ✓" : "Add to your wish list";
     });
   }
+
+  // "Add more from <section>": for each section with something in the list, the rest of its products
+  var moreEl = panel.querySelector(".wl-more");
+  var openMore = {};
+  function renderMore() {
+    moreEl.innerHTML = sections.map(function (sec, i) {
+      var inList = sec.items.some(function (it) { return list[it.id] > 0; });
+      var rest = sec.items.filter(function (it) { return items[it.id] && !(list[it.id] > 0); });
+      if (!inList || !rest.length) return "";
+      return '<details class="wl-add-more" data-sec="' + i + '"' + (openMore[i] ? " open" : "") + '>' +
+        '<summary>Add more from ' + esc(sec.name.toLowerCase()) + '</summary><ul role="list">' +
+        rest.map(function (it) {
+          return '<li><a href="' + esc(it.url) + '">' + esc(it.name) + '</a>' +
+            '<button type="button" class="wl-add" data-id="' + esc(it.id) + '" aria-label="Add ' + esc(it.name) + ' to your wish list">+ Add</button></li>';
+        }).join("") + '</ul></details>';
+    }).join("");
+  }
+  moreEl.addEventListener("toggle", function (e) {
+    var d = e.target.closest && e.target.closest(".wl-add-more");
+    if (d) openMore[d.getAttribute("data-sec")] = d.open;
+  }, true);
+  moreEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".wl-add");
+    if (!btn) return;
+    var d = btn.closest(".wl-add-more");
+    openMore[d.getAttribute("data-sec")] = true;
+    setQty(btn.getAttribute("data-id"), 1);
+  });
 
   linesEl.addEventListener("click", function (e) {
     var li = e.target.closest(".wl-line");
@@ -172,7 +212,7 @@
       "Wedding date: " + details.date, "Venue: " + details.venue, "Heard about us: " + (details.heard || "Not given"), "");
     out.push("Showroom appointment: " + (details.showroom || "Not requested"), "");
     out.push("WISH LIST");
-    lines().forEach(function (l) { out.push("  " + l.qty + " x " + l.item.name + " (" + l.section + ")"); });
+    lines().forEach(function (l) { out.push("  " + l.qty + " x " + l.name + " (" + l.section + ")"); });
     out.push("", "Guide total from the price list (not shown to them): " + money(est.low) + " - " + money(est.high));
     return out.join("\n");
   }

@@ -447,3 +447,95 @@ button.ff-button {
 .wl.has-items .wl-form:not([hidden]) {
   margin-top: 28px;
 }
+
+a.wl-line-name {
+  text-decoration: none;
+}
+
+a.wl-line-name:hover {
+  color: #8a5a44;
+}
+
+/* "Add more from the reception": the rest of a section's products, once one is in the list */
+.wl-add-more {
+  margin: 16px 0 0;
+  border: 1px solid #d6ccc1;
+  background-color: #fff;
+}
+
+.wl-add-more summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+}
+
+.wl-add-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.wl-add-more summary::after {
+  content: "+";
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.wl-add-more[open] summary::after {
+  content: "\2212";
+}
+
+.wl-add-more ul {
+  margin: 0;
+  padding: 0 16px 8px;
+  list-style: none;
+}
+
+.wl-add-more li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #efe9e1;
+}
+
+.wl-add-more li a {
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+
+.wl-add-more li a:hover {
+  color: #8a5a44;
+}
+
+.wl-add {
+  flex: none;
+  padding: 8px 14px;
+  border: 1px solid #898c6b;
+  background-color: #fff;
+  color: #5d6046;
+  font-family: Cinzel, serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.wl-add:hover,
+.wl-add:focus-visible {
+  background-color: #898c6b;
+  color: #fff;
+}

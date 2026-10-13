@@ -240,11 +240,18 @@ FOOT = TPL[TPL.index('  <div class="badgesection">'):]
 WISHLIST_HEAD_AFTER = '<link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">'
 WISHLIST_CSS = '\n  <link href="/css/wishlist.css" rel="stylesheet" type="text/css">'
 WISHLIST_JS = ('  <script src="/js/quote-data.js" type="text/javascript"></script>\n'
+               '  <script src="/js/bespoke-sections.js" type="text/javascript"></script>\n'
                '  <script src="/js/wishlist.js" type="text/javascript"></script>\n')
 
 
+def without_wishlist(text):
+    """The template is the last-built overview page, so remove any wish list tags before adding them once."""
+    text = re.sub(r'\n  <link href="/css/wishlist\.css"[^>]*>', "", text)
+    return re.sub(r'  <script src="/js/(?:quote-data|bespoke-sections|wishlist)\.js"[^>]*></script>\n', "", text)
+
+
 def page(title, desc, canonical, body, current):
-    s = HEAD
+    s = without_wishlist(HEAD)
     s = re.sub(r"<title>.*?</title>", f"<title>{e(title)} | Winterborne Hire &amp; Styling</title>", s, count=1)
     for attr in ('name="description"', 'property="og:description"', 'name="twitter:description"'):
         s = re.sub(r'<meta content="[^"]*" ' + re.escape(attr) + ">", f'<meta content="{e(desc)}" {attr}>', s, count=1)
@@ -253,7 +260,7 @@ def page(title, desc, canonical, body, current):
     s = re.sub(r'<link href="https://www\.winterbornehireandstyling\.co\.uk[^"]*" rel="canonical">',
                f'<link href="https://www.winterbornehireandstyling.co.uk{canonical}" rel="canonical">', s, count=1)
     s = s.replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + WISHLIST_CSS, 1)
-    foot = FOOT.replace("</body>", WISHLIST_JS + "</body>", 1)
+    foot = without_wishlist(FOOT).replace("</body>", WISHLIST_JS + "</body>", 1)
     return update_nav(s + body + foot, current)
 
 
@@ -490,6 +497,14 @@ for s in SECTIONS:
         write(f'bespoke-florals/{s["slug"]}/{t["slug"]}.html', html_)
         built += 1
 print(f"built {built} product pages")
+
+# ---------- the sections and their products, for the wish list panel ----------
+import json  # noqa: E402
+SECTIONS_JS = [dict(name=s["name"], url=f'/bespoke-florals/{s["slug"]}',
+                    items=[dict(id=t["quote"], name=t["name"], url=purl(s, t)) for t in s["types"]]) for s in SECTIONS]
+write("js/bespoke-sections.js", "// Written by scripts/build-bespoke-florals.py: the Bespoke Florals sections and their products,\n"
+      "// used by js/wishlist.js (ids are the items in js/quote-data.js). Don't edit by hand.\n"
+      "window.BESPOKE_SECTIONS = " + json.dumps(SECTIONS_JS, indent=2, ensure_ascii=False) + ";\n")
 
 # ---------- the menu on every other page ----------
 count = 0
