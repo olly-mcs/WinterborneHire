@@ -21,6 +21,27 @@
   to = "/florals-foliage.html"
   status = 200
 
+# Bespoke Florals section pages, which share their names with the folders of product pages
+[[redirects]]
+  from = "/bespoke-florals/the-ceremony"
+  to = "/bespoke-florals/the-ceremony.html"
+  status = 200
+
+[[redirects]]
+  from = "/bespoke-florals/the-reception"
+  to = "/bespoke-florals/the-reception.html"
+  status = 200
+
+[[redirects]]
+  from = "/bespoke-florals/your-florals"
+  to = "/bespoke-florals/your-florals.html"
+  status = 200
+
+[[redirects]]
+  from = "/bespoke-florals/installations"
+  to = "/bespoke-florals/installations.html"
+  status = 200
+
 # Pages removed in the move from Webflow
 [[redirects]]
   from = "/small-props-old"
@@ -56,22 +77,22 @@
 # Earlier Bespoke Florals pages (staging only), now types within the four sections
 [[redirects]]
   from = "/bespoke-florals/floral-pillars"
-  to = "/bespoke-florals/the-ceremony#pillars"
+  to = "/bespoke-florals/the-ceremony/pillars"
   status = 301
 
 [[redirects]]
   from = "/bespoke-florals/moongates"
-  to = "/bespoke-florals/the-ceremony#moongates"
+  to = "/bespoke-florals/the-ceremony/moongates"
   status = 301
 
 [[redirects]]
   from = "/bespoke-florals/urns-and-plinths"
-  to = "/bespoke-florals/the-ceremony#urns-and-plinths"
+  to = "/bespoke-florals/the-ceremony/urns-and-plinths"
   status = 301
 
 [[redirects]]
   from = "/bespoke-florals/archways"
-  to = "/bespoke-florals/installations#arbors"
+  to = "/bespoke-florals/installations/arbors"
   status = 301
 
 [[redirects]]

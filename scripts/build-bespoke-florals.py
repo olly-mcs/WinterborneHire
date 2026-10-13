@@ -3,12 +3,17 @@
 
 - bespoke-florals/index.html: the overview, one numbered strip per section
 - bespoke-florals/<section>.html: one page per section, one numbered strip per type (with an #anchor)
+- bespoke-florals/<section>/<type>.html: a product page per type (photo slider, details, questions, the section's
+  other types and the other sections); its content is in scripts/bespoke_products.py
 - the "Bespoke Florals" dropdown in every page's navigation: sections on the left, their types on the right
 
-Edit SECTIONS below, then run:  python3 scripts/build-bespoke-florals.py
+Edit SECTIONS below (and PRODUCTS in bespoke_products.py), then run:  python3 scripts/build-bespoke-florals.py
 Types are listed alphabetically wherever they appear.
 """
-import glob, html, os, re
+import glob, html, os, re, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from bespoke_products import PRODUCTS  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 T = "/images/testimonials/"
@@ -124,6 +129,33 @@ SECTIONS = [
 ]
 for s in SECTIONS:
     s["types"].sort(key=lambda t: t["name"].lower())
+    for t in s["types"]:
+        t.update(PRODUCTS[t["slug"]])
+        # the first slider photo is also the type's photo on the overview and section pages
+        t["img"] = (t["gallery"][0][0], t["gallery"][0][1], "50% 45%")
+
+
+def purl(s, t):
+    return f'/bespoke-florals/{s["slug"]}/{t["slug"]}'
+
+
+def img_src(spec, width=1200):
+    """A photo ("wf:<collection>/<file>" or an image path) as a src, plus a srcset for the Webflow photos."""
+    if spec.startswith("wf:"):
+        base = "/images/webflow-sized/" + spec[3:]
+        for w in (600, 1200):
+            if not os.path.exists(os.path.join(ROOT, base.lstrip("/") + f"-{w}.webp")):
+                raise SystemExit(f"missing image {base}-{w}.webp")
+        return f"{base}-{width}.webp", f"{base}-600.webp 600w, {base}-1200.webp 1200w"
+    if not os.path.exists(os.path.join(ROOT, spec.lstrip("/"))):
+        raise SystemExit(f"missing image {spec}")
+    return spec, None
+
+
+def img(spec, alt, sizes, width=1200, attrs=""):
+    src, srcset = img_src(spec, width)
+    ss = f' srcset="{srcset}" sizes="{sizes}"' if srcset else ""
+    return f'<img src="{src}"{ss} alt="{e(alt)}"{attrs}>'
 
 CHECK = ('<svg class="bf-check" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8.5" '
          'fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 10.3l2.6 2.6L14 7.6" fill="none" stroke="currentColor" '
@@ -167,7 +199,7 @@ def menu(current=None):
     groups = []
     for s in SECTIONS:
         types = "\n".join(
-            f'                  <a href="/bespoke-florals/{s["slug"]}#{t["slug"]}" class="dropdown-link-2 w-dropdown-link bf-menu-type">{e(t["name"])}</a>'
+            f'                  <a href="{purl(s, t)}" class="dropdown-link-2 w-dropdown-link bf-menu-type">{e(t["name"])}</a>'
             for t in s["types"])
         groups.append(f'''              <div class="bf-menu-group">
                 <a href="/bespoke-florals/{s["slug"]}" class="dropdown-link-2 w-dropdown-link bf-menu-section{" w--current" if s["slug"] == current else ""}">{e(s["name"])}</a>
@@ -238,7 +270,7 @@ def strip(i, x, id_, title_id, title, button=None, extra=""):
     btn = f'\n        <a href="{button[0]}" class="bf-button">{e(button[1])}</a>' if button else ""
     return f'''  <section class="bf-cat{" bf-cat-flip" if i % 2 else ""}" id="{id_}" aria-labelledby="{title_id}">
     <div class="bf-cat-main">
-      <img class="bf-cat-image" src="{src}" alt="{e(alt)}" style="object-position: {pos}" loading="lazy">
+      {img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')}
       <div class="bf-cat-text">
         <p class="bf-num"><span>{i + 1:02d}</span></p>
         <h2 id="{title_id}" class="bf-cat-title">{e(title)}</h2>
@@ -252,9 +284,9 @@ def strip(i, x, id_, title_id, title, button=None, extra=""):
 
 def types_row(s):
     cards = "".join(
-        f'<li class="bf-look"><a href="/bespoke-florals/{s["slug"]}#{t["slug"]}" class="bf-look-link">'
-        f'<img src="{t["img"][0]}" alt="{e(t["img"][1])}" style="object-position: {t["img"][2]}" loading="lazy">'
-        f'<p class="bf-look-venue">{e(t["name"])}</p><p class="bf-look-desc">{e(t["tag"])}</p></a></li>'
+        f'<li class="bf-look"><a href="{purl(s, t)}" class="bf-look-link">'
+        + img(t["img"][0], t["img"][1], "(max-width: 991px) 50vw, 25vw", 600, f' style="object-position: {t["img"][2]}" loading="lazy"')
+        + f'<p class="bf-look-venue">{e(t["name"])}</p><p class="bf-look-desc">{e(t["tag"])}</p></a></li>'
         for t in s["types"])
     return (f'\n    <div class="bf-looks"><h3 class="bf-looks-title">Our designs</h3>'
             f'<ul class="bf-looks-grid bf-looks-{len(s["types"])}" role="list">{cards}</ul></div>')
@@ -317,10 +349,125 @@ for s in SECTIONS:
     </div>
   </section>
 {subnav(s["slug"])}  <div class="bf-collection">
-''' + "\n".join(strip(i, t, t["slug"], f'bf-{t["slug"]}-title', t["name"]) for i, t in enumerate(s["types"])) + f'''
+''' + "\n".join(strip(i, t, t["slug"], f'bf-{t["slug"]}-title', t["name"], button=(purl(s, t), f'Discover {t["name"].lower()}'))
+                for i, t in enumerate(s["types"])) + f'''
   </div>
 {PROCESS}''' + CTA.format(title=f"Let&#x27;s design {e(your(s['name']))}")
     write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Florals', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"]))
+
+# ---------- product pages ----------
+# Questions every product page shows, after the type's own (its "faq" in bespoke_products.py).
+FAQ = [
+    ("Are the flowers real?", "No. Every design is made with high-quality silk and real-touch faux blooms, so it looks fresh "
+     "all day and in every photo, whatever the weather."),
+    ("Can you match my colours?", "Yes. Every piece is designed around your colour palette, flower preferences, venue and style."),
+    ("Can I see my florals before the wedding?", "Yes. Ahead of your wedding you'll be invited back to our showroom to see "
+     "your arrangements mocked up, so you know everything is perfect."),
+    ("How do I book?", "Start with a consultation at our Dorchester showroom, where we'll talk through your colours, venue "
+     "and ideas. Prices are a guide; we'll confirm yours once your design is agreed."),
+]
+
+
+def more_title(s):
+    n = s["name"]
+    if n.startswith("The "):
+        return f"More for {n.lower()}"
+    if n.startswith("Your "):
+        return f"More of {n.lower()}"
+    return f"More {n.lower()}"
+
+
+def gallery(t):
+    shots = t["gallery"]
+    slides = "".join(
+        f'<li class="pd-slide" id="pd-slide-{i + 1}" aria-label="Photo {i + 1} of {len(shots)}">'
+        + img(src, alt, "(max-width: 991px) 100vw, 50vw", attrs=' fetchpriority="high"' if i == 0 else ' loading="lazy"')
+        + "</li>"
+        for i, (src, alt) in enumerate(shots))
+    if len(shots) == 1:  # one photo: no arrows, counter or thumbnails
+        return f'<div class="pd-gallery"><div class="pd-stage"><ul class="pd-track" role="list">{slides}</ul></div></div>'
+    current = ' aria-current="true"'
+    thumbs = "".join(
+        f'<li><button type="button" class="pd-thumb{" is-active" if i == 0 else ""}" data-slide="{i}" '
+        f'aria-label="Show photo {i + 1}"{current if i == 0 else ""}>'
+        + img(src, "", "120px", 600, ' loading="lazy"') + "</button></li>"
+        for i, (src, alt) in enumerate(shots))
+    return f'''<div class="pd-gallery" data-gallery>
+      <div class="pd-stage">
+        <ul class="pd-track" role="list" tabindex="0" aria-label="{e(t["name"])} photos">{slides}</ul>
+        <button type="button" class="pd-arrow pd-prev" aria-label="Previous photo" data-prev>&#8249;</button>
+        <button type="button" class="pd-arrow pd-next" aria-label="Next photo" data-next>&#8250;</button>
+        <p class="pd-count" aria-hidden="true"><span data-count>1</span> / {len(shots)}</p>
+      </div>
+      <ul class="pd-thumbs" role="list">{thumbs}</ul>
+    </div>'''
+
+
+def product_body(s, t):
+    price = next((v for k, v in t["details"] if k == "Price"), None)
+    details = "".join(f"<div class=\"pd-detail\"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>" for k, v in t["details"])
+    faqs = "".join(
+        f'<details class="pd-faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>'
+        for q, a in t.get("faq", []) + FAQ)
+    others = [o for o in s["types"] if o is not t]
+    more = "".join(
+        f'<li class="bf-look"><a href="{purl(s, o)}" class="bf-look-link">'
+        + img(o["img"][0], o["img"][1], "(max-width: 991px) 50vw, 30vw", 600, f' style="object-position: {o["img"][2]}" loading="lazy"')
+        + f'<p class="bf-look-venue">{e(o["name"])}</p><p class="bf-look-desc">{e(o["tag"])}</p></a></li>'
+        for o in others)
+    sections = "".join(
+        f'<li><a href="/bespoke-florals/{o["slug"]}" class="pd-section">'
+        + img(o["img"][0], o["img"][1], "(max-width: 767px) 100vw, 33vw", 1200, f' style="object-position: {o["img"][2]}" loading="lazy"')
+        + f'<span class="pd-section-text"><span class="pd-section-name">{e(o["name"])}</span>'
+        f'<span class="pd-section-types">{e(", ".join(x["name"] for x in o["types"]))}</span></span></a></li>'
+        for o in SECTIONS if o is not s)
+    know = ""
+    if details or faqs:
+        know = f'''  <section class="pd-know" aria-label="Good to know">
+    <div class="pd-know-inner">
+      {f'<div class="pd-know-col"><h2 class="pd-h2">Good to know</h2><dl class="pd-details">{details}</dl><p class="pd-note">Prices are from our current price guide.</p></div>' if details else ""}
+      {f'<div class="pd-know-col"><h2 class="pd-h2">Questions</h2>{faqs}</div>' if faqs else ""}
+    </div>
+  </section>
+'''
+    more_section = f'''  <section class="pd-more" aria-labelledby="pd-more-title">
+    <h2 id="pd-more-title" class="pd-h2 pd-center">{e(more_title(s))}</h2>
+    <ul class="bf-looks-grid bf-looks-{len(others)} pd-more-grid" role="list">{more}</ul>
+  </section>
+''' if others else ""
+    return f'''  <nav class="pd-crumbs" aria-label="Breadcrumb"><a href="/bespoke-florals">Bespoke Florals</a><span aria-hidden="true">/</span><a href="/bespoke-florals/{s["slug"]}">{e(s["name"])}</a><span aria-hidden="true">/</span><span aria-current="page">{e(t["name"])}</span></nav>
+  <section class="pd-main" aria-labelledby="pd-title">
+    {gallery(t)}
+    <div class="pd-info">
+      <h1 id="pd-title" class="pd-title">{e(t["name"])}</h1>
+      <p class="bf-script pd-tag">{e(t["tag"])}</p>
+      {f'<p class="pd-price">{e(price)}</p>' if price else ""}
+      {"".join(f'<p class="pd-body">{e(p)}</p>' for p in t["about"])}
+      <div class="pd-buttons">
+        <a href="/showroom" class="ff-button ff-button-primary">Book a consultation</a>
+        <a href="/contact-us" class="ff-button ff-button-outline">Ask a question</a>
+      </div>
+      {perfect(t)}
+    </div>
+  </section>
+{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
+    <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore bespoke florals</h2>
+    <ul class="pd-section-list" role="list">{sections}</ul>
+  </section>
+''' + CTA.format(title=f"Let&#x27;s design your {e(t['name'].lower())}")
+
+
+PRODUCT_CSS = '<link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">'
+built = 0
+for s in SECTIONS:
+    os.makedirs(os.path.join(ROOT, "bespoke-florals", s["slug"]), exist_ok=True)
+    for t in s["types"]:
+        html_ = page(f'{t["name"]} | {s["name"]} | Bespoke Florals', t["about"][0], purl(s, t), product_body(s, t), s["slug"])
+        html_ = html_.replace(PRODUCT_CSS, PRODUCT_CSS + '\n  <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">', 1)
+        html_ = html_.replace("</body>", '  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>\n</body>', 1)
+        write(f'bespoke-florals/{s["slug"]}/{t["slug"]}.html', html_)
+        built += 1
+print(f"built {built} product pages")
 
 # ---------- the menu on every other page ----------
 count = 0

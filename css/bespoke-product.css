@@ -1,0 +1,483 @@
+/* Bespoke Florals product pages (bespoke-florals/<section>/<type>.html), built by scripts/build-bespoke-florals.py.
+   Cards reuse .bf-look from bespoke-florals.css; buttons and the closing panel reuse the ff- styles in site.css. */
+body:has(.pd-main) {
+  background-color: #f6f3ee;
+}
+
+.pd-crumbs {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 26px max(4vw, 20px) 0;
+  color: #66605a;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.pd-crumbs a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #e59775;
+}
+
+.pd-crumbs a:hover {
+  color: #8a5a44;
+}
+
+.pd-crumbs span[aria-hidden] {
+  margin: 0 10px;
+  color: #b0a898;
+}
+
+.pd-crumbs [aria-current] {
+  color: #3a3835;
+}
+
+/* Slider (left) and product information (right) */
+.pd-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 26px max(4vw, 20px) 88px;
+}
+
+.pd-gallery {
+  position: sticky;
+  top: 84px;
+}
+
+.pd-stage {
+  position: relative;
+}
+
+.pd-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  background-color: #efe9e1;
+}
+
+.pd-track::-webkit-scrollbar {
+  display: none;
+}
+
+.pd-track:focus-visible {
+  outline: 2px solid #3a3835;
+  outline-offset: 3px;
+}
+
+.pd-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 5;
+  scroll-snap-align: start;
+}
+
+.pd-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-top: -23px;
+  padding: 0 0 4px;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(246, 243, 238, 0.9);
+  color: #3a3835;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pd-arrow:hover,
+.pd-arrow:focus-visible {
+  background-color: #fff;
+}
+
+.pd-prev {
+  left: 14px;
+}
+
+.pd-next {
+  right: 14px;
+}
+
+.pd-count {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  margin: 0;
+  padding: 5px 12px;
+  background-color: rgba(58, 56, 53, 0.72);
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.pd-thumbs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pd-thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.pd-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.pd-thumb:hover,
+.pd-thumb:focus-visible {
+  opacity: 0.85;
+}
+
+.pd-thumb.is-active {
+  opacity: 1;
+  box-shadow: 0 0 0 1px #f6f3ee, 0 0 0 2px #3a3835;
+}
+
+.pd-info {
+  padding-top: 6px;
+  text-align: left;
+}
+
+.pd-title {
+  margin: 0 0 10px;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.pd-tag {
+  margin-bottom: 18px;
+}
+
+.pd-price {
+  margin: 0 0 24px;
+  color: #8a5a44;
+  font-family: Cinzel, serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-align: left;
+}
+
+.pd-body {
+  max-width: 600px;
+  margin: 0 0 16px;
+  color: #474747;
+  font-family: Raleway, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.pd-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 36px;
+}
+
+.pd-info .bf-perfect,
+.pd-info .bf-perfect-title {
+  text-align: left;
+}
+
+.pd-info .bf-perfect {
+  padding-top: 26px;
+  border-top: 1px solid #e3d9d0;
+}
+
+.pd-info .bf-perfect ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+}
+
+.pd-h2 {
+  margin: 0 0 28px;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: clamp(28px, 2.8vw, 38px);
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.pd-center {
+  text-align: center;
+}
+
+/* Good to know + questions */
+.pd-know {
+  padding: 80px max(4vw, 20px);
+  background-color: #3d3b2f;
+}
+
+.pd-know-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 64px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.pd-know .pd-h2 {
+  color: #fff;
+}
+
+.pd-details {
+  margin: 0;
+}
+
+.pd-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pd-detail:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pd-detail dt {
+  color: #cfc6b8;
+  font-family: Raleway, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.pd-detail dd {
+  margin: 0;
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.pd-note {
+  margin: 14px 0 0;
+  color: #cfc6b8;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  text-align: left;
+}
+
+.pd-faq {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pd-faq:first-of-type {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pd-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pd-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.pd-faq summary::after {
+  content: "+";
+  flex: none;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.pd-faq[open] summary::after {
+  content: "\2212";
+}
+
+.pd-faq p {
+  margin: 0 0 20px;
+  color: #e6e0d6;
+  font-family: Raleway, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+/* The section's other types */
+.pd-more {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 88px max(4vw, 20px) 24px;
+}
+
+.pd-more-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* The other three sections */
+.pd-sections {
+  padding: 64px max(4vw, 20px) 96px;
+}
+
+.pd-section-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.pd-section {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+}
+
+.pd-section img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.pd-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(30, 28, 24, 0) 45%, rgba(30, 28, 24, 0.72) 100%);
+}
+
+.pd-section:hover img,
+.pd-section:focus-visible img {
+  transform: scale(1.04);
+}
+
+.pd-section-text {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1;
+}
+
+.pd-section-name {
+  display: block;
+  margin-bottom: 6px;
+  font-family: Cinzel, serif;
+  font-size: clamp(24px, 2.2vw, 30px);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.pd-section-types {
+  display: block;
+  font-family: Raleway, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 991px) {
+  .pd-main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-bottom: 64px;
+  }
+
+  .pd-gallery {
+    position: static;
+  }
+
+  .pd-know {
+    padding: 64px 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pd-section-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-section {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .pd-slide {
+    aspect-ratio: 1;
+  }
+
+  .pd-arrow {
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    font-size: 26px;
+  }
+
+  .pd-info .bf-perfect ul {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-detail {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
