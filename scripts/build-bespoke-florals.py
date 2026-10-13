@@ -79,7 +79,7 @@ SECTIONS = [
                   perfect=["Top tables", "Sweetheart tables", "Photo moments"]),
          ]),
     dict(slug="your-florals", name="Your Florals", tag="The florals you carry with you.",
-         img=(T + "hannah-dave/03-bridal-bouquet.jpg", "Bride holding a bright meadow bouquet", "50% 40%"),
+         img=("/images/bespoke-florals/your-florals/bride-and-bridesmaids", "Bride walking with four bridesmaids in pale blue, all holding white, yellow and blue bouquets", "50% 45%"),
          hero2=(T + "hannah-dave/06-bridesmaids-bouquets.jpg", "Bridesmaids holding colourful bouquets"),
          hero3=(T + "hannah-dave/05-buttonhole.jpg", "Floral buttonhole on a suit lapel"),
          body=["Bouquets and buttonholes designed for you and your wedding party, in the same colours and blooms as the rest of your day.",
@@ -368,7 +368,7 @@ for s in SECTIONS:
       </div>
     </div>
     <div class="ff-collage">
-      <img src="{src}" alt="{e(alt)}" style="object-position: {pos}" fetchpriority="high" class="ff-collage-main">
+      {img(src, alt, "(max-width: 991px) 100vw, 45vw", attrs=f' style="object-position: {pos}" fetchpriority="high" class="ff-collage-main"')}
       <img src="{s["hero2"][0]}" alt="{e(s["hero2"][1])}" loading="lazy" class="ff-collage-small ff-collage-a">
       <img src="{s["hero3"][0]}" alt="{e(s["hero3"][1])}" loading="lazy" class="ff-collage-small ff-collage-b">
       <p class="ff-collage-note" aria-hidden="true">made for you</p>
