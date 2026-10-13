@@ -17,6 +17,7 @@
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/winterborne-vintage.webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">
+  <link href="/css/showroom.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -169,95 +170,81 @@
       </div>
     </div>
   </div>
-  <div class="mysection contactsection">
-    <section id="contact-form" class="contact-form">
-      <div class="container-5 w-container">
-        <h1 class="hpoptions1">Get in Touch</h1>
-        <div class="text-block-21 getintouch">We’d love you to get in contact to discuss your wedding or any props you might like to hire. We can help you build on and develop an idea or theme that you have in mind for your big day. No request is too small!<br><br>We’ve styled both vintage barns and more modern farm buildings, schools, marquees, gardens and more and would love to work with you.</div>
-        <div class="text-block-21 grey">Please either use the form below to contact us about your wedding or event or call us directly for a chat.<br>‍<br><strong>Dawn </strong>/ 07869136939<br><strong>Christine</strong> / 07776062211<br><br>You can also email us at <a href="mailto:winterbornevintage@gmail.com?subject=Wedding%20%2F%20Event%20Enquiry">winterbornevintage@gmail.com</a><br>‍<br>If you want to visit our <strong>showroom</strong>, you can book an appointment <a href="/showroom" class="link-2">here</a>
-        </div>
-        <div id="formInstructions" class="small-text"><em class="italic-text">* denotes required field</em></div>
-        <div class="netlify-form">
-          <form id="wf-form-Contact-Form" name="contact" data-name="Contact Form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="formblock" data-wf-page-id="606f4c2ce23e874b25c24297" data-wf-element-id="883ba0ca-5b2a-5bb4-eb5a-dc0059f8da2e">
-            <input type="hidden" name="form-name" value="contact">
-            <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
-            <div class="contact-form-grid">
-              <div id="w-node-_883ba0ca-5b2a-5bb4-eb5a-dc0059f8da30-25c24297"><input class="placeholderstyling firstnamestyling w-input" maxlength="256" name="First-Name" data-name="First Name" placeholder="First Name*" type="text" id="First-Name" required=""></div>
-              <div id="w-node-_883ba0ca-5b2a-5bb4-eb5a-dc0059f8da34-25c24297"><input class="placeholderstyling last-name-styling w-input" maxlength="256" name="Last-Name" data-name="Last Name" placeholder="Last Name*" type="text" id="Last-Name" required=""></div>
-              <div id="w-node-_883ba0ca-5b2a-5bb4-eb5a-dc0059f8da38-25c24297"><input class="placeholderstyling email-styling w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email Address*" type="email" id="Email" required=""></div>
-              <div id="w-node-_883ba0ca-5b2a-5bb4-eb5a-dc0059f8da3c-25c24297"><input class="placeholderstyling contactnosrtyling w-input" maxlength="256" name="Contact-Phone-Number" data-name="Contact Phone Number" placeholder="Contact Number" type="tel" id="Contact-Phone-Number" required=""></div>
-              <div><input class="placeholderstyling w-input" maxlength="256" name="Venue-Location" data-name="Venue Location" placeholder="Your venue" type="text" id="Venue-Location"></div>
-              <div><input class="placeholderstyling datestyling w-input" maxlength="256" name="Event-Date" data-name="Event Date" placeholder="Event Date" type="text" id="Event-Date"></div><select id="How-did-you-hear-about-us" name="How-did-you-hear-about-us" data-name="How did you hear about us?" class="select-field w-node-caad9f2a-f27d-4c4b-fb37-39dd2affb86b-25c24297 w-select">
-                <option value="Unselected">How did you hear about us?</option>
-                <option value="Google">Google</option>
-                <option value="Instagram">Instagram</option>
-                <option value="Personal Recommendation">Personal Recommendation</option>
-                <option value="Wedding Fair">Wedding Fair</option>
-                <option value="Company Van">Company Van</option>
-              </select>
-              <div id="w-node-_883ba0ca-5b2a-5bb4-eb5a-dc0059f8da40-25c24297"><textarea data-name="Message" maxlength="5000" id="Message" name="Message" placeholder="Tell us more about your wedding / event*" required="" class="textarea placeholderstyling w-input"></textarea></div>
-            </div>
-            <input type="submit" data-wait="Please wait..." class="contactformbutton w-button" value="Submit">
-          </form>
-          <div class="w-form-done">
-            <div class="div-block-15">Thanks, your enquiry has been sent.<br><br>We&#x27;ll come back to you as soon as we can<br><br>Speak soon!<br>‍<br>Dawn &amp; Christine<br><strong>Winterborne Hire &amp; Styling</strong></div>
-          </div>
-          <div class="w-form-fail">
-            <div class="div-block-14">Please make sure all fields have been filled in correctly and resend the form</div>
-          </div>
-        </div>
+  <section class="sr-about ct-intro" aria-labelledby="ct-title">
+    <div class="sr-about-head">
+      <h1 id="ct-title" class="sr-heading">Get in touch</h1>
+      <p class="sr-sub">No request is too small.</p>
+      <div class="ct-card">
+        <p class="ct-card-title">Call us for a chat</p>
+        <p class="sr-body"><strong>Dawn</strong> <a href="tel:07869136939">07869 136939</a><br><strong>Christine</strong> <a href="tel:07776062211">07776 062211</a></p>
+        <p class="ct-card-title">Email</p>
+        <p class="sr-body"><a href="mailto:winterbornevintage@gmail.com?subject=Wedding%20%2F%20Event%20Enquiry">winterbornevintage@gmail.com</a></p>
+        <p class="ct-card-title">Visit our showroom</p>
+        <p class="sr-body">Steven&#x27;s Farm, Dorchester DT2 9JR, by appointment. <a href="/showroom">Book a visit</a></p>
       </div>
-    </section>
-    <div class="section-24">
-      <div class="html-embed w-embed w-iframe"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4814.909337143521!2d-2.502386357851389!3d50.698682969449386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487259dfa18baa05%3A0x82416b8c1fd52400!2sWinterborne%20Hire%20%26%20Styling!5e0!3m2!1sen!2suk!4v1622629785635!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
     </div>
+    <div class="sr-about-text">
+      <p class="sr-body">We&#x27;d love you to get in contact to discuss your wedding or any props you might like to hire. We can help you build on and develop an idea or theme that you have in mind for your big day. No request is too small!</p>
+      <p class="sr-body">We&#x27;ve styled both vintage barns and more modern farm buildings, schools, marquees, gardens and more and would love to work with you.</p>
+      <p class="sr-body">Please either use the form below to contact us about your wedding or event or call us directly for a chat.</p>
+      <a href="#message" class="sr-button">Send us a message</a>
+    </div>
+  </section>
+  <section class="sr-book" id="message" aria-labelledby="ct-form-title">
+    <div class="sr-book-card">
+      <h2 id="ct-form-title" class="sr-heading">Send us a message</h2>
+      <p class="sr-body">Tell us about your wedding or event and we&#x27;ll come back to you as soon as we can.</p>
+      <div class="netlify-form">
+        <form id="wf-form-Contact-Form" name="contact" data-name="Contact Form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="sr-form">
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+          <div class="sr-fields">
+            <div class="sr-field"><label for="First-Name">First name</label><input class="sr-input" maxlength="256" name="First-Name" data-name="First Name" type="text" id="First-Name" required=""></div>
+            <div class="sr-field"><label for="Last-Name">Last name</label><input class="sr-input" maxlength="256" name="Last-Name" data-name="Last Name" type="text" id="Last-Name" required=""></div>
+            <div class="sr-field"><label for="Email">Email address</label><input class="sr-input" maxlength="256" name="Email" data-name="Email" type="email" id="Email" required=""></div>
+            <div class="sr-field"><label for="Contact-Phone-Number">Phone number</label><input class="sr-input" maxlength="256" name="Contact-Phone-Number" data-name="Contact Phone Number" type="tel" id="Contact-Phone-Number" required=""></div>
+            <div class="sr-field"><label for="Venue-Location">Venue <span>(optional)</span></label><input class="sr-input" maxlength="256" name="Venue-Location" data-name="Venue Location" type="text" id="Venue-Location" placeholder="If you know it"></div>
+            <div class="sr-field"><label for="Event-Date">Wedding or event date <span>(optional)</span></label><input class="sr-input" maxlength="256" name="Event-Date" data-name="Event Date" type="date" id="Event-Date"></div>
+            <div class="sr-field sr-field-wide"><label for="How-did-you-hear-about-us">How did you hear about us? <span>(optional)</span></label><select id="How-did-you-hear-about-us" name="How-did-you-hear-about-us" data-name="How did you hear about us?" class="sr-input">
+              <option value="">Choose one</option>
+              <option value="Google">Google</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Personal Recommendation">Personal Recommendation</option>
+              <option value="Wedding Fair">Wedding Fair</option>
+              <option value="YouTube">YouTube</option>
+              <option value="Other">Other</option>
+              <option value="Company Van">Company Van</option>
+            </select></div>
+            <div class="sr-field sr-field-wide"><label for="Message">Tell us more about your wedding or event</label><textarea data-name="Message" maxlength="5000" id="Message" name="Message" required="" class="sr-input sr-textarea"></textarea></div>
+          </div>
+          <input type="submit" data-wait="Sending..." class="sr-button sr-submit" value="Send my message">
+        </form>
+        <div class="w-form-done sr-done">
+          <h3 class="sr-done-title">Thank you!</h3>
+          <p class="sr-body">Your enquiry has been sent. We&#x27;ll come back to you as soon as we can.</p>
+          <p class="sr-body">Speak soon,<br>Dawn &amp; Christine<br><strong>Winterborne Hire &amp; Styling</strong></p>
+        </div>
+        <div class="w-form-fail sr-fail">Sorry, something went wrong. Please check every required field is filled in and try again.</div>
+      </div>
+    </div>
+  </section>
+  <div class="ct-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4814.909337143521!2d-2.502386357851389!3d50.698682969449386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487259dfa18baa05%3A0x82416b8c1fd52400!2sWinterborne%20Hire%20%26%20Styling!5e0!3m2!1sen!2suk!4v1622629785635!5m2!1sen!2suk" title="Map showing Winterborne Hire &amp; Styling near Dorchester" allowfullscreen="" loading="lazy"></iframe>
   </div>
-  <div id="team" class="mysection whitesection">
-    <div class="div-block-4">
-      <div class="w-layout-grid grid-5">
-        <div id="w-node-_55abbfd6-75c4-93e2-2ec7-d00e179c3768-179c3765" class="div-block-5">
-          <h1 class="hpoptions1">Who we are</h1><img src="/images/profile.png" loading="lazy" width="164" sizes="(max-width: 479px) 100vw, 164px" alt="Dawn and christine, founders" srcset="/images/profile-p-500.png 500w, /images/profile-p-800.png 800w, /images/profile-p-1080.png 1080w, /images/profile-p-1600.png 1600w, /images/profile-p-2000.png 2000w, /images/profile.png 2400w">
-          <div class="text-block-4">Dawn &amp; Christine </div>
-          <div class="cofounders-text"><strong>Co-Founders<br></strong>Winterborne Hire &amp; Styling<br>Dorset, UK</div>
-        </div>
-        <div id="w-node-_55abbfd6-75c4-93e2-2ec7-d00e179c3773-179c3765" class="div-block-6"><img src="/images/Spoeechmark.png" loading="lazy" width="68" sizes="(max-width: 479px) 100vw, 68px" alt="" srcset="/images/Spoeechmark-p-500.png 500w, /images/Spoeechmark.png 512w" class="image-12">
-          <div class="rich-text-block-2 mobilewwapara w-richtext">
-            <p>We started Winterborne Hire &amp; Styling in 2017 after Dawn struggled to find suitable suppliers in Dorset for all the beautiful pieces she wanted for her own wedding. Eventually we set about sourcing them ourselves and Winterborne was born!</p>
-            <p>‍</p>
-          </div>
-          <a href="/who-we-are" class="button-4 top hp w-button">FIND OUT MORE</a>
-        </div>
+  <section class="sr-about ct-team" id="team" aria-labelledby="ct-team-title">
+    <div class="sr-about-head">
+      <img src="/images/profile-p-500.png" srcset="/images/profile-p-500.png 500w, /images/profile-p-800.png 800w" sizes="160px" alt="Dawn and Christine, founders of Winterborne Hire &amp; Styling" loading="lazy" class="ct-team-photo">
+      <h2 id="ct-team-title" class="sr-heading">Who we are</h2>
+      <p class="sr-sub">Dawn &amp; Christine, co-founders.</p>
+    </div>
+    <div class="sr-about-text">
+      <p class="sr-body">We started Winterborne Hire &amp; Styling in 2017 after Dawn struggled to find suitable suppliers in Dorset for all the beautiful pieces she wanted for her own wedding. Eventually we set about sourcing them ourselves and Winterborne was born!</p>
+      <div class="ct-buttons">
+        <a href="/who-we-are" class="sr-button">Find out more</a>
+        <a href="/our-testimonials" class="sr-button sr-button-outline">Read our couples&#x27; kind words</a>
       </div>
     </div>
-  </div>
-  <section class="section-26">
-    <h2 class="hpoptions1 toprow smalltopmargn testimonialheader">OUR HAPPY COUPLES</h2>
-    <div class="stylingtextblock w-richtext"></div>
-    <div class="w-layout-blockcontainer w-container">
-      <div class="w-dyn-list">
-        <div role="list" class="w-dyn-items">
-          <div role="listitem" class="w-dyn-item">
-            <div id="w-node-b041f634-e6e2-c2d5-bb87-ad49b5555ac2-b5555aba" class="w-layout-layout quick-stack wf-layout-layout">
-              <div class="w-layout-cell">
-                <h3 class="datetesthp w-dyn-bind-empty"></h3>
-                <h3 class="heading-17 w-dyn-bind-empty"></h3>
-              </div>
-              <div class="w-layout-cell cell">
-                <h2 class="testimonialshpheaders w-dyn-bind-empty"></h2>
-              </div>
-              <div class="w-layout-cell"><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" width="262" alt="" class="image-34 w-dyn-bind-empty"></div>
-              <div class="w-layout-cell">
-                <p class="testimonialhptext w-dyn-bind-empty"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-dyn-empty">
-          <div>No items found.</div>
-        </div>
-      </div>
-    </div>
-    <a href="/our-testimonials" class="button-4 top hp testimonialsbutton w-button">MORE TESTIMONIALS</a>
   </section>
   <div class="section-9">
     <div class="w-layout-grid grid-3 footergrid">
