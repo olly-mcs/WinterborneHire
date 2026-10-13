@@ -225,9 +225,9 @@ PRODUCTS = {
     # ---------- Installations ----------
     "arbors": dict(
         gallery=[
-            ("/images/Abbotsbury-Subtropical-Gardens.webp", "Couple at a gazebo dressed with white florals"),
-            ("/images/backdrops-arches.webp", "Couple beneath a white rose and greenery arch"),
-            (T + "hannah-dave/01-kiss-under-floral-arch.jpg", "Couple kissing beneath a rainbow floral arch"),
+            (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
+            (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
+            (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
         ],
         about=[
             "Many venues have their own arbor, pergola or gazebo, and with the right florals it becomes the most beautiful spot in the place.",
@@ -240,6 +240,9 @@ PRODUCTS = {
     ),
     "chandeliers": dict(
         gallery=[
+            (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
+            (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
+            (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
             ("wf:florals-foliage/faux-floral-chandelier-decor", "Floral chandelier of autumnal blooms and foliage hanging in a stone barn"),
             ("/images/Styling.webp", "Hanging floral chandeliers above round tables in a marquee"),
         ],
@@ -254,6 +257,9 @@ PRODUCTS = {
     ),
     "ladders": dict(
         gallery=[
+            (B + "installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
+            (B + "installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements"),
+            (B + "installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright, colourful florals"),
             ("wf:florals-foliage/wisteria-foliage-suspended-ladder-decor", "Suspended ladders dressed with wisteria and foliage above long tables in a barn"),
             ("wf:florals-foliage/faux-foliage-garland-decor-for-suspended-ladders", "Suspended ladders with foliage garlands above long tables"),
             ("wf:florals-foliage/faux-foliage-garland-decor-for-suspended-ladders-hover", "Foliage-dressed ladders above tables in a rustic barn"),

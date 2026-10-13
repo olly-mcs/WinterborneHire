@@ -103,9 +103,9 @@ SECTIONS = [
                   perfect=["Grooms", "Groomsmen", "Parents"]),
          ]),
     dict(slug="installations", name="Installations", tag="Florals for every corner of your venue.",
-         img=("/images/Styling.webp", "Hanging floral chandeliers above round tables in a marquee", "50% 30%"),
-         hero2=("/images/Abbotsbury-Subtropical-Gardens.webp", "Couple at a gazebo dressed with white florals"),
-         hero3=("/images/Dorset-Wedding-Showroom.webp", "Hanging florals in the Winterborne showroom"),
+         img=("/images/bespoke-florals/installations/autumn-arbor", "Outdoor ceremony with an oak arbor dressed in rust, burgundy and white florals, the aisle lined with meadow arrangements", "50% 50%"),
+         hero2=("/images/bespoke-florals/installations/gazebo-garland", "Couple kissing beneath a gazebo dressed with a garland of bright florals"),
+         hero3=("/images/bespoke-florals/installations/autumn-arbor-kiss", "Couple kissing beneath an oak arbor dressed with autumnal florals"),
          body=["When a space calls for something different, we design it: florals hung above the tables, dressed ladders and chandeliers, and arbors made to measure.",
                "Each installation is made for your venue and installed by us, so the whole room feels considered from the ceiling down."],
          perfect=["Barns and marquees", "High ceilings", "Gazebos and pergolas", "Outdoor ceremonies"],
@@ -369,8 +369,8 @@ for s in SECTIONS:
     </div>
     <div class="ff-collage">
       {img(src, alt, "(max-width: 991px) 100vw, 45vw", attrs=f' style="object-position: {pos}" fetchpriority="high" class="ff-collage-main"')}
-      <img src="{s["hero2"][0]}" alt="{e(s["hero2"][1])}" loading="lazy" class="ff-collage-small ff-collage-a">
-      <img src="{s["hero3"][0]}" alt="{e(s["hero3"][1])}" loading="lazy" class="ff-collage-small ff-collage-b">
+      {img(s["hero2"][0], s["hero2"][1], "200px", 600, ' loading="lazy" class="ff-collage-small ff-collage-a"')}
+      {img(s["hero3"][0], s["hero3"][1], "260px", 600, ' loading="lazy" class="ff-collage-small ff-collage-b"')}
       <p class="ff-collage-note" aria-hidden="true">made for you</p>
     </div>
   </section>
