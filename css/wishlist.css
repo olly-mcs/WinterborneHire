@@ -539,3 +539,42 @@ a.wl-line-name:hover {
   background-color: #898c6b;
   color: #fff;
 }
+
+.wl-more-title {
+  margin: 26px 0 0;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.wl-add-more summary {
+  justify-content: flex-start;
+}
+
+.wl-add-more summary::after {
+  margin-left: auto;
+}
+
+.wl-add-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background-color: #efe9e1;
+  color: #66605a;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.wl-add-more + .wl-add-more {
+  margin-top: 8px;
+}
+
+.wl-more-title[hidden] {
+  display: none;
+}

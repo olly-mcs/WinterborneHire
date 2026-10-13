@@ -61,9 +61,10 @@
     '  <div class="wl-body">' +
     '    <p class="wl-intro">Add the florals you love, then send us your list.</p>' +
     '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as possible with your quote.</strong></p>' +
+    '    <p class="wl-empty">Your wish list is empty. Add florals below, or use &ldquo;Add to your wish list&rdquo; on any of our florals.</p>' +
     '    <ul class="wl-lines" role="list"></ul>' +
+    '    <h3 class="wl-more-title">Add more florals</h3>' +
     '    <div class="wl-more"></div>' +
-    '    <p class="wl-empty">Your wish list is empty. Use &ldquo;Add to your wish list&rdquo; on any of our florals.</p>' +
     '    <form class="wl-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">' +
     '      <input type="hidden" name="form-name" value="quote">' +
     '      <p hidden><label>Leave this empty: <input name="bot-field"></label></p>' +
@@ -142,7 +143,6 @@
     panel.classList.toggle("has-items", ls.length > 0);
     var n = count();
     panel.querySelector(".wl-count").textContent = n;
-    tab.hidden = n === 0 && !panel.classList.contains("is-open");
     document.querySelectorAll("[data-wish-add]").forEach(function (btn) {
       var inList = list[btn.getAttribute("data-wish-add")] > 0;
       btn.classList.toggle("is-added", inList);
@@ -150,21 +150,22 @@
     });
   }
 
-  // "Add more from <section>": for each section with something in the list, the rest of its products
+  // All four sections, collapsed, each listing its products that aren't in the list yet, so the whole Bespoke
+  // Florals range can be added from the panel
   var moreEl = panel.querySelector(".wl-more");
   var openMore = {};
   function renderMore() {
     moreEl.innerHTML = sections.map(function (sec, i) {
-      var inList = sec.items.some(function (it) { return list[it.id] > 0; });
       var rest = sec.items.filter(function (it) { return items[it.id] && !(list[it.id] > 0); });
-      if (!inList || !rest.length) return "";
+      if (!rest.length) return "";
       return '<details class="wl-add-more" data-sec="' + i + '"' + (openMore[i] ? " open" : "") + '>' +
-        '<summary>Add more from ' + esc(sec.name.toLowerCase()) + '</summary><ul role="list">' +
+        '<summary>' + esc(sec.name) + ' <span class="wl-add-count">' + rest.length + '</span></summary><ul role="list">' +
         rest.map(function (it) {
           return '<li><a href="' + esc(it.url) + '">' + esc(it.name) + '</a>' +
             '<button type="button" class="wl-add" data-id="' + esc(it.id) + '" aria-label="Add ' + esc(it.name) + ' to your wish list">+ Add</button></li>';
         }).join("") + '</ul></details>';
     }).join("");
+    panel.querySelector(".wl-more-title").hidden = !moreEl.innerHTML;
   }
   moreEl.addEventListener("toggle", function (e) {
     var d = e.target.closest && e.target.closest(".wl-add-more");
