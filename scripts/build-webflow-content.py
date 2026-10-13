@@ -192,13 +192,13 @@ def testimonials():
     cards = []
     for t in DATA["testimonials"]:
         img = sized(t["image"], "(max-width: 767px) 100vw, 400px")
-        meta = " &middot; ".join(x for x in (e(t["venue"]), e(t["month"])) if x)
+        # venue only: the dates aren't shown
+        meta = f'\n            <p class="kw-meta">{e(t["venue"])}</p>' if t["venue"] else ""
         paras = "".join(f"<p>{e(p.strip())}</p>" for p in t["quote"].split("\n") if p.strip())
         cards.append(f'''        <li class="kw-card">
           <img {img} alt="{e(t["names"])}" loading="lazy" class="kw-photo">
           <div class="kw-text">
-            <h3 class="kw-names">{e(t["names"])}</h3>
-            <p class="kw-meta">{meta}</p>
+            <h3 class="kw-names">{e(t["names"])}</h3>{meta}
             <blockquote class="kw-quote">{paras}</blockquote>
           </div>
         </li>''')
