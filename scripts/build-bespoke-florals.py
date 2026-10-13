@@ -302,7 +302,7 @@ CTA = '''  <section class="ff-cta" aria-labelledby="bf-cta-title">
 
 # ---------- overview ----------
 main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
-    <img class="bf-hero-image" src="{T}laura-alexandra/01-floral-archway.jpg" alt="Couple framed by floral pillars of burgundy, crimson and dusty pink at a stone archway" fetchpriority="high">
+    <img class="bf-hero-image" src="/images/bespoke-florals/hero/gazebo-lavender-kiss-1200.webp" srcset="/images/bespoke-florals/hero/gazebo-lavender-kiss-600.webp 600w, /images/bespoke-florals/hero/gazebo-lavender-kiss-1200.webp 1200w, /images/bespoke-florals/hero/originals/gazebo-lavender-kiss.jpg 2000w" sizes="(max-width: 991px) 100vw, 62vw" alt="Couple kissing beneath a wrought iron gazebo framed by lilac, white and green floral pillars, with lavender lining the aisle" fetchpriority="high">
     <div class="bf-hero-text">
       <h1 id="bf-hero-title" class="bf-hero-title">Bespoke wedding florals</h1>
       <p class="bf-script bf-hero-script">Designed in your colours, from the aisle to the last dance.</p>
