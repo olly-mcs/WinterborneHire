@@ -101,6 +101,10 @@ so edit those and run `python3 scripts/build-bespoke-florals.py`. Types are alwa
   make the 600px and 1200px WebP copies beside them, then list them in the type's `gallery` in
   `scripts/bespoke_products.py` without the extension (e.g. `P + "minterne-house"`) and run the build. The first photo
   is also the type's photo on the overview and section pages. With more than five photos the thumbnail row scrolls.
+- **Sliding between sections**: the overview and the four section pages load `css/bespoke-slide.css` and
+  `js/bespoke-slide.js` (in `<head>`), so moving between them slides sideways (forward to the right along the strip,
+  back to the left) with the header and section strip held still. It uses the browser's cross-page View Transitions:
+  Chrome, Edge and Safari 18.2+; other browsers load the page normally. Product pages don't slide.
 - **the menu on every page**: a two-column dropdown. Sections on the left; hovering one shows its types on the right
   (The Ceremony's show by default). Clicking "Bespoke Florals" on desktop opens `/bespoke-florals` (`js/nav.js`).
   On phones the dropdown lists everything, types indented under their section, after an "All bespoke florals" link.

@@ -1,0 +1,55 @@
+/* Bespoke Florals overview and section pages: moving between them with the section strip (or menu) slides the page
+   sideways instead of a hard page load. Uses the browser's cross-page View Transitions (Chrome, Edge, Safari 18.2+);
+   other browsers simply load the page as before. js/bespoke-slide.js picks the direction. */
+@view-transition {
+  navigation: auto;
+}
+
+/* the header and the section strip stay put while the page underneath slides */
+.navbar-3 {
+  view-transition-name: bf-header;
+}
+
+.navbarhpmobile {
+  view-transition-name: bf-header-mobile;
+}
+
+.bf-subnav {
+  view-transition-name: bf-subnav;
+}
+
+.wl-tab {
+  view-transition-name: bf-wishlist-tab;
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html:active-view-transition-type(forward)::view-transition-old(root) {
+  animation: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both bf-out-left;
+}
+
+html:active-view-transition-type(forward)::view-transition-new(root) {
+  animation: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both bf-in-right;
+}
+
+html:active-view-transition-type(back)::view-transition-old(root) {
+  animation: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both bf-out-right;
+}
+
+html:active-view-transition-type(back)::view-transition-new(root) {
+  animation: 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both bf-in-left;
+}
+
+@keyframes bf-out-left { to { transform: translateX(-30%); opacity: 0; } }
+@keyframes bf-in-right { from { transform: translateX(30%); opacity: 0; } }
+@keyframes bf-out-right { to { transform: translateX(30%); opacity: 0; } }
+@keyframes bf-in-left { from { transform: translateX(-30%); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

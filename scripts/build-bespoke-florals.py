@@ -244,10 +244,17 @@ WISHLIST_JS = ('  <script src="/js/quote-data.js" type="text/javascript"></scrip
                '  <script src="/js/wishlist.js" type="text/javascript"></script>\n')
 
 
+# The sideways slide between the overview and section pages (css/bespoke-slide.css, js/bespoke-slide.js)
+# the script must be in <head> so its "pagereveal" listener is in place before the new page is first shown
+SLIDE_CSS = ('\n  <link href="/css/bespoke-slide.css" rel="stylesheet" type="text/css">'
+             '\n  <script src="/js/bespoke-slide.js" type="text/javascript"></script>')
+
+
 def without_wishlist(text):
     """The template is the last-built overview page, so remove any wish list tags before adding them once."""
-    text = re.sub(r'\n  <link href="/css/wishlist\.css"[^>]*>', "", text)
-    return re.sub(r'  <script src="/js/(?:quote-data|bespoke-sections|wishlist)\.js"[^>]*></script>\n', "", text)
+    text = re.sub(r'\n  <link href="/css/(?:wishlist|bespoke-slide)\.css"[^>]*>', "", text)
+    text = text.replace('\n  <script src="/js/bespoke-slide.js" type="text/javascript"></script>', "")
+    return re.sub(r'  <script src="/js/(?:quote-data|bespoke-sections|wishlist|bespoke-slide)\.js"[^>]*></script>\n', "", text)
 
 
 def meta_description(text):
@@ -259,7 +266,7 @@ def meta_description(text):
     return cut[:stop + 1] if stop >= 80 else cut.rsplit(" ", 1)[0].rstrip(",;:-") + "..."
 
 
-def page(title, desc, canonical, body, current):
+def page(title, desc, canonical, body, current, slide=False):
     s = without_wishlist(HEAD)
     s = re.sub(r"<title>.*?</title>", f"<title>{e(title)}</title>", s, count=1)
     desc = meta_description(desc)
@@ -269,7 +276,7 @@ def page(title, desc, canonical, body, current):
         s = re.sub(r'<meta content="[^"]*" ' + re.escape(attr) + ">", f'<meta content="{e(title)}" {attr}>', s, count=1)
     s = re.sub(r'<link href="https://www\.winterbornehireandstyling\.co\.uk[^"]*" rel="canonical">',
                f'<link href="https://www.winterbornehireandstyling.co.uk{canonical}" rel="canonical">', s, count=1)
-    s = s.replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + WISHLIST_CSS, 1)
+    s = s.replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + WISHLIST_CSS + (SLIDE_CSS if slide else ""), 1)
     foot = without_wishlist(FOOT).replace("</body>", WISHLIST_JS + "</body>", 1)
     return update_nav(s + body + foot, current)
 
@@ -345,7 +352,7 @@ main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
 write("bespoke-florals/index.html", page(
     "Bespoke Wedding Florals in Dorset | Winterborne Hire & Styling",
     "Bespoke faux wedding florals in your colours: ceremony pillars and moongates, reception table florals, bouquets and "
-    "installations. Designed in Dorset.", "/bespoke-florals", main_body, "overview"))
+    "installations. Designed in Dorset.", "/bespoke-florals", main_body, "overview", slide=True))
 
 # ---------- section pages ----------
 for s in SECTIONS:
@@ -365,7 +372,7 @@ for s in SECTIONS:
                 for i, t in enumerate(s["types"])) + f'''
   </div>
 ''' + CTA
-    write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Wedding Florals | Winterborne', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"]))
+    write(f'bespoke-florals/{s["slug"]}.html', page(f'{s["name"]} | Bespoke Wedding Florals | Winterborne', s["body"][0], f'/bespoke-florals/{s["slug"]}', body, s["slug"], slide=True))
 
 # ---------- product pages ----------
 # Questions every product page shows, after the type's own (its "faq" in bespoke_products.py).
