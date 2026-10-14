@@ -96,7 +96,7 @@
   margin: 0 0 14px;
   color: #fff;
   font-family: Cinzel, serif;
-  font-size: clamp(44px, 6.2vw, 92px);
+  font-size: clamp(38px, 5vw, 74px);
   font-weight: 400;
   line-height: 0.98;
   text-align: left;
@@ -395,4 +395,9 @@ select.sr-input:invalid {
   background-color: #3a3835;
   border-color: #3a3835;
   color: #fff;
+}
+
+/* Contact page title: a little smaller than the section headings it shares a style with */
+h1.sr-heading {
+  font-size: clamp(30px, 2.8vw, 40px);
 }
