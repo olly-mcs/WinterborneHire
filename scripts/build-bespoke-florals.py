@@ -314,12 +314,22 @@ def perfect(x):
             + "".join(f"<li>{CHECK}<span>{e(p)}</span></li>" for p in x["perfect"]) + "</ul></div>")
 
 
+def cat_image(x, src, alt, pos):
+    """The block photo. fit="contain" (in bespoke_products.py) zooms out to show the whole photo, with a soft blurred
+    copy of it filling the sides, for tall photos that would otherwise lose too much."""
+    if x.get("fit") != "contain":
+        return img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')
+    small = img_src(src, 600)[0]
+    inner = img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=' class="bf-fit-photo" loading="lazy"')
+    return f'<div class="bf-cat-image bf-fit" style="--bf-fit-bg: url(\'{small}\')">{inner}</div>'
+
+
 def strip(i, x, id_, title_id, title, button=None, extra=""):
     src, alt, pos = x["img"]
     btn = f'\n        <a href="{button[0]}" class="bf-button">{e(button[1])}</a>' if button else ""
     return f'''  <section class="bf-cat{" bf-cat-flip" if i % 2 else ""}" id="{id_}" aria-labelledby="{title_id}">
     <div class="bf-cat-main">
-      {img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')}
+      {cat_image(x, src, alt, pos)}
       <div class="bf-cat-text">
         <h2 id="{title_id}" class="bf-cat-title">{e(title)}</h2>
         <p class="bf-script">{e(x["tag"])}</p>

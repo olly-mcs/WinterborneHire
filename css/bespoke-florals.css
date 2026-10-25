@@ -832,3 +832,26 @@ h1.nf-title {
     font-size: 44px;
   }
 }
+
+/* Section page block photo shown whole ("fit: contain"): the photo centred, a blurred copy filling the sides */
+.bf-fit {
+  position: relative;
+  overflow: hidden;
+  background-color: #efe9e1;
+}
+
+.bf-fit::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: var(--bf-fit-bg) center / cover no-repeat;
+  filter: blur(18px) brightness(0.9);
+}
+
+.bf-fit-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

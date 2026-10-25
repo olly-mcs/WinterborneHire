@@ -11,6 +11,7 @@ build-bespoke-florals.py, which sets the name, section and short text).
 - quote: the item's id in js/quote-data.js, which "Add to your wish list" adds (its guide price feeds the estimate).
 - page_tag, page_perfect (optional): the product page's own subheading and "Perfect for" list, when they differ from
   the listing copy on the section page (tag and perfect in SECTIONS).
+- fit (optional): "contain" shows the whole first photo in the section page block (zoomed out, blurred sides).
 - about: the paragraphs beside the slider (four).
 - details: "Good to know" rows as (label, value). Rows can be left out; the section only shows when there are any.
 - faq: extra questions for this type, shown before the questions every page shares (FAQ in the build script).
@@ -192,6 +193,7 @@ PRODUCTS = {
     "bridal-bouquets": dict(
         quote="bridal-bouquet",
         focus="50% 19%",
+        fit="contain",
         gallery=[
             (B + "bridal-bouquets/autumn-bouquet", "Bride holding a loose bouquet of burnt orange, peach and white blooms with dried grasses"),
             (B + "bridal-bouquets/sophie-and-ben-portrait", "Bride by a tall window holding a soft pastel bouquet of pink, blue and white"),
@@ -237,7 +239,7 @@ PRODUCTS = {
     ),
     "buttonholes": dict(
         quote="buttonholes",
-        focus="50% 40%",
+        focus="50% 4%",
         gallery=[
             (B + "buttonholes/buttonhole-close-up", "Close up of a bright buttonhole of pink, orange and yellow blooms on a navy suit lapel"),
             (B + "buttonholes/pinning-the-buttonhole", "Hands pinning a deep red and white buttonhole onto a tweed jacket"),
