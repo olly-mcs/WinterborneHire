@@ -94,7 +94,7 @@ PRODUCTS = {
     ),
     "urns-and-plinths": dict(
         quote="urns-plinths",
-        focus="50% 50%",
+        focus="50% 76%",
         gallery=[
             (B + "urns-and-plinths/minterne-house", "Couple kissing at Minterne House between white floral urns on plinths, beneath a crystal chandelier"),
             (B + "urns-and-plinths/lulworth-castle-aisle", "Aisle at Lulworth Castle lined with white floral urns, leading to a grand chandelier"),
