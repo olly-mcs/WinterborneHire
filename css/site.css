@@ -1629,3 +1629,59 @@
 .hp-fact-rating strong {
   margin-top: 4px;
 }
+
+/* Homepage hero roundel: "Faux florals · Never wilt · Made to last", half over the photo, half over the section below */
+.hero {
+  overflow: visible;
+}
+
+.hero-roundel {
+  position: absolute;
+  right: max(5vw, 24px);
+  bottom: -70px;
+  z-index: 3;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #3d3b2f;
+  box-shadow: 0 8px 24px rgba(30, 28, 24, 0.25);
+}
+
+.hero-roundel svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.rd-line {
+  fill: none;
+  stroke: #e59775;
+  stroke-width: 1;
+}
+
+.rd-text {
+  fill: #f6f3ee;
+  font-family: Cinzel, serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.rd-flower path {
+  fill: none;
+  stroke: #f6f3ee;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* phones: the hero stacks (photo, then text), so the roundel sits on the photo's lower edge instead */
+@media screen and (max-width: 767px) {
+  .hero-roundel {
+    top: 290px;
+    right: 20px;
+    bottom: auto;
+    width: 112px;
+    height: 112px;
+  }
+}
