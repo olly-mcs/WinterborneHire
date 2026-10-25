@@ -50,10 +50,15 @@ SECTIONS = [
                         "Placed in pairs to frame your ceremony, they move easily to the top table or entrance afterwards."],
                   perfect=["Grand and historic venues", "Ceremony backdrops", "Venue entrances"]),
          ]),
-    dict(slug="the-reception", name="The Reception", tag="Florals for the tables you gather around.",
+    dict(slug="the-reception", name="The Reception", tag="Bring your reception to life with flowers.",
          img=("/images/bespoke-florals/the-reception/chandelier-reception", "Couple looking over a bright white reception room with chandeliers, blush and white table florals and a floral top table", "55% 55%"),
-         body=["Table florals that set the mood for the meal, from clusters of bud vases to tall podium arrangements and a top table that carries on from your ceremony.",
-               "We design them around your tables, your venue and your colours, so the whole room feels joined up."],
+         body=["From beautiful centrepieces for your guests to a statement top table, our reception florals bring your "
+               "wedding style into the heart of your celebration.",
+               "Choose from delicate bud vase clusters, low floral arrangements or taller statement centrepieces, all designed "
+               "in your chosen colours and floral style. Your top table can then carry those flowers through for a "
+               "beautifully cohesive look.",
+               "Designed to complement your ceremony flowers, our faux wedding florals create a reception that feels "
+               "considered, stylish and completely yours."],
          perfect=["Long tables", "Round tables", "Top tables", "Marquees"],
          types=[
              dict(slug="bud-vases", name="Bud Vases", tag="Little pops of colour, all along the table.",
