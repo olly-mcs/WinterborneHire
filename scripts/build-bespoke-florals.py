@@ -20,10 +20,13 @@ T = "/images/testimonials/"
 e = html.escape
 
 SECTIONS = [
-    dict(slug="the-ceremony", name="The Ceremony", tag="Frame the moment you say I do.",
+    dict(slug="the-ceremony", name="The Ceremony", tag="Make your ceremony the moment everyone remembers.",
          img=("/images/bespoke-florals/moongates/grand-hall-aisle", "Aisle in a grand hall lined with colourful meadow florals, leading to a floral moongate", "50% 50%"),
-         body=["Statement florals for your ceremony, from pillars and moongates to grand urns and meadows along the aisle.",
-               "Every piece is designed in your colours and can move to the reception afterwards, so it works hard all day."],
+         body=["Beautiful, statement ceremony florals designed to frame your vows, your first kiss and all those photographs "
+               "you’ll treasure forever.",
+               "From floral pillars and moongates to grand urns, meadow-style aisle flowers and ground arrangements, we create "
+               "bespoke wedding ceremony flowers designed around your venue, your colour palette and your style.",
+               "Based in Dorset, we create and style ceremony florals for weddings across Dorset and the surrounding areas."],
          perfect=["Ceremony backdrops", "Aisles", "Garden ceremonies", "Photo moments"],
          types=[
              dict(slug="aisle-meadows", name="Aisle Meadows", tag="Walk to each other through a garden of blooms.",
@@ -363,7 +366,7 @@ for s in SECTIONS:
       <p class="bf-crumb-line"><a href="/bespoke-florals" class="bf-crumb">Bespoke florals</a></p>
       <h1 id="bf-title" class="bf-hero-title">{e(s["name"])}</h1>
       <p class="bf-script bf-hero-script">{e(s["tag"])}</p>
-      <p class="bf-body">{e(s["body"][0])}</p>
+      {"".join(f'<p class="bf-body">{e(p)}</p>' for p in s["body"])}
       <a href="#{s["types"][0]["slug"]}" class="bf-button bf-button-dark">See the designs</a>
     </div>
   </section>
