@@ -855,3 +855,70 @@ h1.nf-title {
   height: 100%;
   object-fit: contain;
 }
+
+/* Footer colours (all pages): the site's dark olive with cream text and peach accents, a warm linen band for the
+   press badges above it, and the closing strapline in olive. */
+.badgesection {
+  background-color: #efe9e1;
+  border-top: 1px solid #e3d9d0;
+}
+
+.section-9 {
+  background-color: #3d3b2f;
+  border-top: 0;
+}
+
+.grid-3.footergrid {
+  background-color: transparent;
+}
+
+.footergrid .heading-3.footerheader,
+.footer-header-link {
+  color: #e59775;
+}
+
+.footergrid .footer-link,
+.footergrid .copyrightsml,
+.footergrid .copyrightsml a {
+  color: #f6f3ee;
+}
+
+.footergrid .footer-link {
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footergrid .footer-link:hover,
+.footergrid .footer-link:focus-visible,
+.footer-header-link:hover {
+  color: #e59775;
+  opacity: 1;
+}
+
+/* the logo sits on a cream disc so it reads on the dark background */
+.footergrid .mobilelogofooter .image-20 {
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #f6f3ee;
+}
+
+.section-21 {
+  background-color: #898c6b;
+}
+
+.text-block-35 {
+  padding: 14px 0;
+  color: #f6f3ee;
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+}
+
+.section-9,
+.section-21 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section-21 {
+  display: flow-root;
+}
