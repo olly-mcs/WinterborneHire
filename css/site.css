@@ -1617,3 +1617,15 @@
     left: 24px;
   }
 }
+
+/* Why Winterborne: the Google rating with stars */
+.hp-facts .hp-fact-stars {
+  color: #e59775;
+  font-size: 30px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.hp-fact-rating strong {
+  margin-top: 4px;
+}
