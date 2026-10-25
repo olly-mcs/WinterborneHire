@@ -24,7 +24,7 @@ PRODUCTS = {
     # ---------- The Ceremony ----------
     "aisle-meadows": dict(
         quote="aisle-meadows",
-        focus="50% 50%",
+        focus="50% 74%",
         gallery=[
             (B + "aisle-meadows/lulworth-castle", "Couple walking back down an aisle at Lulworth Castle lined on both sides with white meadow arrangements"),
             (B + "aisle-meadows/kingston-maurward-detail", "Close up of pale blue, peach and white meadow arrangements along an aisle at Kingston Maurward"),
