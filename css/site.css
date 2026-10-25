@@ -1685,3 +1685,107 @@
     height: 112px;
   }
 }
+
+/* Roundel: a button that slowly turns its ring of text, and opens the faux florals dialog */
+button.hero-roundel {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+button.hero-roundel:hover,
+button.hero-roundel:focus-visible {
+  transform: scale(1.05);
+}
+
+button.hero-roundel:focus-visible {
+  outline: 2px solid #e59775;
+  outline-offset: 4px;
+}
+
+.rd-spin {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  animation: rd-spin 40s linear infinite;
+}
+
+@keyframes rd-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rd-spin {
+    animation: none;
+  }
+}
+
+/* The faux florals dialog: see-through dark panel, cream text */
+.faux-dialog {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  padding: clamp(32px, 5vw, 56px);
+  border: 1px solid rgba(229, 151, 117, 0.6);
+  background-color: rgba(43, 39, 36, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #f6f3ee;
+  text-align: left;
+}
+
+.faux-dialog::backdrop {
+  background-color: rgba(30, 28, 24, 0.45);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.faux-dialog[open] {
+  animation: faux-in 0.3s ease;
+}
+
+@keyframes faux-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faux-dialog[open] {
+    animation: none;
+  }
+}
+
+.faux-dialog-title {
+  margin: 0 0 22px;
+  color: #f6f3ee;
+  font-family: Cinzel, serif;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.faux-dialog p {
+  margin: 0 0 16px;
+  color: rgba(246, 243, 238, 0.9);
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.faux-dialog .hp-button {
+  margin-top: 14px;
+}
+
+.faux-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  padding: 4px 8px;
+  border: 0;
+  background: none;
+  color: #f6f3ee;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
