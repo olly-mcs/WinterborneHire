@@ -183,9 +183,9 @@ from every page and the `X-Robots-Tag` block from `netlify.toml`.
 
 ## SEO
 
-- **Business details for Google** (the `LocalBusiness`/`Florist` structured data in every page's `<head>`): Steven's
+- **Business details for Google** (the `LocalBusiness` structured data, with `knowsAbout`/`makesOffer` listing the services, in every page's `<head>`): Steven's
   Farm, Dorchester DT2 9JR, 01305 889656, visits by appointment (no opening hours listed), 5.0 from 101 Google reviews.
-  Keep these identical to the Google Business Profile; update the rating and count as they change.
+  Keep these identical to the Google Business Profile (primary category: Wedding service); update the rating and count as they change.
 - **Homepage** is six sections: hero, Bespoke Florals (the four sections), why couples choose Winterborne (facts),
   how it works, styling & hire, reviews and questions (with `FAQPage` structured data), then the showroom call to
   action. Its questions and answers are in `index.html` (both the visible text and the structured data).
