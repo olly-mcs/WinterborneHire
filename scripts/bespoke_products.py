@@ -306,3 +306,129 @@ PRODUCTS = {
                  ("Installation", "Installed for you"), ("Ladder", "Not included, decor only")],
     ),
 }
+
+
+# ---------- Product page copy (supplied by Winterborne) ----------
+# Replaces the placeholder copy above for these products. In "about", a line starting "## " is a second subheading.
+# testimonial: a review that mentions this product (quote, names, venue).
+PRODUCT_COPY = {'aisle-meadows': {'page_tag': 'Make your walk down the aisle unforgettable.',
+                   'about': ['Our Aisle Meadows are low-level floral arrangements designed to create a beautiful, '
+                             'flower-filled wedding aisle. Loose clusters of blooms and foliage bring colour, '
+                             'texture and movement to your ceremony, creating a natural, romantic feel as you make '
+                             'your way to the altar.',
+                             'Each arrangement is bespoke to your wedding, designed in your chosen colours and style '
+                             'to complement your venue and the overall feel of your day. From soft whites and '
+                             'delicate greens to colourful, wildflower-inspired mixes, we can create a look that '
+                             'feels completely your own.',
+                             'Perfect for indoor and outdoor wedding ceremonies, our aisle flowers work beautifully '
+                             'in barns, country houses, churches, marquees and outdoor spaces. Arranged at the ends '
+                             'of your rows, they create a statement aisle without overpowering the ceremony itself.',
+                             '## And the flowers don’t stop there.',
+                             'Once you’ve said “I do”, your Aisle Meadows can be easily moved and repurposed '
+                             'throughout your wedding day. Use them around the dance floor, alongside the bar, in '
+                             'front of the top table or throughout your reception space, allowing your ceremony '
+                             'flowers to work harder for you.',
+                             'Our faux wedding flowers combine high-quality silk, artificial and real-touch blooms '
+                             'to create natural-looking floral arrangements that stay fresh throughout the day, '
+                             'whatever the weather. Beautiful from every angle and made to photograph beautifully, '
+                             'they give you all the impact of abundant wedding flowers without the worry of '
+                             'wilting.'],
+                   'page_perfect': ['Wedding aisles',
+                                    'Indoor ceremonies',
+                                    'Outdoor ceremonies',
+                                    'Photo moments',
+                                    'Top tables',
+                                    'Repurposing',
+                                    'Reception styling'],
+                   'testimonial': {'quote': 'Winterborne Hire and Styling were incredible at making our day extra '
+                                            'special. I visited their lovely show room a few months prior to our '
+                                            'wedding. After discussing what we needed, they produced some '
+                                            'spectacular arrangements to suit the theme for our wedding and to match '
+                                            'our fresh flowers. They delivered them on time and installed them ready '
+                                            'for the big day, so we did not need to lift a finger. We are so glad we '
+                                            'went with them as the arrangements really elevated our ceremony area. '
+                                            'Thank you!',
+                                   'names': 'Aimee & Adam',
+                                   'venue': 'Gorwell Farm, Dorset'}},
+ 'moongates': {'page_tag': 'A classic shape, completely your own.',
+               'about': ['Create a beautiful focal point for your wedding with a bespoke floral moongate. The '
+                         'timeless circular shape makes a striking ceremony backdrop, framing you beautifully as you '
+                         'exchange your vows and creating a natural focal point for those all-important photographs.',
+                         'There are plenty of ways to make your moongate completely your own. Keep the flowers '
+                         'concentrated to one area for a modern, contemporary look, create an abundant crescent '
+                         'sweeping around the circle, choose a full circle of blooms for maximum impact, or opt for '
+                         'a softer, foliage-led design.',
+                         'Every moongate is individually designed around your wedding colours, chosen flowers and '
+                         'overall style, from romantic and abundant to modern and understated.',
+                         'Choose a fully floral moongate for a show-stopping backdrop, or our gold metal moongate, '
+                         'dressed with bespoke flowers and fabric draping in your chosen colours. Both create a '
+                         'beautiful statement backdrop for indoor and outdoor weddings.',
+                         'Freestanding and easy to move, your moongate can be used in more than one part of your '
+                         'wedding day. Start with your ceremony, then move it behind the top table, use it as a '
+                         'photo booth backdrop or create a beautiful setting for evening photographs.',
+                         'Our faux wedding flowers combine high-quality silk, artificial and real-touch blooms to '
+                         'create natural-looking floral arrangements that stay fresh throughout the day, without the '
+                         'worry of wilting or seasonal availability.'],
+               'testimonial': {'quote': 'Winterborne Hire and Styling were fantastic. Dawn was very professional and '
+                                        'helped us to work out exactly what we needed for our wedding day. They '
+                                        'designed our amazing moongate for us and provided decorations for our '
+                                        'suspended ladders and some of the florals on the head table. I would highly '
+                                        'recommend heading down to their showroom to have a look and speak to Dawn '
+                                        'in person as it opens your eyes to the possibilities of what you can do big '
+                                        'or small on your wedding day to make it look stunning. Thank you for all '
+                                        'your help with our wedding day and keep doing what you’re doing. 10/10.',
+                               'names': 'Kate & Elliot',
+                               'venue': 'Symondsbury Tithe Barn, Dorset'}},
+ 'pillars': {'page_tag': 'A floral backdrop with serious impact.',
+             'about': ['Our floral pillars are one of our most versatile and popular ceremony looks, creating a '
+                       'beautiful statement backdrop with plenty of floral impact. They’re perfect if you want '
+                       'something abundant and impressive without a traditional arch.',
+                       'Each pair is bespoke to your wedding, designed around your chosen colours, flowers and '
+                       'overall style. Go soft and romantic with delicate blooms, bring in plenty of colour for a '
+                       'wild and joyful feel, or choose a fuller, more dramatic design for a contemporary statement.',
+                       'Choose two pillars at the same height for a classic, symmetrical look, or mix two different '
+                       'heights to create a modern broken-arch effect. Whichever style you choose, both pillars are '
+                       'packed with blooms for a lush, abundant finish.',
+                       'Freestanding and easy to move, your pillars can frame your ceremony before being '
+                       'repositioned elsewhere at your wedding. Move them behind the top table, style your entrance, '
+                       'frame the dance floor or create another beautiful backdrop for photographs.',
+                       'Our faux floral pillars are created using high-quality silk, artificial and real-touch '
+                       'flowers, giving you the look and abundance of fresh wedding flowers while staying beautiful '
+                       'throughout the day and beyond.'],
+             'testimonial': {'quote': 'We had the most beautiful wedding set up with the stunning custom flower '
+                                      'pillars and table decor! Dawn’s communication was great and made my vision of '
+                                      'my dream wedding come to life.',
+                             'names': 'Alexa & Jack',
+                             'venue': 'The Italian Villa, Compton Acres'}},
+ 'bud-vases': {'page_tag': 'Delicate details for beautifully styled tables.',
+               'about': ['Our bud vases are a simple and versatile way to bring flowers throughout your wedding '
+                         'reception. Filled with individual stems or small, delicate arrangements, clusters of glass '
+                         'vases create little pockets of colour and floral detail without taking over the table.',
+                         'Choose from clear, pink, green, orange or teal glass to complement your wedding colours '
+                         'and overall style. The flowers can then be chosen to work alongside your wider wedding '
+                         'florals, creating a cohesive look from your ceremony through to your reception.',
+                         'For long tables, scatter clusters of bud vases between candles for a relaxed, romantic '
+                         'tablescape. On round tables, group them together to create a pretty focal point, or use '
+                         'them alongside larger centrepieces to add extra layers of colour and detail.',
+                         'They’re not just for your guest tables either. Bud vases work beautifully on top tables, '
+                         'drinks reception tables, gift and card tables, adding a little floral detail wherever it’s '
+                         'needed.',
+                         'Our faux wedding flowers are created using high-quality silk, artificial and real-touch '
+                         'blooms, so they stay looking fresh throughout your day and can be enjoyed without the '
+                         'worry of wilting or seasonal availability.'],
+               'page_perfect': ['Long tables',
+                                'Round tables',
+                                'Top tables',
+                                'Drinks receptions',
+                                'Gift tables',
+                                'Card tables',
+                                'Wedding breakfasts',
+                                'Table styling',
+                                'Reception styling'],
+               'testimonial': {'quote': 'Dawn was amazing at listening to the vision we wanted to create for our '
+                                        'wedding! Great communication and the flowers looked so real!',
+                               'names': 'Lucy & Grant',
+                               'venue': 'Abbots Court, Dorset'}}}
+
+for _slug, _copy in PRODUCT_COPY.items():
+    PRODUCTS[_slug].update(_copy)

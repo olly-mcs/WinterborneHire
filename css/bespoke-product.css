@@ -583,3 +583,66 @@ body:has(.pd-main) {
 .pd-faq-link:focus-visible {
   color: #fff;
 }
+
+/* Review: the couple's photo as a small round thumbnail beside their names, and a button to the testimonials */
+.pd-quote-text p + p {
+  margin-top: 14px;
+}
+
+.pd-quote-by.has-photo {
+  flex-direction: row;
+  justify-content: center;
+  gap: 14px;
+}
+
+.pd-quote-photo {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pd-quote-who {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.pd-quote-by:not(.has-photo) .pd-quote-who {
+  align-items: center;
+  text-align: center;
+}
+
+.pd-quote-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 28px;
+  border: 1px solid #3a3835;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pd-quote-button:hover,
+.pd-quote-button:focus-visible {
+  background-color: #3a3835;
+  color: #fff;
+}
+
+/* A second subheading within the product copy */
+.pd-subhead {
+  margin: 30px 0 14px;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: clamp(20px, 1.7vw, 24px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}

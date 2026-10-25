@@ -10,7 +10,7 @@
 Edit SECTIONS below (and PRODUCTS in bespoke_products.py), then run:  python3 scripts/build-bespoke-florals.py
 Types are listed alphabetically wherever they appear.
 """
-import glob, html, os, re, sys
+import glob, html, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bespoke_products import PRODUCTS  # noqa: E402
@@ -454,15 +454,42 @@ TESTIMONIAL = dict(
 )
 
 
+# Couples' photos for the review thumbnail: the older testimonials (data/webflow-content.json, by names) and the four
+# featured couples on /our-testimonials. A review can also name its photo with photo="/images/...".
+FEATURED_PHOTOS = {
+    "laura & alexandra": "/images/testimonials/laura-alexandra/01-floral-archway.jpg",
+    "hannah & dave": "/images/testimonials/hannah-dave/01-kiss-under-floral-arch.jpg",
+    "sophie & ben": "/images/testimonials/sophie-ben/04-ceremony-kiss.jpg",
+    "steph & karl": "/images/testimonials/steph-karl/04-confetti-walk.jpg",
+}
+
+
+def couple_photo(q):
+    if q.get("photo"):
+        return q["photo"]
+    key = q["names"].lower().replace(" and ", " & ").strip()
+    if key in FEATURED_PHOTOS:
+        return FEATURED_PHOTOS[key]
+    data = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
+    for item in data["testimonials"]:
+        if item["names"].lower().replace(" and ", " & ").strip() == key and item.get("image", {}).get("file"):
+            base = item["image"]["file"].replace("images/webflow/", "/images/webflow-sized/").rsplit(".", 1)[0]
+            return base + "-600.webp"
+    return None
+
+
 def testimonial(t):
     q = t.get("testimonial", TESTIMONIAL)
+    photo = None  # thumbnails switched off; couple_photo(q) finds one when wanted
+    thumb = (f'<img class="pd-quote-photo" src="{photo}" alt="{e(q["names"])}" loading="lazy">' if photo else "")
+    paras = "".join(f"<p>{e(p)}</p>" for p in (q["quote"] if isinstance(q["quote"], list) else [q["quote"]]))
     return f'''  <section class="pd-quote" aria-label="What our couples say">
     <figure class="pd-quote-inner">
       <span class="pd-quote-mark" aria-hidden="true">&ldquo;</span>
-      <blockquote class="pd-quote-text"><p>{e(q["quote"])}</p></blockquote>
-      <figcaption class="pd-quote-by"><span class="pd-quote-names">{e(q["names"])}</span><span class="pd-quote-venue">{e(q["venue"])}</span></figcaption>
+      <blockquote class="pd-quote-text">{paras}</blockquote>
+      <figcaption class="pd-quote-by{" has-photo" if photo else ""}">{thumb}<span class="pd-quote-who"><span class="pd-quote-names">{e(q["names"])}</span><span class="pd-quote-venue">{e(q["venue"])}</span></span></figcaption>
     </figure>
-    <a href="/our-testimonials" class="pd-quote-link" target="_blank" rel="noopener">Read more kind words<span class="pd-visually-hidden"> (opens in a new tab)</span> &#8599;</a>
+    <a href="/our-testimonials" class="pd-quote-button" target="_blank" rel="noopener">View more testimonials<span class="pd-visually-hidden"> (opens in a new tab)</span></a>
   </section>
 '''
 
@@ -506,7 +533,7 @@ def product_body(s, t):
     <div class="pd-info">
       <h1 id="pd-title" class="pd-title">{e(t["name"])}</h1>
       <p class="bf-script pd-tag">{e(t.get("page_tag", t["tag"]))}</p>
-      {"".join(f'<p class="pd-body">{e(p)}</p>' for p in t["about"])}
+      {"".join(f'<h2 class="pd-subhead">{e(p[3:])}</h2>' if p.startswith("## ") else f'<p class="pd-body">{e(p)}</p>' for p in t["about"])}
       <div class="pd-buttons">
         <button type="button" class="ff-button ff-button-primary" data-wish-add="{t["quote"]}">Add to your wish list</button>
         <a href="/showroom" class="ff-button ff-button-outline">Book a consultation</a>
