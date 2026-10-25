@@ -1,4 +1,4 @@
-// Bespoke Florals wish list: a panel that slides out from the right on the Bespoke Florals pages.
+// Wish list: a panel that slides out from the right on the Bespoke Florals and hire collection product pages.
 // "Add to your wish list" buttons (data-wish-add="<catalogue item id>") add a product; the panel lets the couple change
 // quantities, and send the list with their details. It's sent to the Netlify form "quote"
 // (the same form as /quote-builder, which emails winterbornevintage@gmail.com), and shares its saved list with the
@@ -14,20 +14,37 @@
     section.items.forEach(function (item) { items[item.id] = { item: item, section: section.title }; });
   });
 
+  // hire collection products (js/hire-items.js): no guide price, so they don't count towards the estimate
+  var hireItems = window.HIRE_ITEMS || [];
+  hireItems.forEach(function (it) {
+    items[it.id] = { item: { id: it.id, name: it.name, price: 0 }, section: "Hire collection: " + it.section };
+  });
+
   // the Bespoke Florals sections (js/bespoke-sections.js): page names for each item, and its section
   var sections = window.BESPOKE_SECTIONS || [];
   var pageItem = {};
+  hireItems.forEach(function (it) {
+    pageItem[it.id] = { name: it.name, url: it.url, section: "Hire collection: " + it.section };
+  });
   sections.forEach(function (sec) {
     sec.items.forEach(function (it) { pageItem[it.id] = { name: it.name, url: it.url, section: sec.name }; });
   });
 
   var list = {};
+  var unknown = {}; // saved items this page doesn't know about (e.g. hire items, if a page lacks hire-items.js): kept
   try {
     var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    Object.keys(saved).forEach(function (id) { if (items[id] && saved[id] > 0) list[id] = saved[id]; });
+    Object.keys(saved).forEach(function (id) {
+      if (!(saved[id] > 0)) return;
+      if (items[id]) list[id] = saved[id];
+      else unknown[id] = saved[id];
+    });
   } catch (e) {}
   function save() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) {}
+    var all = {};
+    Object.keys(unknown).forEach(function (id) { all[id] = unknown[id]; });
+    Object.keys(list).forEach(function (id) { all[id] = list[id]; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); } catch (e) {}
   }
 
   var money = function (n) { return "£" + Math.round(n).toLocaleString("en-GB"); };
@@ -214,7 +231,8 @@
     out.push("Showroom appointment: " + (details.showroom || "Not requested"), "");
     out.push("WISH LIST");
     lines().forEach(function (l) { out.push("  " + l.qty + " x " + l.name + " (" + l.section + ")"); });
-    out.push("", "Guide total from the price list (not shown to them): " + money(est.low) + " - " + money(est.high));
+    out.push("", "Guide total for the florals, from the price list (not shown to them; hire collection items aren't priced): " +
+      money(est.low) + " - " + money(est.high));
     return out.join("\n");
   }
   form.addEventListener("submit", function (e) {

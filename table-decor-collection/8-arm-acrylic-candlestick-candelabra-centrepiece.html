@@ -19,6 +19,8 @@
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/winterborne-vintage.webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/products.css" rel="stylesheet" type="text/css">
+  <link href="/css/wishlist.css" rel="stylesheet" type="text/css">
+  <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">
   <link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">
   <link href="/css/instagram-feed.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -91,21 +93,6 @@
       <div class="container-10 w-container">
         <nav role="navigation" class="nav-menu-4 w-nav-menu">
           <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
-            <div class="mainnavstyling w-dropdown-toggle">
-              <div class="w-icon-dropdown-toggle"></div>
-              <div class="mainnavstyling">Collection</div>
-            </div>
-            <nav class="dropdown-list-2 w-dropdown-list">
-              <a href="/large-props" class="dropdown-link-2 w-dropdown-link">Large Props</a>
-              <a href="/small-props" class="dropdown-link-3 w-dropdown-link">Small Props</a>
-              <a href="/furniture" class="dropdown-link-4 w-dropdown-link">Furniture</a>
-              <a href="/rugs-runners" class="dropdown-link-5 w-dropdown-link">Rugs &amp; Runners</a>
-              <a href="/table-decor" aria-current="page" class="dropdown-link-6 w-dropdown-link w--current">Table Decor</a>
-              <a href="/florals-foliage" class="dropdown-link-7 w-dropdown-link">Florals &amp; Foliage</a>
-              <a href="/signage" class="dropdown-link-7 w-dropdown-link">Signage</a>
-            </nav>
-          </div>
-          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
             <div class="mainnavstyling w-dropdown-toggle" data-nav-href="/bespoke-florals">
               <div class="w-icon-dropdown-toggle"></div>
               <div class="mainnavstyling">Bespoke Florals</div>
@@ -148,6 +135,18 @@
               </div>
             </nav>
           </div>
+          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
+            <div class="mainnavstyling w-dropdown-toggle w--current">
+              <div class="w-icon-dropdown-toggle"></div>
+              <div class="mainnavstyling">Hire Collection</div>
+            </div>
+            <nav class="dropdown-list-2 w-dropdown-list hire-menu">
+              <a href="/small-props" class="dropdown-link-2 w-dropdown-link">Small Props</a>
+              <a href="/furniture-rugs" class="dropdown-link-2 w-dropdown-link">Furniture &amp; Rugs</a>
+              <a href="/table-decor" class="dropdown-link-2 w-dropdown-link w--current">Table Decor</a>
+              <a href="/signage" class="dropdown-link-2 w-dropdown-link">Signage</a>
+            </nav>
+          </div>
           <a href="/dorset-wedding-styling" class="mainnavstyling w-nav-link">Hire &amp; Styling</a>
           <a href="/showroom" class="mainnavstyling w-nav-link">Showroom</a>
           <div data-hover="true" data-delay="0" class="dropdown-list-3 w-dropdown">
@@ -172,14 +171,13 @@
     <main class="product-page">
     <nav class="product-crumbs" aria-label="Breadcrumb"><a href="/table-decor">Table Decor</a><span aria-hidden="true">/</span><span>8 Arm Acrylic Candlestick Candelabra Centrepiece</span></nav>
     <div class="product-layout">
-      <div class="product-gallery product-gallery-1"><img src="/images/webflow-sized/table-decor/8-arm-acrylic-candlestick-candelabra-centrepiece-1200.webp" srcset="/images/webflow-sized/table-decor/8-arm-acrylic-candlestick-candelabra-centrepiece-600.webp 600w, /images/webflow-sized/table-decor/8-arm-acrylic-candlestick-candelabra-centrepiece-1200.webp 1200w" sizes="(max-width: 991px) 100vw, 600px" alt="8 Arm Acrylic Candlestick Candelabra Centrepiece" fetchpriority="high" class="product-photo"></div>
+      <div class="pd-gallery"><div class="pd-stage"><ul class="pd-track" role="list"><li class="pd-slide" aria-label="Photo 1 of 1"><img src="/images/webflow-sized/table-decor/8-arm-acrylic-candlestick-candelabra-centrepiece-1200.webp" srcset="/images/webflow-sized/table-decor/8-arm-acrylic-candlestick-candelabra-centrepiece-600.webp 600w, /images/webflow-sized/table-decor/8-arm-acrylic-candlestick-candelabra-centrepiece-1200.webp 1200w" sizes="(max-width: 991px) 100vw, 50vw" alt="8 Arm Acrylic Candlestick Candelabra Centrepiece" fetchpriority="high"></li></ul></div></div>
       <div class="product-info">
         <h1 class="product-title">8 Arm Acrylic Candlestick Candelabra Centrepiece</h1>
-        <p class="product-qty"><span>Available</span> 6</p>
         <div class="product-desc"><p>Illuminate your wedding day with timeless elegance using our 8 Arm Acrylic Candlestick Candelabra Centrepiece. </p><p>Available for hire in Dorset, this exquisite piece adds a touch of opulence and sophistication to your celebration. </p><p>Create a mesmerizing ambiance with the warm glow of candles, making your special day truly unforgettable. </p><p>Elevate your wedding decor effortlessly – contact us for Dorset wedding hire availability</p><p>Suitable for LED dinner candles only</p></div>
         <div class="product-actions">
-          <a href="/showroom" class="product-button product-button-primary">Book a showroom visit</a>
-          <a href="/contact-us" class="product-button">Ask about this piece</a>
+          <button type="button" class="product-button product-button-primary" data-wish-add="hire-table-decor-8-arm-acrylic-candlestick-candelabra-centrepiece">Add to your wish list</button>
+          <a href="/showroom" class="product-button">Book a showroom visit</a>
         </div>
       </div>
     </div>
@@ -261,12 +259,10 @@
           <div class="heading-3 footerheader">Hire Collection</div>
           <ul role="list" class="w-list-unstyled">
             <li>
-              <a href="/large-props" class="footer-link">Large Props</a>
               <a href="/small-props" class="footer-link">Small Props</a>
-              <a href="/table-decor" aria-current="page" class="footer-link w--current">Table Decor</a>
-              <a href="/florals-foliage" class="footer-link">Florals</a>
-              <a href="/rugs-runners" class="footer-link">Rugs &amp; Runners</a>
-              <a href="/furniture" class="footer-link">Furniture</a>
+              <a href="/furniture-rugs" class="footer-link">Furniture &amp; Rugs</a>
+              <a href="/table-decor" class="footer-link w--current">Table Decor</a>
+              <a href="/signage" class="footer-link">Signage</a>
             </li>
           </ul>
         </li>
@@ -277,5 +273,10 @@
   <script src="/js/webflow.js" type="text/javascript"></script>
   <script src="/js/instagram-feed.js" type="text/javascript"></script>
   <script src="/js/nav.js" type="text/javascript"></script>
+  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>
+  <script src="/js/quote-data.js" type="text/javascript"></script>
+  <script src="/js/hire-items.js" type="text/javascript"></script>
+  <script src="/js/bespoke-sections.js" type="text/javascript"></script>
+  <script src="/js/wishlist.js" type="text/javascript"></script>
 </body>
 </html>

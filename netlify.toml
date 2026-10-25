@@ -17,8 +17,8 @@
   status = 200
 
 [[redirects]]
-  from = "/florals-foliage"
-  to = "/florals-foliage.html"
+  from = "/furniture-rugs"
+  to = "/furniture-rugs.html"
   status = 200
 
 # Bespoke Florals section pages, which share their names with the folders of product pages
@@ -41,6 +41,95 @@
   from = "/bespoke-florals/installations"
   to = "/bespoke-florals/installations.html"
   status = 200
+
+# Hire collection changes (see CLAUDE.md, "Hire collection")
+# Furniture and Rugs & Runners are combined into Furniture & Rugs
+[[redirects]]
+  from = "/furniture"
+  to = "/furniture-rugs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners"
+  to = "/furniture-rugs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/*"
+  to = "/furniture-rugs/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/*"
+  to = "/furniture-rugs/:splat"
+  status = 301
+
+# Florals & Foliage is covered by Bespoke Florals: each product goes to its closest Bespoke Florals product,
+# or the Bespoke Florals page
+[[redirects]]
+  from = "/florals-foliage"
+  to = "/bespoke-florals"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/thick-eucalyptus-garlands"
+  to = "/bespoke-florals"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/english-garden-xl-floral-ceremony-installation-arrangement"
+  to = "/bespoke-florals"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/faux-floral-chandelier-decor"
+  to = "/bespoke-florals/installations/chandeliers"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/custom-made-bridal-bouquets"
+  to = "/bespoke-florals/your-florals/bridal-bouquets"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/wisteria-foliage-suspended-ladder-decor"
+  to = "/bespoke-florals/installations/ladders"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/faux-foliage-garland-decor-for-suspended-ladders"
+  to = "/bespoke-florals/installations/ladders"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/english-garden-low-centrepiece-arrangement"
+  to = "/bespoke-florals/the-reception/footed-bowls"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/english-garden-meadow-aisle-arrangements"
+  to = "/bespoke-florals/the-ceremony/aisle-meadows"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/tall-podium-centrepiece"
+  to = "/bespoke-florals/the-reception/podiums"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/english-garden-top-table-centrepiece"
+  to = "/bespoke-florals/the-reception/top-table"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/xl-hanging-floral-foliage-hoop"
+  to = "/bespoke-florals"
+  status = 301
+
+[[redirects]]
+  from = "/florals-foliage/*"
+  to = "/bespoke-florals"
+  status = 301
 
 # Pages removed in the move from Webflow
 [[redirects]]

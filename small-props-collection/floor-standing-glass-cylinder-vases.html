@@ -19,6 +19,8 @@
   <link href="/css/webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/winterborne-vintage.webflow.css" rel="stylesheet" type="text/css">
   <link href="/css/products.css" rel="stylesheet" type="text/css">
+  <link href="/css/wishlist.css" rel="stylesheet" type="text/css">
+  <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">
   <link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">
   <link href="/css/instagram-feed.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -91,21 +93,6 @@
       <div class="container-10 w-container">
         <nav role="navigation" class="nav-menu-4 w-nav-menu">
           <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
-            <div class="mainnavstyling w-dropdown-toggle">
-              <div class="w-icon-dropdown-toggle"></div>
-              <div class="mainnavstyling">Collection</div>
-            </div>
-            <nav class="dropdown-list-2 w-dropdown-list">
-              <a href="/large-props" class="dropdown-link-2 w-dropdown-link">Large Props</a>
-              <a href="/small-props" aria-current="page" class="dropdown-link-3 w-dropdown-link w--current">Small Props</a>
-              <a href="/furniture" class="dropdown-link-4 w-dropdown-link">Furniture</a>
-              <a href="/rugs-runners" class="dropdown-link-5 w-dropdown-link">Rugs &amp; Runners</a>
-              <a href="/table-decor" class="dropdown-link-6 w-dropdown-link">Table Decor</a>
-              <a href="/florals-foliage" class="dropdown-link-7 w-dropdown-link">Florals &amp; Foliage</a>
-              <a href="/signage" class="dropdown-link-7 w-dropdown-link">Signage</a>
-            </nav>
-          </div>
-          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
             <div class="mainnavstyling w-dropdown-toggle" data-nav-href="/bespoke-florals">
               <div class="w-icon-dropdown-toggle"></div>
               <div class="mainnavstyling">Bespoke Florals</div>
@@ -148,6 +135,18 @@
               </div>
             </nav>
           </div>
+          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
+            <div class="mainnavstyling w-dropdown-toggle w--current">
+              <div class="w-icon-dropdown-toggle"></div>
+              <div class="mainnavstyling">Hire Collection</div>
+            </div>
+            <nav class="dropdown-list-2 w-dropdown-list hire-menu">
+              <a href="/small-props" class="dropdown-link-2 w-dropdown-link w--current">Small Props</a>
+              <a href="/furniture-rugs" class="dropdown-link-2 w-dropdown-link">Furniture &amp; Rugs</a>
+              <a href="/table-decor" class="dropdown-link-2 w-dropdown-link">Table Decor</a>
+              <a href="/signage" class="dropdown-link-2 w-dropdown-link">Signage</a>
+            </nav>
+          </div>
           <a href="/dorset-wedding-styling" class="mainnavstyling w-nav-link">Hire &amp; Styling</a>
           <a href="/showroom" class="mainnavstyling w-nav-link">Showroom</a>
           <div data-hover="true" data-delay="0" class="dropdown-list-3 w-dropdown">
@@ -172,14 +171,21 @@
     <main class="product-page">
     <nav class="product-crumbs" aria-label="Breadcrumb"><a href="/small-props">Small Props</a><span aria-hidden="true">/</span><span>Floor standing glass cylinder vases</span></nav>
     <div class="product-layout">
-      <div class="product-gallery product-gallery-2"><img src="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-1200.webp" srcset="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-600.webp 600w, /images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-1200.webp 1200w" sizes="(max-width: 991px) 100vw, 600px" alt="Floor standing glass cylinder vases" fetchpriority="high" class="product-photo"><img src="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-600.webp" srcset="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-600.webp 600w, /images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-1200.webp 1200w" sizes="(max-width: 991px) 50vw, 300px" alt="Floor standing glass cylinder vases styled at a wedding" loading="lazy" class="product-photo"></div>
+      <div class="pd-gallery" data-gallery>
+        <div class="pd-stage">
+          <ul class="pd-track" role="list" tabindex="0" aria-label="Floor standing glass cylinder vases photos"><li class="pd-slide" aria-label="Photo 1 of 2"><img src="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-1200.webp" srcset="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-600.webp 600w, /images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-1200.webp 1200w" sizes="(max-width: 991px) 100vw, 50vw" alt="Floor standing glass cylinder vases" fetchpriority="high"></li><li class="pd-slide" aria-label="Photo 2 of 2"><img src="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-1200.webp" srcset="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-600.webp 600w, /images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-1200.webp 1200w" sizes="(max-width: 991px) 100vw, 50vw" alt="Floor standing glass cylinder vases styled at a wedding" loading="lazy"></li></ul>
+          <button type="button" class="pd-arrow pd-prev" aria-label="Previous photo" data-prev>&#8249;</button>
+          <button type="button" class="pd-arrow pd-next" aria-label="Next photo" data-next>&#8250;</button>
+          <p class="pd-count" aria-hidden="true"><span data-count>1</span> / 2</p>
+        </div>
+        <ul class="pd-thumbs" role="list"><li><button type="button" class="pd-thumb is-active" data-slide="0" aria-label="Show photo 1" aria-current="true"><img src="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-600.webp" srcset="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-600.webp 600w, /images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-1200.webp 1200w" sizes="120px" alt="" loading="lazy"></button></li><li><button type="button" class="pd-thumb" data-slide="1" aria-label="Show photo 2"><img src="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-600.webp" srcset="/images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-600.webp 600w, /images/webflow-sized/small-props/floor-standing-glass-cylinder-vases-hover-1200.webp 1200w" sizes="120px" alt="" loading="lazy"></button></li></ul>
+      </div>
       <div class="product-info">
         <h1 class="product-title">Floor standing glass cylinder vases</h1>
-        <p class="product-qty"><span>Available</span> 50 mixed sizes</p>
         <div class="product-desc"><p>Use this collection various sized glass cylinder vases to decorate your aisle.</p><p>LED pillar candles or floating tealights will create a romantic glow to this walkway</p><p>Heights = 20cm - 40cm</p></div>
         <div class="product-actions">
-          <a href="/showroom" class="product-button product-button-primary">Book a showroom visit</a>
-          <a href="/contact-us" class="product-button">Ask about this piece</a>
+          <button type="button" class="product-button product-button-primary" data-wish-add="hire-small-props-floor-standing-glass-cylinder-vases">Add to your wish list</button>
+          <a href="/showroom" class="product-button">Book a showroom visit</a>
         </div>
       </div>
     </div>
@@ -261,12 +267,10 @@
           <div class="heading-3 footerheader">Hire Collection</div>
           <ul role="list" class="w-list-unstyled">
             <li>
-              <a href="/large-props" class="footer-link">Large Props</a>
-              <a href="/small-props" class="footer-link">Small Props</a>
+              <a href="/small-props" class="footer-link w--current">Small Props</a>
+              <a href="/furniture-rugs" class="footer-link">Furniture &amp; Rugs</a>
               <a href="/table-decor" class="footer-link">Table Decor</a>
-              <a href="/florals-foliage" class="footer-link">Florals</a>
-              <a href="/rugs-runners" class="footer-link">Rugs &amp; Runners</a>
-              <a href="/furniture" class="footer-link">Furniture</a>
+              <a href="/signage" class="footer-link">Signage</a>
             </li>
           </ul>
         </li>
@@ -277,5 +281,10 @@
   <script src="/js/webflow.js" type="text/javascript"></script>
   <script src="/js/instagram-feed.js" type="text/javascript"></script>
   <script src="/js/nav.js" type="text/javascript"></script>
+  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>
+  <script src="/js/quote-data.js" type="text/javascript"></script>
+  <script src="/js/hire-items.js" type="text/javascript"></script>
+  <script src="/js/bespoke-sections.js" type="text/javascript"></script>
+  <script src="/js/wishlist.js" type="text/javascript"></script>
 </body>
 </html>

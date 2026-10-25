@@ -128,7 +128,12 @@
 
   // Remember a half-built quote on this device
   function save() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(quantities)); } catch (e) {}
+    // keep anything else saved under the same key (e.g. hire items from the wish list)
+    try {
+      var all = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      Object.keys(quantities).forEach(function (id) { all[id] = quantities[id]; });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (e) {}
   }
   try {
     var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");

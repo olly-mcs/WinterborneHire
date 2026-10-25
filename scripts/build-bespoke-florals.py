@@ -241,10 +241,84 @@ def update_footer(text):
     return text
 
 
-def update_nav(text, current=None):
-    """current: a section slug, or "overview", on the Bespoke Florals pages themselves.
-    Also keeps the footer's Bespoke Florals column up to date."""
-    return update_footer(NAV_RE.sub(lambda m: menu(current), text, count=1))
+# The Hire Collection menu (second in the navigation, after Bespoke Florals) and the footer's Hire Collection list.
+# Set show=False to hide an item everywhere without removing its page.
+HIRE_MENU = [
+    dict(name="Large Props", href="/large-props", show=False),
+    dict(name="Small Props", href="/small-props", show=True),
+    dict(name="Furniture & Rugs", href="/furniture-rugs", show=True),
+    dict(name="Table Decor", href="/table-decor", show=True),
+    dict(name="Signage", href="/signage", show=True),
+]
+HIRE_PRODUCT_FOLDERS = {"/large-prop-collection": "/large-props", "/small-props-collection": "/small-props",
+                        "/furniture-rugs": "/furniture-rugs", "/table-decor-collection": "/table-decor",
+                        "/signage": "/signage"}
+
+
+def hire_section(url):
+    """The Hire Collection page a URL belongs to (its list page, or the list page of a product), or None."""
+    if not url:
+        return None
+    for h in HIRE_MENU:
+        if url == h["href"]:
+            return h["href"]
+    for folder, page in HIRE_PRODUCT_FOLDERS.items():
+        if url.startswith(folder + "/"):
+            return page
+    return None
+
+
+def hire_menu(url):
+    here = hire_section(url)
+    links = "\n".join(
+        f'              <a href="{h["href"]}"' + (' aria-current="page"' if url == h["href"] else "")
+        + f' class="dropdown-link-2 w-dropdown-link{" w--current" if here == h["href"] else ""}">{e(h["name"])}</a>'
+        for h in HIRE_MENU if h["show"])
+    return f'''          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
+            <div class="mainnavstyling w-dropdown-toggle{" w--current" if here else ""}">
+              <div class="w-icon-dropdown-toggle"></div>
+              <div class="mainnavstyling">Hire Collection</div>
+            </div>
+            <nav class="dropdown-list-2 w-dropdown-list hire-menu">
+{links}
+            </nav>
+          </div>'''
+
+
+HIRE_RE = re.compile(
+    r'          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">\n'
+    r'            <div class="mainnavstyling w-dropdown-toggle(?: w--current)?">\n'
+    r'              <div class="w-icon-dropdown-toggle"></div>\n'
+    r'              <div class="mainnavstyling">(?:Hire )?Collection</div>.*?\n            </nav>\n          </div>', re.S)
+FOOTER_HIRE_RE = re.compile(
+    r'(<div class="heading-3 footerheader">Hire Collection</div>\n          <ul role="list" class="w-list-unstyled">\n'
+    r'            <li>\n).*?(            </li>)', re.S)
+
+
+def footer_hire(url):
+    here = hire_section(url)
+    return "".join(
+        f'              <a href="{h["href"]}"' + (' aria-current="page"' if url == h["href"] else "")
+        + f' class="footer-link{" w--current" if here == h["href"] else ""}">{e(h["name"])}</a>\n'
+        for h in HIRE_MENU if h["show"])
+
+
+def update_nav(text, current=None, url=None):
+    """current: a section slug, or "overview", on the Bespoke Florals pages themselves; url: the page's address, to
+    mark the current Hire Collection page. Puts Bespoke Florals first and Hire Collection second in the menu, and
+    keeps the footer's Bespoke Florals column and Hire Collection list up to date."""
+    b, h = NAV_RE.search(text), HIRE_RE.search(text)
+    if b and h:
+        pos = min(b.start(), h.start())
+        spans = sorted([(b.start(), b.end()), (h.start(), h.end())], reverse=True)
+        for a, z in spans:
+            z = z + 1 if text[z:z + 1] == "\n" else z
+            text = text[:a] + text[z:]
+        text = text[:pos] + menu(current) + "\n" + hire_menu(url) + "\n" + text[pos:]
+    elif b:
+        text = NAV_RE.sub(lambda m: menu(current), text, count=1)
+    text = FOOTER_HIRE_RE.sub(lambda m: m.group(1) + footer_hire(url) + m.group(2), text, count=1)
+    return update_footer(text)
 
 
 # ---------- page shell ----------
@@ -257,6 +331,7 @@ FOOT = TPL[TPL.index('  <div class="badgesection">'):]
 WISHLIST_HEAD_AFTER = '<link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">'
 WISHLIST_CSS = '\n  <link href="/css/wishlist.css" rel="stylesheet" type="text/css">'
 WISHLIST_JS = ('  <script src="/js/quote-data.js" type="text/javascript"></script>\n'
+               '  <script src="/js/hire-items.js" type="text/javascript"></script>\n'
                '  <script src="/js/bespoke-sections.js" type="text/javascript"></script>\n'
                '  <script src="/js/wishlist.js" type="text/javascript"></script>\n')
 
@@ -271,7 +346,7 @@ def without_wishlist(text):
     """The template is the last-built overview page, so remove any wish list tags before adding them once."""
     text = re.sub(r'\n  <link href="/css/(?:wishlist|bespoke-slide)\.css"[^>]*>', "", text)
     text = text.replace('\n  <script src="/js/bespoke-slide.js" type="text/javascript"></script>', "")
-    return re.sub(r'  <script src="/js/(?:quote-data|bespoke-sections|wishlist|bespoke-slide)\.js"[^>]*></script>\n', "", text)
+    return re.sub(r'  <script src="/js/(?:quote-data|hire-items|bespoke-sections|wishlist|bespoke-slide)\.js"[^>]*></script>\n', "", text)
 
 
 def meta_description(text):
@@ -295,7 +370,7 @@ def page(title, desc, canonical, body, current, slide=False):
                f'<link href="https://www.winterbornehireandstyling.co.uk{canonical}" rel="canonical">', s, count=1)
     s = s.replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + WISHLIST_CSS + (SLIDE_CSS if slide else ""), 1)
     foot = without_wishlist(FOOT).replace("</body>", WISHLIST_JS + "</body>", 1)
-    return update_nav(s + body + foot, current)
+    return update_nav(s + body + foot, current, canonical)
 
 
 def subnav(current=None):
@@ -584,7 +659,8 @@ for path in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True):
     if os.sep + "bespoke-florals" + os.sep in path:
         continue
     text = open(path, encoding="utf-8").read()
-    new = update_nav(text)
+    rel = os.path.relpath(path, ROOT)[:-5].replace(os.sep, "/")
+    new = update_nav(text, url="/" + ("" if rel == "index" else rel))
     if new != text:
         open(path, "w", encoding="utf-8").write(new)
         count += 1

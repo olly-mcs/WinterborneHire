@@ -46,12 +46,29 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
 - The token lives in the Netlify environment variable `INSTAGRAM_ACCESS_TOKEN`, never in the code. Pasting a new token
   there (then redeploying) always takes over from the renewed one.
 
+## Hire collection (menu and structure)
+
+The menu is Bespoke Florals first, then **Hire Collection** (Small Props, Furniture & Rugs, Table Decor, Signage).
+Both menus, and the footer's Hire Collection list, are written onto every page by `scripts/build-bespoke-florals.py`
+from `HIRE_MENU`; set `show=False` to hide an item without removing its page (Large Props is hidden for now, its
+page and products are still live).
+
+- **Furniture & Rugs** combines the old Furniture and Rugs & Runners collections: `/furniture-rugs` and
+  `/furniture-rugs/<slug>`. The old `/furniture`, `/rugs-runners`, `/furniture-collection/*` and
+  `/rugs-runners-collection/*` URLs redirect there (301, `netlify.toml`).
+- **Florals & Foliage** is gone (Bespoke Florals covers it). Each old product redirects to its closest Bespoke
+  Florals product, or `/bespoke-florals` where there's no match (`netlify.toml`).
+- **Product pages** use the Bespoke Florals photo slider (one 4:5 shape, cropped to fill, so no white bars) and an
+  "Add to your wish list" button; no stock count is shown. `js/hire-items.js` (written by the build) names the hire
+  products for the wish list; they have no guide price.
+
 ## Products and older testimonials (from the Webflow CMS)
 
 The Webflow CMS exports (CSV) were converted to `data/webflow-content.json`: Florals & Foliage, Signage, Rugs & Runners,
 Large Props, Small Props, Table Decor, Furniture, the Faux Florals gallery and the older testimonials. `scripts/build-webflow-content.py` builds from it:
 
-- the product grids on every collection page (filling the Webflow filter tabs where a page has them),
+- the product grids on every collection page (`COLLECTIONS`; a page can combine several data collections with
+  `sources`) (filling the Webflow filter tabs where a page has them),
   between `<!-- products:start -->` / `<!-- products:end -->` markers;
 - a page per product at the same URL Webflow used: `/florals-foliage/<slug>`, `/signage/<slug>`,
   `/rugs-runners-collection/<slug>`, `/large-prop-collection/`, `/small-props-collection/`, `/table-decor-collection/`,

@@ -13,13 +13,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
 e = html.escape
 
+# The hire collection. "sources" lists the data/webflow-content.json collections a page combines (default: its own
+# key). Florals & Foliage is no longer listed (Bespoke Florals covers it; its old URLs redirect in netlify.toml), and
+# Furniture and Rugs & Runners are combined into Furniture & Rugs.
 COLLECTIONS = {
-    "florals-foliage": {"page": "florals-foliage.html", "title": "Florals & Foliage", "label": "florals & foliage",
-                        "tabs": {"All": None, "Centerpieces": "Centrepieces", "Top Table": "Top Table",
-                                 "Runners": "Runners", "Other": "Other"}},
     "signage": {"page": "signage.html", "title": "Signage", "label": "signage"},
-    "rugs-runners": {"page": "rugs-runners.html", "title": "Rugs & Runners", "label": "rugs & runners",
-                     "url": "rugs-runners-collection"},
+    "furniture-rugs": {"page": "furniture-rugs.html", "title": "Furniture & Rugs", "label": "furniture & rugs",
+                       "url": "furniture-rugs", "sources": ["furniture", "rugs-runners"]},
     "large-props": {"page": "large-props.html", "title": "Large Props", "label": "large props",
                     "url": "large-prop-collection",
                     "tabs": {"All": None, "Archways": "Archways", "Moongates": "Moongates", "Other Decor": "Other Decor"}},
@@ -30,8 +30,15 @@ COLLECTIONS = {
                     "url": "table-decor-collection",
                     "tabs": {"All": None, "CandleHolders": "Candleholdes", "Vessels": "Vessels",
                              "Table Numbers": "Table Numbers", "Other": "Other"}},
-    "furniture": {"page": "furniture.html", "title": "Furniture", "label": "furniture", "url": "furniture-collection"},
 }
+
+
+def collection_items(col):
+    return [i for src in COLLECTIONS[col].get("sources", [col]) for i in DATA[src]]
+
+
+def list_url(cfg):
+    return "/" + cfg["page"][:-5]
 
 
 def img_url(img):
@@ -132,6 +139,49 @@ def fill_list_page(col, cfg, items):
     write(path, s)
 
 
+# Product page scripts: the photo slider and the wish list (shared with Bespoke Florals; js/hire-items.js names the
+# hire products for it)
+HIRE_PAGE_JS = ('  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>\n'
+                '  <script src="/js/quote-data.js" type="text/javascript"></script>\n'
+                '  <script src="/js/hire-items.js" type="text/javascript"></script>\n'
+                '  <script src="/js/bespoke-sections.js" type="text/javascript"></script>\n'
+                '  <script src="/js/wishlist.js" type="text/javascript"></script>\n')
+
+
+def hire_id(col, item):
+    return f"hire-{col}-{item['slug']}"
+
+
+def slider(name, images):
+    """The photo slider used on Bespoke Florals product pages: one shape (4:5, cropped to fill) for every photo."""
+    slides = "".join(
+        f'<li class="pd-slide" aria-label="Photo {n + 1} of {len(images)}"><img {sized(i, "(max-width: 991px) 100vw, 50vw", 1200)} '
+        f'alt="{e(name)}{"" if n == 0 else " styled at a wedding"}" {"fetchpriority=" + chr(34) + "high" + chr(34) if n == 0 else "loading=" + chr(34) + "lazy" + chr(34)}></li>'
+        for n, i in enumerate(images))
+    if len(images) < 2:
+        return f'<div class="pd-gallery"><div class="pd-stage"><ul class="pd-track" role="list">{slides}</ul></div></div>'
+    thumbs = "".join(
+        f'<li><button type="button" class="pd-thumb{" is-active" if n == 0 else ""}" data-slide="{n}" aria-label="Show photo {n + 1}"'
+        f'{" aria-current=" + chr(34) + "true" + chr(34) if n == 0 else ""}><img {sized(i, "120px")} alt="" loading="lazy"></button></li>'
+        for n, i in enumerate(images))
+    return f'''<div class="pd-gallery" data-gallery>
+        <div class="pd-stage">
+          <ul class="pd-track" role="list" tabindex="0" aria-label="{e(name)} photos">{slides}</ul>
+          <button type="button" class="pd-arrow pd-prev" aria-label="Previous photo" data-prev>&#8249;</button>
+          <button type="button" class="pd-arrow pd-next" aria-label="Next photo" data-next>&#8250;</button>
+          <p class="pd-count" aria-hidden="true"><span data-count>1</span> / {len(images)}</p>
+        </div>
+        <ul class="pd-thumbs" role="list">{thumbs}</ul>
+      </div>'''
+
+
+def write_hire_items():
+    rows = [dict(id=hire_id(col, i), name=i["name"].strip(), section=cfg["title"], url=f"/{cfg.get('url', col)}/{i['slug']}")
+            for col, cfg in COLLECTIONS.items() for i in collection_items(col)]
+    write("js/hire-items.js", "// Written by scripts/build-webflow-content.py: the hire collection products, for the wish list\n"
+          "// (js/wishlist.js). Don't edit by hand.\nwindow.HIRE_ITEMS = " + json.dumps(rows, indent=1, ensure_ascii=False) + ";\n")
+
+
 def detail_page(col, cfg, item, items):
     s = read(cfg["page"])
     head = s[:s.index('<div class="section-14">')] if '<div class="section-14">' in s else None
@@ -150,27 +200,25 @@ def detail_page(col, cfg, item, items):
                   lambda m: m.group(1) + f'{cfg.get("url", col)}/{item["slug"]}' + m.group(2), head, count=1)
     if "/css/products.css" not in head:
         head = head.replace(WF_CSS, WF_CSS + '\n  <link href="/css/products.css" rel="stylesheet" type="text/css">', 1)
+    for css in ("/css/bespoke-product.css", "/css/wishlist.css"):
+        if css not in head:
+            head = head.replace('<link href="/css/products.css" rel="stylesheet" type="text/css">',
+                                f'<link href="/css/products.css" rel="stylesheet" type="text/css">\n  <link href="{css}" rel="stylesheet" type="text/css">', 1)
+    foot = re.sub(r'  <script src="/js/(?:quote-data|hire-items|bespoke-sections|wishlist|bespoke-gallery)\.js"[^>]*></script>\n', "", foot)
+    foot = foot.replace("</body>", HIRE_PAGE_JS + "</body>", 1)
     images = [i for i in (item["image"], item["hover"]) if i]
-    gallery = ""
-    for n, i in enumerate(images):
-        load = 'fetchpriority="high"' if n == 0 else 'loading="lazy"'
-        extra = "" if n == 0 else " styled at a wedding"
-        size = "(max-width: 991px) 100vw, 600px" if n == 0 or len(images) == 1 else "(max-width: 991px) 50vw, 300px"
-        gallery += f'<img {sized(i, size, 1200 if n == 0 else 600)} alt="{e(item["name"])}{extra}" {load} class="product-photo">'
-    qty = f'<p class="product-qty"><span>Available</span> {e(item["quantity"])}</p>' if item["quantity"] else ""
     others = [i for i in items if i["slug"] != item["slug"]][:4]
     related = "".join("        " + card(col, i) + "\n" for i in others)
     body = f'''  <main class="product-page">
-    <nav class="product-crumbs" aria-label="Breadcrumb"><a href="/{col}">{e(cfg["title"])}</a><span aria-hidden="true">/</span><span>{e(item["name"])}</span></nav>
+    <nav class="product-crumbs" aria-label="Breadcrumb"><a href="{list_url(cfg)}">{e(cfg["title"])}</a><span aria-hidden="true">/</span><span>{e(item["name"])}</span></nav>
     <div class="product-layout">
-      <div class="product-gallery product-gallery-{len(images)}">{gallery}</div>
+      {slider(item["name"], images)}
       <div class="product-info">
         <h1 class="product-title">{e(item["name"])}</h1>
-        {qty}
         <div class="product-desc">{item["description"]}</div>
         <div class="product-actions">
-          <a href="/showroom" class="product-button product-button-primary">Book a showroom visit</a>
-          <a href="/contact-us" class="product-button">Ask about this piece</a>
+          <button type="button" class="product-button product-button-primary" data-wish-add="{hire_id(col, item)}">Add to your wish list</button>
+          <a href="/showroom" class="product-button">Book a showroom visit</a>
         </div>
       </div>
     </div>
@@ -178,7 +226,7 @@ def detail_page(col, cfg, item, items):
       <h2 id="related-title" class="product-related-title">More {e(cfg["label"])}</h2>
       <div class="product-grid product-grid-4" role="list">
 {related}      </div>
-      <p class="product-related-more"><a href="/{col}">See all {e(cfg["label"])}</a></p>
+      <p class="product-related-more"><a href="{list_url(cfg)}">See all {e(cfg["label"])}</a></p>
     </section>
   </main>
 '''
@@ -260,11 +308,12 @@ def testimonials():
 
 if __name__ == "__main__":
     for col, cfg in COLLECTIONS.items():
-        items = DATA[col]
+        items = collection_items(col)
         fill_list_page(col, cfg, items)
         for item in items:
             detail_page(col, cfg, item, items)
         print(f"{col}: {len(items)} products")
+    write_hire_items()
     testimonials()
     print(f"testimonials: {len(DATA['testimonials'])}")
     saved = sum(1 for k, v in DATA.items() for i in v for f in ("image", "hover")
