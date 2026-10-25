@@ -1789,3 +1789,56 @@ button.hero-roundel:focus-visible {
   line-height: 1;
   cursor: pointer;
 }
+
+.rd-flower ellipse,
+.rd-flower circle {
+  fill: none;
+  stroke: #f6f3ee;
+  stroke-width: 1.4;
+}
+
+/* Questions inside the faux florals dialog */
+.faux-faq {
+  margin: 26px 0 8px;
+  border-top: 1px solid rgba(246, 243, 238, 0.2);
+}
+
+.faux-faq-item {
+  border-bottom: 1px solid rgba(246, 243, 238, 0.2);
+}
+
+.faux-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  color: #f6f3ee;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faux-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faux-faq-item summary::after {
+  content: "+";
+  flex: none;
+  color: #e59775;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.faux-faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faux-dialog .faux-faq-item p {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+}
