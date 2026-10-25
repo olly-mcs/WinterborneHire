@@ -31,23 +31,31 @@ SECTIONS = [
          types=[
              dict(slug="aisle-meadows", name="Aisle Meadows", tag="Enter and leave your ceremony surrounded by flowers.",
                   img=(T + "laura-alexandra/02-ceremony-aisle.jpg", "Outdoor ceremony aisle lined with guests and florals", "50% 60%"),
-                  body=["Low meadow arrangements line the aisle, so the walk to your partner feels like a stroll through a wildflower garden.",
-                        "They work indoors and out, and can be moved to the edges of the dance floor or the bar later on."],
+                  body=["Beautiful low level floral arrangements create a flower filled aisle, with layers of blooms, colour and plenty of movement.",
+                        "Designed in your chosen colours and style to complement your venue and the overall feel of your wedding, from soft and romantic to wild and abundant.",
+                        "Our faux wedding flowers combine high quality silk, artificial and real touch flowers to create natural looking floral arrangements that photograph beautifully and look fresh throughout the day.",
+                        "Perfect for indoor and outdoor ceremonies, our aisle meadows can be moved afterwards so you can continue the look throughout your day. Use them around the dance floor, bar or reception space for flowers that work a little harder."],
                   perfect=["Aisles", "Outdoor ceremonies", "Photo moments", "Reception styling"]),
              dict(slug="moongates", name="Moongates", tag="A classic shape, completely your own.",
                   img=("/images/173MelDave-1-1.jpg", "Bride beneath a circular floral backdrop of rich jewel-toned blooms", "50% 30%"),
-                  body=["Our moongates provide the perfect framework for a stunning floral backdrop. Keep the florals concentrated for a modern look, create an abundant crescent or go for a totally foliage-led design.",
-                        "Choose a fully floral moongate, or our metal moongate dressed with florals and draping in your colours."],
+                  body=["A beautiful wedding moongate creates an instant focal point for your ceremony, entrance or reception. Choose a modern design with florals concentrated in one area, an abundant crescent, a full circle of blooms or a more foliage led look.",
+                        "Our faux floral moongates are designed using high quality silk, artificial and real touch flowers, giving you the look of fresh wedding flowers without the worry of wilting or seasonal availability.",
+                        "Choose a fully floral moongate for maximum impact, or our metal moongate dressed with flowers and draping in your chosen colours and style.",
+                        "Perfect for wedding ceremonies, statement backdrops and those all important photographs, with florals that can be repurposed throughout your day."],
                   perfect=["Ceremonies", "Photo booths", "Photo moments", "Indoor ceremonies", "Outdoor ceremonies", "Repurposing"]),
              dict(slug="pillars", name="Pillars", tag="A statement backdrop, beautifully in bloom.",
                   img=(T + "laura-alexandra/01-floral-archway.jpg", "Floral pillars of burgundy, crimson and dusty pink framing a stone archway", "50% 45%"),
-                  body=["Our floral pillars are one of our most versatile pieces, kept soft and romantic, filled with colour or styled with dramatic blooms for a contemporary look.",
-                        "Two pillars of different heights can also be joined into a full floral arch."],
+                  body=["Our floral pillars create a show-stopping backdrop for your ceremony, with two different heights giving you the option to create a classic symmetrical look or our signature broken-arch design.",
+                        "Both pillars are packed full of blooms, creating a lush, abundant display that feels incredibly special from every angle. They’re one of our most popular ceremony backdrops and work beautifully for indoor and outdoor weddings.",
+                        "Perfect for framing your vows, creating a stunning setting for that all-important first kiss and providing a backdrop you’ll love in your photographs for years to come.",
+                        "And when the ceremony is over, your pillars can be moved and reused elsewhere on your day, from your drinks reception and wedding breakfast to a photo backdrop, making them as versatile as they are beautiful."],
                   perfect=["Repurposing", "Indoor ceremonies", "Outdoor ceremonies", "Photo booths", "Top tables", "Backdrops", "Church doors", "Outdoor arbors", "Outdoor structures"]),
              dict(slug="urns-and-plinths", name="Urns & Plinths", tag="Elegant statement florals with a little more grandeur.",
                   img=(T + "sophie-ben/04-ceremony-kiss.jpg", "Couple kissing at the ceremony between tall pastel floral arrangements", "50% 40%"),
-                  body=["Large urns and plinths make an impact in grand country houses, historic venues and formal ceremony spaces, or can be styled with softer blooms for a more relaxed look.",
-                        "Placed in pairs to frame your ceremony, they move easily to the top table or entrance afterwards."],
+                  body=["Choose from elegant urns and plinths, with large or small urns to suit your venue and style. Or drape your plinths in beautiful fabric and add floral arrangements for the ultimate statement ceremony setup.",
+                        "Style them in pairs or groups to create the look you’re after, from symmetrical and formal to something more relaxed and organic.",
+                        "Perfect for grand country houses, historic venues and formal ceremony spaces, our designs can be styled with lush, statement blooms or softer florals for a more romantic feel.",
+                        "And when the ceremony is over, they can be easily repurposed around your venue, from the entrance and drinks reception to the top table or evening backdrop."],
                   perfect=["Indoor ceremonies", "Outdoor ceremonies", "Church entrances", "Top tables", "Entrance styling", "Repurposing"]),
          ]),
     dict(slug="the-reception", name="The Reception", tag="Bring your reception to life with flowers.",
@@ -63,8 +71,9 @@ SECTIONS = [
          types=[
              dict(slug="bud-vases", name="Bud Vases", tag="Delicate details for beautifully styled tables.",
                   img=("/images/Table-Decor.webp", "Bud vases with bright stems along a wooden table", "50% 50%"),
-                  body=["Clusters of glass bud vases with single stems, in clear, pink, green, orange or teal glass.",
-                        "Mix them with candles down long tables, or group them around a larger centrepiece."],
+                  body=["Our glass bud vases are perfect for adding colour, texture and little moments of florals throughout your reception. Each vase is filled with a single stem or small selection of blooms, creating a relaxed and effortlessly pretty table setting.",
+                        "Choose from clear, pink, green, orange or teal glass to complement your wedding colours and floral style.",
+                        "Perfect scattered along long tables with candles and other details, or grouped together to add extra interest around a larger centrepiece. They’re a simple way to bring your flowers right into the heart of your reception."],
                   perfect=["Long tables", "Round tables", "Top tables", "Drinks receptions", "Gift tables", "Card tables"]),
              dict(slug="footed-bowls", name="Footed Bowls", tag="Low, abundant and easy to talk over.",
                   img=("/images/Winterborne-Hire-Styling-Table-Decor-Closeup.jpg", "Table setting with candles and soft florals", "50% 50%"),
@@ -496,13 +505,13 @@ def product_body(s, t):
     {gallery(t)}
     <div class="pd-info">
       <h1 id="pd-title" class="pd-title">{e(t["name"])}</h1>
-      <p class="bf-script pd-tag">{e(t["tag"])}</p>
+      <p class="bf-script pd-tag">{e(t.get("page_tag", t["tag"]))}</p>
       {"".join(f'<p class="pd-body">{e(p)}</p>' for p in t["about"])}
       <div class="pd-buttons">
         <button type="button" class="ff-button ff-button-primary" data-wish-add="{t["quote"]}">Add to your wish list</button>
         <a href="/showroom" class="ff-button ff-button-outline">Book a consultation</a>
       </div>
-      {perfect(t)}
+      {perfect(dict(perfect=t.get("page_perfect", t["perfect"])))}
     </div>
   </section>
 {testimonial(t)}{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">

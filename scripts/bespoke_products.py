@@ -9,6 +9,8 @@ build-bespoke-florals.py, which sets the name, section and short text).
 - focus (optional): where the first photo is cropped for the cards and blocks (a CSS object-position), so no one's
   head is cut off. Defaults to "50% 45%".
 - quote: the item's id in js/quote-data.js, which "Add to your wish list" adds (its guide price feeds the estimate).
+- page_tag, page_perfect (optional): the product page's own subheading and "Perfect for" list, when they differ from
+  the listing copy on the section page (tag and perfect in SECTIONS).
 - about: the paragraphs beside the slider (four).
 - details: "Good to know" rows as (label, value). Rows can be left out; the section only shows when there are any.
 - faq: extra questions for this type, shown before the questions every page shares (FAQ in the build script).
@@ -32,11 +34,13 @@ PRODUCTS = {
             (B + "aisle-meadows/gorwell", "Outdoor ceremony with colourful meadow florals leading to a gazebo"),
         ],
         about=[
-            "Beautiful low level floral arrangements create a flower filled aisle, with layers of blooms, colour and plenty of movement.",
-            "Designed in your chosen colours and style to complement your venue and the overall feel of your wedding, from soft and romantic to wild and abundant.",
-            "Our faux wedding flowers combine high quality silk, artificial and real touch flowers to create natural looking floral arrangements that photograph beautifully and look fresh throughout the day.",
-            "Perfect for indoor and outdoor ceremonies, our aisle meadows can be moved afterwards so you can continue the look throughout your day. Use them around the dance floor, bar or reception space for flowers that work a little harder.",
+            "Create a breathtaking aisle with our meadow arrangements: low, loose clusters of blooms and foliage that line the way to your ceremony, so the walk to your partner feels like a stroll through a garden.",
+            "Each arrangement is custom made to match your colour palette and style, from soft whites and greens to bright, joyful wildflower mixes. They sit at the ends of your rows, and look just as good in a grand hall as on a lawn.",
+            "They're one of our most versatile pieces. Once the ceremony is over they can be moved to the edges of the dance floor, along the front of the top table, around the bar or beside your cake.",
+            "Like all our bespoke florals, they're made with high-quality silk and real-touch blooms, so they stay fresh all day, whatever the weather, and look perfect in every photo.",
         ],
+        page_tag="Walk to each other through a garden of blooms.",
+        page_perfect=["Aisles", "Outdoor ceremonies", "Barn ceremonies"],
         details=[("Price", "£50 each"), ("Colours", "Designed in your colour palette"),
                  ("Indoors or out", "Both, from great halls to garden lawns"), ("After the ceremony", "Easy to move to the top table, bar or dance floor")],
     ),
@@ -49,11 +53,13 @@ PRODUCTS = {
             (B + "moongates/indoor-ceremony", "Couple exchanging vows beneath a floral moongate at an indoor ceremony"),
         ],
         about=[
-            "A beautiful wedding moongate creates an instant focal point for your ceremony, entrance or reception. Choose a modern design with florals concentrated in one area, an abundant crescent, a full circle of blooms or a more foliage led look.",
-            "Our faux floral moongates are designed using high quality silk, artificial and real touch flowers, giving you the look of fresh wedding flowers without the worry of wilting or seasonal availability.",
-            "Choose a fully floral moongate for maximum impact, or our metal moongate dressed with flowers and draping in your chosen colours and style.",
-            "Perfect for wedding ceremonies, statement backdrops and those all important photographs, with florals that can be repurposed throughout your day.",
+            "Our moongates provide the perfect framework for a stunning floral backdrop. Their circular shape frames the two of you beautifully, and gives every guest a clear view of the moment you say I do.",
+            "Keep the florals concentrated for a modern look, create an abundant crescent sweeping around the circle, or go for a totally foliage-led design. Every moongate is custom designed to your colour palette and floral style.",
+            "Choose our full floral moongate, or our gold metal moongate dressed with a bespoke floral arrangement and fabric draping in your colours.",
+            "Freestanding and fully movable, a moongate can frame your ceremony and then move behind your top table, giving you a picture-perfect backdrop for the speeches too.",
         ],
+        page_tag="A classic shape, completely your own.",
+        page_perfect=["Ceremony backdrops", "Top table backdrops", "Photo moments"],
         details=[("Moongate", "£495, 2m high"), ("Metal moongate", "From £250, 2m high"), ("Draping", "£20 for the metal moongate"),
                  ("Colours", "Designed in your colour palette"), ("After the ceremony", "Moves behind your top table")],
     ),
@@ -76,11 +82,13 @@ PRODUCTS = {
             (P + "kingston-courtyard-aisle", "Outdoor courtyard ceremony with soft blue and white florals"),
         ],
         about=[
-            "Our floral pillars create a show-stopping backdrop for your ceremony, with two different heights giving you the option to create a classic symmetrical look or our signature broken-arch design.",
-            "Both pillars are packed full of blooms, creating a lush, abundant display that feels incredibly special from every angle. They’re one of our most popular ceremony backdrops and work beautifully for indoor and outdoor weddings.",
-            "Perfect for framing your vows, creating a stunning setting for that all-important first kiss and providing a backdrop you’ll love in your photographs for years to come.",
-            "And when the ceremony is over, your pillars can be moved and reused elsewhere on your day, from your drinks reception and wedding breakfast to a photo backdrop, making them as versatile as they are beautiful.",
+            "Our floral pillars are one of our most versatile pieces, creating a statement backdrop for your ceremony without needing a traditional arch.",
+            "Each pair is custom designed for your wedding, matched to your colour palette and floral style. Keep them soft and romantic, fill them with colour, or style them with dramatic blooms for a contemporary look.",
+            "Freestanding and fully movable, they can frame your ceremony and then be repositioned behind your top table or at the entrance, so they work hard all day. Two pillars of different heights can also be joined into a full floral arch.",
+            "Made with high-quality silk blooms, they give you the luxury and beauty of fresh flowers without the high cost, and create picture-perfect moments wherever they stand.",
         ],
+        page_tag="A statement backdrop without a traditional arch.",
+        page_perfect=["Ceremony backdrops", "Venue entrances", "Top tables"],
         details=[("XL floral pillars", "£545, 2.1m high"), ("As a full arch", "£595, pillars of 2.1m and 1.8m"),
                  ("Colours", "Designed in your colour palette"), ("After the ceremony", "Move behind the top table or to the entrance")],
     ),
@@ -95,11 +103,13 @@ PRODUCTS = {
             (B + "urns-and-plinths/wedding-fair", "White floral urns on plinths framing tall glass doors"),
         ],
         about=[
-            "Choose from elegant urns and plinths, with large or small urns to suit your venue and style. Or drape your plinths in beautiful fabric and add floral arrangements for the ultimate statement ceremony setup.",
-            "Style them in pairs or groups to create the look you’re after, from symmetrical and formal to something more relaxed and organic.",
-            "Perfect for grand country houses, historic venues and formal ceremony spaces, our designs can be styled with lush, statement blooms or softer florals for a more romantic feel.",
-            "And when the ceremony is over, they can be easily repurposed around your venue, from the entrance and drinks reception to the top table or evening backdrop.",
+            "Our large urns on plinths are perfect for couples who want to make an impact. Filled with abundant florals and foliage, they bring a sense of grandeur to your ceremony.",
+            "They work beautifully in grand country houses, historic venues and formal ceremony spaces, but can also be styled with softer, looser blooms for a more relaxed look.",
+            "Placed in pairs to frame your ceremony, they move easily to the reception afterwards to dress the top table, the entrance or the foot of a staircase.",
+            "Each arrangement is crafted in our floral design studio using the highest quality silk flowers and foliage stems, giving you the luxury look of fresh florals without the high price tag.",
         ],
+        page_tag="Elegant statement florals with a little more grandeur.",
+        page_perfect=["Grand and historic venues", "Ceremony backdrops", "Venue entrances"],
         details=[("Price", "£450"), ("Colours", "Designed in your colour palette"),
                  ("Best for", "Grand, historic and formal venues"), ("After the ceremony", "Move to the top table or entrance")],
     ),
@@ -111,10 +121,13 @@ PRODUCTS = {
             (B + "the-reception/chandelier-reception", "Reception room with blush and white table florals beneath chandeliers"),
         ],
         about=[
-            "Our glass bud vases are perfect for adding colour, texture and little moments of florals throughout your reception. Each vase is filled with a single stem or small selection of blooms, creating a relaxed and effortlessly pretty table setting.",
-            "Choose from clear, pink, green, orange or teal glass to complement your wedding colours and floral style.",
-            "Perfect scattered along long tables with candles and other details, or grouped together to add extra interest around a larger centrepiece. They’re a simple way to bring your flowers right into the heart of your reception.",
+            "Little pops of colour, all along the table. Our bud vases hold single stems and small sprigs, and look beautiful clustered down long tables or grouped around a larger centrepiece.",
+            "Choose clear, pink, green, orange or teal glass, or mix them together, then we'll fill them with stems in your colours.",
+            "They're perfect for relaxed, colourful weddings, and pair beautifully with candles, tealights and taper candlesticks for a soft glow as the evening draws in.",
+            "Because they're small, they're also an easy way to carry your florals onto the welcome table, the bar, the cake table and the signing table.",
         ],
+        page_tag="Little pops of colour, all along the table.",
+        page_perfect=["Long tables", "Relaxed receptions", "Colourful weddings"],
         details=[("Price", "£8 to £12 each, with stems"), ("Glass", "Clear, pink, green, orange or teal"),
                  ("Colours", "Stems in your colour palette"), ("Pairs with", "Candles, tealights and taper candlesticks")],
     ),
