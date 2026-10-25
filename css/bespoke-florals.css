@@ -922,3 +922,8 @@ h1.nf-title {
 .section-21 {
   display: flow-root;
 }
+
+/* testimonial band runs straight into the next section (no pale strip) now the collection tiles are gone */
+.section-26 {
+  margin-bottom: 0;
+}
