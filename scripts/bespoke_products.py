@@ -193,7 +193,6 @@ PRODUCTS = {
     "bridal-bouquets": dict(
         quote="bridal-bouquet",
         focus="50% 19%",
-        fit="contain",
         gallery=[
             (B + "bridal-bouquets/autumn-bouquet", "Bride holding a loose bouquet of burnt orange, peach and white blooms with dried grasses"),
             (B + "bridal-bouquets/sophie-and-ben-portrait", "Bride by a tall window holding a soft pastel bouquet of pink, blue and white"),
