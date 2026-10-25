@@ -21,7 +21,7 @@ e = html.escape
 
 SECTIONS = [
     dict(slug="the-ceremony", name="The Ceremony", tag="Make your ceremony the moment everyone remembers.",
-         img=("/images/bespoke-florals/moongates/grand-hall-aisle", "Aisle in a grand hall lined with colourful meadow florals, leading to a floral moongate", "50% 50%"),
+         img=("/images/bespoke-florals/the-ceremony/garden-aisle", "Couple walking back down a garden aisle lined with blue and yellow meadow florals, beneath a floral arch", "50% 55%"),
          body=["Beautiful, statement ceremony florals designed to frame your vows, your first kiss and all those photographs "
                "you’ll treasure forever.",
                "From floral pillars and moongates to grand urns, meadow-style aisle flowers and ground arrangements, we create "
