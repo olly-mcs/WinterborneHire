@@ -303,6 +303,23 @@ def footer_hire(url):
         for h in HIRE_MENU if h["show"])
 
 
+# The "UK-wide delivery: Bridal bouquets" pull tab hanging under the menu (a mock-up shop, scripts/build-shop.py).
+# Set SHOP_TAB = False to take it off every page.
+SHOP_TAB = True
+SHOP_TAB_HTML = ('      <!-- shop-tab:start --><a href="/bridal-bouquets-delivery" class="shop-pulltab">'
+                 '<span class="shop-pulltab-small">UK-wide delivery</span>'
+                 '<span class="shop-pulltab-big">Bridal bouquets</span></a><!-- shop-tab:end -->\n')
+SHOP_TAB_RE = re.compile(r"      <!-- shop-tab:start -->.*?<!-- shop-tab:end -->\n", re.S)
+SHOP_TAB_AFTER = 'class="navbar-3 w-nav">\n'
+
+
+def update_shop_tab(text):
+    text = SHOP_TAB_RE.sub("", text)
+    if SHOP_TAB and SHOP_TAB_AFTER in text:
+        text = text.replace(SHOP_TAB_AFTER, SHOP_TAB_AFTER + SHOP_TAB_HTML, 1)
+    return text
+
+
 def update_nav(text, current=None, url=None):
     """current: a section slug, or "overview", on the Bespoke Florals pages themselves; url: the page's address, to
     mark the current Hire Collection page. Puts Bespoke Florals first and Hire Collection second in the menu, and
@@ -318,7 +335,7 @@ def update_nav(text, current=None, url=None):
     elif b:
         text = NAV_RE.sub(lambda m: menu(current), text, count=1)
     text = FOOTER_HIRE_RE.sub(lambda m: m.group(1) + footer_hire(url) + m.group(2), text, count=1)
-    return update_footer(text)
+    return update_shop_tab(update_footer(text))
 
 
 # ---------- page shell ----------

@@ -141,6 +141,14 @@ the build script writes. A "Your wish list" tab stays bottom-right on every
 Bespoke Florals page. The list is kept in the browser and shared with `/quote-builder`. Each product's `quote` in
 `scripts/bespoke_products.py` is its id in `js/quote-data.js`, whose guide prices feed the estimate.
 
+## Bridal bouquet shop (mock-up)
+
+A design prototype for selling bouquets with UK delivery. `/bridal-bouquets-delivery` (`bridal-bouquets-delivery.html`,
+built by `scripts/build-shop.py` from its `PRODUCTS` list: 6 bridal bouquets and 2 buttonholes, placeholder names,
+copy and prices). "Add to basket" opens a basket panel (`js/shop.js`, `css/shop.css`), kept in the visitor's browser;
+checkout isn't built. Every page has a "UK-wide delivery / Bridal bouquets" pull tab hanging under the menu, added by
+`scripts/build-bespoke-florals.py` (set `SHOP_TAB = False` there to remove it everywhere).
+
 ## Quote builder (prototype)
 
 `/quote-builder` lets couples add florals, hire pieces and services, see an estimated range, then save it.

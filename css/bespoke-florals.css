@@ -927,3 +927,60 @@ h1.nf-title {
 .section-26 {
   margin-bottom: 0;
 }
+
+/* "UK-wide delivery / Bridal bouquets" pull tab hanging under the menu (all pages; scripts/build-bespoke-florals.py) */
+.navbar-3 {
+  position: relative;
+}
+
+.shop-pulltab {
+  position: absolute;
+  top: 100%;
+  right: max(4vw, 20px);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 22px 12px;
+  border-radius: 0 0 14px 14px;
+  background-color: rgba(43, 39, 36, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 5px rgba(43, 39, 36, 0.55);
+  color: #f6f3ee;
+  text-align: center;
+  text-decoration: none;
+  transition: padding-top 0.2s ease, background-color 0.2s ease;
+}
+
+.shop-pulltab:hover,
+.shop-pulltab:focus-visible {
+  padding-top: 16px;
+  background-color: rgba(43, 39, 36, 0.9);
+  color: #f6f3ee;
+}
+
+.shop-pulltab-small {
+  font-family: Raleway, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
+.shop-pulltab-big {
+  font-family: Cinzel, serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+@media screen and (max-width: 991px) {
+  .shop-pulltab {
+    right: 16px;
+    padding: 8px 16px 10px;
+  }
+
+  .shop-pulltab-big {
+    font-size: 13px;
+  }
+}
