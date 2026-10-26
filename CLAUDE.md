@@ -226,6 +226,13 @@ A small white caption (`.real-caption`, bottom right) on photos from real weddin
 Never on the testimonials page, product photos (hire and shop), photos with an overlay or hover effect (heroes,
 homepage cards and panels), or wedding fair photos.
 
+## Menu
+
+The main menu is Bespoke Florals, Hire Collection, Our Services, Showroom, Testimonials, Contact. The About us dropdown
+(Who we are, The Wedding Blog, Testimonials) is hidden for now and replaced by a plain Testimonials link; both pages are
+still live and in the footer. To bring it back, swap the Testimonials link in every page's menu (marked with an
+"About us dropdown ... hidden for now" comment) for the dropdown markup from git history.
+
 ## Rules for changes
 
 - **Fonts: only these three, ever.** Don't bring in fonts from mockups or designs; translate them to these:
