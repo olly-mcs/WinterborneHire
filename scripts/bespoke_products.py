@@ -219,8 +219,9 @@ PRODUCTS = {
     ),
     "bridesmaids-bouquets": dict(
         quote="bridesmaid-bouquet",
-        focus="50% 8%",
+        focus="50% 52%",
         gallery=[
+            (B + "bridesmaids-bouquets/pink-bridesmaids-and-bride", "Bride with two bridesmaids in blush pink dresses, all holding white, blush and pale blue bouquets"),
             (B + "bridesmaids-bouquets/bridesmaids-in-orange", "Two bridesmaids in burnt orange dresses holding bright, colourful bouquets"),
             (B + "bridesmaids-bouquets/alysha-and-chris-bridal-party", "Bride with four bridesmaids in pale blue, all holding white, yellow and blue bouquets"),
             (B + "bridesmaids-bouquets/alysha-and-chris-aisle", "Bridesmaid in pale blue walking down an aisle lined with meadow florals, holding a white and yellow bouquet"),
