@@ -1199,3 +1199,8 @@ h1.nf-title {
 .hp-quote blockquote p + p {
   margin-top: 12px;
 }
+
+/* Product pages: a fine rule between the reviews block and the closing panel (both on linen) */
+.hp-reviews + .ff-cta {
+  border-top: 1px solid #e3d9d0;
+}

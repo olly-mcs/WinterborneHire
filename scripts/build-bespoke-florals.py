@@ -649,11 +649,11 @@ def product_body(s, t):
       {perfect(dict(perfect=t.get("page_perfect", t["perfect"])))}
     </div>
   </section>
-{reviews_block.block(purl(s, t))}{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
+{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
     <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore bespoke florals</h2>
     <ul class="pd-section-list" role="list">{sections}</ul>
   </section>
-''' + CTA
+{know}{reviews_block.block(purl(s, t))}''' + CTA
 
 
 PRODUCT_CSS = '<link href="/css/bespoke-florals.css" rel="stylesheet" type="text/css">'
