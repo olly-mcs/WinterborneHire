@@ -215,6 +215,26 @@
   status = 301
 
 [[redirects]]
+  from = "/furniture-collection"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection"
+  to = "/small-props"
+  status = 301
+
+[[redirects]]
   from = "/table-decor-collection/sage-napkins"
   to = "/table-decor/coloured-napkins"
   status = 301

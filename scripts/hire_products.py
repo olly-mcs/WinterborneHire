@@ -318,4 +318,6 @@ OLD_FOLDERS = {
     "seating-areas": ["/furniture-rugs", "/furniture-collection", "/rugs-runners-collection"],
 }
 # Old list pages that now redirect to a section
-OLD_LIST_PAGES = {"/furniture-rugs": "/seating-areas", "/furniture": "/seating-areas", "/rugs-runners": "/seating-areas"}
+OLD_LIST_PAGES = {"/furniture-rugs": "/seating-areas", "/furniture": "/seating-areas", "/rugs-runners": "/seating-areas",
+                  "/furniture-collection": "/seating-areas", "/rugs-runners-collection": "/seating-areas",
+                  "/table-decor-collection": "/table-decor", "/small-props-collection": "/small-props"}
