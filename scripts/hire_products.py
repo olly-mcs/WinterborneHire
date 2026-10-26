@@ -13,10 +13,6 @@ builder adds that product's second "-hover" photo when there is one). Clicking a
 - old: the old product page slugs (in their old Webflow folder) that now redirect here
 """
 
-LOREM = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
-         "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
 
 
 def V(name, *photos, swatch=None):
@@ -36,7 +32,12 @@ OVERVIEW = dict(
 
 SECTIONS = [
     dict(slug="table-decor", meta="Wedding table decor hire in Dorset: coloured napkins, charger plates, gold cutlery, candlesticks, bud vases and tea light holders to finish every table.",
-         name="Table Decor", tag="Lorem ipsum dolor sit amet.", body=LOREM,
+         name="Table Decor", tag="Everything you need to style your tables beautifully.",
+         body=[
+               "The finishing touches can make all the difference. Our curated collection of table decor has everything you need to create a beautifully styled table, from elegant charger plates and candlelight to those little details that bring the whole look together.",
+               "Whether you’re styling a long wedding breakfast table, a collection of round tables or your top table, choose the pieces that work with your colour palette and style, and create a table that feels considered from every angle.",
+               "Choose your pieces. Add your florals. Create your look."
+               ],
          img=("/images/testimonials/hannah-dave/02-reception-arch-and-tables.jpg",
               "Long reception tables with orange napkins and bright florals beneath a floral arch", "50% 50%"),
          products=[
@@ -203,7 +204,12 @@ SECTIONS = [
                   "order-of-the-day-pallet-sign", "no-seating-plan-pallet-sign"]),
 
     dict(slug="small-props", meta="Wedding prop hire in Dorset: cake stands, card boxes, lanterns, disco balls and finishing touches to style your venue, from welcome table to dance floor.",
-         name="Small Props", tag="Lorem ipsum dolor sit amet.", body=LOREM,
+         name="Small Props", tag="The little details that make your wedding yours.",
+         body=[
+               "It’s often the smaller details that bring a wedding together. Our curated collection of small props makes it easy to add personality, style and those finishing touches throughout your day.",
+               "Choose from card boxes, cake stands, lanterns and decorative pieces, carefully selected to complement our florals and wider hire collection.",
+               "Whether you’re looking for something beautiful for your cake table, a stylish place for your cards or a few extra details to fill your venue, choose the pieces that work with your wedding and make them your own."
+               ],
          # stand-in until the small props photo is uploaded
          img=("wf:small-props/gold-glass-card-box-hover", "Gold-framed glass card box on a white table", "50% 50%"),
          products=[
@@ -260,7 +266,13 @@ SECTIONS = [
          removed=["boho-printed-square-cushions", "extra-large-dreamcatcher", "large-bottle-with-seagrass-twine"]),
 
     dict(slug="seating-areas", meta="Wedding furniture hire in Dorset: peacock chairs, cane armchairs, boho side tables, and vintage rugs and runners for lounge areas, top tables and aisles.",
-         name="Seating Areas", tag="Lorem ipsum dolor sit amet.", body=LOREM,
+         name="Seating Areas", tag="Create a space your guests will want to linger in.",
+         body=[
+               "Give your guests somewhere beautiful to sit, relax and catch up between the celebrations. Our seating collection brings together stylish pieces that add comfort, character and another layer of detail to your wedding.",
+               "Choose from decorative chairs, coffee tables and vintage rugs, or combine several pieces to create a relaxed lounge area that feels completely at home within your wedding styling.",
+               "Perfect for creating a dedicated space away from the main tables, adding interest to your reception or giving guests somewhere to enjoy a drink and take a moment.",
+               "Choose your pieces. Create your space. Make yourself at home."
+               ],
          img=("/images/testimonials/steph-karl/02-peacock-chairs-and-florals.jpg",
               "Couple on peacock chairs on a round jute rug, with disco balls and a bright meadow arrangement", "50% 62%"),
          products=[
