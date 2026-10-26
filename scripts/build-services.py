@@ -74,6 +74,9 @@ STEPS = [
     ("glasses", "Your wedding day", "Whether we style everything for you or you’re collecting and setting up yourself, we make "
                                     "the process simple from start to finish."),
 ]
+# The hand-drawn illustration for each step (images/services/process/), cut from the supplied artwork
+STEP_DRAWINGS = {"notebook": "tell-us", "sprig": "choose-style", "arch": "build-look", "clipboard": "finalise",
+                 "glasses": "wedding-day"}
 # How far each step's number sits from the left on wider screens (px), so the line between them gently winds
 STEP_OFFSETS = [0, 64, 24, 64, 8]
 
@@ -169,7 +172,7 @@ def process():
         link = connector(off, STEP_OFFSETS[n + 1]) if n + 1 < len(STEPS) else ""
         steps.append(f'''      <li class="sv-step" style="--sv-offset: {off}px">
         <span class="sv-num" aria-hidden="true">{n + 1:02d}</span>{link}
-        <span class="sv-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false">{ICONS[icon]}</svg></span>
+        <span class="sv-icon" aria-hidden="true"><img src="/images/services/process/{STEP_DRAWINGS[icon]}.webp" alt="" width="132" height="132" loading="lazy"></span>
         <div class="sv-step-text">
           <h3 class="sv-step-title"><span class="pd-visually-hidden">Step {n + 1}: </span>{e(title)}</h3>
           <p class="sv-step-body">{e(text)}</p>

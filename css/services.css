@@ -449,3 +449,11 @@ html {
     text-align: center;
   }
 }
+
+/* The hand-drawn step illustrations fill their peach circle */
+.sv-icon img {
+  display: block;
+  width: 94%;
+  height: 94%;
+  object-fit: contain;
+}
