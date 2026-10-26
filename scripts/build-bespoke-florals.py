@@ -339,11 +339,41 @@ SHOP_TAB_SCRIPT = ("<script>(function(){var w=document.currentScript.parentNode,
                    "try{set(localStorage.getItem(k)==='hidden')}catch(e){}"
                    "b.addEventListener('click',function(){var c=!w.classList.contains('is-collapsed');set(c);"
                    "try{localStorage.setItem(k,c?'hidden':'shown')}catch(e){}});})();</script>")
+# Clicking the tab opens a small enquiry form for made-to-order bouquets and buttonholes (to buy, not hire), sent to
+# the Netlify form "bouquet-order" (js/bouquet-order.js). Without script, the tab still links to the shop page.
+ORDER_DIALOG = (
+    '<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-title">'
+    '<button type="button" class="order-close" aria-label="Close" data-order-close>&times;</button>'
+    '<div class="order-ask">'
+    '<p class="order-eyebrow">UK-wide delivery</p>'
+    '<h2 id="order-title" class="order-title">Bespoke bouquets &amp; buttonholes</h2>'
+    '<p class="order-intro">We create bespoke bridal bouquets and buttonholes from our range of high-quality silk and '
+    'real-touch faux flowers, made to order for you to keep. Tell us about your wedding and we&#x27;ll get back to you to '
+    'discuss your custom order.</p>'
+    '<form class="order-form" name="bouquet-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">'
+    '<input type="hidden" name="form-name" value="bouquet-order">'
+    '<input type="hidden" name="subject" value="Bouquet &amp; buttonhole enquiry">'
+    '<p hidden><label>Leave this empty: <input name="bot-field"></label></p>'
+    '<label class="order-field"><span>Your name</span><input type="text" name="name" autocomplete="name" required></label>'
+    '<label class="order-field"><span>Wedding date</span><input type="date" name="wedding-date" required></label>'
+    '<label class="order-field order-wide"><span>Wedding location</span><input type="text" name="location" placeholder="Venue or town" required></label>'
+    '<label class="order-field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>'
+    '<label class="order-field"><span>Phone number</span><input type="tel" name="phone" autocomplete="tel" required></label>'
+    '<button type="submit" class="order-submit">Request your custom order</button>'
+    '<p class="order-error" role="alert" hidden>Sorry, that didn&#x27;t send. Please try again, or email winterbornevintage@gmail.com.</p>'
+    '</form></div>'
+    '<div class="order-done" hidden tabindex="-1">'
+    '<p class="order-eyebrow">Thank you</p>'
+    '<h2 class="order-title">Your request is on its way to us</h2>'
+    '<p class="order-intro">We&#x27;ll get back to you as soon as we can to talk through your bouquets and buttonholes.</p>'
+    '<button type="button" class="order-submit" data-order-close>Close</button>'
+    '</div></dialog>')
 SHOP_TAB_HTML = ('      <!-- shop-tab:start --><div class="shop-tab"><a href="/bridal-bouquets-delivery" class="shop-pulltab">' + SHOP_LORRY +
                  '<span class="shop-pulltab-small">UK-wide delivery</span>'
                  '<span class="shop-pulltab-big">Bouquets &amp; buttonholes</span></a>'
                  '<button type="button" class="shop-tab-toggle" aria-expanded="true" aria-label="Hide UK-wide delivery">'
-                 + SHOP_TAB_CHEVRON + '</button>' + SHOP_TAB_SCRIPT + '</div><!-- shop-tab:end -->\n')
+                 + SHOP_TAB_CHEVRON + '</button>' + SHOP_TAB_SCRIPT + '</div>' + ORDER_DIALOG
+                 + '<script src="/js/bouquet-order.js" defer></script><!-- shop-tab:end -->\n')
 SHOP_TAB_RE = re.compile(r"      <!-- shop-tab:start -->.*?<!-- shop-tab:end -->\n", re.S)
 SHOP_TAB_AFTER = 'class="navbar-3 w-nav">\n'
 

@@ -1348,3 +1348,220 @@ h1.nf-title {
     transition: none;
   }
 }
+
+/* Bouquet & buttonhole order form (opened from the delivery tab): see-through dark panel, cream text */
+.order-dialog {
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid rgba(229, 151, 117, 0.6);
+  background-color: rgba(43, 39, 36, 0.86);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #f6f3ee;
+  text-align: left;
+}
+
+.order-dialog::backdrop {
+  background-color: rgba(30, 28, 24, 0.45);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.order-dialog[open] {
+  animation: order-in 0.3s ease;
+}
+
+@keyframes order-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+.order-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  padding: 4px 8px;
+  border: 0;
+  background: none;
+  color: #f6f3ee;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.order-eyebrow {
+  margin: 0 0 10px;
+  color: #e59775;
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.order-title {
+  margin: 0 0 16px;
+  color: #f6f3ee;
+  font-family: Cinzel, serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.order-intro {
+  margin: 0 0 24px;
+  color: rgba(246, 243, 238, 0.9);
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.order-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.order-field {
+  display: block;
+  margin: 0;
+}
+
+.order-wide,
+.order-form .order-submit,
+.order-error {
+  grid-column: 1 / -1;
+}
+
+.order-field span {
+  display: block;
+  margin: 0 0 6px;
+  color: rgba(246, 243, 238, 0.8);
+  font-family: Raleway, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.order-field input {
+  display: block;
+  width: 100%;
+  height: 46px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1px solid rgba(246, 243, 238, 0.28);
+  border-radius: 0;
+  background-color: rgba(246, 243, 238, 0.08);
+  color: #f6f3ee;
+  color-scheme: dark;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+}
+
+.order-field input::placeholder {
+  color: rgba(246, 243, 238, 0.45);
+}
+
+.order-field input:focus {
+  border-color: #e59775;
+  outline: none;
+}
+
+.order-submit {
+  margin-top: 8px;
+  padding: 16px 24px;
+  border: 1px solid #898c6b;
+  background-color: #898c6b;
+  color: #fff;
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.order-submit:hover,
+.order-submit:focus-visible {
+  background-color: #767a5a;
+  border-color: #767a5a;
+}
+
+.order-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.order-error {
+  margin: 0;
+  color: #f0b39a;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+}
+
+.order-done {
+  outline: none;
+}
+
+@media screen and (max-width: 520px) {
+  .order-dialog {
+    max-height: calc(100dvh - 24px);
+    padding: 24px 20px 22px;
+    overflow-y: auto;
+  }
+
+  .order-close {
+    top: 8px;
+    right: 8px;
+  }
+
+  .order-eyebrow {
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+
+  .order-title {
+    margin-bottom: 10px;
+    font-size: 21px;
+  }
+
+  .order-intro {
+    margin-bottom: 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .order-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 10px;
+  }
+
+  .order-form .order-field:nth-of-type(1),
+  .order-form .order-field:nth-of-type(2) {
+    grid-column: 1 / -1;
+  }
+
+  .order-field span {
+    margin-bottom: 4px;
+    font-size: 10px;
+  }
+
+  .order-field input {
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .order-submit {
+    margin-top: 4px;
+    padding: 14px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order-dialog[open] {
+    animation: none;
+  }
+}

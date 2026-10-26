@@ -25,6 +25,10 @@ The navigation and footer are repeated in every page, so a change there must be 
 
 ## Forms
 
+- `bouquet-order`: the "UK-wide delivery / Bouquets & buttonholes" tab (every page) opens a small dark pop-up form
+  (name, wedding date, location, email, phone) for made-to-order bouquets and buttonholes to buy, not hire
+  (`ORDER_DIALOG` in `scripts/build-bespoke-florals.py`, `js/bouquet-order.js`). The tab's chevron tucks it away.
+
 The forms use **Netlify Forms**. Submissions appear in the Netlify dashboard under *Forms*:
 
 - `contact` on `contact-us.html`
