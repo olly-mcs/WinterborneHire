@@ -1842,3 +1842,29 @@ button.hero-roundel:focus-visible {
   margin: 0 0 16px;
   font-size: 14.5px;
 }
+
+.hp-facts .hp-fact-link {
+  align-self: flex-start;
+  margin-top: 6px;
+  color: #f6f3ee;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-decoration-color: #e59775;
+  text-underline-offset: 4px;
+}
+
+.hp-facts .hp-fact-link:hover,
+.hp-facts .hp-fact-link:focus-visible {
+  color: #e59775;
+}
+
+.pd-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
