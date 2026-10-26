@@ -538,3 +538,17 @@ body:has(.pd-main) {
     white-space: nowrap;
   }
 }
+
+/* Links inside the Questions answers (dark panel): cream with a peach underline, like the homepage "Find out more" */
+.pd-faq a,
+.pd-faq-link {
+  color: #f6f3ee;
+  text-decoration: underline;
+  text-decoration-color: #e59775;
+  text-underline-offset: 4px;
+}
+
+.pd-faq a:hover,
+.pd-faq a:focus-visible {
+  color: #e59775;
+}
