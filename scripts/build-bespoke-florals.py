@@ -309,7 +309,7 @@ def footer_hire(url):
 
 # The "UK-wide delivery: Bouquets & buttonholes" pull tab hanging under the menu (a mock-up shop, scripts/build-shop.py).
 # Set SHOP_TAB = False to take it off every page.
-SHOP_TAB = True
+SHOP_TAB = False
 # A little white delivery lorry drives on the left of the tab: its wheels turn as the road passes underneath
 # (styles and animation in css/bespoke-florals.css)
 SHOP_LORRY = ('<svg class="shop-lorry" viewBox="0 0 48 27" aria-hidden="true" focusable="false">'
