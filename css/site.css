@@ -2074,3 +2074,115 @@ button.hp-fact-link {
     bottom: 72px;
   }
 }
+
+/* Homepage hero (2026 refresh): eyebrow, two-line title, services line, one-sentence lead, buttons with arrows */
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Cinzel, serif;
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow::after {
+  content: "";
+  width: 90px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-title {
+  font-size: clamp(40px, 4.6vw, 70px);
+  line-height: 1;
+}
+
+.hero-services {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  margin: 22px 0 0;
+  color: #fff;
+  font-family: Cinzel, serif;
+  font-size: 15px;
+  letter-spacing: 0.28em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.hero-services span {
+  color: #e59775;
+  letter-spacing: 0;
+}
+
+.hero-content .hero-lead {
+  max-width: 520px;
+  margin: 18px 0 32px;
+}
+
+.hero-buttons {
+  max-width: 360px;
+}
+
+.hero-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-inline: 28px;
+  text-align: left;
+}
+
+.hero-arrow {
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  transition: transform 0.2s ease;
+}
+
+.hero-button:hover .hero-arrow,
+.hero-button:focus-visible .hero-arrow {
+  transform: translateX(4px);
+}
+
+/* Keep "Bespoke wedding" on one line on wider screens, so the title sits on two lines */
+@media screen and (min-width: 992px) {
+  .hero-title-line {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-eyebrow {
+    font-size: 11px;
+  }
+
+  .hero-eyebrow::after {
+    width: 48px;
+  }
+
+  .hero-services {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+  }
+
+  .hero-buttons {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-arrow {
+    transition: none;
+  }
+}
