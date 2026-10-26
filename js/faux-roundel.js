@@ -1,7 +1,5 @@
 // Homepage pop-ups: "Find out more" under the Google rating ([data-open-dialog]) opens the reviews dialog. The faux florals
 // roundel's pop-up is switched off for launch (the roundel is decoration only); this wires it again if it returns.
-// Previously: "Find out more" under the Google
-// rating ([data-open-dialog]) opens the reviews dialog.
 (function () {
   function wire(button, dialog) {
     if (!button || !dialog || typeof dialog.showModal !== "function") return;
