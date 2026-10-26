@@ -1062,6 +1062,35 @@ h1.nf-title {
   }
 }
 
+/* Phones: a compact tab, text only (no lorry) and smaller type */
+@media screen and (max-width: 767px) {
+  .shop-pulltab {
+    grid-template-columns: auto;
+    right: 12px;
+    padding: 5px 11px 6px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .shop-pulltab:hover,
+  .shop-pulltab:focus-visible {
+    padding-top: 8px;
+  }
+
+  .shop-lorry {
+    display: none;
+  }
+
+  .shop-pulltab-small {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .shop-pulltab-big {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+}
+
 /* "Captured at a real Winterborne wedding": small white caption, bottom right of a photo with no overlay or hover
    (scripts/build-bespoke-florals.py, REAL_CAPTION_PAGES) */
 .bf-real {
