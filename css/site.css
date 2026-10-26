@@ -2186,3 +2186,11 @@ button.hp-fact-link {
     transition: none;
   }
 }
+
+/* Homepage process: the hand-drawn illustrations fill their circle (images/home/process/) */
+.process-icon img {
+  display: block;
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+}
