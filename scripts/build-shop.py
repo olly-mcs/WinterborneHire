@@ -101,3 +101,6 @@ if __name__ == "__main__":
         foot = foot.replace("</body>", SHOP_JS + "</body>", 1)
     open(os.path.join(ROOT, "bridal-bouquets-delivery.html"), "w", encoding="utf-8").write(head + BODY + foot)
     print(f"built the shop page with {len(PRODUCTS)} products")
+    # the signed-off page title and description (data/page-meta.json) win over the ones above
+    import subprocess, sys
+    subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "apply-page-meta.py")], check=True)

@@ -347,3 +347,5 @@ if __name__ == "__main__":
 import subprocess  # noqa: E402
 import sys  # noqa: E402
 subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "seo-images.py")], check=True)
+# the signed-off page titles and descriptions (data/page-meta.json) win over any a build script writes
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "apply-page-meta.py")], check=True)

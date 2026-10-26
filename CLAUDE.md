@@ -196,6 +196,11 @@ from every page and the `X-Robots-Tag` block from `netlify.toml`.
 
 ## SEO
 
+**Page titles and meta descriptions** are signed off in `data/page-meta.json` (one entry per page, keyed by its path
+without `.html`). `scripts/apply-page-meta.py` writes them into each page's `<title>`, meta description and the
+og:/twitter: tags, and every build script runs it last, so it wins over anything a build script sets. Change a title
+or description there, not in the build scripts. Keep titles to about 60 characters and descriptions to about 155.
+
 - **Business details for Google** (the `LocalBusiness` structured data, with `knowsAbout`/`makesOffer` listing the services, in every page's `<head>`): Steven's
   Farm, Dorchester DT2 9JR, 01305 889656, visits by appointment (no opening hours listed), 5.0 from 101 Google reviews.
   Keep these identical to the Google Business Profile (primary category: Wedding service); update the rating and count as they change.

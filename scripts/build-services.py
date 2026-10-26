@@ -206,3 +206,6 @@ if __name__ == "__main__":
         s = s.replace(BF_CSS, CSS, 1)
     open(PAGE, "w", encoding="utf-8").write(s)
     print("built the Our Services page")
+    # the signed-off page title and description (data/page-meta.json) win over the ones above
+    import subprocess, sys
+    subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "apply-page-meta.py")], check=True)
