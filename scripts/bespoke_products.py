@@ -86,7 +86,7 @@ PRODUCTS = {
             "Our floral pillars are one of our most versatile pieces, creating a statement backdrop for your ceremony without needing a traditional arch.",
             "Each pair is custom designed for your wedding, matched to your colour palette and floral style. Keep them soft and romantic, fill them with colour, or style them with dramatic blooms for a contemporary look.",
             "Freestanding and fully movable, they can frame your ceremony and then be repositioned behind your top table or at the entrance, so they work hard all day. Two pillars of different heights can also be joined into a full floral arch.",
-            "Made with high-quality silk blooms, they give you the luxury and beauty of fresh flowers without the high cost, and create picture-perfect moments wherever they stand.",
+            "Made with a mix of high-quality silk and real-touch blooms, they give you the luxury and beauty of fresh flowers without the high cost, and create picture-perfect moments wherever they stand.",
         ],
         page_tag="A statement backdrop without a traditional arch.",
         page_perfect=["Ceremony backdrops", "Venue entrances", "Top tables"],
@@ -107,7 +107,7 @@ PRODUCTS = {
             "Our large urns on plinths are perfect for couples who want to make an impact. Filled with abundant florals and foliage, they bring a sense of grandeur to your ceremony.",
             "They work beautifully in grand country houses, historic venues and formal ceremony spaces, but can also be styled with softer, looser blooms for a more relaxed look.",
             "Placed in pairs to frame your ceremony, they move easily to the reception afterwards to dress the top table, the entrance or the foot of a staircase.",
-            "Each arrangement is crafted in our floral design studio using the highest quality silk flowers and foliage stems, giving you the luxury look of fresh florals without the high price tag.",
+            "Each arrangement is crafted in our floral design studio using the highest quality silk and real-touch flowers and foliage stems, giving you the luxury look of fresh florals without the high price tag.",
         ],
         page_tag="Elegant statement florals with a little more grandeur.",
         page_perfect=["Grand and historic venues", "Ceremony backdrops", "Venue entrances"],
@@ -209,7 +209,7 @@ PRODUCTS = {
         ],
         about=[
             "Complete your wedding look with a custom-made bridal bouquet, designed around you: your dress, your colours and your style.",
-            "From loose and wild meadow bouquets to neat, classic posies, every one is made in our Dorset studio with high-quality faux florals that match the rest of your wedding.",
+            "From loose and wild meadow bouquets to neat, classic posies, every one is made in our Dorset studio from high-quality silk and real-touch flowers that match the rest of your wedding.",
             "Faux bouquets don't wilt, so yours will look as fresh in the last photo of the night as it did walking down the aisle, whatever the weather.",
             "Pair it with matching bridesmaids' bouquets and buttonholes so every detail ties together into one cohesive look.",
         ],
@@ -230,7 +230,7 @@ PRODUCTS = {
         about=[
             "Your wedding party, all in bloom. Our bridesmaids' bouquets are smaller arrangements designed to complement yours and tie the whole party together.",
             "Choose matching designs for a classic look, or give each bridesmaid her own colour from your palette for something more playful.",
-            "Like your bridal bouquet, they're made with high-quality faux florals, so they stay perfect from the first photos to the last dance.",
+            "Like your bridal bouquet, they're made with high-quality silk and real-touch flowers, so they stay perfect from the first photos to the last dance.",
             "For younger members of the wedding party, we also make single stem bouquets and fairy wands.",
         ],
         details=[("Price", "From £55 each"), ("Colours", "Matched to your bouquet and palette"),
@@ -250,7 +250,7 @@ PRODUCTS = {
             "The finishing touch. Our bespoke buttonholes are made with the same blooms as your bouquet, so the whole wedding party matches.",
             "They're for the groom and groomsmen, the fathers of the couple, and anyone else you'd like to include on the day.",
             "Choose a single bloom with a sprig of foliage for a classic look, or something a little wilder to match a meadow bouquet.",
-            "Made with high-quality faux florals, they won't wilt or bruise, so they look just as good in the evening photos.",
+            "Made with high-quality silk and real-touch faux flowers, they won't wilt or bruise, so they look just as good in the evening photos.",
         ],
         details=[("Price", "From £10 each"), ("Colours", "Matched to your bouquet"),
                  ("For", "Grooms, groomsmen, parents and family")],
@@ -329,7 +329,7 @@ PRODUCT_COPY = {'aisle-meadows': {'page_tag': 'Make your walk down the aisle unf
                              'throughout your wedding day. Use them around the dance floor, alongside the bar, in '
                              'front of the top table or throughout your reception space, allowing your ceremony '
                              'flowers to work harder for you.',
-                             'Our faux wedding flowers combine high-quality silk, artificial and real-touch blooms '
+                             'Our faux wedding flowers combine high-quality silk and real-touch blooms '
                              'to create natural-looking floral arrangements that stay fresh throughout the day, '
                              'whatever the weather. Beautiful from every angle and made to photograph beautifully, '
                              'they give you all the impact of abundant wedding flowers without the worry of '
@@ -367,7 +367,7 @@ PRODUCT_COPY = {'aisle-meadows': {'page_tag': 'Make your walk down the aisle unf
                          'Freestanding and easy to move, your moongate can be used in more than one part of your '
                          'wedding day. Start with your ceremony, then move it behind the top table, use it as a '
                          'photo booth backdrop or create a beautiful setting for evening photographs.',
-                         'Our faux wedding flowers combine high-quality silk, artificial and real-touch blooms to '
+                         'Our faux wedding flowers combine high-quality silk and real-touch blooms to '
                          'create natural-looking floral arrangements that stay fresh throughout the day, without the '
                          'worry of wilting or seasonal availability.'],
                'testimonial': {'quote': 'Winterborne Hire and Styling were fantastic. Dawn was very professional and '
@@ -393,7 +393,7 @@ PRODUCT_COPY = {'aisle-meadows': {'page_tag': 'Make your walk down the aisle unf
                        'Freestanding and easy to move, your pillars can frame your ceremony before being '
                        'repositioned elsewhere at your wedding. Move them behind the top table, style your entrance, '
                        'frame the dance floor or create another beautiful backdrop for photographs.',
-                       'Our faux floral pillars are created using high-quality silk, artificial and real-touch '
+                       'Our faux floral pillars are created using a mix of high-quality silk and real-touch '
                        'flowers, giving you the look and abundance of fresh wedding flowers while staying beautiful '
                        'throughout the day and beyond.'],
              'testimonial': {'quote': 'We had the most beautiful wedding set up with the stunning custom flower '
@@ -414,7 +414,7 @@ PRODUCT_COPY = {'aisle-meadows': {'page_tag': 'Make your walk down the aisle unf
                          'They’re not just for your guest tables either. Bud vases work beautifully on top tables, '
                          'drinks reception tables, gift and card tables, adding a little floral detail wherever it’s '
                          'needed.',
-                         'Our faux wedding flowers are created using high-quality silk, artificial and real-touch '
+                         'Our faux wedding flowers are created using a mix of high-quality silk and real-touch '
                          'blooms, so they stay looking fresh throughout your day and can be enjoyed without the '
                          'worry of wilting or seasonal availability.'],
                'page_perfect': ['Long tables',

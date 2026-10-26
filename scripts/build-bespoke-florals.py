@@ -34,13 +34,13 @@ SECTIONS = [
                   img=(T + "laura-alexandra/02-ceremony-aisle.jpg", "Outdoor ceremony aisle lined with guests and florals", "50% 60%"),
                   body=["Beautiful low level floral arrangements create a flower filled aisle, with layers of blooms, colour and plenty of movement.",
                         "Designed in your chosen colours and style to complement your venue and the overall feel of your wedding, from soft and romantic to wild and abundant.",
-                        "Our faux wedding flowers combine high quality silk, artificial and real touch flowers to create natural looking floral arrangements that photograph beautifully and look fresh throughout the day.",
+                        "Our faux wedding flowers combine high-quality silk and real-touch flowers to create natural-looking floral arrangements that photograph beautifully and look fresh throughout the day.",
                         "Perfect for indoor and outdoor ceremonies, our aisle meadows can be moved afterwards so you can continue the look throughout your day. Use them around the dance floor, bar or reception space for flowers that work a little harder."],
                   perfect=["Aisles", "Outdoor ceremonies", "Photo moments", "Reception styling"]),
              dict(slug="moongates", name="Moongates", tag="A classic shape, completely your own.",
                   img=("/images/173MelDave-1-1.jpg", "Bride beneath a circular floral backdrop of rich jewel-toned blooms", "50% 30%"),
                   body=["A beautiful wedding moongate creates an instant focal point for your ceremony, entrance or reception. Choose a modern design with florals concentrated in one area, an abundant crescent, a full circle of blooms or a more foliage led look.",
-                        "Our faux floral moongates are designed using high quality silk, artificial and real touch flowers, giving you the look of fresh wedding flowers without the worry of wilting or seasonal availability.",
+                        "Our faux floral moongates are designed using a mix of high-quality silk and real-touch flowers, giving you the look of fresh wedding flowers without the worry of wilting or seasonal availability.",
                         "Choose a fully floral moongate for maximum impact, or our metal moongate dressed with flowers and draping in your chosen colours and style.",
                         "Perfect for wedding ceremonies, statement backdrops and those all important photographs, with florals that can be repurposed throughout your day."],
                   perfect=["Ceremonies", "Photo booths", "Photo moments", "Indoor ceremonies", "Outdoor ceremonies", "Repurposing"]),
@@ -66,7 +66,8 @@ SECTIONS = [
                "Choose from delicate bud vase clusters, low floral arrangements or taller statement centrepieces, all designed "
                "in your chosen colours and floral style. Your top table can then carry those flowers through for a "
                "beautifully cohesive look.",
-               "Designed to complement your ceremony flowers, our faux wedding florals create a reception that feels "
+               "Designed to complement your ceremony flowers, our faux wedding florals, in high-quality silk and real-touch "
+               "blooms, create a reception that feels "
                "considered, stylish and completely yours."],
          perfect=["Long tables", "Round tables", "Top tables", "Marquees"],
          types=[
@@ -485,7 +486,7 @@ main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
     <div class="bf-hero-text">
       <h1 id="bf-hero-title" class="bf-hero-title">Bespoke wedding florals</h1>
       <p class="bf-script bf-hero-script">Designed in your colours, from the aisle to the last dance.</p>
-      <p class="bf-body">From the ceremony backdrop to the reception tables, your bouquet and statement installations, every piece is designed with bespoke faux florals in your chosen colours, so it works perfectly with your venue and your wedding style.</p>
+      <p class="bf-body">From the ceremony backdrop to the reception tables, your bouquet and statement installations, every piece is designed with bespoke faux florals in your chosen colours, made from a mix of high-quality silk and real-touch flowers, so it works perfectly with your venue and your wedding style.</p>
       <a href="#bf-collection" class="bf-button bf-button-dark">Explore the collection</a>
     </div>
   </section>
@@ -527,7 +528,8 @@ for s in SECTIONS:
 # ---------- product pages ----------
 # Questions every product page shows, after the type's own (its "faq" in bespoke_products.py).
 FAQ = [
-    ("Are the flowers real?", "No. Every design is made with high-quality silk and real-touch faux blooms, so it looks fresh "
+    ("Are the flowers real?", "No. Every design uses a mix of high-quality silk and real-touch artificial flowers, so it "
+     "looks fresh "
      "all day and in every photo, whatever the weather."),
     ("Can you match my colours?", "Yes. Every piece is designed around your colour palette, flower preferences, venue and style."),
     ("Can I see my florals before the wedding?", "Yes. Ahead of your wedding you'll be invited back to our showroom to see "

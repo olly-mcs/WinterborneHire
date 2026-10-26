@@ -70,7 +70,7 @@ def group(name, intro):
 BODY = f'''  <section class="shop-hero" aria-labelledby="shop-title">
     <h1 id="shop-title" class="shop-hero-title">Bridal bouquets</h1>
     <p class="shop-hero-sub">Delivered UK-wide.</p>
-    <p class="shop-hero-lead">Ready-designed faux bridal bouquets and buttonholes, made in our Dorset studio and delivered
+    <p class="shop-hero-lead">Ready-designed faux bridal bouquets and buttonholes in high-quality silk and real-touch flowers, made in our Dorset studio and delivered
       anywhere in the UK. They never wilt, so they look as fresh in your last photo as your first.</p>
     <p class="shop-mock-note">Design mock-up: products and prices are placeholders.</p>
   </section>
