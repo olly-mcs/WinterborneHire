@@ -1945,15 +1945,15 @@ button.hp-fact-link {
 .g-rating {
   display: inline-block;
   align-self: flex-start;
-  padding: 8px 12px;
-  border-radius: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
   background-color: #fff;
   line-height: 0;
 }
 
 .g-rating img {
   display: block;
-  width: 190px;
+  width: 132px;
   height: auto;
 }
 
@@ -1998,4 +1998,8 @@ button.hp-fact-link {
 
 .hp-facts .hp-fact-rating .g-rating {
   margin-bottom: 8px;
+}
+
+.hp-facts li > .g-rating {
+  justify-self: start;
 }

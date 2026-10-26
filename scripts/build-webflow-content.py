@@ -328,7 +328,7 @@ def home_reviews():
     block = f'''<!-- reviews-dialog:start -->
   <dialog class="faux-dialog rv-dialog" id="reviews-dialog" aria-labelledby="reviews-dialog-title">
     <button type="button" class="faux-dialog-close" aria-label="Close" data-close>&times;</button>
-    <h2 id="reviews-dialog-title" class="rv-title"><picture class="g-rating"><source srcset="/images/google-rating-5.avif" type="image/avif"><img src="/images/google-rating-5.webp" width="258" height="70" alt="Google Rating 5.0, five stars"></picture></h2>
+    <h2 id="reviews-dialog-title" class="rv-title"><span class="g-rating"><img src="/images/google-rating-5.svg" width="150" height="40" alt="Google rating 5.0, five stars"></span></h2>
     <p class="rv-sub">From 101 five-star reviews. Here are a few of our favourites.</p>
     <ul class="rv-list" role="list">
 {chr(10).join(items)}
