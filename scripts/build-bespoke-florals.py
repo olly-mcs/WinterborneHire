@@ -531,6 +531,7 @@ FAQ = [
     ("Are the flowers real?", "No. Every design uses a mix of high-quality silk and real-touch artificial flowers, so it "
      "looks fresh "
      "all day and in every photo, whatever the weather."),
+    ("Are faux flowers the same as artificial flowers?", "Yes. Faux, artificial and fake all mean flowers that aren't real, but quality varies hugely. Ours are a mix of high-quality silk flowers and real-touch flowers, which feel soft and natural and look real even up close."),
     ("Can you match my colours?", "Yes. Every piece is designed around your colour palette, flower preferences, venue and style."),
     ("Can I see my florals before the wedding?", "Yes. Ahead of your wedding you'll be invited back to our showroom to see "
      "your arrangements mocked up, so you know everything is perfect."),
