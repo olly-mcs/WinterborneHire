@@ -2010,3 +2010,30 @@ button.hp-fact-link {
   line-height: 1.2;
   letter-spacing: 0.02em;
 }
+
+/* How it works: two calls to action split by "or" */
+.process-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 22px;
+}
+
+.process-ctas .process-or {
+  color: #8a5a44;
+  font-family: "Fake serif", serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+@media screen and (max-width: 479px) {
+  .process-ctas {
+    flex-direction: column;
+  }
+
+  .process-ctas .hp-button {
+    width: 100%;
+    text-align: center;
+  }
+}
