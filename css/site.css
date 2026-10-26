@@ -2038,3 +2038,39 @@ button.hp-fact-link {
     text-align: center;
   }
 }
+
+/* "We do more than just faux florals" roundel, centred between the styling and hire panels */
+.hp-paths {
+  position: relative;
+}
+
+.hero-roundel.more-roundel {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.more-amp {
+  fill: #e59775;
+  font-family: Cinzel, serif;
+  font-size: 46px;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-roundel.more-roundel {
+    top: 50%;
+    width: 112px;
+    height: 112px;
+  }
+
+  /* Stacked panels: lift the styling panel's text clear of the roundel on the seam */
+  .hp-paths > a.hp-path:first-of-type .hp-path-text {
+    bottom: 72px;
+  }
+}
