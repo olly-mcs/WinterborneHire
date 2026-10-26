@@ -646,3 +646,13 @@ body:has(.pd-main) {
   line-height: 1.3;
   text-align: left;
 }
+
+/* real wedding caption on slider photos: the caption takes the bottom-right corner, so the counter moves left */
+.pd-slide {
+  position: relative;
+}
+
+.pd-count {
+  right: auto;
+  left: 14px;
+}

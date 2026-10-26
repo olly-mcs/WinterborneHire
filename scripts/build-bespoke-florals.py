@@ -409,13 +409,21 @@ def perfect(x):
 # "Captured at a real Winterborne wedding" caption on photos with no overlay or hover effect.
 # Pages (section slugs) that show it on their product block photos; add more as the test grows.
 REAL_CAPTION = "Captured at a real Winterborne wedding"
-REAL_CAPTION_PAGES = {"the-ceremony"}
+# Shown on every Bespoke Florals page: section and type blocks, and product page slider photos. Not on photos with an
+# overlay or hover effect (heroes, card rows, "More..." cards, section tiles), and not on photos that aren't from a
+# real wedding (NOT_REAL_WEDDING: wedding fair shots).
+REAL_CAPTION_PAGES = {"overview", "the-ceremony", "the-reception", "your-florals", "installations"}
+NOT_REAL_WEDDING = {"urns-and-plinths/wedding-fair", "pillars/kingston-maurward", "aisle-meadows/kingston-maurward-detail"}
+
+
+def is_real(src):
+    return not any(src.rstrip("/").endswith("/" + n) for n in NOT_REAL_WEDDING)
 
 
 def cat_image(x, src, alt, pos, real=False):
     """The block photo. fit="contain" (in bespoke_products.py) zooms out to show the whole photo, with a soft blurred
     copy of it filling the sides, for tall photos that would otherwise lose too much."""
-    if real and x.get("fit") != "contain":
+    if real and is_real(src) and x.get("fit") != "contain":
         inner = img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-real-photo" style="object-position: {pos}" loading="lazy"')
         return f'<div class="bf-cat-image bf-real">{inner}<span class="real-caption">{REAL_CAPTION}</span></div>'
     if x.get("fit") != "contain":
@@ -472,7 +480,8 @@ main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
 {subnav()}  <div class="bf-collection" id="bf-collection">
 ''' + "\n".join(
     strip(i, s, s["slug"], f'bf-{s["slug"]}-title', s["name"],
-          button=(f'/bespoke-florals/{s["slug"]}', f'Explore {s["name"].lower()}'), extra=types_row(s))
+          button=(f'/bespoke-florals/{s["slug"]}', f'Explore {s["name"].lower()}'), extra=types_row(s),
+          real="overview" in REAL_CAPTION_PAGES)
     for i, s in enumerate(SECTIONS)) + '''
   </div>
 ''' + CTA
@@ -535,6 +544,7 @@ def gallery(t):
     slides = "".join(
         f'<li class="pd-slide" id="pd-slide-{i + 1}" aria-label="Photo {i + 1} of {len(shots)}">'
         + img(src, alt, "(max-width: 991px) 100vw, 50vw", attrs=' fetchpriority="high"' if i == 0 else ' loading="lazy"')
+        + (f'<span class="real-caption">{REAL_CAPTION}</span>' if is_real(src) else "")
         + "</li>"
         for i, (src, alt) in enumerate(shots))
     if len(shots) == 1:  # one photo: no arrows, counter or thumbnails
