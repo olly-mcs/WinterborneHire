@@ -118,19 +118,40 @@ def subnav():
 
 
 def services():
-    out = []
-    for s in SERVICES:
-        paras = "".join(f'<p class="bf-body">{e(p)}</p>' for p in s["body"])
-        out.append(f'''  <section class="bf-cat sv-cat" id="{s["slug"]}" aria-labelledby="sv-{s["slug"]}-title">
-    <div class="bf-cat-main">
-      <div class="bf-cat-image bf-real"><img src="{s["img"]}" alt="{e(s["alt"])}" class="bf-real-photo" style="object-position: {s["pos"]}" loading="lazy"><span class="real-caption">{REAL_CAPTION}</span></div>
-      <div class="bf-cat-text">
-        <h2 id="sv-{s["slug"]}-title" class="bf-cat-title">{e(s["name"])}</h2>
-        {paras}
+    """Full, Partial and Self Styling as one scrolling section: on wider screens the photo stays pinned on the left
+    while each service's text scrolls up on the right, and the photo changes as each one reaches the middle of the
+    screen (js/services-scroll.js). On phones each service is simply its photo, then its text."""
+    def photo(s, cls, eager=False):
+        load = "" if eager else ' loading="lazy"'
+        return (f'<div class="{cls} bf-real"><img src="{s["img"]}" alt="{e(s["alt"])}" class="bf-real-photo" '
+                f'style="object-position: {s["pos"]}"{load}><span class="real-caption">{REAL_CAPTION}</span></div>')
+
+    pinned = "\n".join(
+        f'        <div class="sv-media-item{" is-active" if i == 0 else ""}" data-sv-media="{s["slug"]}">'
+        + photo(s, "sv-media-photo", eager=i == 0) + "</div>"
+        for i, s in enumerate(SERVICES))
+    panels = "\n".join(
+        f'''      <section class="sv-panel" id="{s["slug"]}" data-sv-panel="{s["slug"]}" aria-labelledby="sv-{s["slug"]}-title">
+        {photo(s, "sv-panel-photo")}
+        <div class="sv-panel-text">
+          <h2 id="sv-{s["slug"]}-title" class="bf-cat-title">{e(s["name"])}</h2>
+          {"".join(f'<p class="bf-body">{e(p)}</p>' for p in s["body"])}
+        </div>
+      </section>'''
+        for s in SERVICES)
+    return f'''  <div class="bf-collection sv-services">
+    <div class="sv-scroller" data-sv-scroller>
+      <div class="sv-media" aria-hidden="true">
+        <div class="sv-media-sticky">
+{pinned}
+        </div>
+      </div>
+      <div class="sv-panels">
+{panels}
       </div>
     </div>
-  </section>''')
-    return '  <div class="bf-collection sv-services">\n' + "\n".join(out) + "\n  </div>\n"
+  </div>
+'''
 
 
 def connector(a, b):
@@ -202,6 +223,8 @@ if __name__ == "__main__":
     # the old page's Instagram feed is gone
     s = s.replace('  <link href="/css/instagram-feed.css" rel="stylesheet" type="text/css">\n', "")
     s = s.replace('  <script src="/js/instagram-feed.js" type="text/javascript"></script>\n', "")
+    if '/js/services-scroll.js' not in s:
+        s = s.replace("</body>", '  <script src="/js/services-scroll.js" type="text/javascript"></script>\n</body>', 1)
     if "/css/services.css" not in s:
         s = s.replace(BF_CSS, CSS, 1)
     open(PAGE, "w", encoding="utf-8").write(s)

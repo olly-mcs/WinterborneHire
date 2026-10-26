@@ -11,14 +11,63 @@ html {
   }
 }
 
-.sv-services .bf-cat,
+.sv-panel,
 .sv-process {
   scroll-margin-top: 90px;
 }
 
-/* Services: photo on the left, title and copy on the right */
-.sv-cat .bf-cat-main {
+/* Services: the photo stays pinned on the left while each service's text scrolls up on the right, and the photo
+   crossfades to the service in the middle of the screen (js/services-scroll.js). Phones: photo, then text. */
+.sv-scroller {
+  display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 64px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 max(4vw, 20px);
+}
+
+.sv-media-sticky {
+  position: sticky;
+  top: 110px;
+  height: min(calc(100vh - 150px), 680px);
+  margin: 40px 0;
+}
+
+.sv-media-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.sv-media-item.is-active {
+  opacity: 1;
+}
+
+.sv-media-photo,
+.sv-media-photo .bf-real-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.sv-media-photo .bf-real-photo {
+  object-fit: cover;
+}
+
+.sv-panel {
+  display: flex;
+  align-items: center;
+  min-height: 78vh;
+  padding: 10vh 0;
+}
+
+.sv-panel-photo {
+  display: none;
+}
+
+.sv-panel-text {
+  max-width: 520px;
 }
 
 /* ---------- The Process ---------- */
@@ -266,8 +315,41 @@ html {
 }
 
 @media screen and (max-width: 991px) {
-  .sv-cat .bf-cat-main {
+  .sv-scroller {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sv-media {
+    display: none;
+  }
+
+  .sv-panel {
+    display: block;
+    min-height: 0;
+    padding: 48px 0 24px;
+  }
+
+  .sv-panel-photo {
+    display: block;
+    aspect-ratio: 5 / 4;
+    margin-bottom: 24px;
+  }
+
+  .sv-panel-photo .bf-real-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sv-panel-text {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-media-item {
+    transition: none;
   }
 }
 
