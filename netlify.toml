@@ -175,6 +175,92 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Old blog posts and wedding packages (not rebuilt): each goes to its closest page
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/circular-arch-backdrop-a-wedding-day-in-a-life"
+  to = "/bespoke-florals/the-ceremony/moongates"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/gold-cutlery-for-hire-how-to-elevate-your-event"
+  to = "/table-decor/gold-cutlery"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/peacock-chairs"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/suspended-ladders-key-rustic-item-at-gorwell-farm"
+  to = "/bespoke-florals/installations/ladders"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/wedding-prop-hire"
+  to = "/wedding-prop-hire-collection"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/wedding-trend-how-to-use-vintage-rugs-for-your-wedding-day-my-top-3-tips"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/welcome-to-the-winterborne-wedding-blog"
+  to = "/the-winterborne-wedding-blog"
+  status = 301
+
+[[redirects]]
+  from = "/the-winterborne-wedding-blog/*"
+  to = "/the-winterborne-wedding-blog"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/cylinder-vase-table-centre-piece"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/peacock-chair-seating-area-package"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/rug-aisle-package"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/rustic-table-centre"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/rustic-wedding-signage-package"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/suspended-ladder-decoration"
+  to = "/bespoke-florals/installations/ladders"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/the-wedding-tipi-package"
+  to = "/dorset-wedding-styling"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages"
+  to = "/dorset-wedding-styling"
+  status = 301
+
+[[redirects]]
+  from = "/wedding-packages/*"
+  to = "/dorset-wedding-styling"
+  status = 301
+
 # hire-redirects:start
 # Written by scripts/build-bespoke-florals.py from scripts/hire_products.py. Don't edit by hand.
 # The hire section pages share their names with their folders of product pages, so say which file serves them.
