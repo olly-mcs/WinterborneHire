@@ -201,6 +201,11 @@ from every page and the `X-Robots-Tag` block from `netlify.toml`.
 
 ## SEO
 
+**Sitemap and robots:** `scripts/build-sitemap.py` writes `sitemap.xml` (every published page except the 404, the shop
+mock-up, the quote builder and Large Props) and `robots.txt` (allows everything and points to the sitemap). Run it after
+adding or removing pages. The Blog and Gallery pages are retired for now and redirect to the homepage
+(`netlify.toml`); the Elfsight widget has been removed from every page.
+
 **Page titles and meta descriptions** are signed off in `data/page-meta.json` (one entry per page, keyed by its path
 without `.html`). `scripts/apply-page-meta.py` writes them into each page's `<title>`, meta description and the
 og:/twitter: tags, and every build script runs it last, so it wins over anything a build script sets. Change a title

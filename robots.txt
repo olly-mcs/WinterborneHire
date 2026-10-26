@@ -1,0 +1,5 @@
+# Winterborne Hire & Styling
+User-agent: *
+Allow: /
+
+Sitemap: https://www.winterbornehireandstyling.co.uk/sitemap.xml

@@ -175,6 +175,17 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# The Blog and Gallery pages (empty after the move from Webflow) are retired for now: both go to the homepage
+[[redirects]]
+  from = "/the-winterborne-wedding-blog"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/gallery"
+  to = "/"
+  status = 301
+
 # Old blog posts and wedding packages (not rebuilt): each goes to its closest page
 [[redirects]]
   from = "/the-winterborne-wedding-blog/circular-arch-backdrop-a-wedding-day-in-a-life"
@@ -208,12 +219,12 @@
 
 [[redirects]]
   from = "/the-winterborne-wedding-blog/welcome-to-the-winterborne-wedding-blog"
-  to = "/the-winterborne-wedding-blog"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/the-winterborne-wedding-blog/*"
-  to = "/the-winterborne-wedding-blog"
+  to = "/"
   status = 301
 
 [[redirects]]
