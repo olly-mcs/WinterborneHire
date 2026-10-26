@@ -71,8 +71,9 @@ Copy Laura & Alexandra's `<article class="tm">` and change:
   and give the portrait photos `tm-slide tm-slide-fit` plus the same backdrop style;
 - thumbnails (same order) and the total in `.tm-count`;
 - stars: one `<svg>` per star and the `aria-label` ("Rated N out of 5");
-- the review paragraphs in `.tm-quote`, and `.tm-cite` (the reviewer's first name only);
-- swatches: `style="--swatch:..."`, the `fill` on the first `<path>`, the name and the hex. Cycle the three stroke
+- the review paragraphs in `.tm-quote`, and `.tm-cite`: the reviewer's first name only in `.tm-cite-name`, with the
+  `.tm-stars` after it (they sit on the right of the byline);
+- swatches: `style="--swatch:..."`, the `fill` on the first `<path>`, and the name (no hex code is shown). Cycle the three stroke
   shapes already used.
 
 **Newest wedding goes first** in `.tm-list` (by wedding month, not by when it was added). Layout alternates sides automatically.
