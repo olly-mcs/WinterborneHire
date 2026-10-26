@@ -61,7 +61,8 @@ Copy Laura & Alexandra's `<article class="tm">` and change:
 - `id` and the `aria-labelledby` ids to the new slug;
 - the story: three paragraphs in `.tm-story-text` (first keeps `class="tm-story-lead"`), and the `.tm-facts`
   values (showroom visits, first visit to wedding, venue, wedding month);
-- names in `.tm-names` (keep the `<span class="tm-amp">&amp;</span>`), and `.tm-meta` (venue, month year);
+- names in `.tm-names` (keep the `<span class="tm-amp">&amp;</span>`), a short subhead under them in `.tm-subhead`
+  (e.g. "A colourful festival-style celebration"), and `.tm-meta` (venue, month year);
 - slides: one `<li class="tm-slide">` per photo with descriptive `alt` text (what the florals are, who is in shot).
   Landscape photos get `tm-slide tm-slide-wide` and `style="--tm-backdrop:url('...')"` on the `.tm-open` button.
   If most of a couple's photos are landscape, add `tm-gallery-landscape` to `.tm-gallery` for a 3:2 frame instead,
