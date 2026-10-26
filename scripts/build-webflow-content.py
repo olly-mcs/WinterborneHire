@@ -306,6 +306,46 @@ def testimonials():
     write(path, s)
 
 
+# The reviews pop-up on the homepage (opened from "5.0 on Google"): a scrolling selection of reviews, then a link
+# to all the Google reviews. Pick reviews by their slug in data/webflow-content.json.
+HOME_REVIEWS = ["beth-jack", "katie-adam", "rhiannon-dan", "becky-dan", "pippa-james", "gen-james", "kayleigh-cj",
+                "shakira-greg", "rowanne-ben", "joanna-ben"]
+GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=winterborne+hire+and+styling#lrd=0x487259dfa18baa05:0x82416b8c1fd52400,1,,,,"
+
+
+def home_reviews():
+    path = "index.html"
+    s = read(path)
+    by = {t["slug"]: t for t in DATA["testimonials"]}
+    items = []
+    for slug in HOME_REVIEWS:
+        t = by[slug]
+        paras = "".join(f"<p>{e(p.strip())}</p>" for p in t["quote"].split("\n") if p.strip())
+        venue = f'<span class="rv-venue">{e(t["venue"])}</span>' if t["venue"] else ""
+        items.append(f'''      <li class="rv-item"><span class="rv-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote class="rv-quote">{paras}</blockquote>
+        <p class="rv-by"><span class="rv-names">{e(t["names"])}</span>{venue}</p></li>''')
+    block = f'''<!-- reviews-dialog:start -->
+  <dialog class="faux-dialog rv-dialog" id="reviews-dialog" aria-labelledby="reviews-dialog-title">
+    <button type="button" class="faux-dialog-close" aria-label="Close" data-close>&times;</button>
+    <p class="rv-head-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <h2 id="reviews-dialog-title" class="faux-dialog-title">5.0 on Google</h2>
+    <p class="rv-sub">From 101 five-star reviews. Here are a few of our favourites.</p>
+    <ul class="rv-list" role="list">
+{chr(10).join(items)}
+    </ul>
+    <a href="{GOOGLE_REVIEWS_URL}" class="hp-button" target="_blank" rel="noopener">Read all 101 on Google<span class="pd-visually-hidden"> (opens in a new tab)</span></a>
+  </dialog>
+  <!-- reviews-dialog:end -->'''
+    if "<!-- reviews-dialog:start -->" in s:
+        a = s.index("<!-- reviews-dialog:start -->")
+        b = s.index("<!-- reviews-dialog:end -->") + len("<!-- reviews-dialog:end -->")
+        s = s[:a] + block + s[b:]
+    else:
+        s = s.replace('  <dialog class="faux-dialog" id="faux-dialog"', "  " + block + "\n" + '  <dialog class="faux-dialog" id="faux-dialog"', 1)
+    write(path, s)
+
+
 if __name__ == "__main__":
     for col, cfg in COLLECTIONS.items():
         items = collection_items(col)
@@ -315,6 +355,7 @@ if __name__ == "__main__":
         print(f"{col}: {len(items)} products")
     write_hire_items()
     testimonials()
+    home_reviews()
     print(f"testimonials: {len(DATA['testimonials'])}")
     saved = sum(1 for k, v in DATA.items() for i in v for f in ("image", "hover")
                 if i.get(f) and os.path.exists(os.path.join(ROOT, i[f]["file"])))

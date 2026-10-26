@@ -1,12 +1,17 @@
-// Homepage: the "Faux florals" roundel in the hero opens a dialog about our faux florals.
+// Homepage pop-ups: the "Faux florals" roundel opens the faux florals dialog, and "Find out more" under the Google
+// rating ([data-open-dialog]) opens the reviews dialog.
 (function () {
-  var button = document.querySelector(".hero-roundel");
-  var dialog = document.getElementById("faux-dialog");
-  if (!button || !dialog || typeof dialog.showModal !== "function") return;
-  button.addEventListener("click", function () { dialog.showModal(); });
-  dialog.addEventListener("click", function (e) {
-    // a click on the dimmed background (outside the box) or the close button closes it
-    if (e.target === dialog || e.target.closest("[data-close]")) dialog.close();
+  function wire(button, dialog) {
+    if (!button || !dialog || typeof dialog.showModal !== "function") return;
+    button.addEventListener("click", function () { dialog.showModal(); });
+    dialog.addEventListener("click", function (e) {
+      // a click on the dimmed background (outside the box) or the close button closes it
+      if (e.target === dialog || e.target.closest("[data-close]")) dialog.close();
+    });
+    dialog.addEventListener("close", function () { button.focus(); });
+  }
+  wire(document.querySelector(".hero-roundel"), document.getElementById("faux-dialog"));
+  document.querySelectorAll("[data-open-dialog]").forEach(function (b) {
+    wire(b, document.getElementById(b.getAttribute("data-open-dialog")));
   });
-  dialog.addEventListener("close", function () { button.focus(); });
 })();

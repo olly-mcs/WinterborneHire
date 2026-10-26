@@ -1868,3 +1868,75 @@ button.hero-roundel:focus-visible {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+button.hp-fact-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Reviews dialog (homepage): same see-through style as the faux florals dialog */
+.faux-dialog .rv-head-stars {
+  margin: 0 0 6px;
+  color: #e59775;
+  font-size: 26px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.faux-dialog .rv-sub {
+  margin-bottom: 22px;
+}
+
+.rv-list {
+  max-height: min(52vh, 460px);
+  margin: 0 0 26px;
+  padding: 0 10px 0 0;
+  overflow-y: auto;
+  list-style: none;
+  border-top: 1px solid rgba(246, 243, 238, 0.2);
+  scrollbar-color: rgba(229, 151, 117, 0.6) transparent;
+}
+
+.rv-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(246, 243, 238, 0.2);
+}
+
+.rv-stars {
+  color: #e59775;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.rv-quote {
+  margin: 8px 0 10px;
+  padding: 0;
+  border: 0;
+}
+
+.faux-dialog .rv-quote p {
+  margin: 0 0 8px;
+  font-size: 14.5px;
+  font-style: italic;
+}
+
+.faux-dialog .rv-by {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0;
+}
+
+.rv-names {
+  color: #f6f3ee;
+  font-family: Cinzel, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.rv-venue {
+  color: rgba(246, 243, 238, 0.7);
+  font-size: 13px;
+}
