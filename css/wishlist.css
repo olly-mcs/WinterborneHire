@@ -669,3 +669,154 @@ a.wl-line-name:hover {
   font-family: Cinzel, serif;
   font-size: 15px;
 }
+
+/* After sending: only the confirmation and a read-only receipt of what was sent */
+.wl.is-sent .wl-body > :not(.wl-sent) {
+  display: none !important;
+}
+
+.wl-sent {
+  outline: none;
+  text-align: center;
+}
+
+.wl-sent-icon {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 14px;
+}
+
+.wl-sent-icon svg {
+  width: 52px;
+  height: 52px;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #898c6b;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wl-sent-title {
+  margin: 0 auto 10px;
+  max-width: 320px;
+  text-wrap: balance;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wl-sent-text {
+  margin: 0 auto 26px;
+  max-width: 360px;
+  color: #474747;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.wl-sent-sub {
+  margin: 0 0 6px;
+  padding-top: 20px;
+  border-top: 1px solid #e3d9d0;
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.wl-receipt {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.wl-receipt li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed #d6ccc1;
+}
+
+.wl-receipt-name {
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.wl-receipt-section {
+  display: block;
+  margin-top: 2px;
+  color: #66605a;
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.wl-receipt-qty {
+  flex: none;
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.wl-sent-details {
+  margin: 0 0 26px;
+  padding: 14px 16px;
+  background-color: #fff;
+  text-align: left;
+}
+
+.wl-sent-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 5px 0;
+}
+
+.wl-sent-details dt {
+  color: #66605a;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+}
+
+.wl-sent-details dd {
+  margin: 0;
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.wl-new {
+  padding: 13px 22px;
+  border: 1px solid #3a3835;
+  background: transparent;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.wl-new:hover,
+.wl-new:focus-visible {
+  background-color: #3a3835;
+  color: #fff;
+}

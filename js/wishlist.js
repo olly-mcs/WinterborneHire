@@ -113,8 +113,15 @@
     '      <button type="submit" class="wl-submit">Send us your wish list</button>' +
     '      <p class="wl-error" role="alert" hidden>Sorry, your list couldn&#x27;t be sent. Please try again, or email winterbornevintage@gmail.com.</p>' +
     '    </form>' +
-    '    <div class="wl-done" hidden><h3 class="wl-form-title">Thank you!</h3>' +
-    '      <p>Your wish list is on its way to us. We&#x27;ll come back to you as soon as possible with your quote, and to confirm your showroom visit if you asked for one.</p></div>' +
+    '    <div class="wl-sent" hidden tabindex="-1">' +
+    '      <p class="wl-sent-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></p>' +
+    '      <h3 class="wl-sent-title">Your wish list is on its way to us</h3>' +
+    '      <p class="wl-sent-text">Thank you<span class="wl-sent-name"></span>. We&#x27;ll come back to you as soon as we can to discuss next steps<span class="wl-sent-visit"></span>.</p>' +
+    '      <h4 class="wl-sent-sub">What you sent</h4>' +
+    '      <ul class="wl-receipt" role="list"></ul>' +
+    '      <dl class="wl-sent-details"></dl>' +
+    '      <button type="button" class="wl-new">Start a new wish list</button>' +
+    '    </div>' +
     '  </div>' +
     '</aside>';
   document.body.appendChild(panel);
@@ -144,6 +151,12 @@
   }
 
   function setQty(id, qty) {
+    // adding something after a list was sent starts a fresh list
+    if (panel.classList.contains("is-sent")) {
+      panel.classList.remove("is-sent");
+      panel.querySelector(".wl-sent").hidden = true;
+      form.reset();
+    }
     if (qty > 0) list[id] = Math.min(qty, maxFor(id));
     else delete list[id];
     save();
@@ -286,6 +299,35 @@
       money(est.low) + " - " + money(est.high));
     return out.join("\n");
   }
+  // ----- after sending: a read-only receipt of what was sent, in place of the editable list -----
+  var sent = panel.querySelector(".wl-sent");
+  function showSent(details) {
+    sent.querySelector(".wl-receipt").innerHTML = lines().map(function (l) {
+      return '<li><span class="wl-receipt-name">' + esc(l.name) + '<span class="wl-receipt-section">' + esc(l.section) +
+        '</span></span><span class="wl-receipt-qty">&times; ' + l.qty + '</span></li>';
+    }).join("");
+    sent.querySelector(".wl-sent-name").textContent = details.name ? ", " + String(details.name).split(" ")[0] : "";
+    sent.querySelector(".wl-sent-visit").textContent = details.showroom ? ", and to confirm your showroom visit" : "";
+    var rows = [["Wedding date", details.date], ["Venue", details.venue], ["Showroom visit", details.showroom], ["We'll reply to", details.email]];
+    sent.querySelector(".wl-sent-details").innerHTML = rows.filter(function (r) { return r[1]; }).map(function (r) {
+      return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>";
+    }).join("");
+    list = {};
+    save();
+    render();
+    panel.classList.add("is-sent");
+    sent.hidden = false;
+    var body = panel.querySelector(".wl-body");
+    if (body) body.scrollTop = 0;
+    sent.focus();
+  }
+  panel.querySelector(".wl-new").addEventListener("click", function () {
+    panel.classList.remove("is-sent");
+    sent.hidden = true;
+    form.reset();
+    render();
+  });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!lines().length) return;
@@ -312,8 +354,7 @@
     })
       .then(function (res) {
         if (!res.ok) throw new Error(res.status);
-        form.hidden = true;
-        panel.querySelector(".wl-done").hidden = false;
+        showSent(details);
       })
       .catch(function () { error.hidden = false; })
       .finally(function () {
