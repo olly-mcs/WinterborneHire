@@ -1966,3 +1966,36 @@ button.hp-fact-link {
   margin: 0 0 14px;
   line-height: 0;
 }
+
+/* Why Winterborne facts: each fact is three rows (heading, text, link) shared across the grid, so in each row of facts
+   the text blocks start on the same line and the "Find out more" links sit on the same baseline */
+.hp-facts {
+  grid-auto-rows: auto;
+}
+
+.hp-facts li {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
+}
+
+.hp-facts li > :first-child {
+  align-self: end;
+  margin-bottom: 8px;
+}
+
+.hp-facts li > span {
+  align-self: start;
+}
+
+.hp-facts .hp-fact-link {
+  align-self: end;
+  justify-self: start;
+  margin-top: 14px;
+}
+
+.hp-facts .hp-fact-rating .g-rating {
+  margin-bottom: 8px;
+}
