@@ -436,3 +436,12 @@ PRODUCT_COPY = {'aisle-meadows': {'page_tag': 'Make your walk down the aisle unf
 
 for _slug, _copy in PRODUCT_COPY.items():
     PRODUCTS[_slug].update(_copy)
+
+
+# The most of each design that can be added to the wish list; anything not listed can go up to 99
+MAX_QTY = {
+    "aisle-meadows": 20, "moongates": 3, "pillars": 4, "urns-and-plinths": 20,
+    "bud-vases": 200, "footed-bowls": 30, "podiums": 5, "top-table": 3,
+    "bridal-bouquets": 5, "bridesmaids-bouquets": 20, "buttonholes": 20,
+    "arbors": 3, "chandeliers": 10, "ladders": 10,
+}

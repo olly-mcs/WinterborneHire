@@ -24,11 +24,13 @@
   var sections = window.BESPOKE_SECTIONS || [];
   var pageItem = {};
   hireItems.forEach(function (it) {
-    pageItem[it.id] = { name: it.name, url: it.url, section: "Hire collection: " + it.section };
+    pageItem[it.id] = { name: it.name, url: it.url, section: "Hire collection: " + it.section, max: it.max };
   });
   sections.forEach(function (sec) {
-    sec.items.forEach(function (it) { pageItem[it.id] = { name: it.name, url: it.url, section: sec.name }; });
+    sec.items.forEach(function (it) { pageItem[it.id] = { name: it.name, url: it.url, section: sec.name, max: it.max }; });
   });
+  // the most of an item that can be added (data/js written by the build); 99 when none is set
+  function maxFor(id) { return (pageItem[id] && pageItem[id].max) || 99; }
 
   var list = {};
   var unknown = {}; // saved items this page doesn't know about (e.g. hire items, if a page lacks hire-items.js): kept
@@ -36,7 +38,7 @@
     var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
     Object.keys(saved).forEach(function (id) {
       if (!(saved[id] > 0)) return;
-      if (items[id]) list[id] = saved[id];
+      if (items[id]) list[id] = Math.min(saved[id], maxFor(id));
       else unknown[id] = saved[id];
     });
   } catch (e) {}
@@ -80,7 +82,7 @@
     '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as possible with your quote.</strong></p>' +
     '    <p class="wl-empty">Your wish list is empty. Add florals and hire pieces below, or use &ldquo;Add to your wish list&rdquo; on any product.</p>' +
     '    <ul class="wl-lines" role="list"></ul>' +
-    '    <h3 class="wl-more-title">Add more florals</h3>' +
+    '    <h3 class="wl-more-title">Add florals</h3>' +
     '    <div class="wl-more"></div>' +
     '    <h3 class="wl-more-title wl-hire-title">Add hire collection items</h3>' +
     '    <div class="wl-more wl-more-hire"></div>' +
@@ -139,7 +141,7 @@
   }
 
   function setQty(id, qty) {
-    if (qty > 0) list[id] = Math.min(qty, 99);
+    if (qty > 0) list[id] = Math.min(qty, maxFor(id));
     else delete list[id];
     save();
     render();
@@ -155,7 +157,7 @@
         '<div class="wl-qty" role="group" aria-label="Quantity of ' + esc(l.name) + '">' +
         '<button type="button" class="wl-minus" aria-label="One fewer">&minus;</button>' +
         '<span class="wl-qty-n" aria-live="polite">' + l.qty + '</span>' +
-        '<button type="button" class="wl-plus" aria-label="One more">+</button></div>' +
+        '<button type="button" class="wl-plus" aria-label="One more"' + (l.qty >= maxFor(l.id) ? ' disabled title="That\'s the most we have"' : '') + '>+</button></div>' +
         '<button type="button" class="wl-remove" aria-label="Remove ' + esc(l.name) + '">Remove</button></li>';
     }).join("");
     renderMore();

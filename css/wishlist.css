@@ -491,7 +491,8 @@ a.wl-line-name:hover {
   line-height: 1;
 }
 
-.wl-add-more[open] summary::after {
+.wl-add-more[open] > summary::after,
+.wl-options[open] > summary::after {
   content: "\2212";
 }
 
@@ -626,4 +627,10 @@ a.wl-line-name:hover {
   font-size: 13px;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* "+" at an item's limit */
+.wl-qty button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }

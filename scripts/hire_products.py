@@ -327,3 +327,16 @@ OLD_FOLDERS = {
 OLD_LIST_PAGES = {"/furniture-rugs": "/seating-areas", "/furniture": "/seating-areas", "/rugs-runners": "/seating-areas",
                   "/furniture-collection": "/seating-areas", "/rugs-runners-collection": "/seating-areas",
                   "/table-decor-collection": "/table-decor", "/small-props-collection": "/small-props"}
+
+
+# The most of each product that can be added to the wish list (each colour or style counts separately). Keys are
+# "section/product"; anything not listed can go up to 99.
+MAX_QTY = {
+    "table-decor/coloured-napkins": 200, "table-decor/charger-plates": 200, "table-decor/gold-cutlery": 200,
+    "table-decor/candlesticks": 200, "table-decor/bud-vases": 200, "table-decor/tea-light-holders": 200,
+    "table-decor/chair-drapes": 200,
+    "signage/table-plans": 10, "signage/welcome-signs": 10, "signage/order-of-the-day": 10, "signage/menus": 200,
+    "signage/name-cards": 200, "signage/neon-signs": 5,
+    "small-props/cake-stands": 10, "small-props/card-boxes": 5, "small-props/lanterns": 20, "small-props/other-props": 10,
+    "seating-areas/chairs": 3, "seating-areas/tables": 1, "seating-areas/rugs-and-runners": 1,
+}

@@ -13,9 +13,9 @@ Types are listed alphabetically wherever they appear.
 import glob, html, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from bespoke_products import PRODUCTS  # noqa: E402
+from bespoke_products import PRODUCTS, MAX_QTY as BESPOKE_MAX  # noqa: E402
 import reviews_block  # noqa: E402
-from hire_products import SECTIONS as HIRE_SECTIONS, OVERVIEW as HIRE_HOME, OLD_FOLDERS, OLD_LIST_PAGES  # noqa: E402
+from hire_products import MAX_QTY as HIRE_MAX, SECTIONS as HIRE_SECTIONS, OVERVIEW as HIRE_HOME, OLD_FOLDERS, OLD_LIST_PAGES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 T = "/images/testimonials/"
@@ -936,7 +936,7 @@ for s in HIRE_SECTIONS:
     for p in s["products"]:
         for v in p["variants"]:
             hire_items.append(dict(id=v["id"], name=p["name"] + ("" if len(p["variants"]) == 1 else f': {v["name"]}'),
-                                   section=s["name"], url=hire_url(s, p)))
+                                   section=s["name"], url=hire_url(s, p), max=HIRE_MAX.get(f'{s["slug"]}/{p["slug"]}', 99)))
 _wf = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
 hire_items += [dict(id=f'hire-large-props-{i["slug"]}', name=i["name"].strip(), section="Large Props",
                     url=f'/large-prop-collection/{i["slug"]}') for i in _wf["large-props"]]
@@ -952,7 +952,8 @@ write("js/hire-items.js", "// Written by scripts/build-bespoke-florals.py: the h
 
 # ---------- the sections and their products, for the wish list panel ----------
 SECTIONS_JS = [dict(name=s["name"], url=f'/bespoke-florals/{s["slug"]}',
-                    items=[dict(id=t["quote"], name=t["name"], url=purl(s, t)) for t in s["types"]]) for s in SECTIONS]
+                    items=[dict(id=t["quote"], name=t["name"], url=purl(s, t), max=BESPOKE_MAX.get(t["slug"], 99))
+                           for t in s["types"]]) for s in SECTIONS]
 write("js/bespoke-sections.js", "// Written by scripts/build-bespoke-florals.py: the Bespoke Florals sections and their products,\n"
       "// used by js/wishlist.js (ids are the items in js/quote-data.js). Don't edit by hand.\n"
       "window.BESPOKE_SECTIONS = " + json.dumps(SECTIONS_JS, indent=2, ensure_ascii=False) + ";\n")

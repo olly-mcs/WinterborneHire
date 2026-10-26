@@ -8,22 +8,26 @@ window.BESPOKE_SECTIONS = [
       {
         "id": "aisle-meadows",
         "name": "Aisle Meadows",
-        "url": "/bespoke-florals/the-ceremony/aisle-meadows"
+        "url": "/bespoke-florals/the-ceremony/aisle-meadows",
+        "max": 20
       },
       {
         "id": "moongate",
         "name": "Moongates",
-        "url": "/bespoke-florals/the-ceremony/moongates"
+        "url": "/bespoke-florals/the-ceremony/moongates",
+        "max": 3
       },
       {
         "id": "xl-pillars",
         "name": "Pillars",
-        "url": "/bespoke-florals/the-ceremony/pillars"
+        "url": "/bespoke-florals/the-ceremony/pillars",
+        "max": 4
       },
       {
         "id": "urns-plinths",
         "name": "Urns & Plinths",
-        "url": "/bespoke-florals/the-ceremony/urns-and-plinths"
+        "url": "/bespoke-florals/the-ceremony/urns-and-plinths",
+        "max": 20
       }
     ]
   },
@@ -34,22 +38,26 @@ window.BESPOKE_SECTIONS = [
       {
         "id": "budvases",
         "name": "Bud Vases",
-        "url": "/bespoke-florals/the-reception/bud-vases"
+        "url": "/bespoke-florals/the-reception/bud-vases",
+        "max": 200
       },
       {
         "id": "footed-bowl",
         "name": "Footed Bowls",
-        "url": "/bespoke-florals/the-reception/footed-bowls"
+        "url": "/bespoke-florals/the-reception/footed-bowls",
+        "max": 30
       },
       {
         "id": "tall-podiums",
         "name": "Podiums",
-        "url": "/bespoke-florals/the-reception/podiums"
+        "url": "/bespoke-florals/the-reception/podiums",
+        "max": 5
       },
       {
         "id": "top-table",
         "name": "Top Table",
-        "url": "/bespoke-florals/the-reception/top-table"
+        "url": "/bespoke-florals/the-reception/top-table",
+        "max": 3
       }
     ]
   },
@@ -60,17 +68,20 @@ window.BESPOKE_SECTIONS = [
       {
         "id": "bridal-bouquet",
         "name": "Bridal Bouquets",
-        "url": "/bespoke-florals/your-florals/bridal-bouquets"
+        "url": "/bespoke-florals/your-florals/bridal-bouquets",
+        "max": 5
       },
       {
         "id": "bridesmaid-bouquet",
         "name": "Bridesmaids' Bouquets",
-        "url": "/bespoke-florals/your-florals/bridesmaids-bouquets"
+        "url": "/bespoke-florals/your-florals/bridesmaids-bouquets",
+        "max": 20
       },
       {
         "id": "buttonholes",
         "name": "Buttonholes",
-        "url": "/bespoke-florals/your-florals/buttonholes"
+        "url": "/bespoke-florals/your-florals/buttonholes",
+        "max": 20
       }
     ]
   },
@@ -81,17 +92,20 @@ window.BESPOKE_SECTIONS = [
       {
         "id": "arbor-design",
         "name": "Arbors",
-        "url": "/bespoke-florals/installations/arbors"
+        "url": "/bespoke-florals/installations/arbors",
+        "max": 3
       },
       {
         "id": "chandelier-decor",
         "name": "Chandeliers",
-        "url": "/bespoke-florals/installations/chandeliers"
+        "url": "/bespoke-florals/installations/chandeliers",
+        "max": 10
       },
       {
         "id": "ladder-decor",
         "name": "Ladders",
-        "url": "/bespoke-florals/installations/ladders"
+        "url": "/bespoke-florals/installations/ladders",
+        "max": 10
       }
     ]
   }
