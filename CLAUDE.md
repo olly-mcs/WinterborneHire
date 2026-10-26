@@ -151,7 +151,7 @@ Bespoke Florals page. The list is kept in the browser and shared with `/quote-bu
 A design prototype for selling bouquets with UK delivery. `/bridal-bouquets-delivery` (`bridal-bouquets-delivery.html`,
 built by `scripts/build-shop.py` from its `PRODUCTS` list: 6 bridal bouquets and 2 buttonholes, placeholder names,
 copy and prices). "Add to basket" opens a basket panel (`js/shop.js`, `css/shop.css`), kept in the visitor's browser;
-checkout isn't built. Every page has a "UK-wide delivery / Bridal bouquets" pull tab hanging under the menu, added by
+checkout isn't built. Every page has a "UK-wide delivery / Bouquets & buttonholes" pull tab hanging under the menu, added by
 `scripts/build-bespoke-florals.py` (set `SHOP_TAB = False` there to remove it everywhere).
 
 ## Quote builder (prototype)

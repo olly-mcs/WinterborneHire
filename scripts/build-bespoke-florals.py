@@ -306,7 +306,7 @@ def footer_hire(url):
         for sec in HIRE_SECTIONS)
 
 
-# The "UK-wide delivery: Bridal bouquets" pull tab hanging under the menu (a mock-up shop, scripts/build-shop.py).
+# The "UK-wide delivery: Bouquets & buttonholes" pull tab hanging under the menu (a mock-up shop, scripts/build-shop.py).
 # Set SHOP_TAB = False to take it off every page.
 SHOP_TAB = True
 # A little white delivery lorry drives on the left of the tab: its wheels turn as the road passes underneath
@@ -320,7 +320,7 @@ SHOP_LORRY = ('<svg class="shop-lorry" viewBox="0 0 48 27" aria-hidden="true" fo
               '<path class="shop-lorry-road" d="M0 25.6h48"/></svg>')
 SHOP_TAB_HTML = ('      <!-- shop-tab:start --><a href="/bridal-bouquets-delivery" class="shop-pulltab">' + SHOP_LORRY +
                  '<span class="shop-pulltab-small">UK-wide delivery</span>'
-                 '<span class="shop-pulltab-big">Bridal bouquets</span></a><!-- shop-tab:end -->\n')
+                 '<span class="shop-pulltab-big">Bouquets &amp; buttonholes</span></a><!-- shop-tab:end -->\n')
 SHOP_TAB_RE = re.compile(r"      <!-- shop-tab:start -->.*?<!-- shop-tab:end -->\n", re.S)
 SHOP_TAB_AFTER = 'class="navbar-3 w-nav">\n'
 
