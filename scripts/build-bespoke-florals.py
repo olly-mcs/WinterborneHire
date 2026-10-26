@@ -235,12 +235,22 @@ FOOTER_RE = re.compile(r"      <!-- bespoke-footer:start -->.*?<!-- bespoke-foot
 FOOTER_AFTER = '      <ul id="w-node-d3e90d10-6a32-7334-83d7-bf6445119b7e-f9ed05b7"'
 
 
+HIRE_COLUMN_RE = re.compile(r'      <ul id="w-node-_034d5bfc-29dc-44ab-0ea6-df49b954530c-f9ed05b7".*?\n      </ul>\n', re.S)
+
+
 def update_footer(text):
-    """The footer's Bespoke Florals column, first after the logo column (before "Contact us")."""
+    """The footer's Bespoke Florals column, first after the logo column (before "Contact us"), with the Hire
+    Collection column straight after it."""
     if FOOTER_RE.search(text):
-        return FOOTER_RE.sub(lambda m: footer_column(), text, count=1)
-    if FOOTER_AFTER in text:
-        return text.replace(FOOTER_AFTER, footer_column() + FOOTER_AFTER, 1)
+        text = FOOTER_RE.sub(lambda m: footer_column(), text, count=1)
+    elif FOOTER_AFTER in text:
+        text = text.replace(FOOTER_AFTER, footer_column() + FOOTER_AFTER, 1)
+    m = HIRE_COLUMN_RE.search(text)
+    end = "      <!-- bespoke-footer:end -->\n"
+    if m and end in text:
+        column = m.group(0)
+        text = text[:m.start()] + text[m.end():]
+        text = text.replace(end, end + column, 1)
     return text
 
 
