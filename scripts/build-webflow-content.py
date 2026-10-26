@@ -219,8 +219,6 @@ def detail_page(col, cfg, item, items):
 # Where each "More kind words" photo is cropped (its 4:3 card), as a CSS object-position, so no one's head is cut
 # off. Photos not listed use TESTIMONIAL_FOCUS_DEFAULT, a little above the centre.
 TESTIMONIAL_FOCUS_DEFAULT = "50% 35%"
-# The small caption on every couple's photo (the same as on the Bespoke Florals pages)
-REAL_CAPTION = "Captured at a real Winterborne wedding"
 TESTIMONIAL_FOCUS = {
     "amber-james": "50% 8%", "shakira-greg": "50% 0%", "rowanne-ben": "50% 0%", "annabelle-michael": "50% 0%",
     "jess-james": "50% 8%", "aklema": "50% 8%", "kayleigh-cj": "50% 0%", "emma-matt": "50% 5%", "helaina-jake": "50% 0%",
@@ -262,7 +260,7 @@ def testimonials():
         meta = f'\n            <p class="kw-meta">{e(t["venue"])}</p>' if t["venue"] else ""
         paras = "".join(f"<p>{e(p.strip())}</p>" for p in t["quote"].split("\n") if p.strip())
         cards.append(f'''        <li class="kw-card">
-          <div class="kw-media bf-real"><img {img} alt="{e(t["names"])}" loading="lazy" class="kw-photo" style="object-position: {TESTIMONIAL_FOCUS.get(t["slug"], TESTIMONIAL_FOCUS_DEFAULT)}"><span class="real-caption">{REAL_CAPTION}</span></div>
+          <img {img} alt="{e(t["names"])}" loading="lazy" class="kw-photo" style="object-position: {TESTIMONIAL_FOCUS.get(t["slug"], TESTIMONIAL_FOCUS_DEFAULT)}">
           <div class="kw-text">
             <h3 class="kw-names">{e(t["names"])}</h3>{meta}
             <blockquote class="kw-quote">{paras}</blockquote>

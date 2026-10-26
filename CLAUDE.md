@@ -217,9 +217,9 @@ from every page and the `X-Robots-Tag` block from `netlify.toml`.
 ## "Captured at a real Winterborne wedding"
 
 A small white caption (`.real-caption`, bottom right) on photos from real weddings, across the site: Bespoke Florals
-(`REAL_CAPTION_PAGES`), the testimonials sliders and "More kind words" cards, the Our Services photos and the hire
-overview's real-wedding photos (`REAL_WEDDING_PHOTOS`). Never on product photos (hire and shop), on photos with an
-overlay or hover effect (heroes, homepage cards and panels), or on wedding fair photos.
+(`REAL_CAPTION_PAGES`), the Our Services photos and the hire overview's real-wedding photos (`REAL_WEDDING_PHOTOS`).
+Never on the testimonials page, product photos (hire and shop), photos with an overlay or hover effect (heroes,
+homepage cards and panels), or wedding fair photos.
 
 ## Rules for changes
 
