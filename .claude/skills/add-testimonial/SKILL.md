@@ -65,6 +65,8 @@ Copy Laura & Alexandra's `<article class="tm">` and change:
   (e.g. "A colourful festival-style celebration"), and `.tm-meta` (venue, month year);
 - slides: one `<li class="tm-slide">` per photo with descriptive `alt` text (what the florals are, who is in shot).
   Landscape photos get `tm-slide tm-slide-wide` and `style="--tm-backdrop:url('...')"` on the `.tm-open` button.
+  Every slide's `.tm-open` button ends with `<span class="real-caption">Captured at a real Winterborne wedding</span>`
+  after the `<img>`.
   If most of a couple's photos are landscape, add `tm-gallery-landscape` to `.tm-gallery` for a 3:2 frame instead,
   and give the portrait photos `tm-slide tm-slide-fit` plus the same backdrop style;
 - thumbnails (same order) and the total in `.tm-count`;

@@ -214,6 +214,13 @@ from every page and the `X-Robots-Tag` block from `netlify.toml`.
 - At launch: remove the noindex (see "Staging"), add `sitemap.xml` and `robots.txt`, add GA4 (the old `UA-` tag is dead),
   and redirect or rebuild the 7 blog posts and 7 wedding packages that `scripts/check-sitemap.py` lists.
 
+## "Captured at a real Winterborne wedding"
+
+A small white caption (`.real-caption`, bottom right) on photos from real weddings, across the site: Bespoke Florals
+(`REAL_CAPTION_PAGES`), the testimonials sliders and "More kind words" cards, the Our Services photos and the hire
+overview's real-wedding photos (`REAL_WEDDING_PHOTOS`). Never on product photos (hire and shop), on photos with an
+overlay or hover effect (heroes, homepage cards and panels), or on wedding fair photos.
+
 ## Rules for changes
 
 - **Fonts: only these three, ever.** Don't bring in fonts from mockups or designs; translate them to these:

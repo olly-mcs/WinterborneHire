@@ -211,6 +211,7 @@
 }
 
 .tm-open {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
@@ -293,10 +294,11 @@
   right: 14px;
 }
 
+/* bottom left, clear of the "Captured at a real Winterborne wedding" caption on the right */
 .tm-count {
   position: absolute;
-  right: 14px;
   bottom: 14px;
+  left: 14px;
   margin: 0;
   padding: 5px 12px;
   border-radius: 999px;

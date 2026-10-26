@@ -724,6 +724,8 @@ for sec in HIRE_SECTIONS:
         p["img"] = (p["slides"][0][0], p["slides"][0][1], "50% 50%") if p["slides"] else None
 
 NO_PHOTO = '<div class="hc-nophoto"><span>Photos coming soon</span></div>'
+# Hire strip photos from real weddings get the "Captured at a real Winterborne wedding" caption; product photos don't
+REAL_WEDDING_PHOTOS = ("/images/testimonials/", "/images/hire-collection/", "/images/services/")
 
 
 def hire_card(sec, p, sizes="(max-width: 991px) 50vw, 25vw"):
@@ -745,7 +747,11 @@ def hire_subnav(current=None):
 def hire_strip(i, x, id_, title, body, button, extra=""):
     if x["img"]:
         src, alt, pos = x["img"]
-        pic = img(src, alt, "(max-width: 767px) 100vw, 50vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')
+        if src.startswith(REAL_WEDDING_PHOTOS):  # a real wedding, not a product photo: add the caption
+            inner = img(src, alt, "(max-width: 767px) 100vw, 50vw", attrs=f' class="bf-real-photo" style="object-position: {pos}" loading="lazy"')
+            pic = f'<div class="bf-cat-image bf-real">{inner}<span class="real-caption">{REAL_CAPTION}</span></div>'
+        else:
+            pic = img(src, alt, "(max-width: 767px) 100vw, 50vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')
     else:
         pic = NO_PHOTO.replace('class="hc-nophoto"', 'class="hc-nophoto bf-cat-image"')
     paras = "".join(f'<p class="bf-body">{e(t)}</p>' for t in body)

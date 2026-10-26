@@ -28,6 +28,9 @@ LOREM = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
          "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
 
+# The small caption on photos from real weddings (the same as on the Bespoke Florals pages)
+REAL_CAPTION = "Captured at a real Winterborne wedding"
+
 # The three ways of working with us: the photo, then the title and copy (placeholder copy for now)
 SERVICES = [
     dict(slug="full-styling", name="Full Styling", body=LOREM,
@@ -120,7 +123,7 @@ def services():
         paras = "".join(f'<p class="bf-body">{e(p)}</p>' for p in s["body"])
         out.append(f'''  <section class="bf-cat sv-cat" id="{s["slug"]}" aria-labelledby="sv-{s["slug"]}-title">
     <div class="bf-cat-main">
-      <img src="{s["img"]}" alt="{e(s["alt"])}" class="bf-cat-image" style="object-position: {s["pos"]}" loading="lazy">
+      <div class="bf-cat-image bf-real"><img src="{s["img"]}" alt="{e(s["alt"])}" class="bf-real-photo" style="object-position: {s["pos"]}" loading="lazy"><span class="real-caption">{REAL_CAPTION}</span></div>
       <div class="bf-cat-text">
         <h2 id="sv-{s["slug"]}-title" class="bf-cat-title">{e(s["name"])}</h2>
         {paras}
