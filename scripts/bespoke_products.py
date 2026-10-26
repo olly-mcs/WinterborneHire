@@ -192,8 +192,9 @@ PRODUCTS = {
     # ---------- Your Florals ----------
     "bridal-bouquets": dict(
         quote="bridal-bouquet",
-        focus="50% 19%",
+        focus="55% 42%",
         gallery=[
+            (B + "bridal-bouquets/yellow-and-white-bouquet", "Bride in a lace-sleeved dress holding a loose bouquet of white orchids, ranunculus, daisies and soft yellow roses with fern"),
             (B + "bridal-bouquets/autumn-bouquet", "Bride holding a loose bouquet of burnt orange, peach and white blooms with dried grasses"),
             (B + "bridal-bouquets/sophie-and-ben-portrait", "Bride by a tall window holding a soft pastel bouquet of pink, blue and white"),
             (B + "bridal-bouquets/moody-portrait", "Bride in a lace dress holding an autumnal bouquet with pampas, in moody light"),
