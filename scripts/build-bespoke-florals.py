@@ -309,7 +309,16 @@ def footer_hire(url):
 # The "UK-wide delivery: Bridal bouquets" pull tab hanging under the menu (a mock-up shop, scripts/build-shop.py).
 # Set SHOP_TAB = False to take it off every page.
 SHOP_TAB = True
-SHOP_TAB_HTML = ('      <!-- shop-tab:start --><a href="/bridal-bouquets-delivery" class="shop-pulltab">'
+# A little white delivery lorry drives on the left of the tab: its wheels turn as the road passes underneath
+# (styles and animation in css/bespoke-florals.css)
+SHOP_LORRY = ('<svg class="shop-lorry" viewBox="0 0 48 27" aria-hidden="true" focusable="false">'
+              '<g class="shop-lorry-body"><rect x="2" y="3" width="26" height="14" rx="1.5"/>'
+              '<path fill-rule="evenodd" d="M30 7h8.5l5 5.5V17H30z M32 9v4.5h8.6l-3.4-4.5z"/>'
+              '<rect x="2" y="16.5" width="42" height="1.8" rx=".9"/></g>'
+              '<g class="shop-lorry-wheel"><circle cx="10" cy="20.5" r="3.4"/><path d="M10 17.1v6.8M6.6 20.5h6.8"/></g>'
+              '<g class="shop-lorry-wheel"><circle cx="36" cy="20.5" r="3.4"/><path d="M36 17.1v6.8M32.6 20.5h6.8"/></g>'
+              '<path class="shop-lorry-road" d="M0 25.6h48"/></svg>')
+SHOP_TAB_HTML = ('      <!-- shop-tab:start --><a href="/bridal-bouquets-delivery" class="shop-pulltab">' + SHOP_LORRY +
                  '<span class="shop-pulltab-small">UK-wide delivery</span>'
                  '<span class="shop-pulltab-big">Bridal bouquets</span></a><!-- shop-tab:end -->\n')
 SHOP_TAB_RE = re.compile(r"      <!-- shop-tab:start -->.*?<!-- shop-tab:end -->\n", re.S)

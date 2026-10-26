@@ -960,6 +960,83 @@ h1.nf-title {
   color: #f6f3ee;
 }
 
+/* The little delivery lorry on the left of the tab: white only, wheels turning, the road sliding underneath */
+.shop-pulltab {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 12px;
+  justify-items: center;
+}
+
+.shop-lorry {
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: 40px;
+  height: 23px;
+  overflow: hidden;
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 0;
+}
+
+.shop-lorry-wheel circle {
+  fill: none;
+  stroke-width: 1.6;
+}
+
+.shop-lorry-wheel path {
+  fill: none;
+  stroke-width: 1.1;
+}
+
+.shop-lorry-wheel {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shop-lorry-wheel 0.7s linear infinite;
+}
+
+.shop-lorry-road {
+  fill: none;
+  stroke-width: 1.2;
+  stroke-dasharray: 5 4;
+  opacity: 0.75;
+  animation: shop-lorry-road 0.45s linear infinite;
+}
+
+.shop-lorry-body {
+  animation: shop-lorry-bob 0.35s steps(2, jump-none) infinite;
+}
+
+@keyframes shop-lorry-wheel {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shop-lorry-road {
+  to {
+    stroke-dashoffset: 9;
+  }
+}
+
+@keyframes shop-lorry-bob {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-0.6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-lorry-wheel,
+  .shop-lorry-road,
+  .shop-lorry-body {
+    animation: none;
+  }
+}
+
 .shop-pulltab-small {
   font-family: Raleway, sans-serif;
   font-size: 11px;
