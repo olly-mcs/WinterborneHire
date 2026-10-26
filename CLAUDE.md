@@ -222,7 +222,7 @@ or description there, not in the build scripts. Keep titles to about 60 characte
   scripts run it at the end. The homepage keeps its hand-picked image.
 - Pages load only Cinzel and Raleway from Google Fonts (a plain stylesheet link). jQuery UI loads only on the showroom
   page, for its date picker. Don't add Masonry, reCAPTCHA or the WebFont loader back.
-- Launched: noindex removed, `sitemap.xml` and `robots.txt` added. Still to do: add GA4 (the old `UA-` tag is dead),
+- Launched: noindex removed, `sitemap.xml` and `robots.txt` added. Google Analytics (GA4, `G-962GWFVQZX`) is added to every page's `<head>` by `scripts/apply-page-meta.py`, which every build runs last; the old `UA-` tag is removed.
   and redirect or rebuild the 7 blog posts and 7 wedding packages that `scripts/check-sitemap.py` lists.
 
 ## "Captured at a real Winterborne wedding"

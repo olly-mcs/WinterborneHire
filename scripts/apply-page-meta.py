@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sets every page's <title> and meta description (plus the matching og: and twitter: tags) from data/page-meta.json,
+"""Adds the Google Analytics tag to every page, and sets every page's <title> and meta description (plus the matching og: and twitter: tags) from data/page-meta.json,
 the titles and descriptions signed off for the site. Run last: the build scripts call it, so it wins over any
 title or description a build script writes.
 
@@ -8,6 +8,21 @@ To change a page's title or description, edit data/page-meta.json (keys are page
 A page that isn't listed keeps whatever its build script gives it.
 """
 import html, json, os, re
+
+# Google Analytics (GA4), first thing in every page's <head>; the old Universal Analytics tag (UA-) is removed
+GA_ID = "G-962GWFVQZX"
+GA_TAG = (f'  <!-- Google tag (gtag.js) -->\n'
+          f'  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>\n'
+          f'  <script>\n    window.dataLayer = window.dataLayer || [];\n    function gtag(){{dataLayer.push(arguments);}}\n'
+          f"    gtag('js', new Date());\n\n    gtag('config', '{GA_ID}');\n  </script>\n")
+OLD_UA = re.compile(r"[ \t]*<script type=\"text/javascript\">\(function\(i,s,o,g,r,a,m\).*?ga\('send', 'pageview'\);</script>\n")
+
+
+def ensure_analytics(text):
+    text = OLD_UA.sub("", text)
+    if GA_ID in text or "<head>" not in text:
+        return text
+    return text.replace("<head>\n", "<head>\n" + GA_TAG, 1)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 META = json.load(open(os.path.join(ROOT, "data", "page-meta.json"), encoding="utf-8"))
@@ -24,6 +39,18 @@ def apply(text, title, desc):
 
 
 if __name__ == "__main__":
+    import glob
+    tagged = 0
+    for path in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True):
+        if os.sep + "node_modules" + os.sep in path or os.sep + "netlify" + os.sep in path:
+            continue
+        old = open(path, encoding="utf-8").read()
+        new = ensure_analytics(old)
+        if new != old:
+            open(path, "w", encoding="utf-8").write(new)
+            tagged += 1
+    if tagged:
+        print(f"Google Analytics tag: added to {tagged} pages")
     changed, missing = 0, []
     for page, m in META.items():
         path = os.path.join(ROOT, page + ".html")
