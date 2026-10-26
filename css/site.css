@@ -2003,3 +2003,10 @@ button.hp-fact-link {
 .hp-facts li > .g-rating {
   justify-self: start;
 }
+
+/* fact headings: smaller, so none runs past two lines */
+.hp-facts strong {
+  font-size: clamp(18px, 1.45vw, 21px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
