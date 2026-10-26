@@ -110,7 +110,7 @@
     '        <label class="wl-field"><span>Time of day</span><select name="showroom-time">' +
     '          <option value="">Choose a time</option><option>Morning (9.30am - 11.59am)</option><option>Afternoon (12pm - 2.30pm)</option>' +
     '        </select></label></details>' +
-    '      <button type="submit" class="wl-submit">Request my quote</button>' +
+    '      <button type="submit" class="wl-submit">Send us your wish list</button>' +
     '      <p class="wl-error" role="alert" hidden>Sorry, your list couldn&#x27;t be sent. Please try again, or email winterbornevintage@gmail.com.</p>' +
     '    </form>' +
     '    <div class="wl-done" hidden><h3 class="wl-form-title">Thank you!</h3>' +
@@ -318,7 +318,7 @@
       .catch(function () { error.hidden = false; })
       .finally(function () {
         button.disabled = false;
-        button.textContent = "Request my quote";
+        button.textContent = "Send us your wish list";
       });
   });
 
