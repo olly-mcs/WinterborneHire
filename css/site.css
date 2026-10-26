@@ -2021,9 +2021,10 @@ button.hp-fact-link {
 }
 
 .process-ctas .process-or {
-  color: #8a5a44;
-  font-family: "Fake serif", serif;
-  font-size: 34px;
+  color: #8f877e;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   line-height: 1;
 }
 
