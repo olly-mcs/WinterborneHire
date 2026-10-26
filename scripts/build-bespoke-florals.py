@@ -576,13 +576,24 @@ def more_title(s):
 
 
 def gallery(t):
-    shots = t["gallery"]
+    # a gallery entry is (photo, alt), or (photo, alt, "fit") for a wide photo shown whole on a soft blurred copy of
+    # itself instead of being cropped to the slider's tall shape
+    shots = [(x[0], x[1], x[2] if len(x) > 2 else "") for x in t["gallery"]]
+
+    def slide(i, src, alt, fit):
+        load = ' fetchpriority="high"' if i == 0 else ' loading="lazy"'
+        if fit == "fit":
+            return (f'<li class="pd-slide pd-slide-fit" id="pd-slide-{i + 1}" aria-label="Photo {i + 1} of {len(shots)}" '
+                    f'style="--pd-fit-bg: url(\'{img_src(src, 600)[0]}\')">'
+                    + img(src, alt, "(max-width: 991px) 100vw, 50vw", attrs=' class="pd-fit-photo"' + load))
+        return (f'<li class="pd-slide" id="pd-slide-{i + 1}" aria-label="Photo {i + 1} of {len(shots)}">'
+                + img(src, alt, "(max-width: 991px) 100vw, 50vw", attrs=load))
+
     slides = "".join(
-        f'<li class="pd-slide" id="pd-slide-{i + 1}" aria-label="Photo {i + 1} of {len(shots)}">'
-        + img(src, alt, "(max-width: 991px) 100vw, 50vw", attrs=' fetchpriority="high"' if i == 0 else ' loading="lazy"')
+        slide(i, src, alt, fit)
         + (f'<span class="real-caption">{REAL_CAPTION}</span>' if is_real(src) else "")
         + "</li>"
-        for i, (src, alt) in enumerate(shots))
+        for i, (src, alt, fit) in enumerate(shots))
     if len(shots) == 1:  # one photo: no arrows, counter or thumbnails
         return f'<div class="pd-gallery"><div class="pd-stage"><ul class="pd-track" role="list">{slides}</ul></div></div>'
     current = ' aria-current="true"'
@@ -590,7 +601,7 @@ def gallery(t):
         f'<li><button type="button" class="pd-thumb{" is-active" if i == 0 else ""}" data-slide="{i}" '
         f'aria-label="Show photo {i + 1}"{current if i == 0 else ""}>'
         + img(src, "", "120px", 600, ' loading="lazy"') + "</button></li>"
-        for i, (src, alt) in enumerate(shots))
+        for i, (src, alt, fit) in enumerate(shots))
     return f'''<div class="pd-gallery" data-gallery>
       <div class="pd-stage">
         <ul class="pd-track" role="list" tabindex="0" aria-label="{e(t["name"])} photos">{slides}</ul>

@@ -508,3 +508,23 @@ body:has(.pd-main) {
   right: auto;
   left: 14px;
 }
+
+/* A wide photo in the tall slider: shown whole, over a soft blurred copy of itself */
+.pd-slide-fit {
+  position: relative;
+  overflow: hidden;
+  background-color: #efe9e1;
+}
+
+.pd-slide-fit::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background: var(--pd-fit-bg) center / cover no-repeat;
+  filter: blur(20px) brightness(0.88);
+}
+
+.pd-slide-fit .pd-fit-photo {
+  position: relative;
+  object-fit: contain;
+}
