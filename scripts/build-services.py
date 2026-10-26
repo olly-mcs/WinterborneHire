@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Builds the Our Services page, /dorset-wedding-styling ("Our Services" in the menu): the hero, a strip for each way
-of working with us (Full, Partial and Self Styling), The Process (five steps) and the showroom/contact buttons.
+of working with us (Full Wedding Styling, Partial Wedding Styling and DIY Wedding Hire), The Process (five steps) and the showroom/contact buttons.
 
 Edit the copy below, then run:  python3 scripts/build-services.py
 The page keeps its own <head>, menu and footer; this rewrites the content between the services markers.
@@ -23,23 +23,42 @@ HERO = dict(
     alt="Round reception tables with white florals and tall candles in a grand stone hall with tall arched windows",
 )
 
-LOREM = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
-         "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
-         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
 
 # The small caption on photos from real weddings (the same as on the Bespoke Florals pages)
 REAL_CAPTION = "Captured at a real Winterborne wedding"
 
 # The three ways of working with us: the photo, then the title and copy (placeholder copy for now)
 SERVICES = [
-    dict(slug="full-styling", name="Full Styling", body=LOREM,
+    dict(slug="full-wedding-styling", name="Full Wedding Styling", tag="Your vision, beautifully taken care of.",
+         body=["Want your wedding to look incredible without spending your wedding morning setting it all up? Our full "
+               "styling service takes care of everything, from the first design ideas to the final pack-down.",
+               "Start by exploring our extensive collection of bespoke wedding florals and hire pieces, then work with us "
+               "to create a considered look for your venue. We’ll help you choose the right florals, backdrops, table "
+               "details, signage and finishing touches, making sure everything works beautifully together.",
+               "Once the design is finalised, we take it from there. We arrive ahead of your wedding to style and dress "
+               "the venue, creating the finished look we’ve planned together.",
+               "And when the celebrations are over, we return to pack everything away.",
+               "You simply arrive, enjoy your day and spend your time with the people who matter."],
          img="/images/testimonials/hannah-dave/02-reception-arch-and-tables.jpg", pos="50% 50%",
          alt="Long reception tables styled with bright florals, candles and orange napkins beneath a floral arch"),
-    dict(slug="partial-styling", name="Partial Styling", body=LOREM,
+    dict(slug="partial-wedding-styling", name="Partial Wedding Styling", tag="A little extra help, exactly where you need it.",
+         body=["Already planning to style most of your wedding yourself, but want us to take care of the bigger or "
+               "trickier details?",
+               "Our partial styling service gives you the flexibility to choose where you’d like our help. Whether that’s "
+               "setting up your outdoor ceremony, dressing your chairs or installing your floral backdrop, we’ll take care "
+               "of the details you’d rather leave to us.",
+               "We’ll agree exactly what you need help with beforehand, so you can enjoy your day knowing those important "
+               "details are taken care of."],
          img="/images/testimonials/laura-alexandra/02-ceremony-aisle.jpg", pos="50% 60%",
          alt="Outdoor ceremony aisle lined with guests and florals"),
-    dict(slug="self-styling", name="Self Styling", body=LOREM,
+    dict(slug="diy-wedding-hire", name="DIY Wedding Hire", tag="You bring the helpers. We’ll provide everything else.",
+         body=["Got plenty of willing friends and family ready to help? Our DIY hire service gives you the freedom to "
+               "create your dream wedding, with everything you need from our collection of florals, styling and hire pieces.",
+               "Choose as much or as little as you need, from statement ceremony florals and centrepieces to chair drapes, "
+               "signage, tableware and all those finishing touches.",
+               "We’ll have everything packed and ready to go, either for delivery straight to your venue or collection from "
+               "our showroom. Once the celebrations are over, we’ll collect everything from your venue or you can return "
+               "it to us."],
          img="/images/hire-collection/minterne-reception-1200.webp", pos="50% 50%",
          alt="Reception tables with gold chairs and white florals, styled by the couple with hired pieces"),
 ]
@@ -121,7 +140,7 @@ def subnav():
 
 
 def services():
-    """Full, Partial and Self Styling as one scrolling section: on wider screens the photo stays pinned on the left
+    """Full, Partial and DIY as one scrolling section: on wider screens the photo stays pinned on the left
     while each service's text scrolls up on the right, and the photo changes as each one reaches the middle of the
     screen (js/services-scroll.js). On phones each service is simply its photo, then its text."""
     def photo(s, cls, eager=False):
@@ -138,6 +157,7 @@ def services():
         {photo(s, "sv-panel-photo")}
         <div class="sv-panel-text">
           <h2 id="sv-{s["slug"]}-title" class="bf-cat-title">{e(s["name"])}</h2>
+          <p class="bf-script">{e(s["tag"])}</p>
           {"".join(f'<p class="bf-body">{e(p)}</p>' for p in s["body"])}
         </div>
       </section>'''
