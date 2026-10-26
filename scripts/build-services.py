@@ -184,8 +184,7 @@ BF_CSS = '  <link href="/css/bespoke-florals.css" rel="stylesheet" type="text/cs
 CSS = ('  <link href="/css/site.css" rel="stylesheet" type="text/css">\n' + BF_CSS +
        '  <link href="/css/services.css" rel="stylesheet" type="text/css">\n')
 TITLE = "Our Services: Wedding Styling &amp; Hire in Dorset | Winterborne Hire &amp; Styling"
-DESC = ("Full styling and setup, styling support, or everything you need to style your venue yourself. Wedding styling, "
-        "hire and bespoke florals in Dorset, designed around you.")
+DESC = "Wedding styling services in Dorset: full styling and setup, partial styling, or hire everything to style it yourself, with props and bespoke faux florals."
 
 if __name__ == "__main__":
     s = open(PAGE, encoding="utf-8").read()

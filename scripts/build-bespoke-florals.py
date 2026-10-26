@@ -874,7 +874,7 @@ hire_body = hire_hero(HIRE_HOME, HIRE_HOME["title"], False, "#hc-collection") + 
         hire_strip(i, s, s["slug"], s["name"], s["body"], (hire_url(s), f'Explore {s["name"].lower()}'), extra=hire_row(s))
         for i, s in enumerate(HIRE_SECTIONS)) + "\n  </div>\n" + HIRE_CTA
 write("wedding-prop-hire-collection.html", hire_page(
-    "Wedding Hire Collection in Dorset | Winterborne Hire & Styling", HIRE_HOME["body"][0], HIRE_OVERVIEW, hire_body))
+    "Wedding Hire Collection in Dorset | Winterborne Hire & Styling", HIRE_HOME["meta"], HIRE_OVERVIEW, hire_body))
 
 # sections and products
 hire_built = 0
@@ -883,7 +883,7 @@ for s in HIRE_SECTIONS:
         '  <div class="bf-collection">\n' + "\n".join(
             hire_strip(i, p, p["slug"], p["name"], p["about"][:2], (hire_url(s, p), f'Discover {p["name"].lower()}'))
             for i, p in enumerate(s["products"])) + "\n  </div>\n" + HIRE_CTA
-    write(f'{s["slug"]}.html', hire_page(f'{s["name"]} Hire | Wedding Hire Collection | Winterborne', s["body"][0], hire_url(s), body))
+    write(f'{s["slug"]}.html', hire_page(f'{s["name"]} Hire | Wedding Hire Collection | Winterborne', s["meta"], hire_url(s), body))
     os.makedirs(os.path.join(ROOT, s["slug"]), exist_ok=True)
     for p in s["products"]:
         write(f'{s["slug"]}/{p["slug"]}.html', hire_page(f'{p["name"]} Hire | {s["name"]} | Winterborne', " ".join(p["about"][:2]),

@@ -9,6 +9,7 @@ builder adds that product's second "-hover" photo when there is one). Clicking a
 - options="styles" (the default): a row of names
 - a variant with no photos is still listed and can be added to the wish list; a product with no photos at all shows a
   "Photos coming soon" panel
+- meta: a section's meta description for search results (under about 155 characters)
 - old: the old product page slugs (in their old Webflow folder) that now redirect here
 """
 
@@ -24,6 +25,7 @@ def V(name, *photos, swatch=None):
 
 OVERVIEW = dict(
     title="Hire Collection",
+    meta="Wedding prop hire in Dorset: table decor, signage, small props, chairs, rugs and more to complete your venue. See it all at our showroom near Dorchester.",
     tag="All the finishing touches for your wedding day.",
     body=["From statement backdrops and aisle decor to table styling, candles and signage, our hirable collection has "
           "everything you need to bring your vision to life. Carefully chosen pieces to complement your florals and "
@@ -33,7 +35,8 @@ OVERVIEW = dict(
 )
 
 SECTIONS = [
-    dict(slug="table-decor", name="Table Decor", tag="Lorem ipsum dolor sit amet.", body=LOREM,
+    dict(slug="table-decor", meta="Wedding table decor hire in Dorset: coloured napkins, charger plates, gold cutlery, candlesticks, bud vases and tea light holders to finish every table.",
+         name="Table Decor", tag="Lorem ipsum dolor sit amet.", body=LOREM,
          img=("/images/testimonials/hannah-dave/02-reception-arch-and-tables.jpg",
               "Long reception tables with orange napkins and bright florals beneath a floral arch", "50% 50%"),
          products=[
@@ -139,7 +142,8 @@ SECTIONS = [
          removed=["blackboard-table-numbers", "chalkboard-table-number", "gold-frame-table-numbers-with-dried-fern",
                   "mini-table-easels"]),
 
-    dict(slug="signage", name="Signage", tag="Beautiful details to guide your day.",
+    dict(slug="signage", meta="Wedding signage hire in Dorset: table plans, welcome signs, order of the day, menus, name cards and neon signs, designed in your colours and fonts.",
+         name="Signage", tag="Beautiful details to guide your day.",
          body=["From welcome signs and seating plans to table numbers and personalised details, our hirable signage "
                "collection adds the perfect finishing touch to your wedding.",
                "We have a range of frames, stands and styles to suit every setting, whether you’re looking for something "
@@ -198,7 +202,8 @@ SECTIONS = [
                   "handmade-wooden-signs", "wooden-circular-welcome-sign", "rustic-wood-rectangular-welcome-sign",
                   "order-of-the-day-pallet-sign", "no-seating-plan-pallet-sign"]),
 
-    dict(slug="small-props", name="Small Props", tag="Lorem ipsum dolor sit amet.", body=LOREM,
+    dict(slug="small-props", meta="Wedding prop hire in Dorset: cake stands, card boxes, lanterns, disco balls and finishing touches to style your venue, from welcome table to dance floor.",
+         name="Small Props", tag="Lorem ipsum dolor sit amet.", body=LOREM,
          # stand-in until the small props photo is uploaded
          img=("wf:small-props/gold-glass-card-box-hover", "Gold-framed glass card box on a white table", "50% 50%"),
          products=[
@@ -254,7 +259,8 @@ SECTIONS = [
          ],
          removed=["boho-printed-square-cushions", "extra-large-dreamcatcher", "large-bottle-with-seagrass-twine"]),
 
-    dict(slug="seating-areas", name="Seating Areas", tag="Lorem ipsum dolor sit amet.", body=LOREM,
+    dict(slug="seating-areas", meta="Wedding furniture hire in Dorset: peacock chairs, cane armchairs, boho side tables, and vintage rugs and runners for lounge areas, top tables and aisles.",
+         name="Seating Areas", tag="Lorem ipsum dolor sit amet.", body=LOREM,
          img=("/images/testimonials/steph-karl/02-peacock-chairs-and-florals.jpg",
               "Couple on peacock chairs on a round jute rug, with disco balls and a bright meadow arrangement", "50% 62%"),
          products=[
