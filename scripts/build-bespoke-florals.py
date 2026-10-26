@@ -406,9 +406,18 @@ def perfect(x):
             + "".join(f"<li>{CHECK}<span>{e(p)}</span></li>" for p in x["perfect"]) + "</ul></div>")
 
 
-def cat_image(x, src, alt, pos):
+# "Captured at a real Winterborne wedding" caption on photos with no overlay or hover effect.
+# Pages (section slugs) that show it on their product block photos; add more as the test grows.
+REAL_CAPTION = "Captured at a real Winterborne wedding"
+REAL_CAPTION_PAGES = {"the-ceremony"}
+
+
+def cat_image(x, src, alt, pos, real=False):
     """The block photo. fit="contain" (in bespoke_products.py) zooms out to show the whole photo, with a soft blurred
     copy of it filling the sides, for tall photos that would otherwise lose too much."""
+    if real and x.get("fit") != "contain":
+        inner = img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-real-photo" style="object-position: {pos}" loading="lazy"')
+        return f'<div class="bf-cat-image bf-real">{inner}<span class="real-caption">{REAL_CAPTION}</span></div>'
     if x.get("fit") != "contain":
         return img(src, alt, "(max-width: 767px) 100vw, 40vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')
     small = img_src(src, 600)[0]
@@ -416,12 +425,12 @@ def cat_image(x, src, alt, pos):
     return f'<div class="bf-cat-image bf-fit" style="--bf-fit-bg: url(\'{small}\')">{inner}</div>'
 
 
-def strip(i, x, id_, title_id, title, button=None, extra=""):
+def strip(i, x, id_, title_id, title, button=None, extra="", real=False):
     src, alt, pos = x["img"]
     btn = f'\n        <a href="{button[0]}" class="bf-button">{e(button[1])}</a>' if button else ""
     return f'''  <section class="bf-cat{" bf-cat-flip" if i % 2 else ""}" id="{id_}" aria-labelledby="{title_id}">
     <div class="bf-cat-main">
-      {cat_image(x, src, alt, pos)}
+      {cat_image(x, src, alt, pos, real)}
       <div class="bf-cat-text">
         <h2 id="{title_id}" class="bf-cat-title">{e(title)}</h2>
         <p class="bf-script">{e(x["tag"])}</p>
@@ -453,8 +462,6 @@ CTA = '''  <section class="ff-cta" aria-labelledby="bf-cta-title">
 # ---------- overview ----------
 main_body = f'''  <section class="bf-hero" aria-labelledby="bf-hero-title">
     <img class="bf-hero-image" src="/images/bespoke-florals/hero/gazebo-lavender-kiss-1200.webp" srcset="/images/bespoke-florals/hero/gazebo-lavender-kiss-600.webp 600w, /images/bespoke-florals/hero/gazebo-lavender-kiss-1200.webp 1200w, /images/bespoke-florals/hero/originals/gazebo-lavender-kiss.jpg 2000w" sizes="(max-width: 991px) 100vw, 62vw" alt="Couple kissing beneath a wrought iron gazebo framed by lilac, white and green floral pillars, with lavender lining the aisle" fetchpriority="high">
-    <!-- "real wedding" marker (test): remove these lines to take it off -->
-    <p class="real-mark" tabindex="0"><svg class="real-mark-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span class="real-mark-text">A real Winterborne wedding</span><span class="real-mark-more">Every photo here is from a real wedding we styled, never AI-generated.</span></p>
     <div class="bf-hero-text">
       <h1 id="bf-hero-title" class="bf-hero-title">Bespoke wedding florals</h1>
       <p class="bf-script bf-hero-script">Designed in your colours, from the aisle to the last dance.</p>
@@ -489,7 +496,8 @@ for s in SECTIONS:
     </div>
   </section>
 {subnav(s["slug"])}  <div class="bf-collection">
-''' + "\n".join(strip(i, t, t["slug"], f'bf-{t["slug"]}-title', t["name"], button=(purl(s, t), f'Discover {t["name"].lower()}'))
+''' + "\n".join(strip(i, t, t["slug"], f'bf-{t["slug"]}-title', t["name"], button=(purl(s, t), f'Discover {t["name"].lower()}'),
+                      real=s["slug"] in REAL_CAPTION_PAGES)
                 for i, t in enumerate(s["types"])) + f'''
   </div>
 ''' + CTA
