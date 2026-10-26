@@ -329,11 +329,11 @@ def home_reviews():
   <dialog class="faux-dialog rv-dialog" id="reviews-dialog" aria-labelledby="reviews-dialog-title">
     <button type="button" class="faux-dialog-close" aria-label="Close" data-close>&times;</button>
     <h2 id="reviews-dialog-title" class="rv-title"><span class="g-rating"><img src="/images/google-rating-5.svg" width="150" height="40" alt="Google rating 5.0, five stars"></span></h2>
-    <p class="rv-sub">From 101 five-star reviews. Here are a few of our favourites.</p>
+    <p class="rv-sub">From over a hundred Google reviews. Here are a few of our favourites.</p>
     <ul class="rv-list" role="list">
 {chr(10).join(items)}
     </ul>
-    <a href="{GOOGLE_REVIEWS_URL}" class="hp-button" target="_blank" rel="noopener">Read all 101 on Google<span class="pd-visually-hidden"> (opens in a new tab)</span></a>
+    <a href="{GOOGLE_REVIEWS_URL}" class="hp-button" target="_blank" rel="noopener">Read our reviews<span class="pd-visually-hidden"> (opens in a new tab)</span></a>
   </dialog>
   <!-- reviews-dialog:end -->'''
     if "<!-- reviews-dialog:start -->" in s:
