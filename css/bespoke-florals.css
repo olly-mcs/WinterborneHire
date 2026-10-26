@@ -1204,3 +1204,147 @@ h1.nf-title {
 .hp-reviews + .ff-cta {
   border-top: 1px solid #e3d9d0;
 }
+
+/* Delivery tab with its chevron: the wrapper carries the tab's look; the chevron tucks it up into a small handle */
+.shop-tab {
+  position: absolute;
+  top: 100%;
+  right: max(4vw, 20px);
+  z-index: 8;
+  display: flex;
+  align-items: stretch;
+  border-radius: 0 0 14px 14px;
+  background-color: rgba(43, 39, 36, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 5px rgba(43, 39, 36, 0.55);
+  transition: background-color 0.2s ease;
+}
+
+.shop-tab:hover {
+  background-color: rgba(43, 39, 36, 0.9);
+}
+
+.shop-tab .shop-pulltab {
+  position: static;
+  border-radius: 0 0 0 14px;
+  background: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.shop-tab .shop-pulltab:hover,
+.shop-tab .shop-pulltab:focus-visible {
+  background: none;
+}
+
+.shop-tab-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid rgba(246, 243, 238, 0.18);
+  border-radius: 0 0 14px 0;
+  background: none;
+  color: #f6f3ee;
+  cursor: pointer;
+}
+
+.shop-tab-toggle svg {
+  width: 12px;
+  height: 8px;
+  transition: transform 0.25s ease;
+}
+
+.shop-tab-toggle:hover,
+.shop-tab-toggle:focus-visible {
+  background-color: rgba(246, 243, 238, 0.1);
+}
+
+.shop-tab-toggle:focus-visible {
+  outline: 2px solid #e59775;
+  outline-offset: -2px;
+}
+
+/* Tucked away: just the chevron, pointing down */
+.shop-tab.is-collapsed .shop-pulltab {
+  display: none;
+}
+
+.shop-tab.is-collapsed .shop-tab-toggle {
+  width: 40px;
+  height: 22px;
+  border-left: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+.shop-tab.is-collapsed .shop-tab-toggle svg {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 991px) {
+  .shop-tab {
+    right: 16px;
+  }
+}
+
+/* Phones: one slim line, smaller type */
+@media screen and (max-width: 767px) {
+  .shop-tab {
+    right: 10px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .shop-tab .shop-pulltab {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+    padding: 5px 9px 6px 11px;
+    border-radius: 0 0 0 10px;
+  }
+
+  .shop-tab .shop-pulltab:hover,
+  .shop-tab .shop-pulltab:focus-visible {
+    padding-top: 5px;
+  }
+
+  .shop-tab .shop-pulltab-small {
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+  }
+
+  .shop-tab .shop-pulltab-small::after {
+    content: " \00b7";
+  }
+
+  .shop-tab .shop-pulltab-big {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .shop-tab-toggle {
+    width: 26px;
+    border-radius: 0 0 10px 0;
+  }
+
+  .shop-tab-toggle svg {
+    width: 10px;
+    height: 7px;
+  }
+
+  .shop-tab.is-collapsed .shop-tab-toggle {
+    width: 32px;
+    height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-tab-toggle svg {
+    transition: none;
+  }
+}

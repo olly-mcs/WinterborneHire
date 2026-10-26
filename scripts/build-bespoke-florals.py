@@ -330,9 +330,20 @@ SHOP_LORRY = ('<svg class="shop-lorry" viewBox="0 0 48 27" aria-hidden="true" fo
               '<g class="shop-lorry-wheel"><circle cx="10" cy="20.5" r="3.4"/><path d="M10 17.1v6.8M6.6 20.5h6.8"/></g>'
               '<g class="shop-lorry-wheel"><circle cx="36" cy="20.5" r="3.4"/><path d="M36 17.1v6.8M32.6 20.5h6.8"/></g>'
               '<path class="shop-lorry-road" d="M0 25.6h48"/></svg>')
-SHOP_TAB_HTML = ('      <!-- shop-tab:start --><a href="/bridal-bouquets-delivery" class="shop-pulltab">' + SHOP_LORRY +
+# The chevron tucks the tab up into a small handle (and back); the choice is remembered in the visitor's browser
+SHOP_TAB_CHEVRON = ('<svg viewBox="0 0 12 8" aria-hidden="true" focusable="false"><path d="M1 6.5l5-5 5 5" fill="none" '
+                    'stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+SHOP_TAB_SCRIPT = ("<script>(function(){var w=document.currentScript.parentNode,b=w.querySelector('.shop-tab-toggle'),k='winterborne-shop-tab';"
+                   "function set(c){w.classList.toggle('is-collapsed',c);b.setAttribute('aria-expanded',c?'false':'true');"
+                   "b.setAttribute('aria-label',c?'Show UK-wide delivery':'Hide UK-wide delivery');}"
+                   "try{set(localStorage.getItem(k)==='hidden')}catch(e){}"
+                   "b.addEventListener('click',function(){var c=!w.classList.contains('is-collapsed');set(c);"
+                   "try{localStorage.setItem(k,c?'hidden':'shown')}catch(e){}});})();</script>")
+SHOP_TAB_HTML = ('      <!-- shop-tab:start --><div class="shop-tab"><a href="/bridal-bouquets-delivery" class="shop-pulltab">' + SHOP_LORRY +
                  '<span class="shop-pulltab-small">UK-wide delivery</span>'
-                 '<span class="shop-pulltab-big">Bouquets &amp; buttonholes</span></a><!-- shop-tab:end -->\n')
+                 '<span class="shop-pulltab-big">Bouquets &amp; buttonholes</span></a>'
+                 '<button type="button" class="shop-tab-toggle" aria-expanded="true" aria-label="Hide UK-wide delivery">'
+                 + SHOP_TAB_CHEVRON + '</button>' + SHOP_TAB_SCRIPT + '</div><!-- shop-tab:end -->\n')
 SHOP_TAB_RE = re.compile(r"      <!-- shop-tab:start -->.*?<!-- shop-tab:end -->\n", re.S)
 SHOP_TAB_AFTER = 'class="navbar-3 w-nav">\n'
 
