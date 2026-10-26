@@ -60,36 +60,23 @@
   color: #fff;
 }
 
-/* Hero: the showroom video with the title over it, left aligned with a soft shadow. A dark wash from the left keeps
-   the text readable, and the bottom fades into the page colour so the video blends into the section below. */
+/* Hero: the showroom video with the title over it, left aligned. No overlay: a soft text shadow keeps the white text
+   readable over the video. */
 .background-video.w-background-video {
   justify-content: flex-start;
   align-items: flex-end;
-  height: min(86vh, 760px);
-  min-height: 520px;
-}
-
-.background-video.w-background-video::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(180deg, rgba(245, 245, 245, 0) 50%, rgba(245, 245, 245, 0.1) 58%, rgba(245, 245, 245, 0.3) 66%,
-      rgba(245, 245, 245, 0.58) 74%, rgba(245, 245, 245, 0.82) 82%, rgba(245, 245, 245, 0.96) 89%, #f5f5f5 94%),
-    linear-gradient(90deg, rgba(20, 19, 16, 0.62) 0%, rgba(20, 19, 16, 0.35) 45%, rgba(20, 19, 16, 0.05) 75%),
-    linear-gradient(180deg, rgba(20, 19, 16, 0.15) 0%, rgba(20, 19, 16, 0.3) 100%);
-  pointer-events: none;
+  height: min(72vh, 640px);
+  min-height: 460px;
 }
 
 .sr-hero-text {
   position: relative;
   z-index: 1;
   max-width: 820px;
-  margin: 0 0 clamp(150px, 22vh, 230px) max(5vw, 24px);
+  margin: 0 0 clamp(48px, 8vh, 80px) max(5vw, 24px);
   padding: 0;
   text-align: left;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .sr-hero-title {
@@ -123,6 +110,7 @@
   text-align: left;
 }
 
+.sr-hero-text .bf-button,
 .sr-hero-text .sr-button {
   margin-top: 0;
   text-shadow: none;
@@ -132,13 +120,13 @@
 
 @media screen and (max-width: 767px) {
   .background-video.w-background-video {
-    height: 78vh;
-    min-height: 480px;
+    height: 70vh;
+    min-height: 440px;
   }
 
   .sr-hero-text {
     margin-right: 24px;
-    margin-bottom: 130px;
+    margin-bottom: 40px;
   }
 }
 
@@ -146,7 +134,17 @@
 .sr-intro {
   max-width: 760px;
   margin: 0 auto;
-  padding: 96px 24px 88px;
+  padding: 64px 24px 56px;
+  text-align: center;
+}
+
+.sr-note {
+  margin: 26px 0 0;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-align: center;
 }
 
@@ -176,7 +174,7 @@
 
 /* Booking form */
 .sr-book {
-  padding: 88px max(4vw, 20px) 104px;
+  padding: 56px max(4vw, 20px) 88px;
   background-color: #f6f3ee;
   border-top: 1px solid #e3d9d0;
 }
@@ -187,6 +185,10 @@
   padding: clamp(32px, 5vw, 56px);
   background-color: #fff;
   text-align: center;
+}
+
+.sr-book-card > .sr-heading {
+  margin-bottom: 28px;
 }
 
 .sr-book-card > .sr-body {
@@ -304,7 +306,7 @@ select.sr-input:invalid {
   }
 
   .sr-intro {
-    padding: 72px 24px 64px;
+    padding: 48px 24px 40px;
   }
 }
 
