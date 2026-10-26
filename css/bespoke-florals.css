@@ -1194,3 +1194,8 @@ h1.nf-title {
     width: 100%;
   }
 }
+
+/* Reviews with more than one paragraph */
+.hp-quote blockquote p + p {
+  margin-top: 12px;
+}

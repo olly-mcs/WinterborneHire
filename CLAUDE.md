@@ -233,6 +233,14 @@ The main menu is Bespoke Florals, Hire Collection, Our Services, Showroom, Testi
 still live and in the footer. To bring it back, swap the Testimonials link in every page's menu (marked with an
 "About us dropdown ... hidden for now" comment) for the dropdown markup from git history.
 
+## Reviews block
+
+"Kind words from our couples" (homepage, Who we are and every Bespoke Florals product page) is built by
+`scripts/reviews_block.py` from the four featured couples' reviews on `our-testimonials.html`. Each block holds all
+four; `js/reviews.js` shows a random one per visit. To change a quote, edit the review on the testimonials page and
+rebuild (`python3 scripts/build-bespoke-florals.py`). The old per-product `testimonial` entries in
+`scripts/bespoke_products.py` are no longer shown.
+
 ## Rules for changes
 
 - **Fonts: only these three, ever.** Don't bring in fonts from mockups or designs; translate them to these:

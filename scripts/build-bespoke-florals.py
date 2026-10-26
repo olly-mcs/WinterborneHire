@@ -14,6 +14,7 @@ import glob, html, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bespoke_products import PRODUCTS  # noqa: E402
+import reviews_block  # noqa: E402
 from hire_products import SECTIONS as HIRE_SECTIONS, OVERVIEW as HIRE_HOME, OLD_FOLDERS, OLD_LIST_PAGES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -601,56 +602,6 @@ def gallery(t):
     </div>'''
 
 
-# Testimonial on every product page. Placeholder until real reviews are matched to each product: give a type its own
-# with testimonial=dict(quote=..., names=..., venue=...) in bespoke_products.py.
-TESTIMONIAL = dict(
-    quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
-          "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
-    names="Emily & Tom",
-    venue="Minterne House, Dorset",
-)
-
-
-# Couples' photos for the review thumbnail: the older testimonials (data/webflow-content.json, by names) and the four
-# featured couples on /our-testimonials. A review can also name its photo with photo="/images/...".
-FEATURED_PHOTOS = {
-    "laura & alexandra": "/images/testimonials/laura-alexandra/01-floral-archway.jpg",
-    "hannah & dave": "/images/testimonials/hannah-dave/01-kiss-under-floral-arch.jpg",
-    "sophie & ben": "/images/testimonials/sophie-ben/04-ceremony-kiss.jpg",
-    "steph & karl": "/images/testimonials/steph-karl/04-confetti-walk.jpg",
-}
-
-
-def couple_photo(q):
-    if q.get("photo"):
-        return q["photo"]
-    key = q["names"].lower().replace(" and ", " & ").strip()
-    if key in FEATURED_PHOTOS:
-        return FEATURED_PHOTOS[key]
-    data = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
-    for item in data["testimonials"]:
-        if item["names"].lower().replace(" and ", " & ").strip() == key and item.get("image", {}).get("file"):
-            base = item["image"]["file"].replace("images/webflow/", "/images/webflow-sized/").rsplit(".", 1)[0]
-            return base + "-600.webp"
-    return None
-
-
-def testimonial(t):
-    q = t.get("testimonial", TESTIMONIAL)
-    photo = None  # thumbnails switched off; couple_photo(q) finds one when wanted
-    thumb = (f'<img class="pd-quote-photo" src="{photo}" alt="{e(q["names"])}" loading="lazy">' if photo else "")
-    paras = "".join(f"<p>{e(p)}</p>" for p in (q["quote"] if isinstance(q["quote"], list) else [q["quote"]]))
-    return f'''  <section class="pd-quote" aria-label="What our couples say">
-    <figure class="pd-quote-inner">
-      <span class="pd-quote-mark" aria-hidden="true">&ldquo;</span>
-      <blockquote class="pd-quote-text">{paras}</blockquote>
-      <figcaption class="pd-quote-by{" has-photo" if photo else ""}">{thumb}<span class="pd-quote-who"><span class="pd-quote-names">{e(q["names"])}</span><span class="pd-quote-venue">{e(q["venue"])}</span></span></figcaption>
-    </figure>
-    <a href="/our-testimonials" class="pd-quote-button" target="_blank" rel="noopener">View more testimonials<span class="pd-visually-hidden"> (opens in a new tab)</span></a>
-  </section>
-'''
-
-
 def product_body(s, t):
     # no prices: drop any detail that gives one
     details = "".join(f"<div class=\"pd-detail\"><dt>{e(k)}</dt><dd>{e(v)}</dd></div>"
@@ -698,7 +649,7 @@ def product_body(s, t):
       {perfect(dict(perfect=t.get("page_perfect", t["perfect"])))}
     </div>
   </section>
-{testimonial(t)}{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
+{reviews_block.block(purl(s, t))}{know}{more_section}  <section class="pd-sections" aria-labelledby="pd-sections-title">
     <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore bespoke florals</h2>
     <ul class="pd-section-list" role="list">{sections}</ul>
   </section>
@@ -713,6 +664,7 @@ for s in SECTIONS:
         html_ = page(f'{t["name"]} | Bespoke Wedding Florals | Winterborne', t["about"][0], purl(s, t), product_body(s, t), s["slug"])
         html_ = html_.replace(PRODUCT_CSS, PRODUCT_CSS + '\n  <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">', 1)
         html_ = html_.replace("</body>", '  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>\n</body>', 1)
+        html_ = reviews_block.update(html_, purl(s, t))
         write(f'bespoke-florals/{s["slug"]}/{t["slug"]}.html', html_)
         built += 1
 print(f"built {built} product pages")
@@ -986,6 +938,7 @@ for path in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True):
     text = open(path, encoding="utf-8").read()
     rel = os.path.relpath(path, ROOT)[:-5].replace(os.sep, "/")
     new = update_nav(text, url="/" + ("" if rel == "index" else rel))
+    new = reviews_block.update(new, "/" + ("" if rel == "index" else rel))
     if new != text:
         open(path, "w", encoding="utf-8").write(new)
         count += 1
