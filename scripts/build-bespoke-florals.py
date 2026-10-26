@@ -333,6 +333,26 @@ def update_shop_tab(text):
     return text
 
 
+# A small home icon at the start of the menu: a soft, rounded little house with a peach heart for a window
+HOME_ICON = ('<svg class="nav-home-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+             '<path class="nav-home-line" d="M3.8 11.4 11 5.3a1.6 1.6 0 0 1 2 0l7.2 6.1"/>'
+             '<path class="nav-home-line" d="M16.4 7.4V5.2"/>'
+             '<path class="nav-home-line" d="M6.2 10.2v8.1c0 1 .8 1.8 1.8 1.8h8c1 0 1.8-.8 1.8-1.8v-8.1"/>'
+             '<path class="nav-home-heart" d="M12 17.2c-1.9-1.3-3-2.3-3-3.5a1.5 1.5 0 0 1 3-.4 1.5 1.5 0 0 1 3 .4c0 1.2-1.1 2.2-3 3.5z"/>'
+             '</svg>')
+HOME_RE = re.compile(r"          <!-- nav-home:start -->.*?<!-- nav-home:end -->\n", re.S)
+HOME_AFTER = '<nav role="navigation" class="nav-menu-4 w-nav-menu">\n'
+
+
+def update_home_link(text, url=None):
+    here = url in ("/", "/index")
+    link = ('          <!-- nav-home:start --><a href="/"' + (' aria-current="page"' if here else "")
+            + f' class="mainnavstyling w-nav-link nav-home{" w--current" if here else ""}" aria-label="Home">'
+            + HOME_ICON + '<span class="nav-home-text">Home</span></a><!-- nav-home:end -->\n')
+    text = HOME_RE.sub("", text)
+    return text.replace(HOME_AFTER, HOME_AFTER + link, 1) if HOME_AFTER in text else text
+
+
 def update_nav(text, current=None, url=None):
     """current: a section slug, or "overview", on the Bespoke Florals pages themselves; url: the page's address, to
     mark the current Hire Collection page. Puts Bespoke Florals first and Hire Collection second in the menu, and
@@ -348,7 +368,7 @@ def update_nav(text, current=None, url=None):
     elif b:
         text = NAV_RE.sub(lambda m: menu(current), text, count=1)
     text = FOOTER_HIRE_RE.sub(lambda m: m.group(1) + footer_hire(url) + m.group(2), text, count=1)
-    return update_shop_tab(update_footer(text))
+    return update_home_link(update_shop_tab(update_footer(text)), url)
 
 
 # ---------- page shell ----------

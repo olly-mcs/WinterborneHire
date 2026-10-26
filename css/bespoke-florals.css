@@ -1117,3 +1117,80 @@ h1.nf-title {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
   pointer-events: none;
 }
+
+/* Home icon at the start of the menu (scripts/build-bespoke-florals.py, HOME_ICON) */
+.nav-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-home-icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  transition: transform 0.25s ease;
+}
+
+.nav-home-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav-home-heart {
+  fill: #e59775;
+}
+
+.nav-home:hover .nav-home-icon,
+.nav-home:focus-visible .nav-home-icon {
+  transform: translateY(-2px) rotate(-4deg);
+}
+
+/* Desktop: icon only; the open mobile menu shows the word too */
+.nav-home-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 991px) {
+  .mainnavstyling.nav-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .nav-home-text {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-home-icon {
+    transition: none;
+  }
+}
+
+/* Centre the menu items under the logo (the Webflow menu packs them to the left of its container) */
+@media screen and (min-width: 992px) {
+  .nav-menu-4.w-nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    float: none;
+    width: 100%;
+  }
+}
