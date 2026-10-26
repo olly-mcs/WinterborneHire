@@ -168,13 +168,6 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
-# Staging: keep this copy out of Google while the Webflow site is live.
-# Remove this block (and the robots meta tag in each page) at launch.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
 # The Blog and Gallery pages (empty after the move from Webflow) are retired for now: both go to the homepage
 [[redirects]]
   from = "/the-winterborne-wedding-blog"

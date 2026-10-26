@@ -4,8 +4,7 @@
 The sitemap lists every published page except those in SKIP (hidden or prototype pages), using each page's
 canonical address. Run it after adding or removing pages:  python3 scripts/build-sitemap.py
 
-robots.txt allows everything: while the site is staged, pages are hidden from search by their noindex tag, which
-crawlers can only see if robots.txt lets them in (see CLAUDE.md, "Staging").
+robots.txt allows everything and points crawlers to the sitemap.
 """
 import glob, os, re, subprocess
 from datetime import date

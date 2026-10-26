@@ -189,15 +189,11 @@ first, with styles in `css/testimonials.css` and the slider/full-screen viewer i
 - The hero video, jQuery and share images are hosted with the site. Fonts, jQuery UI, Masonry, Elfsight and
   still load from their own CDNs.
 
-## Staging (not indexed)
+## Live (indexed)
 
-While the Webflow site is still live, this copy is hidden from search engines so Google doesn't see duplicate pages:
-
-- every page has `<meta name="robots" content="noindex, nofollow">`
-- `netlify.toml` sends an `X-Robots-Tag: noindex, nofollow` header for every file (images and video too)
-
-Don't block the site in `robots.txt`: crawlers would then never see the noindex. **At launch**, remove the meta tag
-from every page and the `X-Robots-Tag` block from `netlify.toml`.
+The site went live on 2026-10-26 at https://www.winterbornehireandstyling.co.uk (DNS at GoDaddy pointing to Netlify:
+A `@` 75.2.60.5, CNAME `www` winterbornehire.netlify.app). The staging noindex tags and header have been removed, so
+search engines can index every page. Don't add `noindex` back unless a page should be hidden from search.
 
 ## SEO
 
@@ -226,7 +222,7 @@ or description there, not in the build scripts. Keep titles to about 60 characte
   scripts run it at the end. The homepage keeps its hand-picked image.
 - Pages load only Cinzel and Raleway from Google Fonts (a plain stylesheet link). jQuery UI loads only on the showroom
   page, for its date picker. Don't add Masonry, reCAPTCHA or the WebFont loader back.
-- At launch: remove the noindex (see "Staging"), add `sitemap.xml` and `robots.txt`, add GA4 (the old `UA-` tag is dead),
+- Launched: noindex removed, `sitemap.xml` and `robots.txt` added. Still to do: add GA4 (the old `UA-` tag is dead),
   and redirect or rebuild the 7 blog posts and 7 wedding packages that `scripts/check-sitemap.py` lists.
 
 ## "Captured at a real Winterborne wedding"
