@@ -21,7 +21,6 @@ Ask for anything missing before building:
 - **The story**: how they found us, what they're like as a couple, their vision for the day and the florals we made.
   Write it as three paragraphs in glowing, warm terms (first one is the lead, shown larger). If the user only gives
   notes, draft it and show them before publishing.
-- **Showroom visits** (how many) and **first visit to wedding** (the lead time, e.g. "14 months").
 - **Photos.** For a big set, ask them to push a folder to `images/testimonials/incoming/` with GitHub Desktop.
 
 ## 2. Choose the photos
