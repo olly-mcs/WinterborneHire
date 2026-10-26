@@ -1,257 +1,593 @@
-// Written by scripts/build-webflow-content.py: the hire collection products, for the wish list
-// (js/wishlist.js). Don't edit by hand.
+// Written by scripts/build-bespoke-florals.py: the hire collection products and their options, for the
+// wish list (js/wishlist.js). Don't edit by hand.
 window.HIRE_ITEMS = [
  {
-  "id": "hire-signage-chalk-a-board",
-  "name": "Chalk A board",
+  "id": "hire-table-decor-coloured-napkins--sage",
+  "name": "Coloured Napkins: Sage",
+  "section": "Table Decor",
+  "url": "/table-decor/coloured-napkins"
+ },
+ {
+  "id": "hire-table-decor-coloured-napkins--terracotta",
+  "name": "Coloured Napkins: Terracotta",
+  "section": "Table Decor",
+  "url": "/table-decor/coloured-napkins"
+ },
+ {
+  "id": "hire-table-decor-coloured-napkins--soft-blue",
+  "name": "Coloured Napkins: Soft Blue",
+  "section": "Table Decor",
+  "url": "/table-decor/coloured-napkins"
+ },
+ {
+  "id": "hire-table-decor-coloured-napkins--soft-pink",
+  "name": "Coloured Napkins: Soft Pink",
+  "section": "Table Decor",
+  "url": "/table-decor/coloured-napkins"
+ },
+ {
+  "id": "hire-table-decor-charger-plates--gold",
+  "name": "Charger Plates: Gold",
+  "section": "Table Decor",
+  "url": "/table-decor/charger-plates"
+ },
+ {
+  "id": "hire-table-decor-charger-plates--gold-beaded-rim",
+  "name": "Charger Plates: Gold Beaded Rim",
+  "section": "Table Decor",
+  "url": "/table-decor/charger-plates"
+ },
+ {
+  "id": "hire-table-decor-charger-plates--copper",
+  "name": "Charger Plates: Copper",
+  "section": "Table Decor",
+  "url": "/table-decor/charger-plates"
+ },
+ {
+  "id": "hire-table-decor-charger-plates--seagrass",
+  "name": "Charger Plates: Seagrass",
+  "section": "Table Decor",
+  "url": "/table-decor/charger-plates"
+ },
+ {
+  "id": "hire-table-decor-gold-cutlery",
+  "name": "Gold Cutlery",
+  "section": "Table Decor",
+  "url": "/table-decor/gold-cutlery"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--vintage-brass",
+  "name": "Candlesticks: Vintage Brass",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--vintage-cut-glass",
+  "name": "Candlesticks: Vintage Cut Glass",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--gold",
+  "name": "Candlesticks: Gold",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--silver",
+  "name": "Candlesticks: Silver",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--black",
+  "name": "Candlesticks: Black",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--black-chunky",
+  "name": "Candlesticks: Black Chunky",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--white-chunky",
+  "name": "Candlesticks: White Chunky",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-candlesticks--acrylic-candelabra",
+  "name": "Candlesticks: Acrylic Candelabra",
+  "section": "Table Decor",
+  "url": "/table-decor/candlesticks"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--pink",
+  "name": "Bud Vases: Pink",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--orange",
+  "name": "Bud Vases: Orange",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--turquoise",
+  "name": "Bud Vases: Turquoise",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--dark-green",
+  "name": "Bud Vases: Dark Green",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--vintage-cut-glass",
+  "name": "Bud Vases: Vintage Cut Glass",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--stoneware",
+  "name": "Bud Vases: Stoneware",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--glass-bottles",
+  "name": "Bud Vases: Glass Bottles",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-bud-vases--stone-bottles",
+  "name": "Bud Vases: Stone Bottles",
+  "section": "Table Decor",
+  "url": "/table-decor/bud-vases"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--clear-glass",
+  "name": "Tea Light Holders: Clear Glass",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--gold-rimmed",
+  "name": "Tea Light Holders: Gold Rimmed",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--speckled",
+  "name": "Tea Light Holders: Speckled",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--with-twine",
+  "name": "Tea Light Holders: With Twine",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--stemmed",
+  "name": "Tea Light Holders: Stemmed",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--glass-cylinders",
+  "name": "Tea Light Holders: Glass Cylinders",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-tea-light-holders--hanging-baubles",
+  "name": "Tea Light Holders: Hanging Baubles",
+  "section": "Table Decor",
+  "url": "/table-decor/tea-light-holders"
+ },
+ {
+  "id": "hire-table-decor-chair-drapes--cream",
+  "name": "Chair Drapes: Cream",
+  "section": "Table Decor",
+  "url": "/table-decor/chair-drapes"
+ },
+ {
+  "id": "hire-table-decor-chair-drapes--light-beige",
+  "name": "Chair Drapes: Light Beige",
+  "section": "Table Decor",
+  "url": "/table-decor/chair-drapes"
+ },
+ {
+  "id": "hire-table-decor-chair-drapes--sage-green",
+  "name": "Chair Drapes: Sage Green",
+  "section": "Table Decor",
+  "url": "/table-decor/chair-drapes"
+ },
+ {
+  "id": "hire-table-decor-chair-drapes--forest-green",
+  "name": "Chair Drapes: Forest Green",
+  "section": "Table Decor",
+  "url": "/table-decor/chair-drapes"
+ },
+ {
+  "id": "hire-table-decor-chair-drapes--soft-pink",
+  "name": "Chair Drapes: Soft Pink",
+  "section": "Table Decor",
+  "url": "/table-decor/chair-drapes"
+ },
+ {
+  "id": "hire-signage-table-plans--mirror",
+  "name": "Table Plans: Mirror",
   "section": "Signage",
-  "url": "/signage/chalk-a-board"
+  "url": "/signage/table-plans"
  },
  {
-  "id": "hire-signage-fabric-banner-wedding-sign",
-  "name": "Fabric Banner Wedding Sign",
+  "id": "hire-signage-table-plans--banner",
+  "name": "Table Plans: Banner",
   "section": "Signage",
-  "url": "/signage/fabric-banner-wedding-sign"
+  "url": "/signage/table-plans"
  },
  {
-  "id": "hire-signage-gold-arched-full-length-mirror",
-  "name": "Gold Arched Full-Length Mirror",
+  "id": "hire-signage-table-plans--printed",
+  "name": "Table Plans: Printed",
   "section": "Signage",
-  "url": "/signage/gold-arched-full-length-mirror"
+  "url": "/signage/table-plans"
  },
  {
-  "id": "hire-signage-mr-mrs-neon-sign",
-  "name": "Mr & Mrs Neon Sign",
+  "id": "hire-signage-welcome-signs--mirror",
+  "name": "Welcome Signs: Mirror",
   "section": "Signage",
-  "url": "/signage/mr-mrs-neon-sign"
+  "url": "/signage/welcome-signs"
  },
  {
-  "id": "hire-signage-order-of-the-day-pallet-sign",
-  "name": "Order of the day - Pallet Sign",
+  "id": "hire-signage-welcome-signs--printed",
+  "name": "Welcome Signs: Printed",
   "section": "Signage",
-  "url": "/signage/order-of-the-day-pallet-sign"
+  "url": "/signage/welcome-signs"
  },
  {
-  "id": "hire-signage-antique-gold-metal-decorative-easel",
-  "name": "Antique gold metal decorative easel",
+  "id": "hire-signage-welcome-signs--selfie-mirror",
+  "name": "Welcome Signs: Selfie Mirror",
   "section": "Signage",
-  "url": "/signage/antique-gold-metal-decorative-easel"
+  "url": "/signage/welcome-signs"
  },
  {
-  "id": "hire-signage-crazy-in-love-neon-sign-in-pink",
-  "name": "Crazy In Love Neon Sign In Pink",
+  "id": "hire-signage-order-of-the-day--mirror-timeline",
+  "name": "Order of the Day: Mirror Timeline",
   "section": "Signage",
-  "url": "/signage/crazy-in-love-neon-sign-in-pink"
+  "url": "/signage/order-of-the-day"
  },
  {
-  "id": "hire-signage-decorative-arched-mirror-sign",
-  "name": "Decorative Arched Mirror Sign",
+  "id": "hire-signage-order-of-the-day--printed",
+  "name": "Order of the Day: Printed",
   "section": "Signage",
-  "url": "/signage/decorative-arched-mirror-sign"
+  "url": "/signage/order-of-the-day"
  },
  {
-  "id": "hire-signage-handmade-wooden-signs",
-  "name": "Handmade Wooden Signs",
+  "id": "hire-signage-menus--gold-clip",
+  "name": "Menus: Gold Clip",
   "section": "Signage",
-  "url": "/signage/handmade-wooden-signs"
+  "url": "/signage/menus"
  },
  {
-  "id": "hire-signage-large-gilt-frame-mirror",
-  "name": "Large Gilt Frame Mirror",
+  "id": "hire-signage-menus--bow-detail",
+  "name": "Menus: Bow Detail",
   "section": "Signage",
-  "url": "/signage/large-gilt-frame-mirror"
+  "url": "/signage/menus"
  },
  {
-  "id": "hire-signage-metal-frames-with-custom-signage-designs",
-  "name": "Metal frames with custom signage designs",
+  "id": "hire-signage-name-cards",
+  "name": "Name Cards",
   "section": "Signage",
-  "url": "/signage/metal-frames-with-custom-signage-designs"
+  "url": "/signage/name-cards"
  },
  {
-  "id": "hire-signage-no-seating-plan-pallet-sign",
-  "name": "No Seating Plan - Pallet sign",
+  "id": "hire-signage-neon-signs--mr-and-mrs",
+  "name": "Neon Signs: Mr & Mrs",
   "section": "Signage",
-  "url": "/signage/no-seating-plan-pallet-sign"
+  "url": "/signage/neon-signs"
  },
  {
-  "id": "hire-signage-rustic-wood-rectangular-welcome-sign",
-  "name": "Rustic Wood Rectangular Welcome Sign",
+  "id": "hire-signage-neon-signs--crazy-in-love",
+  "name": "Neon Signs: Crazy in Love",
   "section": "Signage",
-  "url": "/signage/rustic-wood-rectangular-welcome-sign"
+  "url": "/signage/neon-signs"
  },
  {
-  "id": "hire-signage-white-metal-decorative-easel",
-  "name": "White Metal Decorative Easel",
-  "section": "Signage",
-  "url": "/signage/white-metal-decorative-easel"
+  "id": "hire-small-props-cake-stands--gold-cake-hoop",
+  "name": "Cake Stands: Gold Cake Hoop",
+  "section": "Small Props",
+  "url": "/small-props/cake-stands"
  },
  {
-  "id": "hire-signage-wooden-circular-welcome-sign",
-  "name": "Wooden Circular Welcome Sign",
-  "section": "Signage",
-  "url": "/signage/wooden-circular-welcome-sign"
+  "id": "hire-small-props-cake-stands--marble-top",
+  "name": "Cake Stands: Marble Top",
+  "section": "Small Props",
+  "url": "/small-props/cake-stands"
  },
  {
-  "id": "hire-furniture-rugs-a-pair-of-peacock-chairs",
-  "name": "A Pair of Peacock Chairs",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/a-pair-of-peacock-chairs"
+  "id": "hire-small-props-cake-stands--cut-glass",
+  "name": "Cake Stands: Cut Glass",
+  "section": "Small Props",
+  "url": "/small-props/cake-stands"
  },
  {
-  "id": "hire-furniture-rugs-cane-armchair",
-  "name": "Cane Armchair",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/cane-armchair"
+  "id": "hire-small-props-cake-stands--log-slice",
+  "name": "Cake Stands: Log Slice",
+  "section": "Small Props",
+  "url": "/small-props/cake-stands"
  },
  {
-  "id": "hire-furniture-rugs-cane-peacock-chair",
-  "name": "Cane Peacock Chair",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/cane-peacock-chair"
+  "id": "hire-small-props-card-boxes--gold-glass",
+  "name": "Card Boxes: Gold Glass",
+  "section": "Small Props",
+  "url": "/small-props/card-boxes"
  },
  {
-  "id": "hire-furniture-rugs-small-cane-egg-chair",
-  "name": "Small Cane Egg Chair",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/small-cane-egg-chair"
+  "id": "hire-small-props-card-boxes--glass",
+  "name": "Card Boxes: Glass",
+  "section": "Small Props",
+  "url": "/small-props/card-boxes"
  },
  {
-  "id": "hire-furniture-rugs-wicker-and-cane-footstool",
-  "name": "Wicker And Cane Footstool",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/wicker-and-cane-footstool"
+  "id": "hire-small-props-card-boxes--wicker-basket",
+  "name": "Card Boxes: Wicker Basket",
+  "section": "Small Props",
+  "url": "/small-props/card-boxes"
  },
  {
-  "id": "hire-furniture-rugs-cane-side-table",
-  "name": "Cane Side Table",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/cane-side-table"
+  "id": "hire-small-props-card-boxes--hessian-lined-basket",
+  "name": "Card Boxes: Hessian Lined Basket",
+  "section": "Small Props",
+  "url": "/small-props/card-boxes"
  },
  {
-  "id": "hire-furniture-rugs-carved-brass-top-boho-table",
-  "name": "Carved brass top boho table",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/carved-brass-top-boho-table"
+  "id": "hire-small-props-lanterns--gold-geometric",
+  "name": "Lanterns: Gold Geometric",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-carved-wood-boho-coffee-table",
-  "name": "Carved Wood Boho Coffee Table",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/carved-wood-boho-coffee-table"
+  "id": "hire-small-props-lanterns--gold",
+  "name": "Lanterns: Gold",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-jay-sofa-set",
-  "name": "Jay Sofa Set",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/jay-sofa-set"
+  "id": "hire-small-props-lanterns--star",
+  "name": "Lanterns: Star",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-wicker-pouffe",
-  "name": "Jute Pouffe",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/wicker-pouffe"
+  "id": "hire-small-props-lanterns--moroccan",
+  "name": "Lanterns: Moroccan",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-pair-of-boho-carved-wood-side-tables",
-  "name": "Pair Of Boho Carved Wood Side Tables",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/pair-of-boho-carved-wood-side-tables"
+  "id": "hire-small-props-lanterns--white-and-gold",
+  "name": "Lanterns: White & Gold",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-vintage-boho-footstool",
-  "name": "Vintage Boho Footstool",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/vintage-boho-footstool"
+  "id": "hire-small-props-lanterns--square-rattan",
+  "name": "Lanterns: Square Rattan",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-vintage-wicker-chair",
-  "name": "Vintage Wicker Chair",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/vintage-wicker-chair"
+  "id": "hire-small-props-lanterns--handmade-wooden",
+  "name": "Lanterns: Handmade Wooden",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-vintage-wicker-peacock-side-table",
-  "name": "Vintage Wicker Peacock Side-table",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/vintage-wicker-peacock-side-table"
+  "id": "hire-small-props-lanterns--black-square-cylinders",
+  "name": "Lanterns: Black Square Cylinders",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-charity-vintage-rug",
-  "name": "Charity Vintage Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/charity-vintage-rug"
+  "id": "hire-small-props-lanterns--floor-standing-glass",
+  "name": "Lanterns: Floor-Standing Glass",
+  "section": "Small Props",
+  "url": "/small-props/lanterns"
  },
  {
-  "id": "hire-furniture-rugs-cornhill-vintage-rug",
-  "name": "Cornhill Vintage Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/cornhill-vintage-rug"
+  "id": "hire-small-props-other-props--log-slices",
+  "name": "Other Props: Log Slices",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-ethnic-runner",
-  "name": "Ethnic Runner",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/ethnic-runner"
+  "id": "hire-small-props-other-props--wooden-crates",
+  "name": "Other Props: Wooden Crates",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-extra-long-persian-runner",
-  "name": "Ivan Runner",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/extra-long-persian-runner"
+  "id": "hire-small-props-other-props--galvanised-tub",
+  "name": "Other Props: Galvanised Tub",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-large-brown-persian-rug",
-  "name": "judith Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/large-brown-persian-rug"
+  "id": "hire-small-props-other-props--demijohns",
+  "name": "Other Props: Demijohns",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-large-vintage-red-rug",
-  "name": "Large Vintage Red Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/large-vintage-red-rug"
+  "id": "hire-small-props-other-props--wooden-shelving",
+  "name": "Other Props: Wooden Shelving",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-large-red-azerbaijan-rug",
-  "name": "Large-Red-Azerbaijan-Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/large-red-azerbaijan-rug"
+  "id": "hire-small-props-other-props--disco-balls",
+  "name": "Other Props: Disco Balls",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-pretty-cream-floral-rug",
-  "name": "Pretty Cream Floral Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/pretty-cream-floral-rug"
+  "id": "hire-small-props-other-props--mirrored-gold-trolley",
+  "name": "Other Props: Mirrored Gold Trolley",
+  "section": "Small Props",
+  "url": "/small-props/other-props"
  },
  {
-  "id": "hire-furniture-rugs-pretty-sage-vintage-rug",
-  "name": "Pretty Sage Vintage Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/pretty-sage-vintage-rug"
+  "id": "hire-seating-areas-chairs--peacock-chairs",
+  "name": "Chairs: Peacock Chairs",
+  "section": "Seating Areas",
+  "url": "/seating-areas/chairs"
  },
  {
-  "id": "hire-furniture-rugs-red-aztec-rug",
-  "name": "Red Aztec Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/red-aztec-rug"
+  "id": "hire-seating-areas-chairs--cane-armchair",
+  "name": "Chairs: Cane Armchair",
+  "section": "Seating Areas",
+  "url": "/seating-areas/chairs"
  },
  {
-  "id": "hire-furniture-rugs-round-rattan-rug",
-  "name": "Round Rattan Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/round-rattan-rug"
+  "id": "hire-seating-areas-chairs--egg-chair",
+  "name": "Chairs: Egg Chair",
+  "section": "Seating Areas",
+  "url": "/seating-areas/chairs"
  },
  {
-  "id": "hire-furniture-rugs-vintage-cream-and-pink-rug",
-  "name": "Vintage Cream and Pink Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/vintage-cream-and-pink-rug"
+  "id": "hire-seating-areas-chairs--vintage-wicker-chair",
+  "name": "Chairs: Vintage Wicker Chair",
+  "section": "Seating Areas",
+  "url": "/seating-areas/chairs"
  },
  {
-  "id": "hire-furniture-rugs-vintage-orange-rug",
-  "name": "Vintage Orange Rug",
-  "section": "Furniture & Rugs",
-  "url": "/furniture-rugs/vintage-orange-rug"
+  "id": "hire-seating-areas-chairs--jay-sofa-set",
+  "name": "Chairs: Jay Sofa Set",
+  "section": "Seating Areas",
+  "url": "/seating-areas/chairs"
+ },
+ {
+  "id": "hire-seating-areas-chairs--footstools-and-pouffes",
+  "name": "Chairs: Footstools & Pouffes",
+  "section": "Seating Areas",
+  "url": "/seating-areas/chairs"
+ },
+ {
+  "id": "hire-seating-areas-tables--cane-side-table",
+  "name": "Tables: Cane Side Table",
+  "section": "Seating Areas",
+  "url": "/seating-areas/tables"
+ },
+ {
+  "id": "hire-seating-areas-tables--carved-brass-top",
+  "name": "Tables: Carved Brass Top",
+  "section": "Seating Areas",
+  "url": "/seating-areas/tables"
+ },
+ {
+  "id": "hire-seating-areas-tables--carved-wood-coffee-table",
+  "name": "Tables: Carved Wood Coffee Table",
+  "section": "Seating Areas",
+  "url": "/seating-areas/tables"
+ },
+ {
+  "id": "hire-seating-areas-tables--carved-wood-side-tables",
+  "name": "Tables: Carved Wood Side Tables",
+  "section": "Seating Areas",
+  "url": "/seating-areas/tables"
+ },
+ {
+  "id": "hire-seating-areas-tables--wicker-peacock-side-table",
+  "name": "Tables: Wicker Peacock Side Table",
+  "section": "Seating Areas",
+  "url": "/seating-areas/tables"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--charity-vintage",
+  "name": "Rugs & Runners: Charity Vintage",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--cornhill-vintage",
+  "name": "Rugs & Runners: Cornhill Vintage",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--judith",
+  "name": "Rugs & Runners: Judith",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--large-vintage-red",
+  "name": "Rugs & Runners: Large Vintage Red",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--large-red-azerbaijan",
+  "name": "Rugs & Runners: Large Red Azerbaijan",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--pretty-cream-floral",
+  "name": "Rugs & Runners: Pretty Cream Floral",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--pretty-sage-vintage",
+  "name": "Rugs & Runners: Pretty Sage Vintage",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--red-aztec",
+  "name": "Rugs & Runners: Red Aztec",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--round-rattan",
+  "name": "Rugs & Runners: Round Rattan",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--vintage-cream-and-pink",
+  "name": "Rugs & Runners: Vintage Cream & Pink",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--vintage-orange",
+  "name": "Rugs & Runners: Vintage Orange",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--ethnic-runner",
+  "name": "Rugs & Runners: Ethnic Runner",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
+ },
+ {
+  "id": "hire-seating-areas-rugs-and-runners--ivan-runner",
+  "name": "Rugs & Runners: Ivan Runner",
+  "section": "Seating Areas",
+  "url": "/seating-areas/rugs-and-runners"
  },
  {
   "id": "hire-large-props-extra-large-foliage-archway",
@@ -300,425 +636,5 @@ window.HIRE_ITEMS = [
   "name": "Moongate Arch",
   "section": "Large Props",
   "url": "/large-prop-collection/foliage-circular-arch"
- },
- {
-  "id": "hire-small-props-gold-disco-balls",
-  "name": "Gold Disco Balls",
-  "section": "Small Props",
-  "url": "/small-props-collection/gold-disco-balls"
- },
- {
-  "id": "hire-small-props-large-gold-cake-hoop",
-  "name": "Large Gold Cake Hoop",
-  "section": "Small Props",
-  "url": "/small-props-collection/large-gold-cake-hoop"
- },
- {
-  "id": "hire-small-props-disco-balls",
-  "name": "Silver Disco balls",
-  "section": "Small Props",
-  "url": "/small-props-collection/disco-balls"
- },
- {
-  "id": "hire-small-props-3-tier-log-slice-cake-stand",
-  "name": "3-Tier Log Slice Cake Stand",
-  "section": "Small Props",
-  "url": "/small-props-collection/3-tier-log-slice-cake-stand"
- },
- {
-  "id": "hire-small-props-assorted-cut-glass-cake-stands",
-  "name": "Assorted Cut Glass Cake Stands",
-  "section": "Small Props",
-  "url": "/small-props-collection/assorted-cut-glass-cake-stands"
- },
- {
-  "id": "hire-small-props-black-square-cylinder-vases",
-  "name": "Black Square Cylinder Vases",
-  "section": "Small Props",
-  "url": "/small-props-collection/black-square-cylinder-vases"
- },
- {
-  "id": "hire-small-props-boho-printed-square-cushions",
-  "name": "Boho Printed Square Cushions",
-  "section": "Small Props",
-  "url": "/small-props-collection/boho-printed-square-cushions"
- },
- {
-  "id": "hire-small-props-extra-large-dreamcatcher",
-  "name": "Extra-Large Dreamcatcher",
-  "section": "Small Props",
-  "url": "/small-props-collection/extra-large-dreamcatcher"
- },
- {
-  "id": "hire-small-props-floor-standing-glass-cylinder-vases",
-  "name": "Floor standing glass cylinder vases",
-  "section": "Small Props",
-  "url": "/small-props-collection/floor-standing-glass-cylinder-vases"
- },
- {
-  "id": "hire-small-props-glass-card-box",
-  "name": "Glass Card Box",
-  "section": "Small Props",
-  "url": "/small-props-collection/glass-card-box"
- },
- {
-  "id": "hire-small-props-glass-demijohns",
-  "name": "Glass Demijohns",
-  "section": "Small Props",
-  "url": "/small-props-collection/glass-demijohns"
- },
- {
-  "id": "hire-small-props-gold-geometric-lanterns",
-  "name": "Gold Geometric Lanterns",
-  "section": "Small Props",
-  "url": "/small-props-collection/gold-geometric-lanterns"
- },
- {
-  "id": "hire-small-props-gold-glass-card-box",
-  "name": "Gold Glass Card Box",
-  "section": "Small Props",
-  "url": "/small-props-collection/gold-glass-card-box"
- },
- {
-  "id": "hire-small-props-gold-lantern",
-  "name": "Gold Lantern",
-  "section": "Small Props",
-  "url": "/small-props-collection/gold-lantern"
- },
- {
-  "id": "hire-small-props-handmade-wooden-crates",
-  "name": "Handmade Wooden Crates",
-  "section": "Small Props",
-  "url": "/small-props-collection/handmade-wooden-crates"
- },
- {
-  "id": "hire-small-props-handmade-wooden-lanterns",
-  "name": "Handmade Wooden Lanterns",
-  "section": "Small Props",
-  "url": "/small-props-collection/handmade-wooden-lanterns"
- },
- {
-  "id": "hire-small-props-hessian-lined-wicker-card-basket",
-  "name": "Hessian Lined Wicker Card Basket",
-  "section": "Small Props",
-  "url": "/small-props-collection/hessian-lined-wicker-card-basket"
- },
- {
-  "id": "hire-small-props-large-bottle-with-seagrass-twine",
-  "name": "Large Bottle With Seagrass Twine",
-  "section": "Small Props",
-  "url": "/small-props-collection/large-bottle-with-seagrass-twine"
- },
- {
-  "id": "hire-small-props-log-slices",
-  "name": "Log Slices",
-  "section": "Small Props",
-  "url": "/small-props-collection/log-slices"
- },
- {
-  "id": "hire-small-props-marble-top-cake-stand",
-  "name": "Marble Top Cake Stand",
-  "section": "Small Props",
-  "url": "/small-props-collection/marble-top-cake-stand"
- },
- {
-  "id": "hire-small-props-mirrored-gold-metal-trolly",
-  "name": "Mirrored gold metal trolly",
-  "section": "Small Props",
-  "url": "/small-props-collection/mirrored-gold-metal-trolly"
- },
- {
-  "id": "hire-small-props-new-moroccan-lantern",
-  "name": "Moroccan Lantern",
-  "section": "Small Props",
-  "url": "/small-props-collection/new-moroccan-lantern"
- },
- {
-  "id": "hire-small-props-rattan-lanterns-2",
-  "name": "Square Rattan Lanterns",
-  "section": "Small Props",
-  "url": "/small-props-collection/rattan-lanterns-2"
- },
- {
-  "id": "hire-small-props-star-lanterns",
-  "name": "Star Lanterns",
-  "section": "Small Props",
-  "url": "/small-props-collection/star-lanterns"
- },
- {
-  "id": "hire-small-props-vintage-flagons-demijons",
-  "name": "Vintage Flagons & Demijons",
-  "section": "Small Props",
-  "url": "/small-props-collection/vintage-flagons-demijons"
- },
- {
-  "id": "hire-small-props-vintage-galvanished-tub",
-  "name": "Vintage Galvanised Tub",
-  "section": "Small Props",
-  "url": "/small-props-collection/vintage-galvanished-tub"
- },
- {
-  "id": "hire-small-props-vintage-wooden-shelving",
-  "name": "Vintage Wooden Shelving",
-  "section": "Small Props",
-  "url": "/small-props-collection/vintage-wooden-shelving"
- },
- {
-  "id": "hire-small-props-white-gold-lanterns",
-  "name": "White & Gold Lanterns",
-  "section": "Small Props",
-  "url": "/small-props-collection/white-gold-lanterns"
- },
- {
-  "id": "hire-small-props-wicker-card-basket",
-  "name": "Wicker Card Basket",
-  "section": "Small Props",
-  "url": "/small-props-collection/wicker-card-basket"
- },
- {
-  "id": "hire-table-decor-assorted-vintage-brass-candlesticks",
-  "name": "Assorted Vintage Brass Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/assorted-vintage-brass-candlesticks"
- },
- {
-  "id": "hire-table-decor-gold-beaded-rim-perspex-charger-plate",
-  "name": "Gold beaded rim perspex charger plate",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/gold-beaded-rim-perspex-charger-plate"
- },
- {
-  "id": "hire-table-decor-matt-gold-cutlery",
-  "name": "Matte Gold Cutlery",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/matt-gold-cutlery"
- },
- {
-  "id": "hire-table-decor-sage-napkins",
-  "name": "Sage Napkins",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/sage-napkins"
- },
- {
-  "id": "hire-table-decor-8-arm-acrylic-candlestick-candelabra-centrepiece",
-  "name": "8 Arm Acrylic Candlestick Candelabra Centrepiece",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/8-arm-acrylic-candlestick-candelabra-centrepiece"
- },
- {
-  "id": "hire-table-decor-assorted-small-earthenware-bottles",
-  "name": "Assorted Small stone table Bottles",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/assorted-small-earthenware-bottles"
- },
- {
-  "id": "hire-table-decor-assorted-vintage-glass-candlesticks",
-  "name": "Assorted Vintage cut Glass Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/assorted-vintage-glass-candlesticks"
- },
- {
-  "id": "hire-table-decor-assorted-vintage-glass-bottles",
-  "name": "Assorted Vintage Glass Bottles",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/assorted-vintage-glass-bottles"
- },
- {
-  "id": "hire-table-decor-black-candlesticks",
-  "name": "Black Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/black-candlesticks"
- },
- {
-  "id": "hire-table-decor-black-chunky-candlesticks",
-  "name": "Black Chunky Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/black-chunky-candlesticks"
- },
- {
-  "id": "hire-table-decor-blackboard-table-numbers",
-  "name": "Blackboard Table Numbers",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/blackboard-table-numbers"
- },
- {
-  "id": "hire-table-decor-chalkboard-table-number",
-  "name": "chalkboard table number",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/chalkboard-table-number"
- },
- {
-  "id": "hire-table-decor-clear-glass-table-tealight-holders",
-  "name": "Clear Glass Table Tealight Holders",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/clear-glass-table-tealight-holders"
- },
- {
-  "id": "hire-table-decor-copper-charger-plates",
-  "name": "Copper Charger Plates",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/copper-charger-plates"
- },
- {
-  "id": "hire-table-decor-cream-crinkle-chair-drapes",
-  "name": "Cream Crinkle Chair Drapes",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/cream-crinkle-chair-drapes"
- },
- {
-  "id": "hire-table-decor-dark-green-glass-bud-vases-votives",
-  "name": "Dark Green Glass Bud Vases & Votives",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/dark-green-glass-bud-vases-votives"
- },
- {
-  "id": "hire-table-decor-forest-green-crinkle-chair-drape",
-  "name": "Forest Green Crinkle Chair Drape",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/forest-green-crinkle-chair-drape"
- },
- {
-  "id": "hire-table-decor-small-glass-candle-holders-with-twine",
-  "name": "Glass Candle Holders With Twine",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/small-glass-candle-holders-with-twine"
- },
- {
-  "id": "hire-table-decor-glass-hanging-baubles",
-  "name": "Glass hanging baubles",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/glass-hanging-baubles"
- },
- {
-  "id": "hire-table-decor-gold-charger-plates",
-  "name": "Gold Charger Plates",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/gold-charger-plates"
- },
- {
-  "id": "hire-table-decor-gold-frame-table-numbers-with-dried-fern",
-  "name": "Gold Frame Table Numbers With Dried Fern",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/gold-frame-table-numbers-with-dried-fern"
- },
- {
-  "id": "hire-table-decor-gold-rimmed-tealight-holders",
-  "name": "Gold Rimmed Tealight Holders",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/gold-rimmed-tealight-holders"
- },
- {
-  "id": "hire-table-decor-light-beige-crinkle-chair-drapes",
-  "name": "Light Beige Crinkle Chair Drapes",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/light-beige-crinkle-chair-drapes"
- },
- {
-  "id": "hire-table-decor-mini-table-easels",
-  "name": "Mini Table Easels",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/mini-table-easels"
- },
- {
-  "id": "hire-table-decor-orange-bud-vases",
-  "name": "Orange Bud Vases",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/orange-bud-vases"
- },
- {
-  "id": "hire-table-decor-pink-bud-vases",
-  "name": "Pink Bud Vases",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/pink-bud-vases"
- },
- {
-  "id": "hire-table-decor-sage-green-crinkle-chair-drapes",
-  "name": "Sage Green Crinkle Chair Drapes",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/sage-green-crinkle-chair-drapes"
- },
- {
-  "id": "hire-table-decor-seagrass-charger-plates",
-  "name": "Seagrass Charger Plates",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/seagrass-charger-plates"
- },
- {
-  "id": "hire-table-decor-soft-dusty-blue-napkin",
-  "name": "Soft Dusty Blue Napkin",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/soft-dusty-blue-napkin"
- },
- {
-  "id": "hire-table-decor-soft-pink-crinkle-chair-drapes",
-  "name": "Soft Pink Crinkle Chair Drapes",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/soft-pink-crinkle-chair-drapes"
- },
- {
-  "id": "hire-table-decor-soft-pink-napkin",
-  "name": "Soft Pink Napkin",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/soft-pink-napkin"
- },
- {
-  "id": "hire-table-decor-speckled-tea-light-holders",
-  "name": "Speckled Tea Light Holders",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/speckled-tea-light-holders"
- },
- {
-  "id": "hire-table-decor-eartenware-bud-vases",
-  "name": "Stoneware Bud Vases",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/eartenware-bud-vases"
- },
- {
-  "id": "hire-table-decor-terracotta-napkin",
-  "name": "Terracotta Napkin",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/terracotta-napkin"
- },
- {
-  "id": "hire-table-decor-trio-of-glass-table-cylinders",
-  "name": "Trio of Glass Table Cylinders",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/trio-of-glass-table-cylinders"
- },
- {
-  "id": "hire-table-decor-trio-of-gold-candlesticks",
-  "name": "Trio of Gold Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/trio-of-gold-candlesticks"
- },
- {
-  "id": "hire-table-decor-trio-of-silver-candlestick-holders",
-  "name": "Trio of Silver Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/trio-of-silver-candlestick-holders"
- },
- {
-  "id": "hire-table-decor-trio-of-tall-glass-tealight-holders",
-  "name": "Trio of stemmed Tealight Holders",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/trio-of-tall-glass-tealight-holders"
- },
- {
-  "id": "hire-table-decor-turquoise-bud-vases",
-  "name": "Turquoise bud vases",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/turquoise-bud-vases"
- },
- {
-  "id": "hire-table-decor-vinatge-cut-glass-bud-vases",
-  "name": "Vintage Cut Glass Bud Vases",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/vinatge-cut-glass-bud-vases"
- },
- {
-  "id": "hire-table-decor-white-chunky-candlesticks",
-  "name": "White Chunky Candlesticks",
-  "section": "Table Decor",
-  "url": "/table-decor-collection/white-chunky-candlesticks"
  }
 ];

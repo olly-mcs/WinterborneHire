@@ -13,23 +13,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
 e = html.escape
 
-# The hire collection. "sources" lists the data/webflow-content.json collections a page combines (default: its own
-# key). Florals & Foliage is no longer listed (Bespoke Florals covers it; its old URLs redirect in netlify.toml), and
-# Furniture and Rugs & Runners are combined into Furniture & Rugs.
+# Large Props, the one hire page still built from the Webflow data (hidden from the menu). The rest of the hire
+# collection (Table Decor, Signage, Small Props, Seating Areas) is built by scripts/build-bespoke-florals.py from
+# scripts/hire_products.py. "sources" lists the data/webflow-content.json collections a page combines (default: its own key).
 COLLECTIONS = {
-    "signage": {"page": "signage.html", "title": "Signage", "label": "signage"},
-    "furniture-rugs": {"page": "furniture-rugs.html", "title": "Furniture & Rugs", "label": "furniture & rugs",
-                       "url": "furniture-rugs", "sources": ["furniture", "rugs-runners"]},
     "large-props": {"page": "large-props.html", "title": "Large Props", "label": "large props",
                     "url": "large-prop-collection",
                     "tabs": {"All": None, "Archways": "Archways", "Moongates": "Moongates", "Other Decor": "Other Decor"}},
-    "small-props": {"page": "small-props.html", "title": "Small Props", "label": "small props",
-                    "url": "small-props-collection",
-                    "tabs": {"All": None, "Lanterns": "Lanterns", "Cake Stands": "Cake Stands", "Other Decor": "Other Decor"}},
-    "table-decor": {"page": "table-decor.html", "title": "Table Decor", "label": "table decor",
-                    "url": "table-decor-collection",
-                    "tabs": {"All": None, "CandleHolders": "Candleholdes", "Vessels": "Vessels",
-                             "Table Numbers": "Table Numbers", "Other": "Other"}},
 }
 
 
@@ -173,13 +163,6 @@ def slider(name, images):
         </div>
         <ul class="pd-thumbs" role="list">{thumbs}</ul>
       </div>'''
-
-
-def write_hire_items():
-    rows = [dict(id=hire_id(col, i), name=i["name"].strip(), section=cfg["title"], url=f"/{cfg.get('url', col)}/{i['slug']}")
-            for col, cfg in COLLECTIONS.items() for i in collection_items(col)]
-    write("js/hire-items.js", "// Written by scripts/build-webflow-content.py: the hire collection products, for the wish list\n"
-          "// (js/wishlist.js). Don't edit by hand.\nwindow.HIRE_ITEMS = " + json.dumps(rows, indent=1, ensure_ascii=False) + ";\n")
 
 
 def detail_page(col, cfg, item, items):
@@ -352,7 +335,6 @@ if __name__ == "__main__":
         for item in items:
             detail_page(col, cfg, item, items)
         print(f"{col}: {len(items)} products")
-    write_hire_items()
     testimonials()
     home_reviews()
     print(f"testimonials: {len(DATA['testimonials'])}")

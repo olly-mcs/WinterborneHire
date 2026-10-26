@@ -1,0 +1,168 @@
+/* Hire collection pages (overview, sections and products), on top of the Bespoke Florals styles. Built by
+   scripts/build-bespoke-florals.py from scripts/hire_products.py. */
+
+/* Section and product strips: photo and text only (no "Perfect for" column) */
+.hc-cat .bf-cat-main {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.hc-cat.bf-cat-flip .bf-cat-main {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+/* A product with no photos yet */
+.hc-nophoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #ebe4da;
+  color: #8f877e;
+  font-family: Cinzel, serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.pd-stage .hc-nophoto {
+  aspect-ratio: 4 / 5;
+}
+
+/* Colours and styles on a product page */
+.hc-options {
+  margin: 28px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid #e3d9d0;
+}
+
+.hc-options-title {
+  margin: 0 0 16px;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.hc-options-current {
+  margin-left: 14px;
+  color: #8f877e;
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.hc-swatches,
+.hc-styles {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hc-swatches {
+  gap: 18px 22px;
+}
+
+.hc-styles {
+  gap: 10px;
+}
+
+.hc-swatch,
+.hc-style {
+  margin: 0;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hc-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.hc-swatch-dot {
+  width: clamp(52px, 4.6vw, 70px);
+  height: clamp(52px, 4.6vw, 70px);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(58, 56, 53, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.hc-swatch:hover .hc-swatch-dot {
+  transform: scale(1.05);
+}
+
+.hc-swatch[aria-pressed="true"] .hc-swatch-dot {
+  box-shadow: 0 0 0 3px #f6f3ee, 0 0 0 4px #3a3835;
+}
+
+.hc-swatch-name {
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hc-style {
+  padding: 10px 16px;
+  border: 1px solid #c9bcb0;
+  background-color: transparent;
+  color: #3a3835;
+  font-family: Cinzel, serif;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hc-style:hover {
+  border-color: #3a3835;
+}
+
+.hc-style[aria-pressed="true"] {
+  border-color: #3d3b2f;
+  background-color: #3d3b2f;
+  color: #fff;
+}
+
+.hc-swatch:focus-visible,
+.hc-style:focus-visible {
+  outline: 2px solid #e59775;
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 991px) {
+  .hc-cat .bf-cat-main,
+  .hc-cat.bf-cat-flip .bf-cat-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hc-swatches {
+    gap: 16px 12px;
+  }
+
+  .hc-swatch-dot {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hc-swatch-name {
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+  }
+}

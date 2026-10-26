@@ -212,6 +212,8 @@
       open();
     });
   });
+  // a hire product's colour or style buttons (js/hire-options.js) change which item its button adds
+  document.addEventListener("wishlist:refresh", render);
   tab.addEventListener("click", open);
   overlay.addEventListener("click", close);
   panel.querySelector(".wl-close").addEventListener("click", close);

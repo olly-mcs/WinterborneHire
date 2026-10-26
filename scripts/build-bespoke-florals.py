@@ -14,6 +14,7 @@ import glob, html, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bespoke_products import PRODUCTS  # noqa: E402
+from hire_products import SECTIONS as HIRE_SECTIONS, OVERVIEW as HIRE_HOME, OLD_FOLDERS, OLD_LIST_PAGES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 T = "/images/testimonials/"
@@ -241,53 +242,55 @@ def update_footer(text):
     return text
 
 
-# The Hire Collection menu (second in the navigation, after Bespoke Florals) and the footer's Hire Collection list.
-# Set show=False to hide an item everywhere without removing its page.
-HIRE_MENU = [
-    dict(name="Large Props", href="/large-props", show=False),
-    dict(name="Small Props", href="/small-props", show=True),
-    dict(name="Furniture & Rugs", href="/furniture-rugs", show=True),
-    dict(name="Table Decor", href="/table-decor", show=True),
-    dict(name="Signage", href="/signage", show=True),
-]
-HIRE_PRODUCT_FOLDERS = {"/large-prop-collection": "/large-props", "/small-props-collection": "/small-props",
-                        "/furniture-rugs": "/furniture-rugs", "/table-decor-collection": "/table-decor",
-                        "/signage": "/signage"}
+# The Hire Collection menu (second in the navigation, after Bespoke Florals), in the same two-column style: sections
+# on the left, their products on the right. The sections and products are in scripts/hire_products.py.
+HIRE_OVERVIEW = "/wedding-prop-hire-collection"
+
+
+def hire_url(sec, prod=None):
+    return f'/{sec["slug"]}' + (f'/{prod["slug"]}' if prod else "")
 
 
 def hire_section(url):
-    """The Hire Collection page a URL belongs to (its list page, or the list page of a product), or None."""
+    """The Hire Collection section a URL belongs to (its page, or one of its products), the overview, or None."""
     if not url:
         return None
-    for h in HIRE_MENU:
-        if url == h["href"]:
-            return h["href"]
-    for folder, page in HIRE_PRODUCT_FOLDERS.items():
-        if url.startswith(folder + "/"):
-            return page
+    if url == HIRE_OVERVIEW:
+        return HIRE_OVERVIEW
+    for sec in HIRE_SECTIONS:
+        if url == hire_url(sec) or url.startswith(hire_url(sec) + "/"):
+            return hire_url(sec)
     return None
 
 
 def hire_menu(url):
     here = hire_section(url)
-    links = "\n".join(
-        f'              <a href="{h["href"]}"' + (' aria-current="page"' if url == h["href"] else "")
-        + f' class="dropdown-link-2 w-dropdown-link{" w--current" if here == h["href"] else ""}">{e(h["name"])}</a>'
-        for h in HIRE_MENU if h["show"])
+    groups = []
+    for sec in HIRE_SECTIONS:
+        prods = "\n".join(
+            f'                  <a href="{hire_url(sec, p)}" class="dropdown-link-2 w-dropdown-link bf-menu-type">{e(p["name"])}</a>'
+            for p in sec["products"])
+        groups.append(f'''              <div class="bf-menu-group">
+                <a href="{hire_url(sec)}" class="dropdown-link-2 w-dropdown-link bf-menu-section{" w--current" if here == hire_url(sec) else ""}">{e(sec["name"])}</a>
+                <div class="bf-menu-types">
+{prods}
+                </div>
+              </div>''')
     return f'''          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">
-            <div class="mainnavstyling w-dropdown-toggle{" w--current" if here else ""}">
+            <div class="mainnavstyling w-dropdown-toggle{" w--current" if here else ""}" data-nav-href="{HIRE_OVERVIEW}">
               <div class="w-icon-dropdown-toggle"></div>
               <div class="mainnavstyling">Hire Collection</div>
             </div>
-            <nav class="dropdown-list-2 w-dropdown-list hire-menu">
-{links}
+            <nav class="dropdown-list-2 w-dropdown-list bf-menu hire-menu">
+              <a href="{HIRE_OVERVIEW}" class="dropdown-link-2 w-dropdown-link nav-overview-link">All hire collection</a>
+''' + "\n".join(groups) + '''
             </nav>
           </div>'''
 
 
 HIRE_RE = re.compile(
     r'          <div data-hover="true" data-delay="0" class="dropdown-2 w-dropdown">\n'
-    r'            <div class="mainnavstyling w-dropdown-toggle(?: w--current)?">\n'
+    r'            <div class="mainnavstyling w-dropdown-toggle(?: w--current)?"(?: data-nav-href="/wedding-prop-hire-collection")?>\n'
     r'              <div class="w-icon-dropdown-toggle"></div>\n'
     r'              <div class="mainnavstyling">(?:Hire )?Collection</div>.*?\n            </nav>\n          </div>', re.S)
 FOOTER_HIRE_RE = re.compile(
@@ -298,9 +301,9 @@ FOOTER_HIRE_RE = re.compile(
 def footer_hire(url):
     here = hire_section(url)
     return "".join(
-        f'              <a href="{h["href"]}"' + (' aria-current="page"' if url == h["href"] else "")
-        + f' class="footer-link{" w--current" if here == h["href"] else ""}">{e(h["name"])}</a>\n'
-        for h in HIRE_MENU if h["show"])
+        f'              <a href="{hire_url(sec)}"' + (' aria-current="page"' if url == hire_url(sec) else "")
+        + f' class="footer-link{" w--current" if here == hire_url(sec) else ""}">{e(sec["name"])}</a>\n'
+        for sec in HIRE_SECTIONS)
 
 
 # The "UK-wide delivery: Bridal bouquets" pull tab hanging under the menu (a mock-up shop, scripts/build-shop.py).
@@ -682,8 +685,255 @@ for s in SECTIONS:
         built += 1
 print(f"built {built} product pages")
 
+# ---------- hire collection ----------
+# The overview (/wedding-prop-hire-collection), a page per section (/table-decor and so on) and a page per product
+# (/table-decor/coloured-napkins), in the Bespoke Florals style. Data: scripts/hire_products.py.
+def slugify(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower().replace("&", "and")).strip("-")
+
+
+def hire_photos(spec):
+    """A variant photo, plus the old product's second ("-hover") photo when there is one."""
+    out = [spec]
+    if spec.startswith("wf:") and not spec.endswith("-hover"):
+        hover = spec + "-hover"
+        if os.path.exists(os.path.join(ROOT, "images/webflow-sized", hover[3:] + "-600.webp")):
+            out.append(hover)
+    return out
+
+
+for sec in HIRE_SECTIONS:
+    for p in sec["products"]:
+        p["id"] = f'hire-{sec["slug"]}-{p["slug"]}'
+        p["slides"] = []
+        for i, v in enumerate(p["variants"]):
+            v["id"] = p["id"] if len(p["variants"]) == 1 else f'{p["id"]}--{slugify(v["name"])}'
+            v["start"] = len(p["slides"]) if v["photos"] else None
+            for spec in v["photos"]:
+                for src in hire_photos(spec):
+                    p["slides"].append((src, f'{p["name"]}: {v["name"]}' if len(p["variants"]) > 1 else p["name"], i))
+        p["img"] = (p["slides"][0][0], p["slides"][0][1], "50% 50%") if p["slides"] else None
+
+NO_PHOTO = '<div class="hc-nophoto"><span>Photos coming soon</span></div>'
+
+
+def hire_card(sec, p, sizes="(max-width: 991px) 50vw, 25vw"):
+    pic = (img(p["img"][0], p["img"][1], sizes, 600, f' style="object-position: {p["img"][2]}" loading="lazy"')
+           if p["img"] else NO_PHOTO)
+    return (f'<li class="bf-look"><a href="{hire_url(sec, p)}" class="bf-look-link">{pic}'
+            f'<p class="bf-look-venue">{e(p["name"])}</p><p class="bf-look-desc">{e(p["tag"])}</p></a></li>')
+
+
+def hire_subnav(current=None):
+    items = "".join(
+        f'<li><a href="{hire_url(s)}" class="bf-subnav-link{" is-current" if s is current else ""}"'
+        + (' aria-current="page"' if s is current else "") + f'>{e(s["name"])}</a></li>'
+        for s in HIRE_SECTIONS)
+    return ('  <nav class="bf-subnav" aria-label="Hire collection">\n'
+            f'    <ul class="bf-subnav-list" role="list">{items}</ul>\n  </nav>\n')
+
+
+def hire_strip(i, x, id_, title, body, button, extra=""):
+    if x["img"]:
+        src, alt, pos = x["img"]
+        pic = img(src, alt, "(max-width: 767px) 100vw, 50vw", attrs=f' class="bf-cat-image" style="object-position: {pos}" loading="lazy"')
+    else:
+        pic = NO_PHOTO.replace('class="hc-nophoto"', 'class="hc-nophoto bf-cat-image"')
+    paras = "".join(f'<p class="bf-body">{e(t)}</p>' for t in body)
+    return (f'  <section class="bf-cat hc-cat{" bf-cat-flip" if i % 2 else ""}" id="{id_}" aria-labelledby="{id_}-title">\n'
+            f'    <div class="bf-cat-main">\n      {pic}\n      <div class="bf-cat-text">\n'
+            f'        <h2 id="{id_}-title" class="bf-cat-title">{e(title)}</h2>\n'
+            f'        <p class="bf-script">{e(x["tag"])}</p>\n        {paras}\n'
+            f'        <a href="{button[0]}" class="bf-button">{e(button[1])}</a>\n      </div>\n    </div>{extra}\n  </section>')
+
+
+def hire_hero(x, title, crumb, button):
+    src, alt, pos = x["img"]
+    pic = img(src, alt, "(max-width: 991px) 100vw, 62vw", attrs=f' class="bf-hero-image" style="object-position: {pos}" fetchpriority="high"')
+    crumb_html = f'      <p class="bf-crumb-line"><a href="{HIRE_OVERVIEW}" class="bf-crumb">Hire collection</a></p>\n' if crumb else ""
+    paras = "".join(f'<p class="bf-body">{e(t)}</p>' for t in x["body"])
+    return (f'  <section class="bf-hero" aria-labelledby="bf-title">\n    {pic}\n    <div class="bf-hero-text">\n{crumb_html}'
+            f'      <h1 id="bf-title" class="bf-hero-title">{e(title)}</h1>\n'
+            f'      <p class="bf-script bf-hero-script">{e(x["tag"])}</p>\n      {paras}\n'
+            f'      <a href="{button}" class="bf-button bf-button-dark">Explore the collection</a>\n    </div>\n  </section>\n')
+
+
+HIRE_CTA = '''  <section class="ff-cta" aria-labelledby="hc-cta-title">
+    <h2 id="hc-cta-title" class="ff-heading">Come and see the collection</h2>
+    <p class="ff-body">Visit our Dorset showroom to see our hire pieces in person, try out ideas for your tables and venue, and put together everything you need for your day.</p>
+    <a href="/showroom" class="ff-button ff-button-primary">Book a showroom visit</a>
+  </section>
+'''
+HIRE_CSS = '\n  <link href="/css/hire-collection.css" rel="stylesheet" type="text/css">'
+
+
+def hire_page(title, desc, canonical, body, product=False):
+    html_ = page(title, desc, canonical, body, None).replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + HIRE_CSS, 1)
+    if product:
+        html_ = html_.replace(WISHLIST_HEAD_AFTER, WISHLIST_HEAD_AFTER + '\n  <link href="/css/bespoke-product.css" rel="stylesheet" type="text/css">', 1)
+        html_ = html_.replace("</body>", '  <script src="/js/bespoke-gallery.js" type="text/javascript"></script>\n'
+                              '  <script src="/js/hire-options.js" type="text/javascript"></script>\n</body>', 1)
+    return html_
+
+
+def hire_gallery(p):
+    shots = p["slides"]
+    if not shots:
+        return f'<div class="pd-gallery"><div class="pd-stage">{NO_PHOTO}</div></div>'
+    slides = "".join(
+        f'<li class="pd-slide" aria-label="Photo {i + 1} of {len(shots)}" data-variant="{v}">'
+        + img(src, alt, "(max-width: 991px) 100vw, 50vw", attrs=' fetchpriority="high"' if i == 0 else ' loading="lazy"') + "</li>"
+        for i, (src, alt, v) in enumerate(shots))
+    if len(shots) == 1:
+        return f'<div class="pd-gallery"><div class="pd-stage"><ul class="pd-track" role="list">{slides}</ul></div></div>'
+    thumbs = "".join(
+        f'<li><button type="button" class="pd-thumb{" is-active" if i == 0 else ""}" data-slide="{i}" aria-label="Show photo {i + 1}"'
+        + (' aria-current="true"' if i == 0 else "") + ">" + img(src, "", "120px", 600, ' loading="lazy"') + "</button></li>"
+        for i, (src, alt, v) in enumerate(shots))
+    return (f'<div class="pd-gallery" data-gallery>\n      <div class="pd-stage">\n'
+            f'        <ul class="pd-track" role="list" tabindex="0" aria-label="{e(p["name"])} photos">{slides}</ul>\n'
+            '        <button type="button" class="pd-arrow pd-prev" aria-label="Previous photo" data-prev>&#8249;</button>\n'
+            '        <button type="button" class="pd-arrow pd-next" aria-label="Next photo" data-next>&#8250;</button>\n'
+            f'        <p class="pd-count" aria-hidden="true"><span data-count>1</span> / {len(shots)}</p>\n      </div>\n'
+            f'      <ul class="pd-thumbs" role="list">{thumbs}</ul>\n    </div>')
+
+
+def hire_options(p):
+    vs = p["variants"]
+    if len(vs) < 2:
+        return ""
+    swatches = p.get("options") == "swatches"
+    title = p.get("options_title", "Available styles")
+    buttons = "".join(
+        f'<li><button type="button" class="{"hc-swatch" if swatches else "hc-style"}" data-option data-name="{e(v["name"])}" '
+        f'data-wish-id="{v["id"]}" data-slide="{"" if v["start"] is None else v["start"]}" aria-pressed="{"true" if i == 0 else "false"}">'
+        + (f'<span class="hc-swatch-dot" style="background-color: {v["swatch"]}" aria-hidden="true"></span>'
+           f'<span class="hc-swatch-name">{e(v["name"])}</span>' if swatches else e(v["name"]))
+        + "</button></li>"
+        for i, v in enumerate(vs))
+    return (f'<div class="hc-options" data-options>\n'
+            f'        <p class="hc-options-title">{e(title)}<span class="hc-options-current" data-option-current>{e(vs[0]["name"])}</span></p>\n'
+            f'        <ul class="{"hc-swatches" if swatches else "hc-styles"}" role="list">{buttons}</ul>\n      </div>')
+
+
+def hire_product_body(sec, p):
+    others = [o for o in sec["products"] if o is not p]
+    first = p["variants"][0]["id"]
+    sections = "".join(
+        f'<li><a href="{hire_url(o)}" class="pd-section">'
+        + img(o["img"][0], o["img"][1], "(max-width: 767px) 100vw, 33vw", 1200, f' style="object-position: {o["img"][2]}" loading="lazy"')
+        + f'<span class="pd-section-text"><span class="pd-section-name">{e(o["name"])}</span>'
+        f'<span class="pd-section-types">{e(", ".join(x["name"] for x in o["products"]))}</span></span></a></li>'
+        for o in HIRE_SECTIONS if o is not sec)
+    paras = "".join(f'<p class="pd-body">{e(t)}</p>' for t in p["about"])
+    more = ""
+    if others:
+        cards = "".join(hire_card(sec, o, "(max-width: 991px) 50vw, 30vw") for o in others)
+        more = (f'  <section class="pd-more" aria-labelledby="pd-more-title">\n'
+                f'    <h2 id="pd-more-title" class="pd-h2 pd-center">More {e(sec["name"].lower())}</h2>\n'
+                f'    <ul class="bf-looks-grid bf-looks-{min(len(others), 4)} pd-more-grid" role="list">{cards}</ul>\n  </section>\n')
+    return (f'  <nav class="pd-crumbs" aria-label="Breadcrumb"><a href="{HIRE_OVERVIEW}">Hire Collection</a><span aria-hidden="true">/</span>'
+            f'<a href="{hire_url(sec)}">{e(sec["name"])}</a><span aria-hidden="true">/</span><span aria-current="page">{e(p["name"])}</span></nav>\n'
+            f'  <section class="pd-main" aria-labelledby="pd-title">\n    {hire_gallery(p)}\n    <div class="pd-info">\n'
+            f'      <h1 id="pd-title" class="pd-title">{e(p["name"])}</h1>\n'
+            f'      <p class="bf-script pd-tag">{e(p["tag"])}</p>\n      {paras}\n      {hire_options(p)}\n'
+            f'      <div class="pd-buttons">\n'
+            f'        <button type="button" class="ff-button ff-button-primary" data-wish-add="{first}"'
+            f'{" data-wish-options" if len(p["variants"]) > 1 else ""}>Add to your wish list</button>\n'
+            f'        <a href="/showroom" class="ff-button ff-button-outline">Book a showroom visit</a>\n      </div>\n'
+            f'    </div>\n  </section>\n' + more +
+            f'  <section class="pd-sections" aria-labelledby="pd-sections-title">\n'
+            f'    <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore the hire collection</h2>\n'
+            f'    <ul class="pd-section-list" role="list">{sections}</ul>\n  </section>\n' + HIRE_CTA)
+
+
+def hire_row(sec):
+    return (f'\n    <div class="bf-looks"><h3 class="bf-looks-title">In the collection</h3>'
+            f'<ul class="bf-looks-grid bf-looks-{min(len(sec["products"]), 4)}" role="list">'
+            + "".join(hire_card(sec, p) for p in sec["products"]) + "</ul></div>")
+
+
+# overview
+hire_body = hire_hero(HIRE_HOME, HIRE_HOME["title"], False, "#hc-collection") + hire_subnav() + \
+    '  <div class="bf-collection" id="hc-collection">\n' + "\n".join(
+        hire_strip(i, s, s["slug"], s["name"], s["body"], (hire_url(s), f'Explore {s["name"].lower()}'), extra=hire_row(s))
+        for i, s in enumerate(HIRE_SECTIONS)) + "\n  </div>\n" + HIRE_CTA
+write("wedding-prop-hire-collection.html", hire_page(
+    "Wedding Hire Collection in Dorset | Winterborne Hire & Styling", HIRE_HOME["body"][0], HIRE_OVERVIEW, hire_body))
+
+# sections and products
+hire_built = 0
+for s in HIRE_SECTIONS:
+    body = hire_hero(s, s["name"], True, f'#{s["products"][0]["slug"]}') + hire_subnav(s) + \
+        '  <div class="bf-collection">\n' + "\n".join(
+            hire_strip(i, p, p["slug"], p["name"], p["about"][:2], (hire_url(s, p), f'Discover {p["name"].lower()}'))
+            for i, p in enumerate(s["products"])) + "\n  </div>\n" + HIRE_CTA
+    write(f'{s["slug"]}.html', hire_page(f'{s["name"]} Hire | Wedding Hire Collection | Winterborne', s["body"][0], hire_url(s), body))
+    os.makedirs(os.path.join(ROOT, s["slug"]), exist_ok=True)
+    for p in s["products"]:
+        write(f'{s["slug"]}/{p["slug"]}.html', hire_page(f'{p["name"]} Hire | {s["name"]} | Winterborne', " ".join(p["about"][:2]),
+                                                       hire_url(s, p), hire_product_body(s, p), product=True))
+        hire_built += 1
+
+# old product pages: removed here, and redirected (netlify.toml) to the product they were merged into, or their section
+hire_redirects = []
+for s in HIRE_SECTIONS:
+    for p in s["products"]:
+        for old in p["old"]:
+            hire_redirects += [(f"{folder}/{old}", hire_url(s, p)) for folder in OLD_FOLDERS[s["slug"]]]
+    for old in s.get("removed", []):
+        hire_redirects += [(f"{folder}/{old}", hire_url(s)) for folder in OLD_FOLDERS[s["slug"]]]
+removed_files = 0
+for frm, to in hire_redirects:
+    f = os.path.join(ROOT, frm.lstrip("/") + ".html")
+    if os.path.exists(f):
+        os.remove(f)
+        removed_files += 1
+for folder in ("table-decor-collection", "small-props-collection", "furniture-rugs"):
+    full = os.path.join(ROOT, folder)
+    if os.path.isdir(full):
+        for left in glob.glob(os.path.join(full, "*.html")):  # anything left over is no longer hired
+            os.remove(left)
+            removed_files += 1
+        os.rmdir(full)
+if os.path.exists(os.path.join(ROOT, "furniture-rugs.html")):
+    os.remove(os.path.join(ROOT, "furniture-rugs.html"))
+
+REDIRECTS_START, REDIRECTS_END = "# hire-redirects:start", "# hire-redirects:end"
+rules = ["# Written by scripts/build-bespoke-florals.py from scripts/hire_products.py. Don't edit by hand.\n"
+         "# The hire section pages share their names with their folders of product pages, so say which file serves them."]
+rules += [f'[[redirects]]\n  from = "{hire_url(s)}"\n  to = "{hire_url(s)}.html"\n  status = 200' for s in HIRE_SECTIONS]
+rules += [f'[[redirects]]\n  from = "{a}"\n  to = "{b}"\n  status = 301' for a, b in OLD_LIST_PAGES.items()]
+rules += [f'[[redirects]]\n  from = "{a}"\n  to = "{b}"\n  status = 301' for a, b in hire_redirects]
+for folder, target in (("/table-decor-collection", "/table-decor"), ("/small-props-collection", "/small-props"),
+                       ("/furniture-rugs", "/seating-areas"), ("/furniture-collection", "/seating-areas"),
+                       ("/rugs-runners-collection", "/seating-areas")):
+    rules.append(f'[[redirects]]\n  from = "{folder}/*"\n  to = "{target}"\n  status = 301')
+toml = read("netlify.toml")
+block = REDIRECTS_START + "\n" + "\n\n".join(rules) + "\n" + REDIRECTS_END
+if REDIRECTS_START in toml:
+    toml = toml[:toml.index(REDIRECTS_START)] + block + toml[toml.index(REDIRECTS_END) + len(REDIRECTS_END):]
+else:
+    toml = toml.rstrip("\n") + "\n\n" + block + "\n"
+write("netlify.toml", toml)
+print(f"built {len(HIRE_SECTIONS) + 1} hire collection pages and {hire_built} hire products; "
+      f"{len(hire_redirects)} old product URLs redirect; removed {removed_files} old product pages")
+
+# the hire products and their options, for the wish list (js/wishlist.js), plus the Large Props pages (hidden from
+# the menu, built by scripts/build-webflow-content.py)
+hire_items = []
+for s in HIRE_SECTIONS:
+    for p in s["products"]:
+        for v in p["variants"]:
+            hire_items.append(dict(id=v["id"], name=p["name"] + ("" if len(p["variants"]) == 1 else f': {v["name"]}'),
+                                   section=s["name"], url=hire_url(s, p)))
+_wf = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
+hire_items += [dict(id=f'hire-large-props-{i["slug"]}', name=i["name"].strip(), section="Large Props",
+                    url=f'/large-prop-collection/{i["slug"]}') for i in _wf["large-props"]]
+write("js/hire-items.js", "// Written by scripts/build-bespoke-florals.py: the hire collection products and their options, for the\n"
+      "// wish list (js/wishlist.js). Don't edit by hand.\nwindow.HIRE_ITEMS = " + json.dumps(hire_items, indent=1, ensure_ascii=False) + ";\n")
+
 # ---------- the sections and their products, for the wish list panel ----------
-import json  # noqa: E402
 SECTIONS_JS = [dict(name=s["name"], url=f'/bespoke-florals/{s["slug"]}',
                     items=[dict(id=t["quote"], name=t["name"], url=purl(s, t)) for t in s["types"]]) for s in SECTIONS]
 write("js/bespoke-sections.js", "// Written by scripts/build-bespoke-florals.py: the Bespoke Florals sections and their products,\n"

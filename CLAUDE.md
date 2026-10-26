@@ -48,31 +48,36 @@ Pages with the "Instagram" section show a grid of the latest posts, straight fro
 
 ## Hire collection (menu and structure)
 
-The menu is Bespoke Florals first, then **Hire Collection** (Small Props, Furniture & Rugs, Table Decor, Signage).
-Both menus, and the footer's Hire Collection list, are written onto every page by `scripts/build-bespoke-florals.py`
-from `HIRE_MENU`; set `show=False` to hide an item without removing its page (Large Props is hidden for now, its
-page and products are still live).
+The hire collection mirrors Bespoke Florals: an overview, four sections and a page per product. Everything is in
+`scripts/hire_products.py` (sections, products, their colours or styles, copy, and which old Webflow products each one
+replaces); `scripts/build-bespoke-florals.py` builds the pages, the **Hire Collection** menu (two columns, like Bespoke
+Florals) and the footer's Hire Collection list. Styles: `css/hire-collection.css` on top of the Bespoke Florals ones.
 
-- **Furniture & Rugs** combines the old Furniture and Rugs & Runners collections: `/furniture-rugs` and
-  `/furniture-rugs/<slug>`. The old `/furniture`, `/rugs-runners`, `/furniture-collection/*` and
-  `/rugs-runners-collection/*` URLs redirect there (301, `netlify.toml`).
+- `/wedding-prop-hire-collection`: the overview (hero, section strip, a block per section with its products)
+- `/table-decor`, `/signage`, `/small-props`, `/seating-areas`: a section each (Seating Areas is chairs, tables, rugs
+  and runners; it replaced Furniture & Rugs)
+- `/<section>/<product>`: product pages. Each merges several old products. Their options ("variants") show as colour
+  swatches (`options="swatches"`, e.g. Coloured Napkins) or a row of style names; choosing one moves the slider to its
+  photos and sets what "Add to your wish list" adds (`js/hire-options.js`). A product or option with no photos yet
+  shows "Photos coming soon".
+- **Old URLs:** every old product page redirects (301) to the product it was merged into, or to its section if it's no
+  longer hired. The build writes these into `netlify.toml` between `# hire-redirects:start` / `end`; don't edit them by
+  hand. Old product pages are deleted by the build.
+- **Large Props** is hidden from the menu; its page and products are still live (built by `build-webflow-content.py`).
 - **Florals & Foliage** is gone (Bespoke Florals covers it). Each old product redirects to its closest Bespoke
   Florals product, or `/bespoke-florals` where there's no match (`netlify.toml`).
-- **Product pages** use the Bespoke Florals photo slider (one 4:5 shape, cropped to fill, so no white bars) and an
-  "Add to your wish list" button; no stock count is shown. `js/hire-items.js` (written by the build) names the hire
-  products for the wish list; they have no guide price.
+- `js/hire-items.js` (written by the build) names the hire products and options for the wish list; no stock count or
+  price is shown.
+- Copy still to come: the Table Decor, Small Props and Seating Areas section text (lorem ipsum for now).
 
 ## Products and older testimonials (from the Webflow CMS)
 
 The Webflow CMS exports (CSV) were converted to `data/webflow-content.json`: Florals & Foliage, Signage, Rugs & Runners,
 Large Props, Small Props, Table Decor, Furniture, the Faux Florals gallery and the older testimonials. `scripts/build-webflow-content.py` builds from it:
 
-- the product grids on every collection page (`COLLECTIONS`; a page can combine several data collections with
-  `sources`) (filling the Webflow filter tabs where a page has them),
-  between `<!-- products:start -->` / `<!-- products:end -->` markers;
-- a page per product at the same URL Webflow used: `/florals-foliage/<slug>`, `/signage/<slug>`,
-  `/rugs-runners-collection/<slug>`, `/large-prop-collection/`, `/small-props-collection/`, `/table-decor-collection/`,
-  `/furniture-collection/` (the `url` setting in the script);
+- the Large Props product grid and its product pages (`/large-prop-collection/<slug>`), between
+  `<!-- products:start -->` / `<!-- products:end -->` markers (the rest of the hire collection is built from
+  `scripts/hire_products.py`, above; the photos still come from `images/webflow-sized/`);
 - the "More kind words" section on `our-testimonials.html` (between `kind-words` markers).
 
 Images: `scripts/fetch-webflow-images.mjs` saves them from Webflow's CDN into `images/webflow/`; the build uses a saved

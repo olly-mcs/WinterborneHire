@@ -9,18 +9,6 @@
 [functions]
   directory = "netlify/functions"
 
-# Product list pages that share their name with a folder of product pages (signage.html and signage/),
-# so say explicitly which file serves the list.
-[[redirects]]
-  from = "/signage"
-  to = "/signage.html"
-  status = 200
-
-[[redirects]]
-  from = "/furniture-rugs"
-  to = "/furniture-rugs.html"
-  status = 200
-
 # Bespoke Florals section pages, which share their names with the folders of product pages
 [[redirects]]
   from = "/bespoke-florals/the-ceremony"
@@ -42,27 +30,8 @@
   to = "/bespoke-florals/installations.html"
   status = 200
 
-# Hire collection changes (see CLAUDE.md, "Hire collection")
-# Furniture and Rugs & Runners are combined into Furniture & Rugs
-[[redirects]]
-  from = "/furniture"
-  to = "/furniture-rugs"
-  status = 301
-
-[[redirects]]
-  from = "/rugs-runners"
-  to = "/furniture-rugs"
-  status = 301
-
-[[redirects]]
-  from = "/furniture-collection/*"
-  to = "/furniture-rugs/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/rugs-runners-collection/*"
-  to = "/furniture-rugs/:splat"
-  status = 301
+# Hire collection changes (see CLAUDE.md, "Hire collection"): the section pages and the old product URLs are in
+# the hire-redirects block at the end of this file.
 
 # Florals & Foliage is covered by Bespoke Florals: each product goes to its closest Bespoke Florals product,
 # or the Bespoke Florals page
@@ -205,3 +174,898 @@
   for = "/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# hire-redirects:start
+# Written by scripts/build-bespoke-florals.py from scripts/hire_products.py. Don't edit by hand.
+# The hire section pages share their names with their folders of product pages, so say which file serves them.
+
+[[redirects]]
+  from = "/table-decor"
+  to = "/table-decor.html"
+  status = 200
+
+[[redirects]]
+  from = "/signage"
+  to = "/signage.html"
+  status = 200
+
+[[redirects]]
+  from = "/small-props"
+  to = "/small-props.html"
+  status = 200
+
+[[redirects]]
+  from = "/seating-areas"
+  to = "/seating-areas.html"
+  status = 200
+
+[[redirects]]
+  from = "/furniture-rugs"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/furniture"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/sage-napkins"
+  to = "/table-decor/coloured-napkins"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/terracotta-napkin"
+  to = "/table-decor/coloured-napkins"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/soft-dusty-blue-napkin"
+  to = "/table-decor/coloured-napkins"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/soft-pink-napkin"
+  to = "/table-decor/coloured-napkins"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/gold-charger-plates"
+  to = "/table-decor/charger-plates"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/gold-beaded-rim-perspex-charger-plate"
+  to = "/table-decor/charger-plates"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/copper-charger-plates"
+  to = "/table-decor/charger-plates"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/seagrass-charger-plates"
+  to = "/table-decor/charger-plates"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/matt-gold-cutlery"
+  to = "/table-decor/gold-cutlery"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/assorted-vintage-brass-candlesticks"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/assorted-vintage-glass-candlesticks"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/trio-of-gold-candlesticks"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/trio-of-silver-candlestick-holders"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/black-candlesticks"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/black-chunky-candlesticks"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/white-chunky-candlesticks"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/8-arm-acrylic-candlestick-candelabra-centrepiece"
+  to = "/table-decor/candlesticks"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/pink-bud-vases"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/orange-bud-vases"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/turquoise-bud-vases"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/dark-green-glass-bud-vases-votives"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/vinatge-cut-glass-bud-vases"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/eartenware-bud-vases"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/assorted-vintage-glass-bottles"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/assorted-small-earthenware-bottles"
+  to = "/table-decor/bud-vases"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/clear-glass-table-tealight-holders"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/gold-rimmed-tealight-holders"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/speckled-tea-light-holders"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/small-glass-candle-holders-with-twine"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/trio-of-tall-glass-tealight-holders"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/trio-of-glass-table-cylinders"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/glass-hanging-baubles"
+  to = "/table-decor/tea-light-holders"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/cream-crinkle-chair-drapes"
+  to = "/table-decor/chair-drapes"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/light-beige-crinkle-chair-drapes"
+  to = "/table-decor/chair-drapes"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/sage-green-crinkle-chair-drapes"
+  to = "/table-decor/chair-drapes"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/forest-green-crinkle-chair-drape"
+  to = "/table-decor/chair-drapes"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/soft-pink-crinkle-chair-drapes"
+  to = "/table-decor/chair-drapes"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/blackboard-table-numbers"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/chalkboard-table-number"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/gold-frame-table-numbers-with-dried-fern"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/mini-table-easels"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/signage/large-gilt-frame-mirror"
+  to = "/signage/table-plans"
+  status = 301
+
+[[redirects]]
+  from = "/signage/fabric-banner-wedding-sign"
+  to = "/signage/table-plans"
+  status = 301
+
+[[redirects]]
+  from = "/signage/metal-frames-with-custom-signage-designs"
+  to = "/signage/table-plans"
+  status = 301
+
+[[redirects]]
+  from = "/signage/decorative-arched-mirror-sign"
+  to = "/signage/welcome-signs"
+  status = 301
+
+[[redirects]]
+  from = "/signage/gold-arched-full-length-mirror"
+  to = "/signage/welcome-signs"
+  status = 301
+
+[[redirects]]
+  from = "/signage/mr-mrs-neon-sign"
+  to = "/signage/neon-signs"
+  status = 301
+
+[[redirects]]
+  from = "/signage/crazy-in-love-neon-sign-in-pink"
+  to = "/signage/neon-signs"
+  status = 301
+
+[[redirects]]
+  from = "/signage/chalk-a-board"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/antique-gold-metal-decorative-easel"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/white-metal-decorative-easel"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/handmade-wooden-signs"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/wooden-circular-welcome-sign"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/rustic-wood-rectangular-welcome-sign"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/order-of-the-day-pallet-sign"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/signage/no-seating-plan-pallet-sign"
+  to = "/signage"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/large-gold-cake-hoop"
+  to = "/small-props/cake-stands"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/marble-top-cake-stand"
+  to = "/small-props/cake-stands"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/assorted-cut-glass-cake-stands"
+  to = "/small-props/cake-stands"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/3-tier-log-slice-cake-stand"
+  to = "/small-props/cake-stands"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/gold-glass-card-box"
+  to = "/small-props/card-boxes"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/glass-card-box"
+  to = "/small-props/card-boxes"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/wicker-card-basket"
+  to = "/small-props/card-boxes"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/hessian-lined-wicker-card-basket"
+  to = "/small-props/card-boxes"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/gold-geometric-lanterns"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/gold-lantern"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/star-lanterns"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/new-moroccan-lantern"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/white-gold-lanterns"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/rattan-lanterns-2"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/handmade-wooden-lanterns"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/black-square-cylinder-vases"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/floor-standing-glass-cylinder-vases"
+  to = "/small-props/lanterns"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/log-slices"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/handmade-wooden-crates"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/vintage-galvanished-tub"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/glass-demijohns"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/vintage-flagons-demijons"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/vintage-wooden-shelving"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/disco-balls"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/gold-disco-balls"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/mirrored-gold-metal-trolly"
+  to = "/small-props/other-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/boho-printed-square-cushions"
+  to = "/small-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/extra-large-dreamcatcher"
+  to = "/small-props"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/large-bottle-with-seagrass-twine"
+  to = "/small-props"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/a-pair-of-peacock-chairs"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/a-pair-of-peacock-chairs"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/a-pair-of-peacock-chairs"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/cane-peacock-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/cane-peacock-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/cane-peacock-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/cane-armchair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/cane-armchair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/cane-armchair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/small-cane-egg-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/small-cane-egg-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/small-cane-egg-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/vintage-wicker-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/vintage-wicker-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/vintage-wicker-chair"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/jay-sofa-set"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/jay-sofa-set"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/jay-sofa-set"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/wicker-and-cane-footstool"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/wicker-and-cane-footstool"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/wicker-and-cane-footstool"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/vintage-boho-footstool"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/vintage-boho-footstool"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/vintage-boho-footstool"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/wicker-pouffe"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/wicker-pouffe"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/wicker-pouffe"
+  to = "/seating-areas/chairs"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/cane-side-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/cane-side-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/cane-side-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/carved-brass-top-boho-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/carved-brass-top-boho-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/carved-brass-top-boho-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/carved-wood-boho-coffee-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/carved-wood-boho-coffee-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/carved-wood-boho-coffee-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/pair-of-boho-carved-wood-side-tables"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/pair-of-boho-carved-wood-side-tables"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/pair-of-boho-carved-wood-side-tables"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/vintage-wicker-peacock-side-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/vintage-wicker-peacock-side-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/vintage-wicker-peacock-side-table"
+  to = "/seating-areas/tables"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/charity-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/charity-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/charity-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/cornhill-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/cornhill-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/cornhill-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/large-brown-persian-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/large-brown-persian-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/large-brown-persian-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/large-vintage-red-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/large-vintage-red-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/large-vintage-red-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/large-red-azerbaijan-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/large-red-azerbaijan-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/large-red-azerbaijan-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/pretty-cream-floral-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/pretty-cream-floral-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/pretty-cream-floral-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/pretty-sage-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/pretty-sage-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/pretty-sage-vintage-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/red-aztec-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/red-aztec-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/red-aztec-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/round-rattan-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/round-rattan-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/round-rattan-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/vintage-cream-and-pink-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/vintage-cream-and-pink-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/vintage-cream-and-pink-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/vintage-orange-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/vintage-orange-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/vintage-orange-rug"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/ethnic-runner"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/ethnic-runner"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/ethnic-runner"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/extra-long-persian-runner"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/extra-long-persian-runner"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/extra-long-persian-runner"
+  to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/table-decor-collection/*"
+  to = "/table-decor"
+  status = 301
+
+[[redirects]]
+  from = "/small-props-collection/*"
+  to = "/small-props"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/*"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/*"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/*"
+  to = "/seating-areas"
+  status = 301
+# hire-redirects:end
