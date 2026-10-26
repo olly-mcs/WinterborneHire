@@ -78,8 +78,11 @@
     '  <div class="wl-head"><h2 id="wl-title" class="wl-title">Your wish list</h2>' +
     '    <button type="button" class="wl-close" aria-label="Close your wish list">&times;</button></div>' +
     '  <div class="wl-body">' +
-    '    <p class="wl-intro">Add the florals and hire pieces you love, then send us your list.</p>' +
-    '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as possible with your quote.</strong></p>' +
+    '    <ol class="wl-steps" role="list">' +
+    '      <li><span class="wl-step-n" aria-hidden="true">1</span><span>Add the florals and hire collection items you love</span></li>' +
+    '      <li><span class="wl-step-n" aria-hidden="true">2</span><span>Send us your list</span></li>' +
+    '    </ol>' +
+    '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as we can to discuss next steps.</strong></p>' +
     '    <p class="wl-empty">Your wish list is empty. Add florals and hire pieces below, or use &ldquo;Add to your wish list&rdquo; on any product.</p>' +
     '    <ul class="wl-lines" role="list"></ul>' +
     '    <h3 class="wl-more-title">Add florals</h3>' +

@@ -634,3 +634,38 @@ a.wl-line-name:hover {
   opacity: 0.35;
   cursor: not-allowed;
 }
+
+/* The two steps at the top of the panel */
+.wl-steps {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.wl-steps li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.wl-step-n {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #e59775;
+  border-radius: 50%;
+  color: #c27f63;
+  font-family: Cinzel, serif;
+  font-size: 15px;
+}
