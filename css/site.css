@@ -1940,3 +1940,29 @@ button.hp-fact-link {
   color: rgba(246, 243, 238, 0.7);
   font-size: 13px;
 }
+
+/* Google Rating badge (dark text on transparent, so it sits on a white rounded card on the dark panels) */
+.g-rating {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: #fff;
+  line-height: 0;
+}
+
+.g-rating img {
+  display: block;
+  width: 190px;
+  height: auto;
+}
+
+.hp-fact-rating .g-rating {
+  margin-bottom: 6px;
+}
+
+.faux-dialog .rv-title {
+  text-align: left;
+  margin: 0 0 14px;
+  line-height: 0;
+}
