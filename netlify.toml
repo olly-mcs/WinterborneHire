@@ -168,6 +168,13 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
+# Staging: keep the site out of Google for now. Remove this block (and set NOINDEX = False in
+# scripts/apply-page-meta.py) to let search engines index it.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # The Blog and Gallery pages (empty after the move from Webflow) are retired for now: both go to the homepage
 [[redirects]]
   from = "/the-winterborne-wedding-blog"

@@ -18,6 +18,19 @@ GA_TAG = (f'  <!-- Google tag (gtag.js) -->\n'
 OLD_UA = re.compile(r"[ \t]*<script type=\"text/javascript\">\(function\(i,s,o,g,r,a,m\).*?ga\('send', 'pageview'\);</script>\n")
 
 
+# Keep the whole site out of search results (True) or let search engines index it (False). The matching
+# X-Robots-Tag header in netlify.toml must agree: keep or remove its "Staging" block at the same time.
+NOINDEX = True
+ROBOTS_TAG = '  <meta name="robots" content="noindex, nofollow">\n'
+
+
+def ensure_robots(text):
+    text = text.replace(ROBOTS_TAG, "")
+    if NOINDEX and "<head>\n" in text:
+        text = text.replace("<head>\n", "<head>\n" + ROBOTS_TAG, 1)
+    return text
+
+
 def ensure_analytics(text):
     text = OLD_UA.sub("", text)
     if GA_ID in text or "<head>" not in text:
@@ -45,12 +58,12 @@ if __name__ == "__main__":
         if os.sep + "node_modules" + os.sep in path or os.sep + "netlify" + os.sep in path:
             continue
         old = open(path, encoding="utf-8").read()
-        new = ensure_analytics(old)
+        new = ensure_robots(ensure_analytics(old))
         if new != old:
             open(path, "w", encoding="utf-8").write(new)
             tagged += 1
     if tagged:
-        print(f"Google Analytics tag: added to {tagged} pages")
+        print(f"Google Analytics tag and robots setting (noindex {'on' if NOINDEX else 'off'}): updated {tagged} pages")
     changed, missing = 0, []
     for page, m in META.items():
         path = os.path.join(ROOT, page + ".html")

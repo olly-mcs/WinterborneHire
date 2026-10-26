@@ -193,11 +193,17 @@ first, with styles in `css/testimonials.css` and the slider/full-screen viewer i
 - The hero video, jQuery and share images are hosted with the site. Fonts, jQuery UI, Masonry, Elfsight and
   still load from their own CDNs.
 
-## Live (indexed)
+## Search indexing: off for now (noindex)
 
-The site went live on 2026-10-26 at https://www.winterbornehireandstyling.co.uk (DNS at GoDaddy pointing to Netlify:
-A `@` 75.2.60.5, CNAME `www` winterbornehire.netlify.app). The staging noindex tags and header have been removed, so
-search engines can index every page. Don't add `noindex` back unless a page should be hidden from search.
+The site is live at https://www.winterbornehireandstyling.co.uk (DNS at GoDaddy pointing to Netlify: A `@` 75.2.60.5,
+CNAME `www` winterbornehire.netlify.app) but kept out of search results for now:
+
+- `NOINDEX = True` in `scripts/apply-page-meta.py` puts `<meta name="robots" content="noindex, nofollow">` in every
+  page's `<head>` (every build runs it last, so it can't drift)
+- `netlify.toml` sends an `X-Robots-Tag: noindex, nofollow` header (the "Staging" block)
+
+To let Google in: set `NOINDEX = False`, run `python3 scripts/apply-page-meta.py`, and delete the Staging block in
+`netlify.toml`. Keep `robots.txt` allowing everything, or crawlers never see the noindex.
 
 ## SEO
 
@@ -226,7 +232,7 @@ or description there, not in the build scripts. Keep titles to about 60 characte
   scripts run it at the end. The homepage keeps its hand-picked image.
 - Pages load only Cinzel and Raleway from Google Fonts (a plain stylesheet link). jQuery UI loads only on the showroom
   page, for its date picker. Don't add Masonry, reCAPTCHA or the WebFont loader back.
-- Launched: noindex removed, `sitemap.xml` and `robots.txt` added. Google Analytics (GA4, `G-962GWFVQZX`) is added to every page's `<head>` by `scripts/apply-page-meta.py`, which every build runs last; the old `UA-` tag is removed.
+- `sitemap.xml` and `robots.txt` added; noindex is back on for now (see "Search indexing"). Google Analytics (GA4, `G-962GWFVQZX`) is added to every page's `<head>` by `scripts/apply-page-meta.py`, which every build runs last; the old `UA-` tag is removed.
   and redirect or rebuild the 7 blog posts and 7 wedding packages that `scripts/check-sitemap.py` lists.
 
 ## "Captured at a real Winterborne wedding"
