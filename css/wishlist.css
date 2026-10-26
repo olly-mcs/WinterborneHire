@@ -578,3 +578,52 @@ a.wl-line-name:hover {
 .wl-more-title[hidden] {
   display: none;
 }
+
+/* Hire collection items: a product with colours or styles opens a nested list of its options */
+.wl-hire-title {
+  margin-top: 30px;
+}
+
+.wl-add-more li.wl-has-options {
+  display: block;
+  padding: 0;
+}
+
+.wl-options > summary {
+  padding: 10px 0;
+  font-size: 14.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.wl-options > summary::after {
+  font-size: 18px;
+}
+
+.wl-add-more .wl-options ul {
+  margin: 0 0 10px 4px;
+  padding: 0 0 0 14px;
+  border-left: 1px solid #e3d9d0;
+}
+
+.wl-add-more .wl-options li:first-child {
+  border-top: 0;
+}
+
+.wl-option-name {
+  color: #3a3835;
+  font-family: Raleway, sans-serif;
+  font-size: 14px;
+}
+
+.wl-add-more li.wl-option-link {
+  padding: 8px 0 4px;
+}
+
+.wl-add-more li.wl-option-link a {
+  color: #66605a;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

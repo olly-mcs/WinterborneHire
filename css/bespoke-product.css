@@ -528,3 +528,13 @@ body:has(.pd-main) {
   position: relative;
   object-fit: contain;
 }
+
+/* Keep "Add to your wish list" and "Book a consultation" side by side on smaller laptops too */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .pd-buttons .ff-button {
+    flex: 1 1 0;
+    padding-inline: 14px;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+}

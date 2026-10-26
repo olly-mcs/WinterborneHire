@@ -76,12 +76,14 @@
     '  <div class="wl-head"><h2 id="wl-title" class="wl-title">Your wish list</h2>' +
     '    <button type="button" class="wl-close" aria-label="Close your wish list">&times;</button></div>' +
     '  <div class="wl-body">' +
-    '    <p class="wl-intro">Add the florals you love, then send us your list.</p>' +
+    '    <p class="wl-intro">Add the florals and hire pieces you love, then send us your list.</p>' +
     '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as possible with your quote.</strong></p>' +
-    '    <p class="wl-empty">Your wish list is empty. Add florals below, or use &ldquo;Add to your wish list&rdquo; on any of our florals.</p>' +
+    '    <p class="wl-empty">Your wish list is empty. Add florals and hire pieces below, or use &ldquo;Add to your wish list&rdquo; on any product.</p>' +
     '    <ul class="wl-lines" role="list"></ul>' +
     '    <h3 class="wl-more-title">Add more florals</h3>' +
     '    <div class="wl-more"></div>' +
+    '    <h3 class="wl-more-title wl-hire-title">Add hire collection items</h3>' +
+    '    <div class="wl-more wl-more-hire"></div>' +
     '    <form class="wl-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">' +
     '      <input type="hidden" name="form-name" value="quote">' +
     '      <p hidden><label>Leave this empty: <input name="bot-field"></label></p>' +
@@ -183,7 +185,49 @@
         }).join("") + '</ul></details>';
     }).join("");
     panel.querySelector(".wl-more-title").hidden = !moreEl.innerHTML;
+    renderHire();
   }
+
+  // The hire collection (js/hire-items.js, HIRE_SECTIONS): Table Decor, Signage, Small Props and Seating Areas, each
+  // listing its products; a product with colours or styles opens a second list of those options
+  var hireSections = window.HIRE_SECTIONS || [];
+  var hireEl = panel.querySelector(".wl-more-hire");
+  var openHire = {};
+  function addRow(id, name, url) {
+    return '<li>' + (url ? '<a href="' + esc(url) + '">' + esc(name) + '</a>' : '<span class="wl-option-name">' + esc(name) + '</span>') +
+      '<button type="button" class="wl-add" data-id="' + esc(id) + '" aria-label="Add ' + esc(name) + ' to your wish list">+ Add</button></li>';
+  }
+  function renderHire() {
+    hireEl.innerHTML = hireSections.map(function (sec, i) {
+      var rows = sec.items.map(function (it, j) {
+        if (!it.variants) return items[it.id] && !(list[it.id] > 0) ? addRow(it.id, it.name, it.url) : "";
+        var rest = it.variants.filter(function (v) { return items[v.id] && !(list[v.id] > 0); });
+        if (!rest.length) return "";
+        var key = i + "-" + j;
+        return '<li class="wl-has-options"><details class="wl-options" data-hire="' + key + '"' + (openHire[key] ? " open" : "") + '>' +
+          '<summary>' + esc(it.name) + ' <span class="wl-add-count">' + rest.length + '</span></summary><ul role="list">' +
+          rest.map(function (v) { return addRow(v.id, v.name, null); }).join("") +
+          '<li class="wl-option-link"><a href="' + esc(it.url) + '">See ' + esc(it.name.toLowerCase()) + '</a></li></ul></details></li>';
+      }).filter(Boolean);
+      if (!rows.length) return "";
+      return '<details class="wl-add-more" data-hire="s' + i + '"' + (openHire["s" + i] ? " open" : "") + '>' +
+        '<summary>' + esc(sec.name) + ' <span class="wl-add-count">' + rows.length + '</span></summary><ul role="list">' +
+        rows.join("") + '</ul></details>';
+    }).join("");
+    panel.querySelector(".wl-hire-title").hidden = !hireEl.innerHTML;
+  }
+  hireEl.addEventListener("toggle", function (e) {
+    var d = e.target.closest && e.target.closest("[data-hire]");
+    if (d && d === e.target) openHire[d.getAttribute("data-hire")] = d.open;
+  }, true);
+  hireEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".wl-add");
+    if (!btn) return;
+    var d = btn.closest(".wl-options"), sec = btn.closest(".wl-add-more");
+    if (d) openHire[d.getAttribute("data-hire")] = true;
+    if (sec) openHire[sec.getAttribute("data-hire")] = true;
+    setQty(btn.getAttribute("data-id"), 1);
+  });
   moreEl.addEventListener("toggle", function (e) {
     var d = e.target.closest && e.target.closest(".wl-add-more");
     if (d) openMore[d.getAttribute("data-sec")] = d.open;

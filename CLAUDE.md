@@ -135,6 +135,11 @@ Photos are the old Webflow product photos plus site and testimonial photos for n
 
 ## Floral wish list
 
+The wish list tab (bottom right) is on every page (`ensure_wishlist` in `scripts/build-bespoke-florals.py`). Under the
+list, "Add more florals" lists the Bespoke Florals sections and "Add hire collection items" lists Table Decor, Signage,
+Small Props and Seating Areas; a hire product with colours or styles opens a nested list of its options
+(`window.HIRE_SECTIONS` in `js/hire-items.js`, written by the build).
+
 Every Bespoke Florals page loads `js/wishlist.js` and `css/wishlist.css` (added by the build script). Product pages
 have an "Add to your wish list" button; a panel slides out from the right where couples change quantities and send
 the list with their name, email, phone, wedding date, venue, how they heard about us and (optional, in "Why not book a

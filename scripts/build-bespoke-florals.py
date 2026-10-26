@@ -393,6 +393,15 @@ SLIDE_CSS = ('\n  <link href="/css/bespoke-slide.css" rel="stylesheet" type="tex
              '\n  <script src="/js/bespoke-slide.js" type="text/javascript"></script>')
 
 
+def ensure_wishlist(text):
+    """The wish list (its tab, bottom right) on every page: add its stylesheet and scripts where a page lacks them."""
+    if "/js/wishlist.js" in text:
+        return text
+    if "/css/wishlist.css" not in text:
+        text = text.replace("</head>", WISHLIST_CSS.strip("\n") + "\n</head>", 1)
+    return text.replace("</body>", WISHLIST_JS + "</body>", 1)
+
+
 def without_wishlist(text):
     """The template is the last-built overview page, so remove any wish list tags before adding them once."""
     text = re.sub(r'\n  <link href="/css/(?:wishlist|bespoke-slide)\.css"[^>]*>', "", text)
@@ -841,7 +850,7 @@ def hire_product_body(sec, p):
             f'      <div class="pd-buttons">\n'
             f'        <button type="button" class="ff-button ff-button-primary" data-wish-add="{first}"'
             f'{" data-wish-options" if len(p["variants"]) > 1 else ""}>Add to your wish list</button>\n'
-            f'        <a href="/showroom" class="ff-button ff-button-outline">Book a showroom visit</a>\n      </div>\n'
+            f'        <a href="/showroom" class="ff-button ff-button-outline">Book a consultation</a>\n      </div>\n'
             f'    </div>\n  </section>\n' + more +
             f'  <section class="pd-sections" aria-labelledby="pd-sections-title">\n'
             f'    <h2 id="pd-sections-title" class="pd-h2 pd-center">Explore the hire collection</h2>\n'
@@ -931,8 +940,15 @@ for s in HIRE_SECTIONS:
 _wf = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
 hire_items += [dict(id=f'hire-large-props-{i["slug"]}', name=i["name"].strip(), section="Large Props",
                     url=f'/large-prop-collection/{i["slug"]}') for i in _wf["large-props"]]
+# ...and the hire sections, their products and each product's options, for the wish list's "add more" lists
+hire_tree = [dict(name=s["name"], url=hire_url(s), items=[
+    dict(name=p["name"], url=hire_url(s, p),
+         **({"id": p["variants"][0]["id"]} if len(p["variants"]) == 1 else
+            {"variants": [dict(id=v["id"], name=v["name"]) for v in p["variants"]]}))
+    for p in s["products"]]) for s in HIRE_SECTIONS]
 write("js/hire-items.js", "// Written by scripts/build-bespoke-florals.py: the hire collection products and their options, for the\n"
-      "// wish list (js/wishlist.js). Don't edit by hand.\nwindow.HIRE_ITEMS = " + json.dumps(hire_items, indent=1, ensure_ascii=False) + ";\n")
+      "// wish list (js/wishlist.js). Don't edit by hand.\nwindow.HIRE_ITEMS = " + json.dumps(hire_items, indent=1, ensure_ascii=False) + ";\n"
+      "window.HIRE_SECTIONS = " + json.dumps(hire_tree, indent=1, ensure_ascii=False) + ";\n")
 
 # ---------- the sections and their products, for the wish list panel ----------
 SECTIONS_JS = [dict(name=s["name"], url=f'/bespoke-florals/{s["slug"]}',
@@ -950,6 +966,8 @@ for path in glob.glob(os.path.join(ROOT, "**", "*.html"), recursive=True):
     rel = os.path.relpath(path, ROOT)[:-5].replace(os.sep, "/")
     new = update_nav(text, url="/" + ("" if rel == "index" else rel))
     new = reviews_block.update(new, "/" + ("" if rel == "index" else rel))
+    if rel != "quote-builder":  # the quote builder has its own copy of the list
+        new = ensure_wishlist(new)
     if new != text:
         open(path, "w", encoding="utf-8").write(new)
         count += 1
