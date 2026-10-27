@@ -24,6 +24,17 @@ NOINDEX = True
 ROBOTS_TAG = '  <meta name="robots" content="noindex, nofollow">\n'
 
 
+SITE_NAME_TAG = '  <meta property="og:site_name" content="Winterborne Hire &amp; Styling">\n'
+
+
+def ensure_site_name(text):
+    """The site's name for Google results and link previews, on every page (after the og:title tag)."""
+    if 'property="og:site_name"' in text:
+        return text
+    m = re.search(r'[ \t]*<meta content="[^"]*" property="og:title">\n', text)
+    return text[:m.end()] + SITE_NAME_TAG + text[m.end():] if m else text
+
+
 def ensure_robots(text):
     text = text.replace(ROBOTS_TAG, "")
     if NOINDEX and "<head>\n" in text:
@@ -58,7 +69,7 @@ if __name__ == "__main__":
         if os.sep + "node_modules" + os.sep in path or os.sep + "netlify" + os.sep in path:
             continue
         old = open(path, encoding="utf-8").read()
-        new = ensure_robots(ensure_analytics(old))
+        new = ensure_site_name(ensure_robots(ensure_analytics(old)))
         if new != old:
             open(path, "w", encoding="utf-8").write(new)
             tagged += 1
