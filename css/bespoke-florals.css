@@ -928,51 +928,18 @@ h1.nf-title {
   margin-bottom: 0;
 }
 
-/* "UK-wide delivery / Bridal bouquets" pull tab hanging under the menu (all pages; scripts/build-bespoke-florals.py) */
+/* "UK-wide delivery / Bouquets & buttonholes": a dark block at the right-hand end of the menu bar, the full height of
+   the bar, with the menu left-aligned beside it (all pages; scripts/build-bespoke-florals.py) */
 .navbar-3 {
   position: relative;
 }
 
-.shop-pulltab {
-  position: absolute;
-  top: 100%;
-  right: max(4vw, 20px);
-  z-index: 8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 22px 12px;
-  border-radius: 0 0 14px 14px;
-  background-color: rgba(43, 39, 36, 0.78);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 5px rgba(43, 39, 36, 0.55);
-  color: #f6f3ee;
-  text-align: center;
-  text-decoration: none;
-  transition: padding-top 0.2s ease, background-color 0.2s ease;
-}
-
-.shop-pulltab:hover,
-.shop-pulltab:focus-visible {
-  padding-top: 16px;
-  background-color: rgba(43, 39, 36, 0.9);
-  color: #f6f3ee;
-}
-
 /* The little delivery lorry on the left of the tab: white only, wheels turning, the road sliding underneath */
-.shop-pulltab {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 12px;
-  justify-items: center;
-}
-
 .shop-lorry {
   grid-row: 1 / span 2;
   align-self: center;
-  width: 40px;
-  height: 23px;
+  width: 28px;
+  height: 16px;
   overflow: hidden;
   fill: #fff;
   stroke: #fff;
@@ -1034,60 +1001,6 @@ h1.nf-title {
   .shop-lorry-road,
   .shop-lorry-body {
     animation: none;
-  }
-}
-
-.shop-pulltab-small {
-  font-family: Raleway, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  opacity: 0.85;
-}
-
-.shop-pulltab-big {
-  font-family: Cinzel, serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-@media screen and (max-width: 991px) {
-  .shop-pulltab {
-    right: 16px;
-    padding: 8px 16px 10px;
-  }
-
-  .shop-pulltab-big {
-    font-size: 13px;
-  }
-}
-
-/* Phones: a compact tab, text only (no lorry) and smaller type */
-@media screen and (max-width: 767px) {
-  .shop-pulltab {
-    grid-template-columns: auto;
-    right: 12px;
-    padding: 5px 11px 6px;
-    border-radius: 0 0 10px 10px;
-  }
-
-  .shop-pulltab:hover,
-  .shop-pulltab:focus-visible {
-    padding-top: 8px;
-  }
-
-  .shop-lorry {
-    display: none;
-  }
-
-  .shop-pulltab-small {
-    font-size: 9px;
-    letter-spacing: 0.1em;
-  }
-
-  .shop-pulltab-big {
-    font-size: 11px;
-    letter-spacing: 0.04em;
   }
 }
 
@@ -1183,15 +1096,21 @@ h1.nf-title {
   }
 }
 
-/* Centre the menu items under the logo (the Webflow menu packs them to the left of its container) */
+/* The menu runs from the left, leaving room on the right for the delivery block */
 @media screen and (min-width: 992px) {
+  .navbar-3 .container-10 {
+    max-width: none;
+  }
+
   .nav-menu-4.w-nav-menu {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     float: none;
     width: 100%;
+    padding-left: max(4vw, 20px);
+    padding-right: 240px;
   }
 }
 
@@ -1205,147 +1124,85 @@ h1.nf-title {
   border-top: 1px solid #e3d9d0;
 }
 
-/* Delivery tab with its chevron: the wrapper carries the tab's look; the chevron tucks it up into a small handle */
 .shop-tab {
   position: absolute;
-  top: 100%;
-  right: max(4vw, 20px);
+  top: 0;
+  right: 0;
+  bottom: 1px;
   z-index: 8;
   display: flex;
-  align-items: stretch;
-  border-radius: 0 0 14px 14px;
-  background-color: rgba(43, 39, 36, 0.78);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 5px rgba(43, 39, 36, 0.55);
+}
+
+.shop-pulltab {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 10px;
+  align-content: center;
+  justify-items: start;
+  padding: 0 max(2vw, 18px);
+  background-color: #2b2724;
+  color: #f6f3ee;
+  text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
-.shop-tab:hover {
-  background-color: rgba(43, 39, 36, 0.9);
-}
-
-.shop-tab .shop-pulltab {
-  position: static;
-  border-radius: 0 0 0 14px;
-  background: none;
-  box-shadow: none;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-
-.shop-tab .shop-pulltab:hover,
-.shop-tab .shop-pulltab:focus-visible {
-  background: none;
-}
-
-.shop-tab-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-left: 1px solid rgba(246, 243, 238, 0.18);
-  border-radius: 0 0 14px 0;
-  background: none;
+.shop-pulltab:hover,
+.shop-pulltab:focus-visible {
+  background-color: #4a423d;
   color: #f6f3ee;
-  cursor: pointer;
 }
 
-.shop-tab-toggle svg {
-  width: 12px;
-  height: 8px;
-  transition: transform 0.25s ease;
-}
-
-.shop-tab-toggle:hover,
-.shop-tab-toggle:focus-visible {
-  background-color: rgba(246, 243, 238, 0.1);
-}
-
-.shop-tab-toggle:focus-visible {
+.shop-pulltab:focus-visible {
   outline: 2px solid #e59775;
-  outline-offset: -2px;
+  outline-offset: -4px;
 }
 
-/* Tucked away: just the chevron, pointing down */
-.shop-tab.is-collapsed .shop-pulltab {
-  display: none;
+.shop-pulltab-small {
+  font-family: Raleway, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  opacity: 0.85;
 }
 
-.shop-tab.is-collapsed .shop-tab-toggle {
-  width: 40px;
-  height: 22px;
-  border-left: 0;
-  border-radius: 0 0 10px 10px;
+.shop-pulltab-big {
+  font-family: Cinzel, serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
-.shop-tab.is-collapsed .shop-tab-toggle svg {
-  transform: rotate(180deg);
-}
-
+/* Tablets and phones: the menu button on the left, the block on the right of the bar */
 @media screen and (max-width: 991px) {
-  .shop-tab {
-    right: 16px;
+  .navbar-3 .container-10 {
+    align-items: flex-start;
+  }
+
+  .navbar-3 .menu-button-3 {
+    margin-left: max(2vw, 8px);
   }
 }
 
-/* Phones: one slim line, smaller type */
-@media screen and (max-width: 767px) {
-  .shop-tab {
-    right: 10px;
-    border-radius: 0 0 10px 10px;
+@media screen and (max-width: 479px) {
+  .shop-pulltab {
+    column-gap: 8px;
+    padding: 0 12px;
   }
 
-  .shop-tab .shop-pulltab {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 6px;
-    padding: 5px 9px 6px 11px;
-    border-radius: 0 0 0 10px;
+  .shop-lorry {
+    width: 22px;
+    height: 13px;
   }
 
-  .shop-tab .shop-pulltab:hover,
-  .shop-tab .shop-pulltab:focus-visible {
-    padding-top: 5px;
+  .shop-pulltab-small {
+    font-size: 9px;
   }
 
-  .shop-tab .shop-pulltab-small {
-    font-size: 8.5px;
-    letter-spacing: 0.08em;
-  }
-
-  .shop-tab .shop-pulltab-small::after {
-    content: " \00b7";
-  }
-
-  .shop-tab .shop-pulltab-big {
-    font-size: 10px;
+  .shop-pulltab-big {
+    font-size: 10.5px;
     letter-spacing: 0.03em;
-  }
-
-  .shop-tab-toggle {
-    width: 26px;
-    border-radius: 0 0 10px 0;
-  }
-
-  .shop-tab-toggle svg {
-    width: 10px;
-    height: 7px;
-  }
-
-  .shop-tab.is-collapsed .shop-tab-toggle {
-    width: 32px;
-    height: 18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .shop-tab-toggle svg {
-    transition: none;
   }
 }
 

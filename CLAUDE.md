@@ -25,9 +25,9 @@ The navigation and footer are repeated in every page, so a change there must be 
 
 ## Forms
 
-- `bouquet-order`: the "UK-wide delivery / Bouquets & buttonholes" tab (every page) opens a small dark pop-up form
+- `bouquet-order`: the "UK-wide delivery / Bouquets & buttonholes" block in the menu bar (every page) opens a small dark pop-up form
   (name, wedding date, location, email, phone) for made-to-order bouquets and buttonholes to buy, not hire
-  (`ORDER_DIALOG` in `scripts/build-bespoke-florals.py`, `js/bouquet-order.js`). The tab's chevron tucks it away.
+  (`ORDER_DIALOG` in `scripts/build-bespoke-florals.py`, `js/bouquet-order.js`).
 
 The forms use **Netlify Forms**. Submissions appear in the Netlify dashboard under *Forms*:
 
@@ -160,7 +160,8 @@ Bespoke Florals page. The list is kept in the browser and shared with `/quote-bu
 A design prototype for selling bouquets with UK delivery. `/bridal-bouquets-delivery` (`bridal-bouquets-delivery.html`,
 built by `scripts/build-shop.py` from its `PRODUCTS` list: 6 bridal bouquets and 2 buttonholes, placeholder names,
 copy and prices). "Add to basket" opens a basket panel (`js/shop.js`, `css/shop.css`), kept in the visitor's browser;
-checkout isn't built. Every page has a "UK-wide delivery / Bouquets & buttonholes" pull tab hanging under the menu, added by
+checkout isn't built. Every page has a "UK-wide delivery / Bouquets & buttonholes" block at the right-hand end of the menu bar
+(the menu runs from the left beside it), added by
 `scripts/build-bespoke-florals.py` (set `SHOP_TAB = False` there to remove it everywhere).
 
 ## Quote builder (prototype)
