@@ -186,7 +186,8 @@ SECTIONS = [
                          "place setting.",
                          "Choose a gold clip or a bow detail, designed in your colours and fonts to match the rest of your "
                          "stationery and signage."],
-                  variants=[V("Gold Clip"), V("Bow Detail")], old=[]),
+                  variants=[V("Gold Clip", "/images/hire/signage/menu-gold-clip"),
+                            V("Bow Detail", "/images/hire/signage/menu-bow-detail")], old=[]),
              dict(slug="name-cards", name="Name Cards", tag="Every guest, in their place.",
                   about=["Folded name cards show each guest where to sit, and finish your place settings beautifully.",
                          "They’re designed in our studio to match your table plan, menus and the rest of your signage."],

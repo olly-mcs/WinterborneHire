@@ -117,8 +117,7 @@ PRODUCTS = {
     "bud-vases": dict(
         quote="budvases",
         gallery=[
-            # placeholder (the Reception hero) until the bud vases photo arrives
-            (B + "the-reception/chandelier-reception", "Reception room with blush and white table florals beneath chandeliers"),
+            (B + "bud-vases/colourful-reception", "Long reception table with bright bud vases of faux florals between coloured taper candles, sage runners and terracotta napkins"),
         ],
         about=[
             "Little pops of colour, all along the table. Our bud vases hold single stems and small sprigs, and look beautiful clustered down long tables or grouped around a larger centrepiece.",
