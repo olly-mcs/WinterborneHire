@@ -20,7 +20,7 @@ OLD_UA = re.compile(r"[ \t]*<script type=\"text/javascript\">\(function\(i,s,o,g
 
 # Keep the whole site out of search results (True) or let search engines index it (False). The matching
 # X-Robots-Tag header in netlify.toml must agree: keep or remove its "Staging" block at the same time.
-NOINDEX = True
+NOINDEX = False
 ROBOTS_TAG = '  <meta name="robots" content="noindex, nofollow">\n'
 
 
