@@ -99,7 +99,6 @@ PRODUCTS = {
         gallery=[
             (B + "urns-and-plinths/minterne-house", "Couple kissing at Minterne House between white floral urns on plinths, beneath a crystal chandelier"),
             (B + "urns-and-plinths/lulworth-castle-aisle", "Aisle at Lulworth Castle lined with white floral urns, leading to a grand chandelier"),
-            (B + "urns-and-plinths/lulworth-castle-exit", "Couple walking back down the aisle at Lulworth Castle between white floral urns"),
             (B + "urns-and-plinths/pennsylvania-castle", "Couple kissing between pastel floral urns on plinths in a bright white ceremony room"),
             (B + "urns-and-plinths/wedding-fair", "White floral urns on plinths framing tall glass doors"),
         ],

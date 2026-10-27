@@ -869,3 +869,41 @@ input.wl-qty-n:focus {
   font-size: 11.5px;
   text-align: right;
 }
+
+/* "Clear all" above the list, right-aligned; after clearing, "Wish list cleared. Undo" for a few seconds */
+.wl-clear-row {
+  display: none;
+  justify-content: flex-end;
+  margin: 0 0 6px;
+  color: #474747;
+  font-family: Raleway, sans-serif;
+  font-size: 12.5px;
+}
+
+.wl.has-items .wl-clear-row,
+.wl-clear-row:has(.wl-cleared:not([hidden])) {
+  display: flex;
+}
+
+.wl-clear,
+.wl-undo {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #8a5a44;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.wl-clear[hidden],
+.wl-cleared[hidden] {
+  display: none;
+}
+
+.wl-clear:hover,
+.wl-clear:focus-visible,
+.wl-undo:hover,
+.wl-undo:focus-visible {
+  color: #3a3835;
+}

@@ -84,6 +84,8 @@
     '    </ol>' +
     '    <p class="wl-promise"><strong>We&#x27;ll come back to you as soon as we can to discuss next steps.</strong></p>' +
     '    <p class="wl-empty">Your wish list is empty. Add florals and hire pieces below, or use &ldquo;Add to your wish list&rdquo; on any product.</p>' +
+    '    <p class="wl-clear-row"><button type="button" class="wl-clear">Clear all</button>' +
+    '      <span class="wl-cleared" role="status" hidden>Wish list cleared. <button type="button" class="wl-undo">Undo</button></span></p>' +
     '    <ul class="wl-lines" role="list"></ul>' +
     '    <h3 class="wl-more-title">Add florals</h3>' +
     '    <div class="wl-more"></div>' +
@@ -280,6 +282,28 @@
     if (e.target.closest(".wl-plus")) setQty(id, list[id] + 1);
     if (e.target.closest(".wl-minus")) setQty(id, list[id] - 1);
     if (e.target.closest(".wl-remove")) setQty(id, 0);
+  });
+  // "Clear all" empties the list in one go; "Undo" brings it back for a few seconds afterwards
+  var clearBtn = panel.querySelector(".wl-clear"), cleared = panel.querySelector(".wl-cleared"), undoList = null, undoTimer;
+  function hideCleared() { cleared.hidden = true; clearBtn.hidden = false; undoList = null; }
+  clearBtn.addEventListener("click", function () {
+    undoList = {};
+    Object.keys(list).forEach(function (id) { undoList[id] = list[id]; delete list[id]; });
+    save();
+    render();
+    clearBtn.hidden = true;
+    cleared.hidden = false;
+    cleared.querySelector(".wl-undo").focus();
+    clearTimeout(undoTimer);
+    undoTimer = setTimeout(hideCleared, 8000);
+  });
+  panel.querySelector(".wl-undo").addEventListener("click", function () {
+    Object.keys(undoList || {}).forEach(function (id) { list[id] = undoList[id]; });
+    clearTimeout(undoTimer);
+    hideCleared();
+    save();
+    render();
+    clearBtn.focus();
   });
   document.querySelectorAll("[data-wish-add]").forEach(function (btn) {
     btn.addEventListener("click", function () {
