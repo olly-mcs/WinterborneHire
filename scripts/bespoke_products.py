@@ -438,10 +438,11 @@ for _slug, _copy in PRODUCT_COPY.items():
     PRODUCTS[_slug].update(_copy)
 
 
-# The most of each design that can be added to the wish list; anything not listed can go up to 99
+# The most of each design that can be added to the wish list; 1 means a single piece (the wish list just adds it, with
+# no quantity). Anything not listed can go up to 99.
 MAX_QTY = {
-    "aisle-meadows": 20, "moongates": 3, "pillars": 4, "urns-and-plinths": 20,
-    "bud-vases": 200, "footed-bowls": 30, "podiums": 5, "top-table": 3,
-    "bridal-bouquets": 5, "bridesmaids-bouquets": 20, "buttonholes": 20,
-    "arbors": 3, "chandeliers": 10, "ladders": 10,
+    "aisle-meadows": 20, "moongates": 1, "pillars": 1, "urns-and-plinths": 1,
+    "bud-vases": 60, "footed-bowls": 15, "podiums": 15, "top-table": 1,
+    "bridal-bouquets": 1, "bridesmaids-bouquets": 10, "buttonholes": 20,
+    "arbors": 1, "chandeliers": 5, "ladders": 10,
 }

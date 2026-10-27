@@ -6,476 +6,462 @@ window.HIRE_ITEMS = [
   "name": "Coloured Napkins: Sage",
   "section": "Table Decor",
   "url": "/table-decor/coloured-napkins",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-coloured-napkins--terracotta",
   "name": "Coloured Napkins: Terracotta",
   "section": "Table Decor",
   "url": "/table-decor/coloured-napkins",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-coloured-napkins--soft-blue",
   "name": "Coloured Napkins: Soft Blue",
   "section": "Table Decor",
   "url": "/table-decor/coloured-napkins",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-coloured-napkins--soft-pink",
   "name": "Coloured Napkins: Soft Pink",
   "section": "Table Decor",
   "url": "/table-decor/coloured-napkins",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-charger-plates--gold",
   "name": "Charger Plates: Gold",
   "section": "Table Decor",
   "url": "/table-decor/charger-plates",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-charger-plates--gold-beaded-rim",
   "name": "Charger Plates: Gold Beaded Rim",
   "section": "Table Decor",
   "url": "/table-decor/charger-plates",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-charger-plates--copper",
   "name": "Charger Plates: Copper",
   "section": "Table Decor",
   "url": "/table-decor/charger-plates",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-charger-plates--seagrass",
   "name": "Charger Plates: Seagrass",
   "section": "Table Decor",
   "url": "/table-decor/charger-plates",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-gold-cutlery",
-  "name": "Gold Cutlery",
+  "name": "Gold Cutlery (individual servings, six-piece setting)",
   "section": "Table Decor",
   "url": "/table-decor/gold-cutlery",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-table-decor-candlesticks--vintage-brass",
   "name": "Candlesticks: Vintage Brass",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--vintage-cut-glass",
   "name": "Candlesticks: Vintage Cut Glass",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--gold",
   "name": "Candlesticks: Gold",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--silver",
   "name": "Candlesticks: Silver",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--black",
   "name": "Candlesticks: Black",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--black-chunky",
   "name": "Candlesticks: Black Chunky",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--white-chunky",
   "name": "Candlesticks: White Chunky",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-candlesticks--acrylic-candelabra",
   "name": "Candlesticks: Acrylic Candelabra",
   "section": "Table Decor",
   "url": "/table-decor/candlesticks",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--pink",
   "name": "Bud Vases: Pink",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--orange",
   "name": "Bud Vases: Orange",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--turquoise",
   "name": "Bud Vases: Turquoise",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--dark-green",
   "name": "Bud Vases: Dark Green",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--vintage-cut-glass",
   "name": "Bud Vases: Vintage Cut Glass",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--stoneware",
   "name": "Bud Vases: Stoneware",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-bud-vases--glass-bottles",
   "name": "Bud Vases: Glass Bottles",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 100
  },
  {
   "id": "hire-table-decor-bud-vases--stone-bottles",
   "name": "Bud Vases: Stone Bottles",
   "section": "Table Decor",
   "url": "/table-decor/bud-vases",
-  "max": 200
+  "max": 100
  },
  {
   "id": "hire-table-decor-tea-light-holders--clear-glass",
   "name": "Tea Light Holders: Clear Glass",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-tea-light-holders--gold-rimmed",
   "name": "Tea Light Holders: Gold Rimmed",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-tea-light-holders--speckled",
   "name": "Tea Light Holders: Speckled",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-tea-light-holders--with-twine",
   "name": "Tea Light Holders: With Twine",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-tea-light-holders--stemmed",
   "name": "Tea Light Holders: Stemmed",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-tea-light-holders--glass-cylinders",
   "name": "Tea Light Holders: Glass Cylinders",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-tea-light-holders--hanging-baubles",
   "name": "Tea Light Holders: Hanging Baubles",
   "section": "Table Decor",
   "url": "/table-decor/tea-light-holders",
-  "max": 200
+  "max": 50
  },
  {
   "id": "hire-table-decor-chair-drapes--cream",
   "name": "Chair Drapes: Cream",
   "section": "Table Decor",
   "url": "/table-decor/chair-drapes",
-  "max": 200
+  "max": 120
  },
  {
   "id": "hire-table-decor-chair-drapes--light-beige",
   "name": "Chair Drapes: Light Beige",
   "section": "Table Decor",
   "url": "/table-decor/chair-drapes",
-  "max": 200
+  "max": 120
  },
  {
   "id": "hire-table-decor-chair-drapes--sage-green",
   "name": "Chair Drapes: Sage Green",
   "section": "Table Decor",
   "url": "/table-decor/chair-drapes",
-  "max": 200
+  "max": 120
  },
  {
   "id": "hire-table-decor-chair-drapes--forest-green",
   "name": "Chair Drapes: Forest Green",
   "section": "Table Decor",
   "url": "/table-decor/chair-drapes",
-  "max": 200
+  "max": 120
  },
  {
   "id": "hire-table-decor-chair-drapes--soft-pink",
   "name": "Chair Drapes: Soft Pink",
   "section": "Table Decor",
   "url": "/table-decor/chair-drapes",
-  "max": 200
+  "max": 120
  },
  {
   "id": "hire-signage-table-plans--mirror",
   "name": "Table Plans: Mirror",
   "section": "Signage",
   "url": "/signage/table-plans",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-table-plans--banner",
   "name": "Table Plans: Banner",
   "section": "Signage",
   "url": "/signage/table-plans",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-table-plans--printed",
   "name": "Table Plans: Printed",
   "section": "Signage",
   "url": "/signage/table-plans",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-welcome-signs--mirror",
   "name": "Welcome Signs: Mirror",
   "section": "Signage",
   "url": "/signage/welcome-signs",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-welcome-signs--printed",
   "name": "Welcome Signs: Printed",
   "section": "Signage",
   "url": "/signage/welcome-signs",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-welcome-signs--selfie-mirror",
   "name": "Welcome Signs: Selfie Mirror",
   "section": "Signage",
   "url": "/signage/welcome-signs",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-order-of-the-day--mirror-timeline",
   "name": "Order of the Day: Mirror Timeline",
   "section": "Signage",
   "url": "/signage/order-of-the-day",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-order-of-the-day--printed",
   "name": "Order of the Day: Printed",
   "section": "Signage",
   "url": "/signage/order-of-the-day",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-signage-menus--gold-clip",
   "name": "Menus: Gold Clip",
   "section": "Signage",
   "url": "/signage/menus",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-signage-menus--bow-detail",
   "name": "Menus: Bow Detail",
   "section": "Signage",
   "url": "/signage/menus",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-signage-name-cards",
   "name": "Name Cards",
   "section": "Signage",
   "url": "/signage/name-cards",
-  "max": 200
+  "max": 130
  },
  {
   "id": "hire-signage-neon-signs--mr-and-mrs",
   "name": "Neon Signs: Mr & Mrs",
   "section": "Signage",
   "url": "/signage/neon-signs",
-  "max": 5
+  "max": 1
  },
  {
   "id": "hire-signage-neon-signs--crazy-in-love",
   "name": "Neon Signs: Crazy in Love",
   "section": "Signage",
   "url": "/signage/neon-signs",
-  "max": 5
+  "max": 1
  },
  {
   "id": "hire-small-props-cake-stands--gold-cake-hoop",
   "name": "Cake Stands: Gold Cake Hoop",
   "section": "Small Props",
   "url": "/small-props/cake-stands",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-small-props-cake-stands--marble-top",
   "name": "Cake Stands: Marble Top",
   "section": "Small Props",
   "url": "/small-props/cake-stands",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-small-props-cake-stands--cut-glass",
   "name": "Cake Stands: Cut Glass",
   "section": "Small Props",
   "url": "/small-props/cake-stands",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-small-props-cake-stands--log-slice",
   "name": "Cake Stands: Log Slice",
   "section": "Small Props",
   "url": "/small-props/cake-stands",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-small-props-card-boxes--gold-glass",
   "name": "Card Boxes: Gold Glass",
   "section": "Small Props",
   "url": "/small-props/card-boxes",
-  "max": 5
+  "max": 1
  },
  {
   "id": "hire-small-props-card-boxes--glass",
   "name": "Card Boxes: Glass",
   "section": "Small Props",
   "url": "/small-props/card-boxes",
-  "max": 5
+  "max": 1
  },
  {
   "id": "hire-small-props-card-boxes--wicker-basket",
   "name": "Card Boxes: Wicker Basket",
   "section": "Small Props",
   "url": "/small-props/card-boxes",
-  "max": 5
+  "max": 1
  },
  {
   "id": "hire-small-props-card-boxes--hessian-lined-basket",
   "name": "Card Boxes: Hessian Lined Basket",
   "section": "Small Props",
   "url": "/small-props/card-boxes",
-  "max": 5
+  "max": 1
  },
  {
   "id": "hire-small-props-lanterns--gold-geometric",
   "name": "Lanterns: Gold Geometric",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
+  "max": 12
  },
  {
   "id": "hire-small-props-lanterns--gold",
   "name": "Lanterns: Gold",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
+  "max": 8
  },
  {
   "id": "hire-small-props-lanterns--star",
   "name": "Lanterns: Star",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
+  "max": 5
  },
  {
   "id": "hire-small-props-lanterns--moroccan",
   "name": "Lanterns: Moroccan",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
- },
- {
-  "id": "hire-small-props-lanterns--white-and-gold",
-  "name": "Lanterns: White & Gold",
-  "section": "Small Props",
-  "url": "/small-props/lanterns",
-  "max": 20
- },
- {
-  "id": "hire-small-props-lanterns--square-rattan",
-  "name": "Lanterns: Square Rattan",
-  "section": "Small Props",
-  "url": "/small-props/lanterns",
-  "max": 20
+  "max": 12
  },
  {
   "id": "hire-small-props-lanterns--handmade-wooden",
   "name": "Lanterns: Handmade Wooden",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
+  "max": 10
  },
  {
   "id": "hire-small-props-lanterns--black-square-cylinders",
   "name": "Lanterns: Black Square Cylinders",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
+  "max": 30
  },
  {
   "id": "hire-small-props-lanterns--floor-standing-glass",
   "name": "Lanterns: Floor-Standing Glass",
   "section": "Small Props",
   "url": "/small-props/lanterns",
-  "max": 20
+  "max": 50
  },
  {
   "id": "hire-small-props-other-props--log-slices",
   "name": "Other Props: Log Slices",
   "section": "Small Props",
   "url": "/small-props/other-props",
-  "max": 10
+  "max": 20
  },
  {
   "id": "hire-small-props-other-props--wooden-crates",
@@ -489,77 +475,70 @@ window.HIRE_ITEMS = [
   "name": "Other Props: Galvanised Tub",
   "section": "Small Props",
   "url": "/small-props/other-props",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-small-props-other-props--demijohns",
   "name": "Other Props: Demijohns",
   "section": "Small Props",
   "url": "/small-props/other-props",
-  "max": 10
+  "max": 5
  },
  {
   "id": "hire-small-props-other-props--wooden-shelving",
   "name": "Other Props: Wooden Shelving",
   "section": "Small Props",
   "url": "/small-props/other-props",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-small-props-other-props--disco-balls",
   "name": "Other Props: Disco Balls",
   "section": "Small Props",
   "url": "/small-props/other-props",
-  "max": 10
+  "max": 5
  },
  {
   "id": "hire-small-props-other-props--mirrored-gold-trolley",
   "name": "Other Props: Mirrored Gold Trolley",
   "section": "Small Props",
   "url": "/small-props/other-props",
-  "max": 10
+  "max": 1
  },
  {
   "id": "hire-seating-areas-chairs--peacock-chairs",
   "name": "Chairs: Peacock Chairs",
   "section": "Seating Areas",
   "url": "/seating-areas/chairs",
-  "max": 3
+  "max": 4
  },
  {
   "id": "hire-seating-areas-chairs--cane-armchair",
   "name": "Chairs: Cane Armchair",
   "section": "Seating Areas",
   "url": "/seating-areas/chairs",
-  "max": 3
- },
- {
-  "id": "hire-seating-areas-chairs--egg-chair",
-  "name": "Chairs: Egg Chair",
-  "section": "Seating Areas",
-  "url": "/seating-areas/chairs",
-  "max": 3
+  "max": 4
  },
  {
   "id": "hire-seating-areas-chairs--vintage-wicker-chair",
   "name": "Chairs: Vintage Wicker Chair",
   "section": "Seating Areas",
   "url": "/seating-areas/chairs",
-  "max": 3
+  "max": 1
  },
  {
   "id": "hire-seating-areas-chairs--jay-sofa-set",
   "name": "Chairs: Jay Sofa Set",
   "section": "Seating Areas",
   "url": "/seating-areas/chairs",
-  "max": 3
+  "max": 1
  },
  {
   "id": "hire-seating-areas-chairs--footstools-and-pouffes",
   "name": "Chairs: Footstools & Pouffes",
   "section": "Seating Areas",
   "url": "/seating-areas/chairs",
-  "max": 3
+  "max": 1
  },
  {
   "id": "hire-seating-areas-tables--cane-side-table",
@@ -1086,14 +1065,6 @@ window.HIRE_SECTIONS = [
       "name": "Moroccan"
      },
      {
-      "id": "hire-small-props-lanterns--white-and-gold",
-      "name": "White & Gold"
-     },
-     {
-      "id": "hire-small-props-lanterns--square-rattan",
-      "name": "Square Rattan"
-     },
-     {
       "id": "hire-small-props-lanterns--handmade-wooden",
       "name": "Handmade Wooden"
      },
@@ -1158,10 +1129,6 @@ window.HIRE_SECTIONS = [
      {
       "id": "hire-seating-areas-chairs--cane-armchair",
       "name": "Cane Armchair"
-     },
-     {
-      "id": "hire-seating-areas-chairs--egg-chair",
-      "name": "Egg Chair"
      },
      {
       "id": "hire-seating-areas-chairs--vintage-wicker-chair",

@@ -170,10 +170,15 @@
         '<div class="wl-line-text">' + (l.url ? '<a class="wl-line-name" href="' + esc(l.url) + '">' + esc(l.name) + '</a>'
           : '<span class="wl-line-name">' + esc(l.name) + '</span>') +
         '<span class="wl-line-section">' + esc(l.section) + '</span></div>' +
-        '<div class="wl-qty" role="group" aria-label="Quantity of ' + esc(l.name) + '">' +
-        '<button type="button" class="wl-minus" aria-label="One fewer">&minus;</button>' +
-        '<span class="wl-qty-n" aria-live="polite">' + l.qty + '</span>' +
-        '<button type="button" class="wl-plus" aria-label="One more"' + (l.qty >= maxFor(l.id) ? ' disabled title="That\'s the most we have"' : '') + '>+</button></div>' +
+        (maxFor(l.id) <= 1
+          // a single piece: no quantity, just in the list or not
+          ? '<span class="wl-single">Added</span>'
+          : '<div class="wl-qty" role="group" aria-label="Quantity of ' + esc(l.name) + '">' +
+            '<button type="button" class="wl-minus" aria-label="One fewer">&minus;</button>' +
+            '<input class="wl-qty-n" type="number" inputmode="numeric" min="1" max="' + maxFor(l.id) + '" step="1" value="' + l.qty +
+            '" aria-label="Quantity of ' + esc(l.name) + ' (up to ' + maxFor(l.id) + ')">' +
+            '<button type="button" class="wl-plus" aria-label="One more"' + (l.qty >= maxFor(l.id) ? ' disabled title="That\'s the most we have"' : '') + '>+</button></div>' +
+            (l.qty >= maxFor(l.id) ? '<span class="wl-max-note">Up to ' + maxFor(l.id) + '</span>' : '')) +
         '<button type="button" class="wl-remove" aria-label="Remove ' + esc(l.name) + '">Remove</button></li>';
     }).join("");
     renderMore();
@@ -258,6 +263,16 @@
     setQty(btn.getAttribute("data-id"), 1);
   });
 
+  linesEl.addEventListener("change", function (e) {
+    var input = e.target.closest(".wl-qty-n");
+    if (!input) return;
+    var id = input.closest(".wl-line").getAttribute("data-id");
+    var n = parseInt(input.value, 10);
+    setQty(id, isNaN(n) || n < 1 ? 1 : Math.min(n, maxFor(id)));
+  });
+  linesEl.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && e.target.closest(".wl-qty-n")) { e.preventDefault(); e.target.blur(); }
+  });
   linesEl.addEventListener("click", function (e) {
     var li = e.target.closest(".wl-line");
     if (!li) return;

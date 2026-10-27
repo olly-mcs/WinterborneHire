@@ -15,19 +15,19 @@ window.BESPOKE_SECTIONS = [
         "id": "moongate",
         "name": "Moongates",
         "url": "/bespoke-florals/the-ceremony/moongates",
-        "max": 3
+        "max": 1
       },
       {
         "id": "xl-pillars",
         "name": "Pillars",
         "url": "/bespoke-florals/the-ceremony/pillars",
-        "max": 4
+        "max": 1
       },
       {
         "id": "urns-plinths",
         "name": "Urns & Plinths",
         "url": "/bespoke-florals/the-ceremony/urns-and-plinths",
-        "max": 20
+        "max": 1
       }
     ]
   },
@@ -39,25 +39,25 @@ window.BESPOKE_SECTIONS = [
         "id": "budvases",
         "name": "Bud Vases",
         "url": "/bespoke-florals/the-reception/bud-vases",
-        "max": 200
+        "max": 60
       },
       {
         "id": "footed-bowl",
         "name": "Footed Bowls",
         "url": "/bespoke-florals/the-reception/footed-bowls",
-        "max": 30
+        "max": 15
       },
       {
         "id": "tall-podiums",
         "name": "Podiums",
         "url": "/bespoke-florals/the-reception/podiums",
-        "max": 5
+        "max": 15
       },
       {
         "id": "top-table",
         "name": "Top Table",
         "url": "/bespoke-florals/the-reception/top-table",
-        "max": 3
+        "max": 1
       }
     ]
   },
@@ -69,13 +69,13 @@ window.BESPOKE_SECTIONS = [
         "id": "bridal-bouquet",
         "name": "Bridal Bouquets",
         "url": "/bespoke-florals/your-florals/bridal-bouquets",
-        "max": 5
+        "max": 1
       },
       {
         "id": "bridesmaid-bouquet",
         "name": "Bridesmaids' Bouquets",
         "url": "/bespoke-florals/your-florals/bridesmaids-bouquets",
-        "max": 20
+        "max": 10
       },
       {
         "id": "buttonholes",
@@ -93,13 +93,13 @@ window.BESPOKE_SECTIONS = [
         "id": "arbor-design",
         "name": "Arbors",
         "url": "/bespoke-florals/installations/arbors",
-        "max": 3
+        "max": 1
       },
       {
         "id": "chandelier-decor",
         "name": "Chandeliers",
         "url": "/bespoke-florals/installations/chandeliers",
-        "max": 10
+        "max": 5
       },
       {
         "id": "ladder-decor",

@@ -802,21 +802,6 @@
   status = 301
 
 [[redirects]]
-  from = "/furniture-rugs/small-cane-egg-chair"
-  to = "/seating-areas/chairs"
-  status = 301
-
-[[redirects]]
-  from = "/furniture-collection/small-cane-egg-chair"
-  to = "/seating-areas/chairs"
-  status = 301
-
-[[redirects]]
-  from = "/rugs-runners-collection/small-cane-egg-chair"
-  to = "/seating-areas/chairs"
-  status = 301
-
-[[redirects]]
   from = "/furniture-rugs/vintage-wicker-chair"
   to = "/seating-areas/chairs"
   status = 301
@@ -1159,6 +1144,21 @@
 [[redirects]]
   from = "/rugs-runners-collection/extra-long-persian-runner"
   to = "/seating-areas/rugs-and-runners"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-rugs/small-cane-egg-chair"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/furniture-collection/small-cane-egg-chair"
+  to = "/seating-areas"
+  status = 301
+
+[[redirects]]
+  from = "/rugs-runners-collection/small-cane-egg-chair"
+  to = "/seating-areas"
   status = 301
 
 [[redirects]]

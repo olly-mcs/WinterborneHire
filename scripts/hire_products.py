@@ -234,14 +234,12 @@ SECTIONS = [
                   old=["gold-glass-card-box", "glass-card-box", "wicker-card-basket", "hessian-lined-wicker-card-basket"]),
              dict(slug="lanterns", name="Lanterns", tag="Candlelight for every corner.",
                   about=["Lanterns bring a warm glow to your aisle, entrance, tables and dance floor.",
-                         "Choose from gold geometric, star, Moroccan, white and gold, rattan and handmade wooden lanterns, "
+                         "Choose from gold geometric, gold, star, Moroccan and handmade wooden lanterns, "
                          "or tall glass cylinders for floor-standing candlelight."],
                   variants=[V("Gold Geometric", "wf:small-props/gold-geometric-lanterns"),
                             V("Gold", "wf:small-props/gold-lantern"),
                             V("Star", "wf:small-props/star-lanterns"),
                             V("Moroccan", "wf:small-props/new-moroccan-lantern"),
-                            V("White & Gold", "wf:small-props/white-gold-lanterns"),
-                            V("Square Rattan", "wf:small-props/rattan-lanterns-2"),
                             V("Handmade Wooden", "wf:small-props/handmade-wooden-lanterns"),
                             V("Black Square Cylinders", "wf:small-props/black-square-cylinder-vases"),
                             V("Floor-Standing Glass", "wf:small-props/floor-standing-glass-cylinder-vases")],
@@ -277,18 +275,17 @@ SECTIONS = [
               "Couple on peacock chairs on a round jute rug, with disco balls and a bright meadow arrangement", "50% 62%"),
          products=[
              dict(slug="chairs", name="Chairs", tag="A statement seat for the two of you, and your guests.",
-                  about=["From our peacock chairs to cane armchairs, egg chairs and sofas, our seating creates relaxed, "
+                  about=["From our peacock chairs to cane armchairs, a vintage wicker chair and a sofa set, our seating creates relaxed, "
                          "stylish spaces for you and your guests.",
                          "Use them for a statement top table, a cosy lounge area or a photo spot, and add footstools and "
                          "pouffes to finish the look."],
                   variants=[V("Peacock Chairs", "wf:furniture/a-pair-of-peacock-chairs", "wf:furniture/cane-peacock-chair"),
                             V("Cane Armchair", "wf:furniture/cane-armchair"),
-                            V("Egg Chair", "wf:furniture/small-cane-egg-chair"),
                             V("Vintage Wicker Chair", "wf:furniture/vintage-wicker-chair"),
                             V("Jay Sofa Set", "wf:furniture/jay-sofa-set"),
                             V("Footstools & Pouffes", "wf:furniture/wicker-and-cane-footstool",
                               "wf:furniture/vintage-boho-footstool", "wf:furniture/wicker-pouffe")],
-                  old=["a-pair-of-peacock-chairs", "cane-peacock-chair", "cane-armchair", "small-cane-egg-chair",
+                  old=["a-pair-of-peacock-chairs", "cane-peacock-chair", "cane-armchair",
                        "vintage-wicker-chair", "jay-sofa-set", "wicker-and-cane-footstool", "vintage-boho-footstool",
                        "wicker-pouffe"]),
              dict(slug="tables", name="Tables", tag="The finishing piece for your lounge areas.",
@@ -325,7 +322,7 @@ SECTIONS = [
                        "round-rattan-rug", "vintage-cream-and-pink-rug", "vintage-orange-rug", "ethnic-runner",
                        "extra-long-persian-runner"]),
          ],
-         removed=[]),
+         removed=["small-cane-egg-chair"]),
 ]
 
 # The old Webflow folders each section's old product pages lived in (all of them redirect, see netlify.toml)
@@ -341,14 +338,29 @@ OLD_LIST_PAGES = {"/furniture-rugs": "/seating-areas", "/furniture": "/seating-a
                   "/table-decor-collection": "/table-decor", "/small-props-collection": "/small-props"}
 
 
-# The most of each product that can be added to the wish list (each colour or style counts separately). Keys are
-# "section/product"; anything not listed can go up to 99.
+# The most of each item that can be added to the wish list. A number applies to each colour or style separately; a
+# dict sets it per option (by option name). 1 means it's a single piece: the wish list just adds it, with no quantity.
+# Anything not listed can go up to 99.
 MAX_QTY = {
-    "table-decor/coloured-napkins": 200, "table-decor/charger-plates": 200, "table-decor/gold-cutlery": 200,
-    "table-decor/candlesticks": 200, "table-decor/bud-vases": 200, "table-decor/tea-light-holders": 200,
-    "table-decor/chair-drapes": 200,
-    "signage/table-plans": 10, "signage/welcome-signs": 10, "signage/order-of-the-day": 10, "signage/menus": 200,
-    "signage/name-cards": 200, "signage/neon-signs": 5,
-    "small-props/cake-stands": 10, "small-props/card-boxes": 5, "small-props/lanterns": 20, "small-props/other-props": 10,
-    "seating-areas/chairs": 3, "seating-areas/tables": 1, "seating-areas/rugs-and-runners": 1,
+    "table-decor/coloured-napkins": 130, "table-decor/charger-plates": 130, "table-decor/gold-cutlery": 130,
+    "table-decor/candlesticks": 50,
+    "table-decor/bud-vases": {"Glass Bottles": 100, "Stone Bottles": 100, "*": 50},
+    "table-decor/tea-light-holders": 50, "table-decor/chair-drapes": 120,
+    "signage/table-plans": 1, "signage/welcome-signs": 1, "signage/order-of-the-day": 1, "signage/menus": 130,
+    "signage/name-cards": 130, "signage/neon-signs": 1,
+    "small-props/cake-stands": 1, "small-props/card-boxes": 1,
+    "small-props/lanterns": {"Gold Geometric": 12, "Gold": 8, "Star": 5, "Moroccan": 12, "Handmade Wooden": 10,
+                             "Black Square Cylinders": 30, "Floor-Standing Glass": 50},
+    "small-props/other-props": {"Log Slices": 20, "Wooden Crates": 10, "Galvanised Tub": 1, "Demijohns": 5,
+                                "Wooden Shelving": 1, "Disco Balls": 5, "Mirrored Gold Trolley": 1},
+    "seating-areas/chairs": {"Peacock Chairs": 4, "Cane Armchair": 4, "*": 1},
+    "seating-areas/tables": 1, "seating-areas/rugs-and-runners": 1,
 }
+
+# How an item is named in the wish list and the email, where it needs more than the product name
+WISH_LABEL = {"table-decor/gold-cutlery": "Gold Cutlery (individual servings, six-piece setting)"}
+
+
+def max_for(section, product, option):
+    m = MAX_QTY.get(f"{section}/{product}", 99)
+    return m.get(option, m.get("*", 99)) if isinstance(m, dict) else m

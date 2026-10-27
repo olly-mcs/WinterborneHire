@@ -15,7 +15,7 @@ import glob, html, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bespoke_products import PRODUCTS, MAX_QTY as BESPOKE_MAX  # noqa: E402
 import reviews_block  # noqa: E402
-from hire_products import MAX_QTY as HIRE_MAX, SECTIONS as HIRE_SECTIONS, OVERVIEW as HIRE_HOME, OLD_FOLDERS, OLD_LIST_PAGES  # noqa: E402
+from hire_products import max_for as hire_max, WISH_LABEL, SECTIONS as HIRE_SECTIONS, OVERVIEW as HIRE_HOME, OLD_FOLDERS, OLD_LIST_PAGES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 T = "/images/testimonials/"
@@ -986,8 +986,9 @@ hire_items = []
 for s in HIRE_SECTIONS:
     for p in s["products"]:
         for v in p["variants"]:
-            hire_items.append(dict(id=v["id"], name=p["name"] + ("" if len(p["variants"]) == 1 else f': {v["name"]}'),
-                                   section=s["name"], url=hire_url(s, p), max=HIRE_MAX.get(f'{s["slug"]}/{p["slug"]}', 99)))
+            label = WISH_LABEL.get(f'{s["slug"]}/{p["slug"]}', p["name"])
+            hire_items.append(dict(id=v["id"], name=label + ("" if len(p["variants"]) == 1 else f': {v["name"]}'),
+                                   section=s["name"], url=hire_url(s, p), max=hire_max(s["slug"], p["slug"], v["name"])))
 _wf = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
 hire_items += [dict(id=f'hire-large-props-{i["slug"]}', name=i["name"].strip(), section="Large Props",
                     url=f'/large-prop-collection/{i["slug"]}') for i in _wf["large-props"]]
