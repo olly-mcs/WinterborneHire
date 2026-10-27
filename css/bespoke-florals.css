@@ -1323,9 +1323,79 @@ h1.nf-title {
   color: rgba(246, 243, 238, 0.45);
 }
 
-.order-field input:focus {
+.order-field input:focus,
+.order-field textarea:focus {
   border-color: #e59775;
   outline: none;
+}
+
+/* "Your ideas": a four-line box in the same style as the inputs */
+.order-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(246, 243, 238, 0.28);
+  border-radius: 0;
+  background-color: rgba(246, 243, 238, 0.08);
+  color: #f6f3ee;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.order-field textarea::placeholder {
+  color: rgba(246, 243, 238, 0.45);
+}
+
+/* Bridal bouquet / Buttonholes: tick one or both */
+.order-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.order-choices legend {
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 0;
+  color: rgba(246, 243, 238, 0.8);
+  font-family: Raleway, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.order-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #f6f3ee;
+  font-family: Raleway, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.order-check input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: #898c6b;
+  cursor: pointer;
+}
+
+.order-check input:focus-visible {
+  outline: 2px solid #e59775;
+  outline-offset: 2px;
 }
 
 .order-submit {
@@ -1409,6 +1479,11 @@ h1.nf-title {
   .order-field input {
     height: 40px;
     font-size: 15px;
+  }
+
+  .order-choices legend {
+    margin-bottom: 6px;
+    font-size: 10px;
   }
 
   .order-submit {

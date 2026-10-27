@@ -19,6 +19,16 @@
   });
   dialog.addEventListener("close", function () { tab.focus(); });
 
+  // Bridal bouquet and/or buttonholes: at least one must be ticked
+  var checks = form.querySelectorAll(".order-check input");
+  function checkChoices() {
+    var any = Array.prototype.some.call(checks, function (c) { return c.checked; });
+    checks[0].setCustomValidity(any ? "" : "Please choose a bridal bouquet, buttonholes or both.");
+  }
+  Array.prototype.forEach.call(checks, function (c) { c.addEventListener("change", checkChoices); });
+  checkChoices();
+  form.addEventListener("reset", function () { setTimeout(checkChoices); });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var button = form.querySelector(".order-submit");

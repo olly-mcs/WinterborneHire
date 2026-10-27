@@ -350,6 +350,13 @@ ORDER_DIALOG = (
     '<label class="order-field order-wide"><span>Wedding location</span><input type="text" name="location" placeholder="Venue or town" required></label>'
     '<label class="order-field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>'
     '<label class="order-field"><span>Phone number</span><input type="tel" name="phone" autocomplete="tel" required></label>'
+    # what they'd like: one or both (js/bouquet-order.js asks for at least one)
+    '<fieldset class="order-choices order-wide"><legend>I&#x27;m interested in</legend>'
+    '<label class="order-check"><input type="checkbox" name="bridal-bouquet" value="Yes"><span>Bridal bouquet</span></label>'
+    '<label class="order-check"><input type="checkbox" name="buttonholes" value="Yes"><span>Buttonholes</span></label>'
+    '</fieldset>'
+    '<label class="order-field order-wide"><span>Your ideas</span><textarea name="ideas" rows="4" '
+    'placeholder="Have some ideas about the kind of bouquet or buttonholes you&#x27;re after? Colours, flowers, style, how many buttonholes&hellip; let us know here."></textarea></label>'
     '<button type="submit" class="order-submit">Request your custom order</button>'
     '<p class="order-error" role="alert" hidden>Sorry, that didn&#x27;t send. Please try again, or email winterbornevintage@gmail.com.</p>'
     '</form></div>'
