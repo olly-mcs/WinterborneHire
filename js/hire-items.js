@@ -303,6 +303,13 @@ window.HIRE_ITEMS = [
   "max": 1
  },
  {
+  "id": "hire-signage-welcome-signs--wooden",
+  "name": "Welcome Signs: Wooden",
+  "section": "Signage",
+  "url": "/signage/welcome-signs",
+  "max": 1
+ },
+ {
   "id": "hire-signage-order-of-the-day--mirror-timeline",
   "name": "Order of the Day: Mirror Timeline",
   "section": "Signage",
@@ -944,6 +951,10 @@ window.HIRE_SECTIONS = [
      {
       "id": "hire-signage-welcome-signs--selfie-mirror",
       "name": "Selfie Mirror"
+     },
+     {
+      "id": "hire-signage-welcome-signs--wooden",
+      "name": "Wooden"
      }
     ]
    },

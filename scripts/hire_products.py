@@ -166,12 +166,13 @@ SECTIONS = [
                   old=["large-gilt-frame-mirror", "fabric-banner-wedding-sign", "metal-frames-with-custom-signage-designs"]),
              dict(slug="welcome-signs", name="Welcome Signs", tag="Set the tone from the moment guests arrive.",
                   about=["A beautiful welcome sign greets your guests and sets the scene for the day ahead.",
-                         "Choose an ornate mirror, a printed sign in a metal frame, or our gold arched full-length mirror, "
-                         "which doubles as a selfie mirror your guests will love.",
+                         "Choose an ornate mirror, a printed sign in a metal frame, a rich wooden board on an easel, or our "
+                         "gold arched full-length mirror, which doubles as a selfie mirror your guests will love.",
                          "Each sign is designed in our studio with your names, date and message."],
                   variants=[V("Mirror", "wf:signage/decorative-arched-mirror-sign-hover"),
                             V("Printed", "wf:signage/metal-frames-with-custom-signage-designs-hover"),
-                            V("Selfie Mirror", "wf:signage/gold-arched-full-length-mirror")],
+                            V("Selfie Mirror", "wf:signage/gold-arched-full-length-mirror"),
+                            V("Wooden", "/images/hire/signage/welcome-sign-wooden")],
                   old=["decorative-arched-mirror-sign", "gold-arched-full-length-mirror"]),
              dict(slug="order-of-the-day", name="Order of the Day", tag="Let your guests know what’s coming next.",
                   about=["An order of the day keeps everyone in the loop, from the ceremony and drinks to the speeches and "
