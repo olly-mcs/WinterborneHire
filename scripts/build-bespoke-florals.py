@@ -355,8 +355,9 @@ ORDER_DIALOG = (
     '<label class="order-check"><input type="checkbox" name="bridal-bouquet" value="Yes"><span>Bridal bouquet</span></label>'
     '<label class="order-check"><input type="checkbox" name="buttonholes" value="Yes"><span>Buttonholes</span></label>'
     '</fieldset>'
+    # its prompt changes with what's ticked (js/bouquet-order.js)
     '<label class="order-field order-wide"><span>Your ideas</span><textarea name="ideas" rows="4" '
-    'placeholder="Have some ideas about the kind of bouquet or buttonholes you&#x27;re after? Colours, flowers, style, how many buttonholes&hellip; let us know here."></textarea></label>'
+    'placeholder="Have some ideas about the kind of bouquet or buttonholes you&rsquo;re after? Let us know here."></textarea></label>'
     '<button type="submit" class="order-submit">Request your custom order</button>'
     '<p class="order-error" role="alert" hidden>Sorry, that didn&#x27;t send. Please try again, or email winterbornevintage@gmail.com.</p>'
     '</form></div>'

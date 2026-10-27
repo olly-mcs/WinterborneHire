@@ -21,9 +21,19 @@
 
   // Bridal bouquet and/or buttonholes: at least one must be ticked
   var checks = form.querySelectorAll(".order-check input");
+  // ...and the "Your ideas" prompt follows what's ticked
+  var ideas = form.querySelector("textarea[name=ideas]");
+  var prompts = {
+    none: "Have some ideas about the kind of bouquet or buttonholes you\u2019re after? Let us know here.",
+    bouquet: "Have some ideas for your bridal bouquet? Colours, favourite flowers, size and shape\u2026 let us know here.",
+    buttonholes: "Have some ideas for your buttonholes? Colours, flowers and how many you\u2019ll need\u2026 let us know here.",
+    both: "Have some ideas for your bouquet and buttonholes? Colours, flowers, style and how many buttonholes\u2026 let us know here.",
+  };
   function checkChoices() {
-    var any = Array.prototype.some.call(checks, function (c) { return c.checked; });
-    checks[0].setCustomValidity(any ? "" : "Please choose a bridal bouquet, buttonholes or both.");
+    var bouquet = form.querySelector("input[name=bridal-bouquet]").checked;
+    var buttonholes = form.querySelector("input[name=buttonholes]").checked;
+    checks[0].setCustomValidity(bouquet || buttonholes ? "" : "Please choose a bridal bouquet, buttonholes or both.");
+    ideas.placeholder = prompts[bouquet && buttonholes ? "both" : bouquet ? "bouquet" : buttonholes ? "buttonholes" : "none"];
   }
   Array.prototype.forEach.call(checks, function (c) { c.addEventListener("change", checkChoices); });
   checkChoices();
