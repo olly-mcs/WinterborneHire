@@ -180,7 +180,7 @@ SECTIONS = [
                          "Choose a mirror with your timeline designed onto the glass, or a printed sign in a metal frame, "
                          "styled in your colours."],
                   variants=[V("Mirror Timeline", "wf:signage/decorative-arched-mirror-sign"),
-                            V("Printed")],
+                            V("Printed", "/images/hire/signage/order-of-the-day-printed")],
                   old=[]),
              dict(slug="menus", name="Menus", tag="A beautiful finishing touch for every place setting.",
                   about=["Printed menus let your guests know what’s on the table, and add a lovely finishing touch to each "
