@@ -783,7 +783,7 @@ h1.nf-title {
 
 /* Homepage and Who we are: a featured testimonial (replaces an empty Webflow CMS list) */
 .hp-quote {
-  max-width: 760px;
+  max-width: 700px;
   margin: 10px auto 34px;
   padding: 0 24px;
   text-align: center;
@@ -799,9 +799,9 @@ h1.nf-title {
   margin: 0;
   color: #3a3835;
   font-family: Raleway, sans-serif;
-  font-size: clamp(17px, 1.5vw, 20px);
+  font-size: clamp(15px, 1.2vw, 17px);
   font-style: italic;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .hp-quote figcaption {
