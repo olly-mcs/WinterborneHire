@@ -362,7 +362,7 @@
   var look = panel.querySelector(".wl-look");
   var lookId = null, lookFrom = null;
   function openLook(id, from) {
-    var d = looks[id], m = maxFor(id);
+    var d = looks[id];
     lookId = id;
     lookFrom = from;
     var pic = look.querySelector(".wl-look-img");
@@ -371,7 +371,7 @@
     pic.alt = d.img ? d.name + (d.option ? ": " + d.option : "") : "";
     look.querySelector(".wl-look-title").textContent = d.name;
     look.querySelector(".wl-look-sub").textContent =
-      [d.option, d.section, m <= 1 ? "One available" : m < 99 ? "Up to " + m : ""].filter(Boolean).join(" \u00b7 ");
+      [d.option, d.section].filter(Boolean).join(" \u00b7 ");
     look.querySelector(".wl-look-tag").textContent = d.tag || "";
     look.querySelector(".wl-look-text").textContent = d.text || "";
     look.querySelector(".wl-look-more").href = d.url;
