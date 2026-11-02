@@ -989,11 +989,21 @@ for s in HIRE_SECTIONS:
 _wf = json.load(open(os.path.join(ROOT, "data", "webflow-content.json"), encoding="utf-8"))
 hire_items += [dict(id=f'hire-large-props-{i["slug"]}', name=i["name"].strip(), section="Large Props",
                     url=f'/large-prop-collection/{i["slug"]}') for i in _wf["large-props"]]
+
+
+def quick_look(spec, tag, about):
+    """What the wish list's quick-look card shows for a product: a 600px photo, its tagline and first paragraph."""
+    return dict(img=img_src(spec, 600)[0] if spec else None, tag=tag,
+                text=next((x for x in about if not x.startswith("## ")), ""))
+
+
 # ...and the hire sections, their products and each product's options, for the wish list's "add more" lists
 hire_tree = [dict(name=s["name"], url=hire_url(s), items=[
-    dict(name=p["name"], url=hire_url(s, p),
+    dict(name=p["name"], url=hire_url(s, p), **quick_look(p["img"] and p["img"][0], p["tag"], p["about"]),
          **({"id": p["variants"][0]["id"]} if len(p["variants"]) == 1 else
-            {"variants": [dict(id=v["id"], name=v["name"]) for v in p["variants"]]}))
+            {"variants": [dict(id=v["id"], name=v["name"],
+                               img=img_src(p["slides"][v["start"]][0], 600)[0] if v["start"] is not None else None)
+                          for v in p["variants"]]}))
     for p in s["products"]]) for s in HIRE_SECTIONS]
 write("js/hire-items.js", "// Written by scripts/build-bespoke-florals.py: the hire collection products and their options, for the\n"
       "// wish list (js/wishlist.js). Don't edit by hand.\nwindow.HIRE_ITEMS = " + json.dumps(hire_items, indent=1, ensure_ascii=False) + ";\n"
@@ -1001,7 +1011,8 @@ write("js/hire-items.js", "// Written by scripts/build-bespoke-florals.py: the h
 
 # ---------- the sections and their products, for the wish list panel ----------
 SECTIONS_JS = [dict(name=s["name"], url=f'/bespoke-florals/{s["slug"]}',
-                    items=[dict(id=t["quote"], name=t["name"], url=purl(s, t), max=BESPOKE_MAX.get(t["slug"], 99))
+                    items=[dict(id=t["quote"], name=t["name"], url=purl(s, t), max=BESPOKE_MAX.get(t["slug"], 99),
+                                **quick_look(t["img"][0], t["tag"], t["about"]))
                            for t in s["types"]]) for s in SECTIONS]
 write("js/bespoke-sections.js", "// Written by scripts/build-bespoke-florals.py: the Bespoke Florals sections and their products,\n"
       "// used by js/wishlist.js (ids are the items in js/quote-data.js). Don't edit by hand.\n"

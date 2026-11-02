@@ -29,6 +29,22 @@
   sections.forEach(function (sec) {
     sec.items.forEach(function (it) { pageItem[it.id] = { name: it.name, url: it.url, section: sec.name, max: it.max }; });
   });
+  // what the quick-look card shows for each item that can be added from the panel: photo, tagline, first paragraph
+  var looks = {};
+  sections.forEach(function (sec) {
+    sec.items.forEach(function (it) {
+      looks[it.id] = { name: it.name, section: sec.name, url: it.url, img: it.img, tag: it.tag, text: it.text };
+    });
+  });
+  (window.HIRE_SECTIONS || []).forEach(function (sec) {
+    sec.items.forEach(function (it) {
+      var look = function (option, img) {
+        return { name: it.name, option: option, section: sec.name, url: it.url, img: img || it.img, tag: it.tag, text: it.text };
+      };
+      if (it.id) looks[it.id] = look("", it.img);
+      (it.variants || []).forEach(function (v) { looks[v.id] = look(v.name, v.img); });
+    });
+  });
   // the most of an item that can be added (data/js written by the build); 99 when none is set
   function maxFor(id) { return (pageItem[id] && pageItem[id].max) || 99; }
 
@@ -125,6 +141,20 @@
     '      <button type="button" class="wl-new">Start a new wish list</button>' +
     '    </div>' +
     '  </div>' +
+    '  <div class="wl-look" hidden>' +
+    '    <div class="wl-look-card" role="dialog" aria-modal="true" aria-labelledby="wl-look-title">' +
+    '      <button type="button" class="wl-look-close" aria-label="Close">&times;</button>' +
+    '      <img class="wl-look-img" src="" alt="">' +
+    '      <div class="wl-look-body">' +
+    '        <h3 id="wl-look-title" class="wl-look-title"></h3>' +
+    '        <p class="wl-look-sub"></p>' +
+    '        <p class="wl-look-tag"></p>' +
+    '        <p class="wl-look-text"></p>' +
+    '        <div class="wl-look-actions"><button type="button" class="wl-look-add">Add to your wish list</button>' +
+    '          <a class="wl-look-more" href="">See full details</a></div>' +
+    '      </div>' +
+    '    </div>' +
+    '  </div>' +
     '</aside>';
   document.body.appendChild(panel);
 
@@ -145,6 +175,7 @@
     panel.querySelector(".wl-close").focus();
   }
   function close() {
+    closeLook(false);
     panel.classList.remove("is-open");
     tab.setAttribute("aria-expanded", "false");
     document.documentElement.classList.remove("wl-locked");
@@ -194,6 +225,15 @@
     });
   }
 
+  var INFO_ICON = '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8.25"/>' +
+    '<path d="M10 9v5.2"/><circle class="wl-info-dot" cx="10" cy="6.1" r="0.6"/></svg>';
+  function addButtons(id, name) {
+    var info = looks[id] ? '<button type="button" class="wl-info" data-look="' + esc(id) + '" aria-label="More about ' + esc(name) +
+      '" title="More about this">' + INFO_ICON + '</button>' : "";
+    return '<span class="wl-row-actions">' + info +
+      '<button type="button" class="wl-add" data-id="' + esc(id) + '" aria-label="Add ' + esc(name) + ' to your wish list">+ Add</button></span>';
+  }
+
   // All four sections, collapsed, each listing its products that aren't in the list yet, so the whole Bespoke
   // Florals range can be added from the panel
   var moreEl = panel.querySelector(".wl-more");
@@ -205,8 +245,7 @@
       return '<details class="wl-add-more" data-sec="' + i + '"' + (openMore[i] ? " open" : "") + '>' +
         '<summary>' + esc(sec.name) + ' <span class="wl-add-count">' + rest.length + '</span></summary><ul role="list">' +
         rest.map(function (it) {
-          return '<li><a href="' + esc(it.url) + '">' + esc(it.name) + '</a>' +
-            '<button type="button" class="wl-add" data-id="' + esc(it.id) + '" aria-label="Add ' + esc(it.name) + ' to your wish list">+ Add</button></li>';
+          return '<li><a href="' + esc(it.url) + '">' + esc(it.name) + '</a>' + addButtons(it.id, it.name) + '</li>';
         }).join("") + '</ul></details>';
     }).join("");
     panel.querySelector(".wl-more-title").hidden = !moreEl.innerHTML;
@@ -220,7 +259,7 @@
   var openHire = {};
   function addRow(id, name, url) {
     return '<li>' + (url ? '<a href="' + esc(url) + '">' + esc(name) + '</a>' : '<span class="wl-option-name">' + esc(name) + '</span>') +
-      '<button type="button" class="wl-add" data-id="' + esc(id) + '" aria-label="Add ' + esc(name) + ' to your wish list">+ Add</button></li>';
+      addButtons(id, name) + '</li>';
   }
   function renderHire() {
     hireEl.innerHTML = hireSections.map(function (sec, i) {
@@ -318,8 +357,62 @@
   tab.addEventListener("click", open);
   overlay.addEventListener("click", close);
   panel.querySelector(".wl-close").addEventListener("click", close);
+  // ----- quick look: the info button on an "add" row opens a card with the item's photo, a few lines about it, and
+  // buttons to add it or see its page -----
+  var look = panel.querySelector(".wl-look");
+  var lookId = null, lookFrom = null;
+  function openLook(id, from) {
+    var d = looks[id], m = maxFor(id);
+    lookId = id;
+    lookFrom = from;
+    var pic = look.querySelector(".wl-look-img");
+    pic.hidden = !d.img;
+    pic.src = d.img || "";
+    pic.alt = d.img ? d.name + (d.option ? ": " + d.option : "") : "";
+    look.querySelector(".wl-look-title").textContent = d.name;
+    look.querySelector(".wl-look-sub").textContent =
+      [d.option, d.section, m <= 1 ? "One available" : m < 99 ? "Up to " + m : ""].filter(Boolean).join(" \u00b7 ");
+    look.querySelector(".wl-look-tag").textContent = d.tag || "";
+    look.querySelector(".wl-look-text").textContent = d.text || "";
+    look.querySelector(".wl-look-more").href = d.url;
+    look.hidden = false;
+    look.querySelector(".wl-look-close").focus();
+  }
+  function closeLook(refocus) {
+    if (look.hidden) return;
+    look.hidden = true;
+    if (refocus !== false && lookFrom && document.contains(lookFrom)) lookFrom.focus();
+    lookId = lookFrom = null;
+  }
+  panel.querySelector(".wl-body").addEventListener("click", function (e) {
+    var btn = e.target.closest(".wl-info");
+    if (btn) openLook(btn.getAttribute("data-look"), btn);
+  });
+  look.addEventListener("click", function (e) {
+    if (e.target === look || e.target.closest(".wl-look-close")) closeLook();
+  });
+  look.querySelector(".wl-look-add").addEventListener("click", function () {
+    var id = lookId, from = lookFrom;
+    // keep the lists the row was in open, as adding from the row itself does
+    if (from) {
+      var opt = from.closest(".wl-options"), sec = from.closest(".wl-add-more");
+      if (opt) openHire[opt.getAttribute("data-hire")] = true;
+      if (sec && sec.hasAttribute("data-hire")) openHire[sec.getAttribute("data-hire")] = true;
+      if (sec && sec.hasAttribute("data-sec")) openMore[sec.getAttribute("data-sec")] = true;
+    }
+    closeLook(false);
+    setQty(id, 1);
+    var line = linesEl.querySelector('[data-id="' + (window.CSS && CSS.escape ? CSS.escape(id) : id) + '"]');
+    if (line) {
+      line.scrollIntoView({ block: "nearest" });
+      line.querySelector("button, input, a").focus();
+    }
+  });
+
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && panel.classList.contains("is-open")) close();
+    if (e.key !== "Escape" || !panel.classList.contains("is-open")) return;
+    if (!look.hidden) closeLook();
+    else close();
   });
 
   // ----- send -----
