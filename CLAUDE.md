@@ -227,8 +227,9 @@ or description there, not in the build scripts. Keep titles to about 60 characte
   spacing (rules at the end of `css/bespoke-florals.css`).
 - Titles about 60 characters and meta descriptions 70-160. Product pages get them from `seo_title` / `seo_description`
   in `scripts/build-webflow-content.py`; Bespoke Florals pages from `page()` / `meta_description` in its build script.
-- `scripts/seo-images.py` sets each page's sharing image (`og:image`, `twitter:image`) to its main photo; both build
-  scripts run it at the end. The homepage keeps its hand-picked image.
+- `scripts/seo-images.py` sets every page's sharing image (`og:image` with its size and alt, and `twitter:image`) to
+  one photo, `images/Garden-Ceremony-Floral-Arch.jpg` (Olly, 2026-11-10), so a link to any page shows it on WhatsApp,
+  Facebook, iMessage, LinkedIn and X. Both build scripts run it at the end. Change `IMAGE` there to swap it.
 - Pages load only Cinzel and Raleway from Google Fonts (a plain stylesheet link). jQuery UI loads only on the showroom
   page, for its date picker. Don't add Masonry, reCAPTCHA or the WebFont loader back.
 - `sitemap.xml` and `robots.txt` added; search indexing is on (see "Search indexing"). Google Analytics (GA4, `G-962GWFVQZX`) is added to every page's `<head>` by `scripts/apply-page-meta.py`, which every build runs last; the old `UA-` tag is removed.
