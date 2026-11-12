@@ -1,15 +1,17 @@
 <!DOCTYPE html><!--  Last Published: Wed Sep 30 2026 15:07:24 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="63cf0155952e46852366d727" data-wf-site="6027f9cc9d2d66768fd4972f" lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-962GWFVQZX"></script>
+  <!-- Google tag (gtag.js): no analytics cookies until a visitor accepts (js/cookies.js) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});
+    try { if (localStorage.getItem('winterborne-cookies') === 'accepted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
     gtag('js', new Date());
-
     gtag('config', 'G-962GWFVQZX');
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-962GWFVQZX"></script>
+  <!-- /Google tag -->
   <meta charset="utf-8">
   <title>Reception Flowers &amp; Centrepieces in Dorset | Winterborne</title>
   <meta content="https://www.winterbornehireandstyling.co.uk/images/Garden-Ceremony-Floral-Arch.jpg" name="twitter:image">
@@ -145,6 +147,7 @@
   ]
 }
 </script>
+  <link href="/css/cookies.css" rel="stylesheet" type="text/css">
 </head>
 <body class="body-2">
   <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbarhpmobile w-nav">
@@ -417,5 +420,6 @@
   <script src="/js/hire-items.js" type="text/javascript"></script>
   <script src="/js/bespoke-sections.js" type="text/javascript"></script>
   <script src="/js/wishlist.js" type="text/javascript"></script>
+  <script src="/js/cookies.js" defer></script>
 </body>
 </html>

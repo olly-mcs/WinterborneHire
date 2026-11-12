@@ -227,6 +227,10 @@ or description there, not in the build scripts. Keep titles to about 60 characte
   spacing (rules at the end of `css/bespoke-florals.css`).
 - Titles about 60 characters and meta descriptions 70-160. Product pages get them from `seo_title` / `seo_description`
   in `scripts/build-webflow-content.py`; Bespoke Florals pages from `page()` / `meta_description` in its build script.
+- Cookie banner (`js/cookies.js`, `css/cookies.css`, added to every page by `scripts/apply-page-meta.py`): Google
+  Analytics runs in Google Consent Mode with consent denied, so it sets no cookies until a visitor clicks Accept. The
+  choice is kept in localStorage (`winterborne-cookies`) and re-applied in the Google tag on later pages; Reject also
+  deletes any `_ga` cookies. "Cookie settings" in the footer (after Booking & Cancellation Fees) reopens the banner.
 - `scripts/seo-images.py` sets every page's sharing image (`og:image` with its size and alt, and `twitter:image`) to
   one photo, `images/Garden-Ceremony-Floral-Arch.jpg` (Olly, 2026-11-10), so a link to any page shows it on WhatsApp,
   Facebook, iMessage, LinkedIn and X. Both build scripts run it at the end. Change `IMAGE` there to swap it.
